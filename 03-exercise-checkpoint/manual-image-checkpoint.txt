@@ -1,0 +1,73 @@
+### INSTALL ###
+
+# Conda, Python VENV (or similar environment) ready from the previous exercises
+
+
+### USE Python VENV ###
+
++ open terminal
+
+$python3.11 -m venv ~/venv/image
+$source ~/venv/image/bin/activate
+$pip install tensorflow==2.15.0 scipy matplotlib pillow imageio moviepy
+$apt install ffmpeg #for wsl or Linux
+$brew install ffmpeg #for MAC
+$pip install tensorflow-metal #for Mac, only if you want 
+
+
+### USE CONDA ###
+
++ (for Windows) open anaconda prompt or powershell from start menu
+
+$conda deactivate
+$conda create -n check
+$conda activate check
+$conda install python=3.10
+$conda install tensorflow scipy pillow
+$pip install moviepy
+
+
+#### TESTING ####
+
+# Download transfer.zip from LMS and unzip it.
+# Move to your downloaded files. (e.g., cd transfer)
+
+$date
+$cd transfer
+
+if MAC or Linux:
+  $time python evaluate.py --checkpoint ./model/rain.ckpt --in-path ./input/sample.jpg --out-path ./output/sample-style.jpg
+
+#if WINDOWS:
+  $python evaluate.py --checkpoint ./model/rain.ckpt --in-path ./input/sample.jpg --out-path ./output/sample-style.jpg
+  $Measure-Command { } #use Measure-Command to see its running time
+
+
+#### TASK #####
+
+# Like the TESTING above, do the following task:
+
+# -Choose your own image (e.g., your photo id).
+# -Use the other checkpoints to change its style.
+# -Submit original and new images.
+# -How long does it take to run? Copy and paste the output showing its running time only (not everything).
+
+
+#### SUBMIT: OUTPUT ####
+
+# Sample result (MAC):
+
+original image
+new image
+...
+...
+python evaluate.py --checkpoint ./model/rain.ckpt --in-path ./input/sample.jp  4.10s user 2.24s system 357% cpu 1.771 total
+
+
+#### DUE Date ####
+
+
+### Reference ####
+
++ https://www.tensorflow.org/guide/checkpoint
++ https://pytorch.org/tutorials/beginner/saving_loading_models.html 

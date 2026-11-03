@@ -1,0 +1,57 @@
+### INSTALL ###
+
+# Conda, Python VENV (or similar environment) ready from the previous exercices
+
+### USE Python VENV ###
+
++ open terminal
+
+$python3.10 -m venv ~/venv/py3
+$source ~/venv/py3/bin/activate
+$pip install tensorflow==2.15.0 scipy matplotlib nibabel
+
+### USE CONDA ###
+
++ (for Windows) open anaconda prompt or powershell from start menu
+
+$conda create -n med python=3.10
+$conda activate med
+$pip install tensorflow==2.15.0 scipy matplotlib nibabel
+
+
+#### TEST ####
+
+# Download a zip file from LMS and unzip it.
+# (For Windows) Remove uncessary files from health/unhealth directory (e.g., ._)
+
+$date
+
+#### TASK #####
+
+# do the following task:
+
+# -Show all your step-by-step terminal commands (install) to run this program.
+# -e.g., conda activate your_env_name
+$ python ./exercise-medical-images.py
+
+# -Show the output images and texts of running the program.
+# -e.g., screen capture or save image
+
+# -Explain your computing environment, such as cpu, memory, OS, and etc.
+# -How long does it take to run? Copy and paste the output showing its running time.
+
+# -How would you make this program faster in terms of time? Explain briefly in your own words. (e.g. where you changed the code and why)
+
+
+#### OUTPUT ####
+
+
+#### DUE Date ####
+
+
+#### References ###
+- [A survey on Deep Learning Advances on Different 3D DataRepresentations](https://arxiv.org/pdf/1808.01462.pdf)
+- [VoxNet: A 3D Convolutional Neural Network for Real-Time Object Recognition](https://www.ri.cmu.edu/pub_files/2015/9/voxnet_maturana_scherer_iros15.pdf)
+- [FusionNet: 3D Object Classification Using MultipleData Representations](http://3ddl.cs.princeton.edu/2016/papers/Hegde_Zadeh.pdf)
+- [Uniformizing Techniques to Process CT scans with 3D CNNs for Tuberculosis Prediction](https://arxiv.org/abs/2007.13224)
+

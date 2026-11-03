@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+.ipynb_checkpoints/
+
+# 큰 데이터 (의료 영상 원본 1GB, LXC 3920 /root/05-2-exercise-medical-image/medical-images 에 보관)
+*.nii.gz
+05-2-exercise-medical-image/medical-images/
+
+# 개인 사진과 그 결과물 (로컬에만 둠)
+03-exercise-checkpoint/image-checkpoint/input/me*.jpg
+03-exercise-checkpoint/image-checkpoint/input/won.jpg
+03-exercise-checkpoint/image-checkpoint/input/IMG_*.jpg
+03-exercise-checkpoint/image-checkpoint/output/me*.jpg
+03-exercise-checkpoint/image-checkpoint/output/won*.jpg
+
+# 비밀값
+.env
+*.key
+*.pem

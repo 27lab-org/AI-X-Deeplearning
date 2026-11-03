@@ -1,0 +1,58 @@
+2026-10-06 03:06:52.573890: I external/local_tsl/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2026-10-06 03:06:52.618250: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-06 03:06:52.618351: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-06 03:06:52.619461: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-10-06 03:06:52.626051: I external/local_tsl/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2026-10-06 03:06:52.626288: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-10-06 03:06:53.589355: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+CT scans with healthy lung tissue: 50
+CT scans with unhealthy lung tissue: 50
+Number of samples in train and validation are 60 and 40.
+Dimension of the CT scan is: (128, 128, 64, 1)
+Model: "3dcnn"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 128, 128, 64, 1   0         
+                             )]                                  
+                                                                 
+ conv3d (Conv3D)             (None, 126, 126, 62, 64   1792      
+                             )                                   
+                                                                 
+ max_pooling3d (MaxPooling3  (None, 63, 63, 31, 64)    0         
+ D)                                                              
+                                                                 
+ batch_normalization (Batch  (None, 63, 63, 31, 64)    256       
+ Normalization)                                                  
+                                                                 
+ conv3d_1 (Conv3D)           (None, 61, 61, 29, 64)    110656    
+                                                                 
+ max_pooling3d_1 (MaxPoolin  (None, 30, 30, 14, 64)    0         
+ g3D)                                                            
+                                                                 
+ batch_normalization_1 (Bat  (None, 30, 30, 14, 64)    256       
+ chNormalization)                                                
+                                                                 
+ global_average_pooling3d (  (None, 64)                0         
+ GlobalAveragePooling3D)                                         
+                                                                 
+ dense (Dense)               (None, 512)               33280     
+                                                                 
+ dropout (Dropout)           (None, 512)               0         
+                                                                 
+ dense_1 (Dense)             (None, 1)                 513       
+                                                                 
+=================================================================
+Total params: 146753 (573.25 KB)
+Trainable params: 146497 (572.25 KB)
+Non-trainable params: 256 (1.00 KB)
+_________________________________________________________________
+30/30 - 264s - loss: 0.7666 - acc: 0.4000 - val_loss: 0.9201 - val_acc: 0.5000 - 264s/epoch - 9s/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 304ms/step
+This model is 39.95 percent confident that CT scan is healthy
+This model is 60.05 percent confident that CT scan is unhealthy
+
+real	8m58.674s
+user	10m5.793s
+sys	2m28.305s
