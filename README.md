@@ -1,0 +1,29 @@
+# AI-X-Deeplearning: 툴콜 채점기 (기말 프로젝트)
+
+에이전트가 요청에 맞는 도구를 골랐는지 채점하는 아주 작은 모델을 만드는 실험.
+
+**방식:** 강한 모델(Opus)이 라벨 → 사람 3명이 검수 → 소형 모델이 학습(증류) → CPU에서 채점.
+첫 범위는 **도구 고르기**: 한국어/영어 요청을 보고 10개 도구 중 맞는 것(또는 "부르지 않음")을 고른다.
+
+자세한 실험 계획은 [docs/plan.md](docs/plan.md).
+
+## 파일
+
+| 파일 | 내용 |
+|---|---|
+| `tools.json` | 도구 10개 정의 (weather, calendar_list, calendar_create, web_search, map_search, fx, mail_read, server_status, ssh, none) |
+| `labeling-guide.md` | 라벨 기준서 (경계 규칙) |
+| `seed-examples.jsonl` | 라벨 예시 45건 |
+| `prompts.md` | 문장 생성·라벨 프롬프트 |
+| `build_dataset.py` | 생성 문장 → train/val/gold JSONL + 통계 |
+| `merge_labels.py` | Opus 라벨 병합·비교 |
+| `build_review_sheet.py` | 사람 검수용 엑셀 생성 |
+| `dataset/` | 데이터셋 v1 (3,491건: train 2,791 / val 350 / gold 350), 통계 `stats.md` |
+| `dataset/labels/` | Opus 라벨, 생성 의도와의 일치 통계 |
+| `dataset/review-sheet-v2.xlsx` | 검수 엑셀 (골드 A/B/C 시트 포함) |
+
+## 진행 상태
+
+- E0 데이터 준비: 완료
+- E1 Opus 라벨: 완료 (생성 의도와 95.4% 일치). 사람 검수 대기
+- E2 학생 모델 학습, E3 프론티어 기준선·CPU 속도: 예정
