@@ -1,0 +1,114 @@
+{"id": "tc-cf7a2752", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-d34ed810", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "링크가 주어지지 않음 → 되묻기"}
+{"id": "tc-2295f1db", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.85, "note": "입력만 요청, 제출 시에는 확인 필요"}
+{"id": "tc-d78237e2", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": ""}
+{"id": "tc-9ad0e0ba", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.9, "note": ""}
+{"id": "tc-8478c5b2", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": ""}
+{"id": "tc-f820b99d", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.85, "note": ""}
+{"id": "tc-059b2fee", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-f486775c", "first": "execute_code", "also_ok": ["none"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.6, "note": "데이터가 작아 코드 없이도 처리 가능"}
+{"id": "tc-7e23c496", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "대상 불명 → 되묻기"}
+{"id": "tc-37f44b2b", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.85, "note": "변환할 글이 없음 → 되묻기"}
+{"id": "tc-853f2806", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-1d71a825", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 19, "confidence": 0.8, "note": "택시 호출은 v1대로 none"}
+{"id": "tc-9cdc84ed", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-36883f62", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": ""}
+{"id": "tc-ced085c3", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": ""}
+{"id": "tc-cc14a590", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": true, "rule": 19, "confidence": 0.9, "note": ""}
+{"id": "tc-a474a58a", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.8, "note": "환율은 앞 대화에 있음, 큰 수 정확 계산"}
+{"id": "tc-efa565b2", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-2299fa53", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": ""}
+{"id": "tc-fb2c4397", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-38772ade", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-b41d88f0", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": ""}
+{"id": "tc-0110cf8e", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-b84642c7", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": ""}
+{"id": "tc-15d4aa57", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": ""}
+{"id": "tc-a78bd76e", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": ""}
+{"id": "tc-46c795bc", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.9, "note": ""}
+{"id": "tc-acc3c33e", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-60e57e53", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-cfd227d6", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.85, "note": ""}
+{"id": "tc-64c25016", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.95, "note": ""}
+{"id": "tc-951988c4", "first": "web_extract", "also_ok": [], "sequence": ["web_extract", "memory"], "needs_confirm": false, "rule": 18, "confidence": 0.9, "note": ""}
+{"id": "tc-eb4efa9f", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-d403574d", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": ""}
+{"id": "tc-7b6b1c68", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.9, "note": ""}
+{"id": "tc-6cc37051", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": ""}
+{"id": "tc-1ce678df", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-bafb7b49", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.95, "note": ""}
+{"id": "tc-279aea93", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-1c534214", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": ""}
+{"id": "tc-e75d8249", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": ""}
+{"id": "tc-ba899073", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": ""}
+{"id": "tc-0cbfe44c", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-787c1d41", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.95, "note": ""}
+{"id": "tc-49c9d6f6", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.8, "note": "동사 없지만 그림 요청으로 해석"}
+{"id": "tc-97d3f6e6", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.85, "note": "입력만 요청, 제출 시에는 확인 필요"}
+{"id": "tc-fdcd17bb", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.95, "note": ""}
+{"id": "tc-3696050e", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": ""}
+{"id": "tc-f6e26e3f", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-9106ad24", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": ""}
+{"id": "tc-b9ef1218", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.9, "note": ""}
+{"id": "tc-6d10b2c0", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": ""}
+{"id": "tc-6f056dea", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": ""}
+{"id": "tc-e4c74773", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-cf70dd29", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "'거기'를 알 수 없음 → 되묻기"}
+{"id": "tc-50c93668", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": ""}
+{"id": "tc-df78c71b", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-4f4ccbe0", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": ""}
+{"id": "tc-10ccf061", "first": "calendar_list", "also_ok": [], "sequence": ["calendar_list"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": ""}
+{"id": "tc-a29c411c", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": ""}
+{"id": "tc-7fd95ffc", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": true, "rule": 17, "confidence": 0.85, "note": "설정 변경이라 확인"}
+{"id": "tc-36e255e4", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-b831fc1b", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": ""}
+{"id": "tc-25a004db", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": ""}
+{"id": "tc-38ed171d", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-150af7d9", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-04b63ba6", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": ""}
+{"id": "tc-b657e978", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.95, "note": ""}
+{"id": "tc-9756f493", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": ""}
+{"id": "tc-b2148023", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": ""}
+{"id": "tc-7c4faf6e", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": true, "rule": 17, "confidence": 0.75, "note": "호스트 없는 config.yaml로 보고 로컬 파일 수정, 설정 변경이라 확인"}
+{"id": "tc-b22cb3a5", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": true, "rule": 19, "confidence": 0.85, "note": ""}
+{"id": "tc-90614b8e", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": ""}
+{"id": "tc-fa917598", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": ""}
+{"id": "tc-c203e209", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-804fe334", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": true, "rule": 17, "confidence": 0.8, "note": "설정 변경이라 확인"}
+{"id": "tc-92b9d906", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": ""}
+{"id": "tc-5f0440f3", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": "디자인 조언"}
+{"id": "tc-d78decec", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": ""}
+{"id": "tc-7329048e", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.9, "note": ""}
+{"id": "tc-f1c76eb0", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-d86c41ba", "first": "none", "also_ok": ["web_search"], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.65, "note": "일반 추천은 상식으로 가능, 최신 추천이면 web_search"}
+{"id": "tc-f5be8291", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": ""}
+{"id": "tc-19d81950", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": ""}
+{"id": "tc-4abc8c90", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": ""}
+{"id": "tc-7715849f", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": ""}
+{"id": "tc-801c570f", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-43d3bae6", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": ""}
+{"id": "tc-2fe7306d", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": ""}
+{"id": "tc-85419912", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-a5209f8f", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": ""}
+{"id": "tc-cfce655b", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-43eecd82", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": ""}
+{"id": "tc-8b3645a8", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": ""}
+{"id": "tc-74034411", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": ""}
+{"id": "tc-c28d590b", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": ""}
+{"id": "tc-6e668c22", "first": "web_extract", "also_ok": [], "sequence": ["web_extract", "calendar_list", "calendar_create"], "needs_confirm": false, "rule": 18, "confidence": 0.9, "note": ""}
+{"id": "tc-caada914", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-724c67f7", "first": "mail_read", "also_ok": [], "sequence": ["mail_read"], "needs_confirm": false, "rule": 5, "confidence": 0.9, "note": ""}
+{"id": "tc-ad9f3c00", "first": "web_search", "also_ok": [], "sequence": ["web_search", "text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": ""}
+{"id": "tc-05eb3d79", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 19, "confidence": 0.9, "note": "사이트 미지정 예약"}
+{"id": "tc-538c1625", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.9, "note": ""}
+{"id": "tc-1c690964", "first": "execute_code", "also_ok": ["none"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.65, "note": "9개 정렬·중앙값은 암산으로도 가능"}
+{"id": "tc-bb2c026f", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-bac50e11", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": ""}
+{"id": "tc-de4b8224", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": ""}
+{"id": "tc-bdd32d1a", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-573a4b46", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": ""}
+{"id": "tc-db8707d8", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": ""}
+{"id": "tc-52785a69", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": ""}
+{"id": "tc-70b2d39b", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.9, "note": ""}
+{"id": "tc-353264a5", "first": "server_status", "also_ok": ["cronjob"], "sequence": ["server_status", "cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.85, "note": ""}
+{"id": "tc-bb7ce9d4", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": 15, "confidence": 0.95, "note": ""}

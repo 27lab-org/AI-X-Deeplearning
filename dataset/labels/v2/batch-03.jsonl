@@ -1,0 +1,114 @@
+{"id": "tc-1b264dd3", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": ""}
+{"id": "tc-e38a7cc2", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.8, "note": ""}
+{"id": "tc-dcacc934", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "앞 대화 없음, 대상 불명 → 되묻기"}
+{"id": "tc-54bf3319", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze", "execute_code"], "needs_confirm": false, "rule": 21, "confidence": 0.85, "note": ""}
+{"id": "tc-50c7ae7f", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.9, "note": ""}
+{"id": "tc-3240d235", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": ""}
+{"id": "tc-80873d1d", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.85, "note": ""}
+{"id": "tc-d4fd3b17", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": 15, "confidence": 0.95, "note": ""}
+{"id": "tc-cad9e989", "first": "weather", "also_ok": [], "sequence": ["weather"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": ""}
+{"id": "tc-53fbf925", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.85, "note": ""}
+{"id": "tc-2f216c4e", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": ""}
+{"id": "tc-85739413", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 19, "confidence": 0.8, "note": "앱 호출, 조작할 사이트 URL 없음"}
+{"id": "tc-130e7232", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-788458ac", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": ""}
+{"id": "tc-842a2625", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": ""}
+{"id": "tc-fb772d92", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-2cfd3dc7", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": ""}
+{"id": "tc-04a11988", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-fc177b2a", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": ""}
+{"id": "tc-8249396f", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.9, "note": ""}
+{"id": "tc-bbd2b828", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": true, "rule": 19, "confidence": 0.95, "note": ""}
+{"id": "tc-4503b695", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-02401ad9", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.85, "note": ""}
+{"id": "tc-72ad7209", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.65, "note": "'보내줘'가 사용자에게 전달이면 cronjob, 타인 발송이면 규칙 23(none)"}
+{"id": "tc-cd3e5f35", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.9, "note": ""}
+{"id": "tc-f9c0c871", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-44427ddd", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": 11, "confidence": 0.9, "note": ""}
+{"id": "tc-59126137", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": ""}
+{"id": "tc-bfd293fe", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": ""}
+{"id": "tc-3703f4c2", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": false, "rule": 20, "confidence": 0.85, "note": ""}
+{"id": "tc-6bef8616", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-8012e308", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": ""}
+{"id": "tc-a1ca0c83", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": ""}
+{"id": "tc-6ec47c8b", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-1f882d1c", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": ""}
+{"id": "tc-8ce5827e", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": ""}
+{"id": "tc-faac0cb7", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.9, "note": ""}
+{"id": "tc-0c54a857", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": ""}
+{"id": "tc-fef7a8bc", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-9eae9a37", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.9, "note": ""}
+{"id": "tc-d40d1d01", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.9, "note": ""}
+{"id": "tc-03cf3846", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": ""}
+{"id": "tc-e3acc201", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-2b5d4665", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-ce1e81f0", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": ""}
+{"id": "tc-42745764", "first": "server_status", "also_ok": ["memory"], "sequence": ["server_status", "memory"], "needs_confirm": false, "rule": 10, "confidence": 0.8, "note": ""}
+{"id": "tc-57ac03b2", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.95, "note": ""}
+{"id": "tc-847c1967", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.75, "note": ""}
+{"id": "tc-ca9a41b0", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-de187baf", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": ""}
+{"id": "tc-579eef8d", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.9, "note": ""}
+{"id": "tc-b8c8c587", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "무엇을 언제 알릴지 불명 → 되묻기"}
+{"id": "tc-86beeeb2", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": true, "rule": 19, "confidence": 0.95, "note": ""}
+{"id": "tc-11ab4374", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-fcbc23dd", "first": "none", "also_ok": ["execute_code"], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.75, "note": "나눗셈 한 단계라 암산 수준"}
+{"id": "tc-8d745e8d", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-5dad3832", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": ""}
+{"id": "tc-7fc4ae1d", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": true, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-5ad66ce7", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": ""}
+{"id": "tc-4f4f4688", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-71a58ac2", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": ""}
+{"id": "tc-6a8f3ad8", "first": "mail_read", "also_ok": [], "sequence": ["mail_read", "vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.85, "note": ""}
+{"id": "tc-9dabd023", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.8, "note": "로컬 설정 파일 수정: 명시적 요청이라 확인 불필요로 봄"}
+{"id": "tc-8d4b6b37", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-eadfa1b9", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": ""}
+{"id": "tc-c15a005f", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": ""}
+{"id": "tc-0c2937a5", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.8, "note": ""}
+{"id": "tc-0f17184d", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": ""}
+{"id": "tc-44b45955", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": true, "rule": 19, "confidence": 0.95, "note": ""}
+{"id": "tc-a240fbee", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": true, "rule": 19, "confidence": 0.8, "note": ""}
+{"id": "tc-5855a770", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": ""}
+{"id": "tc-36d3649b", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": ""}
+{"id": "tc-1a1d5be3", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": ""}
+{"id": "tc-08e2372b", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": ""}
+{"id": "tc-3207e8a7", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-09d0cad8", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-ac43ad83", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-943b2597", "first": "web_search", "also_ok": [], "sequence": ["web_search", "web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.9, "note": ""}
+{"id": "tc-51067a33", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze", "memory"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": ""}
+{"id": "tc-fe8f983d", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": ""}
+{"id": "tc-6d007067", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.9, "note": ""}
+{"id": "tc-b8fd58d0", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-7179834d", "first": "mail_read", "also_ok": [], "sequence": ["mail_read"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": ""}
+{"id": "tc-2ecc014b", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 23, "confidence": 0.95, "note": ""}
+{"id": "tc-2b1a90b1", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-e12be160", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": ""}
+{"id": "tc-18a96c19", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": ""}
+{"id": "tc-b38fba3d", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.85, "note": ""}
+{"id": "tc-b6e7b338", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-dd454fb9", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.9, "note": ""}
+{"id": "tc-7513f5f0", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.9, "note": ""}
+{"id": "tc-552b0a5e", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": ""}
+{"id": "tc-bbc3ff40", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-23fd8dd2", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.85, "note": ""}
+{"id": "tc-7ce69973", "first": "mail_read", "also_ok": [], "sequence": ["mail_read"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": ""}
+{"id": "tc-3eb99c3f", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": ""}
+{"id": "tc-01c4e5e3", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-42796458", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-c636b846", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": ""}
+{"id": "tc-b603b805", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": "이미지 없음 → 되묻기"}
+{"id": "tc-d57785e9", "first": "calendar_list", "also_ok": ["text_to_speech"], "sequence": ["calendar_list", "text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": ""}
+{"id": "tc-0cd9150c", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": true, "rule": 15, "confidence": 0.75, "note": "'꺼줘'가 일시정지면 확인 불필요, 삭제면 확인 필요"}
+{"id": "tc-3f6729ff", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": true, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-d259bf1f", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": ""}
+{"id": "tc-b66589b6", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.85, "note": ""}
+{"id": "tc-1a65979b", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze", "calendar_list", "calendar_create"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": ""}
+{"id": "tc-de58f6d6", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": ""}
+{"id": "tc-3d7fcf80", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.85, "note": ""}
+{"id": "tc-7d06097d", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-a03e8326", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-4d6c6bc0", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": ""}
+{"id": "tc-94ca7d44", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": ""}
+{"id": "tc-ae8a4741", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": ""}
+{"id": "tc-6baf7e53", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}

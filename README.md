@@ -18,12 +18,25 @@
 | `build_dataset.py` | 생성 문장 → train/val/gold JSONL + 통계 |
 | `merge_labels.py` | Opus 라벨 병합·비교 |
 | `build_review_sheet.py` | 사람 검수용 엑셀 생성 |
+| `review-site/` | 휴대폰 스와이프 검수 사이트 소스·빌드 스크립트 ([설명](review-site/README.md)) |
 | `dataset/` | 데이터셋 v1 (3,491건: train 2,791 / val 350 / gold 350), 통계 `stats.md` |
 | `dataset/labels/` | Opus 라벨, 생성 의도와의 일치 통계 |
 | `dataset/review-sheet-v2.xlsx` | 검수 엑셀 (골드 A/B/C 시트 포함) |
+| `tools-v2.json` | 도구 20개 정의: 위 10개 + Nous Hermes 기본 툴 기준 10개 (memory, session_search, cronjob, file, web_extract, browser, execute_code, image_generate, vision_analyze, text_to_speech) |
+| `labeling-guide-v2.md` | 새 클래스 10개의 경계 규칙 13~23 |
+| `seed-examples-v2.jsonl` | 새 클래스 라벨 예시 25건 |
+| `gen/v2/` | v2 추가분 생성 원문 |
+| `build_v2add.py` | v2 추가분 빌드·라벨 병합 (v1 파일은 건드리지 않음) |
+| `dataset/tool-choice-v2add.*` | v2 추가분 507건 (train 405 / val 51 / holdout 51: 평가용, 사람 라벨 전), 통계 `stats-v2add.md`, v1과 충돌 후보 `v2add-v1-conflicts.md` |
+| `dataset/labels/v2/`, `labels-v2add.jsonl`, `agreement-v2add.md` | v2 추가분 Opus 라벨과 일치 통계 |
+
+## 용어
+
+**골드 라벨**은 사람이 검수한 라벨만 가리킨다. Opus 라벨과 생성 의도는 골드가 아니다. `gold`/`holdout` 분할은 사람 3명이 라벨을 달기 전까지 "골드 후보"다.
 
 ## 진행 상태
 
 - E0 데이터 준비: 완료
 - E1 Opus 라벨: 완료 (생성 의도와 95.4% 일치). 사람 검수 대기
+- v2 추가분(2026-11-12): Hermes 기본 툴 기준 클래스 10개 추가, 507건 생성, train+val 456건 Opus 라벨. 사람 검수 대기
 - E2 학생 모델 학습, E3 프론티어 기준선·CPU 속도: 예정

@@ -1,0 +1,114 @@
+{"id": "tc-1b264dd3", "context": "", "request": "What's the last line of ~/logs/run.log"}
+{"id": "tc-e38a7cc2", "context": "", "request": "방금 정리한 내용 ~/notes/meeting-1112.md로 저장해"}
+{"id": "tc-dcacc934", "context": "", "request": "그 파일 열어줘"}
+{"id": "tc-54bf3319", "context": "사용자: [이미지 첨부: receipt.jpg]", "request": "여기 품목들 합계 다시 계산해서 영수증이 맞는지 봐"}
+{"id": "tc-50c7ae7f", "context": "", "request": "내일 오후 3시에 은행 가라고 리마인드"}
+{"id": "tc-3240d235", "context": "User: I'm cooking, hands are full\nAssistant: The recipe has six steps", "request": "Speak them to me"}
+{"id": "tc-80873d1d", "context": "Assistant: The reminder is set for 3pm", "request": "Actually make it 4"}
+{"id": "tc-d4fd3b17", "context": "", "request": "매주 화요일 8시 헬스를 반복 일정으로 캘린더에 넣어줘"}
+{"id": "tc-cad9e989", "context": "", "request": "지금 날씨 어때"}
+{"id": "tc-53fbf925", "context": "비서: train.py에 학습률이 1e-3으로 돼 있어요", "request": "3e-4로 고쳐"}
+{"id": "tc-2f216c4e", "context": "비서: 그 내용은 이번 대화에는 없어요", "request": "그럼 이전 대화들에서 찾아봐"}
+{"id": "tc-85739413", "context": "", "request": "카카오택시 불러줘"}
+{"id": "tc-130e7232", "context": "", "request": "다음부터 환율은 항상 엔화 기준으로 알려줘"}
+{"id": "tc-788458ac", "context": "", "request": "Translate \"see you tomorrow\" into Korean"}
+{"id": "tc-842a2625", "context": "", "request": "Sum the amount column in ~/data/expenses.csv"}
+{"id": "tc-fb772d92", "context": "사용자: [이미지 첨부: handwriting.jpg]", "request": "이 손글씨 메모 텍스트로 옮겨줘"}
+{"id": "tc-2cfd3dc7", "context": "", "request": "파일 이름에 공백 넣으면 왜 안 좋아"}
+{"id": "tc-04a11988", "context": "", "request": "From now on always answer me in metric units"}
+{"id": "tc-fc177b2a", "context": "", "request": "내가 예전에 오토인코더 과제 물어봤을 때 뭐라고 답했었어"}
+{"id": "tc-8249396f", "context": "Assistant: You have 3 unread emails", "request": "Do this summary for me every evening at 6"}
+{"id": "tc-bbd2b828", "context": "", "request": "https://shop.example.com/cart 장바구니에 있는 거 결제까지 진행해"}
+{"id": "tc-4503b695", "context": "", "request": "Summarize https://example.com/blog/small-models"}
+{"id": "tc-02401ad9", "context": "", "request": "Monthly payment on a 250,000 loan at 5.1% over 20 years"}
+{"id": "tc-72ad7209", "context": "", "request": "매주 Friday 5pm에 weekly report 초안 만들어서 보내줘"}
+{"id": "tc-cd3e5f35", "context": "비서: 검색 결과 상위 3개 링크를 드렸어요", "request": "첫 번째 거 들어가서 자세히 읽어봐"}
+{"id": "tc-f9c0c871", "context": "User: https://example.com/job/1881", "request": "What are the requirements for this role"}
+{"id": "tc-44427ddd", "context": "", "request": "What did the president say in last week's speech"}
+{"id": "tc-59126137", "context": "", "request": "크론 표현식에서 별표 다섯 개가 무슨 뜻이야"}
+{"id": "tc-bfd293fe", "context": "", "request": "Have I asked you about tax deductions before?"}
+{"id": "tc-3703f4c2", "context": "", "request": "web01에서 파이썬으로 디스크 사용량 스크립트 돌려"}
+{"id": "tc-6bef8616", "context": "", "request": "https://example.com/post/42 이거 summary 해줘"}
+{"id": "tc-8012e308", "context": "", "request": "지금 나에 대해 뭘 기억하고 있어?"}
+{"id": "tc-a1ca0c83", "context": "", "request": "나는 보통 아침 7시에 일어나. 알아둬"}
+{"id": "tc-6ec47c8b", "context": "", "request": "이번 대화에서만 나를 선배라고 불러"}
+{"id": "tc-1f882d1c", "context": "비서: 음성 파일을 만들었어요", "request": "고마워 잘 들을게"}
+{"id": "tc-8ce5827e", "context": "", "request": "Count unique visitors per day in ~/logs/access.log"}
+{"id": "tc-faac0cb7", "context": "Assistant: The CSV has 8,000 rows and a price column", "request": "Give me the mean, median and 90th percentile"}
+{"id": "tc-0c54a857", "context": "비서: ~/notes에 메모가 14개 있어요", "request": "제일 최근 거 열어봐"}
+{"id": "tc-fef7a8bc", "context": "사용자: [이미지 첨부: cat.png]", "request": "이 사진 배경을 눈 오는 밤으로 바꿔줘"}
+{"id": "tc-9eae9a37", "context": "", "request": "이 사이트 드롭다운에서 \"서울\" 고르면 뭐가 나와 https://example.com/branches"}
+{"id": "tc-d40d1d01", "context": "", "request": "Pause the daily digest until next Monday"}
+{"id": "tc-03cf3846", "context": "", "request": "https://example.com/search 에서 \"GPU server\" search 하고 filter를 price low로"}
+{"id": "tc-e3acc201", "context": "", "request": "https://example.com/blog/rag 읽고 pros and cons 정리해줘"}
+{"id": "tc-2b5d4665", "context": "사용자: [이미지 첨부: nvidia-smi.png]", "request": "이 screenshot에서 GPU memory 누가 제일 많이 써"}
+{"id": "tc-ce1e81f0", "context": "", "request": "web01의 /etc/nginx/nginx.conf 보여줘"}
+{"id": "tc-42745764", "context": "비서: pve02 상태를 확인할까요?", "request": "응. 그리고 내가 서버 얘기하면 기본은 pve02라고 기억해"}
+{"id": "tc-57ac03b2", "context": "", "request": "Remind me in 15 minutes to call the plumber"}
+{"id": "tc-847c1967", "context": "", "request": "우리 처음 대화한 게 언제야"}
+{"id": "tc-ca9a41b0", "context": "User: [image attached: whiteboard.jpg]", "request": "Turn these notes into a bullet list"}
+{"id": "tc-de187baf", "context": "", "request": "예전에 Docker compose 물어본 conversation 찾아줘"}
+{"id": "tc-579eef8d", "context": "", "request": "매시간 web01 health check 해서 down이면 알려줘"}
+{"id": "tc-b8c8c587", "context": "", "request": "나중에 알려줘"}
+{"id": "tc-86beeeb2", "context": "비서: 신청서 칸을 모두 채웠어요", "request": "제출 버튼 눌러"}
+{"id": "tc-11ab4374", "context": "사용자: [이미지 첨부: invoice.png]", "request": "total amount 얼마야"}
+{"id": "tc-fcbc23dd", "context": "비서: 영수증 합계는 42,500원이에요", "request": "그럼 세 명이 나누면 얼마씩이야"}
+{"id": "tc-8d745e8d", "context": "사용자: 교수님이 논문 링크 주셨어 https://example.edu/papers/ae.pdf", "request": "실험 결과 표가 뭐라고 나와"}
+{"id": "tc-5dad3832", "context": "", "request": "Where did we leave off yesterday?"}
+{"id": "tc-7fc4ae1d", "context": "", "request": "내 전 직장 관련해서 기억하고 있는 거 다 지워"}
+{"id": "tc-5ad66ce7", "context": "", "request": "받아쓰기 연습용으로 이 단어들 천천히 읽은 오디오 만들어줘: 사과, 바나나, 포도"}
+{"id": "tc-4f4f4688", "context": "사용자: 민서 생일이 3월 9일이래", "request": "이거 기억해 둬"}
+{"id": "tc-71a58ac2", "context": "", "request": "파이썬으로 CSV 합계 내는 코드 써줘"}
+{"id": "tc-6a8f3ad8", "context": "", "request": "메일에 첨부된 사진 뭐가 왔는지 봐줘"}
+{"id": "tc-9dabd023", "context": "Assistant: The port in settings.toml is 8080", "request": "Change it to 9090"}
+{"id": "tc-8d4b6b37", "context": "사용자: Discord server 만들었어", "request": "server icon 하나 만들어줘 귀여운 fox로"}
+{"id": "tc-eadfa1b9", "context": "", "request": "~/logs/access.log에서 IP별 요청 수 상위 10개 뽑아줘"}
+{"id": "tc-c15a005f", "context": "비서: 내일 일정에 치과가 있어요", "request": "참고로 나 치과는 항상 오전에만 가. 알아둬"}
+{"id": "tc-0c2937a5", "context": "", "request": "지난번에 pve02 디스크 문제 어떻게 결론 났었지"}
+{"id": "tc-0f17184d", "context": "", "request": "notes.md에 \"call dentist\" 한 줄 append 해줘"}
+{"id": "tc-44b45955", "context": "", "request": "https://booking.example.com 에서 12월 3일 2명으로 예약 넣어줘"}
+{"id": "tc-a240fbee", "context": "", "request": "Fill in the RSVP form at https://example.com/rsvp with my name, Garam Kim, attending"}
+{"id": "tc-5855a770", "context": "비서: 축사 초안을 써 드렸어요", "request": "좀 더 짧게 줄여줘"}
+{"id": "tc-36d3649b", "context": "사용자: 할머니가 글씨를 잘 못 보셔\n비서: 안부 편지를 써 드렸어요", "request": "할머니께 들려드리게 음성으로 만들어줘"}
+{"id": "tc-1a1d5be3", "context": "비서: draft를 다 썼어요", "request": "~/blog/draft.md로 save 해줘"}
+{"id": "tc-08e2372b", "context": "", "request": "다음 안내문을 소리 내서 읽어줘. \"문이 닫힙니다. 한 걸음 물러서 주세요.\""}
+{"id": "tc-3207e8a7", "context": "", "request": "우리 집 주소는 성남시 분당구 가상로 12야. 기억해 둬"}
+{"id": "tc-09d0cad8", "context": "", "request": "Draw a cozy cabin in the snow"}
+{"id": "tc-ac43ad83", "context": "", "request": "https://example.com/blog/zfs-tuning 이 글 요약해줘"}
+{"id": "tc-943b2597", "context": "", "request": "Find the Hermes agent docs and tell me how cron jobs work"}
+{"id": "tc-51067a33", "context": "사용자: [이미지 첨부: business-card.jpg]", "request": "이 명함 정보 읽어서 기억해 둬"}
+{"id": "tc-fe8f983d", "context": "", "request": "브라우저 캐시는 왜 지우라고 하는 거야"}
+{"id": "tc-6d007067", "context": "", "request": "What recurring jobs do I have set up?"}
+{"id": "tc-b8fd58d0", "context": "", "request": "Hermes agent 관련 최근 article 찾아줘"}
+{"id": "tc-7179834d", "context": "", "request": "Read me my latest email"}
+{"id": "tc-2ecc014b", "context": "", "request": "이 노래 틀어줘"}
+{"id": "tc-2b1a90b1", "context": "비서: 공식 문서 링크는 https://docs.example.com/api/limits 예요", "request": "거기 분당 호출 제한 몇이라고 돼 있어"}
+{"id": "tc-e12be160", "context": "비서: 그 페이지는 로그인해야 본문이 보여요", "request": "그럼 저장된 계정으로 로그인해서 읽어"}
+{"id": "tc-18a96c19", "context": "사용자: 블로그 글을 이어서 써야 해", "request": "지난주에 같이 잡은 소제목들 다시 불러와"}
+{"id": "tc-b38fba3d", "context": "", "request": "~/Pictures/slide.png 의 text extract 해줘"}
+{"id": "tc-b6e7b338", "context": "", "request": "픽셀 아트 스타일 로봇 캐릭터 한 장 뽑아줘"}
+{"id": "tc-dd454fb9", "context": "", "request": "3,847 곱하기 9,216 나누기 37 정확히 계산해줘"}
+{"id": "tc-7513f5f0", "context": "비서: 썸네일을 만들었어요", "request": "이거 어디에 올리면 좋을까"}
+{"id": "tc-552b0a5e", "context": "", "request": "Run a quick simulation: odds of at least two shared birthdays among 30 people"}
+{"id": "tc-bbc3ff40", "context": "사용자: [이미지 첨부: screenshot-1.png] [이미지 첨부: screenshot-2.png]", "request": "두 화면 차이점 찾아줘"}
+{"id": "tc-23fd8dd2", "context": "사용자: 적금 두 개를 비교 중이야", "request": "연 4.1% 단리 3년이랑 연 3.8% 월복리 3년, 1천만 원 넣으면 각각 얼마 받는지 계산해"}
+{"id": "tc-7ce69973", "context": "", "request": "지난주에 교수님이 보낸 메일에서 뭐라고 했더라"}
+{"id": "tc-3eb99c3f", "context": "", "request": "~/Documents에 있는 이력서 파일 이름이 뭐였지"}
+{"id": "tc-01c4e5e3", "context": "", "request": "Pull the table of benchmarks out of https://example.org/paper.pdf"}
+{"id": "tc-42796458", "context": "", "request": "Read this page and list the steps: https://docs.example.com/setup"}
+{"id": "tc-c636b846", "context": "비서: poster 시안을 만들었어요", "request": "font 느낌 살려서 dark mode 버전도"}
+{"id": "tc-b603b805", "context": "", "request": "이 image 설명해줘"}
+{"id": "tc-d57785e9", "context": "", "request": "오늘 schedule voice로 읽어줘"}
+{"id": "tc-0cd9150c", "context": "", "request": "아침 날씨 알림 이제 꺼줘"}
+{"id": "tc-3f6729ff", "context": "", "request": "Forget everything you saved about my diet"}
+{"id": "tc-d259bf1f", "context": "", "request": "3만 원의 10%가 얼마야"}
+{"id": "tc-b66589b6", "context": "비서: results.csv에 run이 30개 있어요", "request": "accuracy 기준 top 5 정렬해서 보여줘"}
+{"id": "tc-1a65979b", "context": "사용자: [이미지 첨부: poster.jpg]", "request": "이 포스터에 있는 행사 날짜 캘린더에 넣어줘"}
+{"id": "tc-de58f6d6", "context": "", "request": "\"회의는 3시에 시작합니다\" 이 문장 음성으로 만들어줘"}
+{"id": "tc-3d7fcf80", "context": "", "request": "키 172에 몸무게 68인 사람부터 5kg씩 늘려가며 BMI 표 만들어줘 100kg까지"}
+{"id": "tc-7d06097d", "context": "", "request": "노을 지는 바닷가에 앉은 고양이 그림 그려줘"}
+{"id": "tc-a03e8326", "context": "", "request": "Remember that I'm allergic to shellfish"}
+{"id": "tc-4d6c6bc0", "context": "", "request": "~/data/sales.csv 첫 다섯 줄만 보여줘"}
+{"id": "tc-94ca7d44", "context": "", "request": "2주 전쯤 talk 했던 budget 숫자 뭐였더라"}
+{"id": "tc-ae8a4741", "context": "", "request": "표준편차 구하는 공식 알려줘"}
+{"id": "tc-6baf7e53", "context": "사용자: [이미지 첨부: menu.jpg]", "request": "여기서 채식 메뉴 골라줘"}

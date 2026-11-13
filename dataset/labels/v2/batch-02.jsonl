@@ -1,0 +1,114 @@
+{"id": "tc-b6b843d8", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.85, "note": "앞 대화 없음: 무엇을 오디오로 할지 되묻기"}
+{"id": "tc-c7006c66", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": ""}
+{"id": "tc-208d9575", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": ""}
+{"id": "tc-e02d3067", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": ""}
+{"id": "tc-0b620123", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.97, "note": ""}
+{"id": "tc-e320cef4", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": ""}
+{"id": "tc-1dceae86", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.85, "note": ""}
+{"id": "tc-73d78814", "first": "session_search", "also_ok": ["file"], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.65, "note": "체크리스트가 이전 대화에 있는지 로컬 파일로 저장됐는지 불분명"}
+{"id": "tc-72114dc3", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": ""}
+{"id": "tc-f32e8158", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": ""}
+{"id": "tc-1dfe15f9", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.97, "note": ""}
+{"id": "tc-dfef094d", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.93, "note": ""}
+{"id": "tc-796d5d9c", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": true, "rule": 19, "confidence": 0.95, "note": ""}
+{"id": "tc-6e0e4317", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": ""}
+{"id": "tc-75eb92ca", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-6a980c5c", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.93, "note": ""}
+{"id": "tc-c81469a2", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.85, "note": ""}
+{"id": "tc-1db3dd9a", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.97, "note": ""}
+{"id": "tc-4b7d540b", "first": "weather", "also_ok": [], "sequence": ["weather"], "needs_confirm": false, "rule": 2, "confidence": 0.97, "note": ""}
+{"id": "tc-4a055a32", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.97, "note": ""}
+{"id": "tc-2bf3a6ca", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": ""}
+{"id": "tc-c7f53f76", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": ""}
+{"id": "tc-cd71d06a", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": ""}
+{"id": "tc-6b038273", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-c97ced5a", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze", "file"], "needs_confirm": false, "rule": 21, "confidence": 0.88, "note": ""}
+{"id": "tc-3f0076f9", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": true, "rule": 15, "confidence": 0.93, "note": ""}
+{"id": "tc-27ae49bd", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 14, "confidence": 0.97, "note": ""}
+{"id": "tc-8c9d4c32", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": ""}
+{"id": "tc-6513ce7e", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.93, "note": ""}
+{"id": "tc-757328f3", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": ""}
+{"id": "tc-0d055218", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": ""}
+{"id": "tc-b9bef36c", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.97, "note": ""}
+{"id": "tc-76894207", "first": "mail_read", "also_ok": [], "sequence": ["mail_read"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": ""}
+{"id": "tc-bf1d4fca", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": ""}
+{"id": "tc-3aa6d749", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-022acd5d", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": true, "rule": 17, "confidence": 0.93, "note": ""}
+{"id": "tc-5070973e", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.97, "note": ""}
+{"id": "tc-23c25786", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": ""}
+{"id": "tc-d30aa0ae", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.9, "note": ""}
+{"id": "tc-5ad90541", "first": "map_search", "also_ok": [], "sequence": ["map_search"], "needs_confirm": false, "rule": 4, "confidence": 0.95, "note": ""}
+{"id": "tc-d2e1972f", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-893e623d", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.93, "note": ""}
+{"id": "tc-52eedae3", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.9, "note": ""}
+{"id": "tc-dfaceaa9", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": ""}
+{"id": "tc-308f5adf", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": ""}
+{"id": "tc-40f7b8e8", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.92, "note": ""}
+{"id": "tc-9e926863", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.93, "note": ""}
+{"id": "tc-1b36548a", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": true, "rule": 15, "confidence": 0.82, "note": ""}
+{"id": "tc-3fe17519", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.93, "note": ""}
+{"id": "tc-a1a8ae5b", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.95, "note": ""}
+{"id": "tc-339589af", "first": "session_search", "also_ok": ["file"], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.6, "note": "지난주 고친 버전이 이전 대화에 있는지 로컬 파일인지 불분명"}
+{"id": "tc-8215289b", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-34a9c5bf", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.93, "note": ""}
+{"id": "tc-6e497f82", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": ""}
+{"id": "tc-5c0b6196", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": ""}
+{"id": "tc-5e6bda1a", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.97, "note": ""}
+{"id": "tc-c46eddf7", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": ""}
+{"id": "tc-1da9f7c3", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": ""}
+{"id": "tc-c9061042", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-02e510b9", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-9fb1aef3", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.93, "note": ""}
+{"id": "tc-6320461e", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.88, "note": ""}
+{"id": "tc-f7ca5e58", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-f5104dc6", "first": "weather", "also_ok": [], "sequence": ["weather"], "needs_confirm": false, "rule": 2, "confidence": 0.97, "note": ""}
+{"id": "tc-20d6f2ae", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.9, "note": ""}
+{"id": "tc-ba15b0d3", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.95, "note": ""}
+{"id": "tc-0a412a8c", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": ""}
+{"id": "tc-5eb03960", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-e3750d07", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": ""}
+{"id": "tc-975ff0a5", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-3d05aad9", "first": "web_search", "also_ok": ["none"], "sequence": ["web_search"], "needs_confirm": false, "rule": 21, "confidence": 0.65, "note": "기존 이미지 찾기는 web_search지만 '우리 학교'를 몰라 되묻기도 가능"}
+{"id": "tc-cfcaf31a", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": ""}
+{"id": "tc-7524f522", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-6d780308", "first": "memory", "also_ok": ["session_search"], "sequence": ["memory"], "needs_confirm": false, "rule": 14, "confidence": 0.6, "note": "저장된 선호 조회(memory)인지 과거 대화 검색인지 갈림"}
+{"id": "tc-7d07d677", "first": "weather", "also_ok": ["text_to_speech"], "sequence": ["weather", "text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.93, "note": ""}
+{"id": "tc-ca43e7e5", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.93, "note": ""}
+{"id": "tc-bbf19986", "first": "mail_read", "also_ok": ["text_to_speech"], "sequence": ["mail_read", "text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": ""}
+{"id": "tc-aba1a8c8", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.93, "note": ""}
+{"id": "tc-d823b80a", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": ""}
+{"id": "tc-7f959ec9", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.97, "note": ""}
+{"id": "tc-a1d3419e", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": ""}
+{"id": "tc-11b05990", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze", "calendar_list", "calendar_create"], "needs_confirm": false, "rule": 21, "confidence": 0.85, "note": ""}
+{"id": "tc-5865a537", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-ece29bee", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.95, "note": ""}
+{"id": "tc-2e52dd8c", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": ""}
+{"id": "tc-55946aa5", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.82, "note": ""}
+{"id": "tc-f70ba364", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": true, "rule": 19, "confidence": 0.93, "note": ""}
+{"id": "tc-4245e862", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.9, "note": ""}
+{"id": "tc-4b3110ae", "first": "execute_code", "also_ok": ["none"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.75, "note": ""}
+{"id": "tc-795fa200", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.93, "note": ""}
+{"id": "tc-fa6b63fa", "first": "web_search", "also_ok": [], "sequence": ["web_search", "web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.93, "note": ""}
+{"id": "tc-f04492f7", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": ""}
+{"id": "tc-8e25befb", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": ""}
+{"id": "tc-d8c5cda5", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": ""}
+{"id": "tc-0e517b96", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-36850924", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": true, "rule": 17, "confidence": 0.75, "note": "로컬 메모 한 줄 삭제를 확인 필요로 볼지 갈림"}
+{"id": "tc-e11bb9ad", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.92, "note": ""}
+{"id": "tc-de765519", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": ""}
+{"id": "tc-6bf27820", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": false, "rule": 17, "confidence": 0.88, "note": ""}
+{"id": "tc-9effa99c", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": ""}
+{"id": "tc-163c91fd", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 22, "confidence": 0.93, "note": ""}
+{"id": "tc-42853aa3", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-389c1e9e", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": ""}
+{"id": "tc-414b9891", "first": "calendar_list", "also_ok": [], "sequence": ["calendar_list"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": ""}
+{"id": "tc-b0158657", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": ""}
+{"id": "tc-4bbd3c8c", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": ""}
+{"id": "tc-cfc9c154", "first": "server_status", "also_ok": ["ssh"], "sequence": ["server_status"], "needs_confirm": false, "rule": 6, "confidence": 0.75, "note": ""}
+{"id": "tc-8634e1fc", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": false, "rule": 17, "confidence": 0.92, "note": ""}
+{"id": "tc-77d44a02", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.97, "note": ""}
+{"id": "tc-ac6c6dbe", "first": "fx", "also_ok": [], "sequence": ["fx"], "needs_confirm": false, "rule": 3, "confidence": 0.97, "note": ""}
+{"id": "tc-3cc8fb2b", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": true, "rule": 15, "confidence": 0.95, "note": ""}
+{"id": "tc-e8317e8d", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.88, "note": ""}
+{"id": "tc-9e45e151", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.97, "note": ""}
+{"id": "tc-bf0070ad", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.93, "note": ""}

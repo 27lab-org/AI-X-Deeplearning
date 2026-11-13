@@ -1,0 +1,34 @@
+# v2 추가분 라벨러 지시문 (2026-11-12, 배치 4개에 동일하게 사용)
+
+너는 Hermes 에이전트(Nous Research)의 도구 선택을 채점하기 위한 정답 라벨을 다는 라벨러다. 아래 파일을 먼저 읽고 기준을 엄격히 따른다. 모든 경로는 저장소 루트(/home/user/ai-x-deeplearning/) 기준이다.
+
+읽을 파일
+1. tools-v2.json — 도구 20개 정의(when / not_when / Hermes 호출 형태)
+2. labeling-guide.md — 1~3절(무엇을 라벨하나, Hermes 기준, 경계 규칙 1~12). 4절 이후는 읽지 않아도 된다.
+3. labeling-guide-v2.md — 새 클래스 10개와 경계 규칙 13~23. 규칙이 v1과 다르면 v2가 우선.
+4. seed-examples.jsonl(45건), seed-examples-v2.jsonl(25건) — 라벨 예시
+5. dataset/labels/v2/batch-NN.input.jsonl — 라벨할 입력(한 줄에 한 건: id, context=이전 대화(없으면 ""), request=사용자 요청)
+
+절대 열지 말 것(생성 의도가 들어 있어 라벨이 오염된다): gen/ 폴더 전체, dataset/tool-choice-*.jsonl, dataset/labeling-input*.jsonl, dataset/stats*.md, dataset/v2add-v1-conflicts.md, dataset/review-sheet*.xlsx, dataset/labels/ 의 다른 batch 파일과 agreement·labels 파일, prompts.md, build_*.py. 웹 검색·서버 접속 등 다른 도구도 쓰지 않는다. git 명령도 쓰지 않는다.
+
+출력: dataset/labels/v2/batch-NN.jsonl — 입력과 같은 순서로, 한 건당 JSON 한 줄:
+{"id": "...", "first": "<20개 중 하나>", "also_ok": [...], "sequence": [...], "needs_confirm": true|false, "rule": <근거가 된 경계 규칙 번호(정수) 또는 null>, "confidence": <0~1 소수>, "note": "<애매하면 한 줄, 아니면 빈 문자열>"}
+
+20개 클래스: weather, calendar_list, calendar_create, web_search, map_search, fx, mail_read, server_status, ssh, memory, session_search, cronjob, file, web_extract, browser, execute_code, image_generate, vision_analyze, text_to_speech, none
+
+라벨 규칙 요약(기준서 원문이 우선)
+- first = Hermes가 처음 불러야 할 도구의 클래스. 단어가 아니라 필요한 행동으로 고른다.
+- also_ok = 첫 도구로 이것도 정답으로 인정할 것. 없으면 [].
+- sequence = 끝까지 필요한 도구 순서. none이면 [].
+- 일정 등록·변경·취소 요청은 first=calendar_create, also_ok=["calendar_list"], sequence=["calendar_list","calendar_create"].
+- needs_confirm = 재시작·삭제·설치·설정 변경·일정 삭제·결제·제출·예약 확정·저장된 기억이나 예약 작업 삭제처럼 실행 전 사용자 확인이 필요하면 true, 조회만이면 false.
+- 되묻기가 필요한 것, 못 하는 일, 일반 지식·잡담, 사내 정보 = none.
+- context가 있으면 반드시 반영한다. `[이미지 첨부: 파일명]`은 사용자가 이미지를 붙였다는 뜻이다.
+- 판단이 갈리면 confidence를 0.7 아래로 낮추고 note에 이유를 한 줄 쓴다.
+
+작업 방식
+1. 기준 파일과 입력 파일을 읽는다.
+2. 모든 건에 라벨을 단다. 한 건도 빼지 않고, 입력 순서를 지킨다.
+3. Write 도구로 출력 파일을 한 번에 쓴다(JSONL, 마지막 줄 끝에 개행).
+4. Bash(python3)로 검증한다: 출력 줄 수가 입력과 같은지, id 순서가 같은지, first가 20개 중 하나인지, 모든 줄이 JSON으로 파싱되는지, also_ok·sequence가 리스트인지. 틀리면 고친 뒤 다시 검증한다.
+5. 최종 보고는 3줄 이내: 총 건수, confidence<0.7 건수, 클래스별 first 개수. 개별 라벨 내용은 보고에 쓰지 않는다.
