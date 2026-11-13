@@ -18,6 +18,7 @@
 | `build_dataset.py` | 생성 문장 → train/val/gold JSONL + 통계 |
 | `merge_labels.py` | Opus 라벨 병합·비교 |
 | `build_review_sheet.py` | 사람 검수용 엑셀 생성 |
+| `review-site/` | 휴대폰 스와이프 검수 사이트 소스·빌드 스크립트 ([설명](review-site/README.md)) |
 | `dataset/` | 데이터셋 v1 (3,491건: train 2,791 / val 350 / gold 350), 통계 `stats.md` |
 | `dataset/labels/` | Opus 라벨, 생성 의도와의 일치 통계 |
 | `dataset/review-sheet-v2.xlsx` | 검수 엑셀 (골드 A/B/C 시트 포함) |

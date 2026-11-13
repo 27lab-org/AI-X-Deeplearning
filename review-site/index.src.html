@@ -1,0 +1,860 @@
+<title>툴콜 라벨 검수</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: phone-first. Sticky lab bar, one swipe card centered with its three answer buttons under the thumb; wider screens only widen margins. */
+:root{
+  --bg:#f2f4f7; --panel:#ffffff; --sunk:#e8ecf1; --line:#d3d9e1; --fg:#151c26; --muted:#5b6676;
+  --ink:#2448c9; --ink-soft:#e2e8fb; --ink-fg:#ffffff;
+  --ok:#14804a; --ok-soft:#d9f1e3; --bad:#c42a3d; --bad-soft:#fbe0e3; --hold:#7a3fe0; --hold-soft:#ebe3fc; --warn:#a85b06; --warn-soft:#faebd4;
+  --font:"IBM Plex Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e131a; --panel:#161d27; --sunk:#1e2733; --line:#2b3645; --fg:#e3e8ef; --muted:#94a0b1;
+  --ink:#86a6ff; --ink-soft:#1e2b4c; --ink-fg:#0e131a;
+  --ok:#4bc382; --ok-soft:#163626; --bad:#ff7d8c; --bad-soft:#40181e; --hold:#b598ff; --hold-soft:#2b2346; --warn:#f0a54a; --warn-soft:#3a2913;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e131a; --panel:#161d27; --sunk:#1e2733; --line:#2b3645; --fg:#e3e8ef; --muted:#94a0b1;
+  --ink:#86a6ff; --ink-soft:#1e2b4c; --ink-fg:#0e131a;
+  --ok:#4bc382; --ok-soft:#163626; --bad:#ff7d8c; --bad-soft:#40181e; --hold:#b598ff; --hold-soft:#2b2346; --warn:#f0a54a; --warn-soft:#3a2913;
+  color-scheme:dark}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:14px;line-height:1.5;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--panel)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.mono{font-family:var(--mono)}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap.wide{max-width:1100px}
+header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--panel);border-bottom:1px solid var(--line)}
+.bar .top{display:flex;align-items:center;gap:10px;padding-block:9px 6px}
+.brand{display:flex;align-items:baseline;gap:8px;min-width:0}
+.brand .prj{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em;white-space:nowrap}
+.brand b{font-size:15px;white-space:nowrap}
+.spacer{flex:1}
+.whobtn{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:3px 10px 3px 4px;display:flex;align-items:center;gap:6px;font-size:13px;white-space:nowrap;max-width:46vw}
+.whobtn .L{width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--ink-fg);font-family:var(--mono);font-weight:600;font-size:12px;display:grid;place-items:center;flex:none}
+.whobtn span:last-child{overflow:hidden;text-overflow:ellipsis}
+.sync{width:8px;height:8px;border-radius:50%;background:var(--muted);flex:none}
+.sync.live{background:var(--ok)} .sync.warn{background:var(--warn)} .sync.off{background:var(--bad)}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{border:0;background:transparent;padding:5px 11px;border-radius:7px;color:var(--muted);font-weight:500;white-space:nowrap;display:flex;gap:6px;align-items:center}
+nav.tabs button[aria-selected="true"]{background:var(--sunk);color:var(--fg)}
+nav.tabs .cnt{font-family:var(--mono);font-size:11px;background:var(--bad-soft);color:var(--bad);border-radius:999px;padding:0 6px}
+main{padding-block:14px calc(32px + env(safe-area-inset-bottom,0px))}
+.banner{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:13px}
+.banner.warn{border-color:var(--warn);background:var(--warn-soft)}
+/* progress strip */
+.strip{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.strip .row1{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.strip .row1 b{color:var(--fg);font-family:var(--mono);font-size:13px}
+.track{height:6px;background:var(--sunk);border-radius:3px;overflow:hidden;display:flex}
+.track span{display:block;height:100%}
+.scope{display:flex;gap:6px;align-items:center;font-size:12.5px;color:var(--muted)}
+.scope select{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:2px 6px;font-size:12.5px}
+/* deck */
+.deck{position:relative;height:max(400px,calc(100dvh - 300px));max-height:640px;margin-bottom:14px;touch-action:pan-y}
+.sc{position:absolute;inset:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;overscroll-behavior:contain;user-select:none;-webkit-user-select:none;will-change:transform;box-shadow:0 1px 3px rgba(10,20,40,.06),0 8px 24px rgba(10,20,40,.06)}
+.sc.back{transform:scale(.95) translateY(12px);opacity:.7;pointer-events:none}
+.sc.front{cursor:grab;touch-action:pan-y}
+.sc.drag{cursor:grabbing;transition:none}
+.sc.anim{transition:transform .28s ease,opacity .28s ease}
+.stamp{position:absolute;top:22px;padding:4px 12px;border:3px solid;border-radius:8px;font-weight:700;font-size:22px;letter-spacing:.04em;opacity:0;pointer-events:none;background:var(--panel)}
+.stamp.ok{left:18px;color:var(--ok);border-color:var(--ok);transform:rotate(-8deg)}
+.stamp.bad{right:18px;color:var(--bad);border-color:var(--bad);transform:rotate(8deg)}
+.stamp.hold{left:50%;top:auto;bottom:90px;color:var(--hold);border-color:var(--hold);transform:translateX(-50%)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:12px;color:var(--muted)}
+.meta .id{font-family:var(--mono);margin-left:auto}
+.pill{display:inline-flex;align-items:center;border-radius:999px;padding:1px 9px;font-size:11.5px;font-weight:500;white-space:nowrap;border:1px solid transparent}
+.pill.p1{background:var(--bad-soft);color:var(--bad)} .pill.p2{background:var(--warn-soft);color:var(--warn)} .pill.p3{background:var(--hold-soft);color:var(--hold)} .pill.p4{background:var(--sunk);color:var(--muted)}
+.pill.iss{border-color:var(--line);color:var(--fg)}
+.sect{font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--muted)}
+.task{display:flex;flex-direction:column;gap:8px}
+.ctx{background:var(--sunk);border-radius:10px;padding:7px 11px;font-size:13px;color:var(--muted);align-self:flex-start;max-width:100%}
+.ctx b{font-weight:600;color:var(--fg);margin-right:4px}
+.req{font-size:clamp(19px,5.4vw,24px);font-weight:600;line-height:1.38;word-break:keep-all;overflow-wrap:anywhere}
+.call{border-top:1px dashed var(--line);padding-top:12px;display:flex;flex-direction:column;gap:8px}
+.callmain{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.callmain .arrow{font-family:var(--mono);color:var(--muted)}
+.tool{font-family:var(--mono);font-size:13px;background:var(--sunk);border-radius:6px;padding:2px 8px;white-space:nowrap}
+.tool.main{font-size:18px;font-weight:600;background:var(--ink-soft);color:var(--ink);padding:4px 12px;border-radius:8px}
+.easy{font-size:13px;color:var(--fg);background:var(--sunk);border-radius:8px;padding:6px 10px}
+.ex{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:3px;font-size:12.5px;color:var(--fg)}
+.ex li{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}
+.ex li::before{font-family:var(--mono);font-weight:600;flex:none}
+.ex li.y::before{content:"✓";color:var(--ok)}
+.ex li.n::before{content:"✗";color:var(--bad)}
+.ex li.n{color:var(--muted)}
+.ex .tool{font-size:11.5px;padding:0 6px}
+.easy details.exd{margin-top:4px}
+.easy b.mono{margin-right:2px}
+.tool.ko{font-family:var(--font);font-size:12.5px;color:var(--muted);background:transparent;padding:0}
+.callrows{display:grid;grid-template-columns:auto minmax(0,1fr);gap:5px 12px;font-size:13px;align-items:center}
+.callrows dt{color:var(--muted);font-size:12px;white-space:nowrap}
+.callrows dd{margin:0;display:flex;gap:4px;flex-wrap:wrap;align-items:center;min-width:0}
+.yes{color:var(--bad);font-weight:600} .no{color:var(--muted)}
+details.why{font-size:12.5px;color:var(--muted);margin-top:auto}
+details.why summary{cursor:pointer;list-style:none;display:flex;gap:6px;align-items:center}
+details.why summary::-webkit-details-marker{display:none}
+details.why summary::before{content:"+";font-family:var(--mono)}
+details.why[open] summary::before{content:"−"}
+details.why p{margin:6px 0 0}
+.conf{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px}
+.conf i{display:inline-block;width:56px;height:5px;background:var(--sunk);border-radius:3px;overflow:hidden;position:relative}
+.conf i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--c)}
+.answers{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch}
+.ans{border:1.5px solid;border-radius:14px;padding:12px 10px;font-weight:600;font-size:15px;display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--panel)}
+.ans small{font-weight:400;font-size:11.5px;opacity:.8}
+.ans.ok{color:var(--ok);border-color:var(--ok)} .ans.ok:active{background:var(--ok-soft)}
+.ans.bad{color:var(--bad);border-color:var(--bad)} .ans.bad:active{background:var(--bad-soft)}
+.ans.hold{color:var(--hold);border-color:var(--line);font-size:13px;padding-inline:14px}
+.ans[disabled]{opacity:.4}
+.under{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;font-size:12.5px;color:var(--muted);flex-wrap:wrap}
+.linkbtn{border:0;background:none;color:var(--ink);padding:4px 0;font-size:12.5px}
+.linkbtn[disabled]{color:var(--muted);opacity:.5}
+.keys-hint{display:none}
+@media (hover:hover) and (pointer:fine){.keys-hint{display:inline}}
+kbd{font-family:var(--mono);font-size:10.5px;border:1px solid currentColor;border-radius:4px;padding:0 4px;opacity:.7}
+.done{height:auto;min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;color:var(--muted);background:var(--panel);border:1px dashed var(--line);border-radius:16px;padding:30px}
+.done b{color:var(--fg);font-size:18px}
+/* pick panel (fix + gold) */
+.pcard{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.grid10{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+@media (min-width:620px){.grid10{grid-template-columns:repeat(5,minmax(0,1fr))}}
+.cls{border:1px solid var(--line);background:var(--panel);border-radius:9px;padding:8px 9px;text-align:left;display:flex;flex-direction:column;gap:0;min-width:0;position:relative}
+.cls .n{font-family:var(--mono);font-size:12.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:14px}
+.cls .d{font-size:11.5px;color:var(--muted)}
+.cls .k{position:absolute;top:6px;right:8px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.cls.sel{background:var(--ink);border-color:var(--ink);color:var(--ink-fg)} .cls.sel .d,.cls.sel .k{color:var(--ink-fg);opacity:.85}
+.cls.was{border-style:dashed}
+.cls.was .d::after{content:" · 원래 라벨";}
+.cls.also{box-shadow:inset 0 0 0 2px var(--ink)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:var(--panel);padding:5px 12px;font-size:13px}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--ink-fg)}
+.memo{flex:1;min-width:0;width:100%;border:1px solid var(--line);background:var(--panel);border-radius:9px;padding:8px 10px}
+.memo:focus{border-color:var(--ink);outline:none}
+.btn{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:9px 16px;font-weight:600;display:inline-flex;gap:8px;align-items:center;justify-content:center}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--ink-fg)}
+.btn.hold{color:var(--hold)}
+.btn.sm{padding:5px 11px;font-size:12.5px;font-weight:500;border-radius:8px}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.lbl{font-size:12px;color:var(--muted);font-weight:500}
+.list{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;padding:10px 14px;border-bottom:1px solid var(--line);width:100%;text-align:left;background:transparent;border-left:0;border-right:0;border-top:0}
+.li:last-child{border-bottom:0}
+.li:hover{background:var(--sunk)}
+.li .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+.li .s{grid-column:1/-1;font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.vchip{font-size:11.5px;font-weight:600;border-radius:5px;padding:0 7px}
+.v-ok{background:var(--ok-soft);color:var(--ok)} .v-bad{background:var(--bad-soft);color:var(--bad)} .v-hold{background:var(--hold-soft);color:var(--hold)} .v-fixed{background:var(--ink-soft);color:var(--ink)}
+.h2{font-size:16px;font-weight:700;margin:0 0 4px}
+.lead{color:var(--muted);font-size:13px;margin:0 0 12px;max-width:65ch}
+/* setup */
+.setup{display:flex;flex-direction:column;gap:14px;padding-top:8px}
+.setup h1{font-size:22px;margin:0;text-wrap:balance}
+.setup p{margin:0;color:var(--muted);max-width:62ch}
+.slots{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+@media (min-width:620px){.slots{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.slot{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.slot .hd{display:flex;align-items:center;gap:10px}
+.slot .L{font-family:var(--mono);font-size:24px;font-weight:600;color:var(--ink)}
+.slot .s{font-size:12.5px;color:var(--muted)}
+.slot input{border:1px solid var(--line);background:var(--bg);border-radius:7px;padding:6px 9px;width:100%}
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;font-size:12.5px}
+.how div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:2px}
+.how b{font-size:14px}
+.how .l b{color:var(--ok)} .how .r b{color:var(--bad)} .how .u b{color:var(--hold)}
+/* stats */
+.sgrid{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+@media (min-width:900px){.sgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.span2{grid-column:1/-1}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel h2{font-size:15px;margin:0;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.panel h2 small{font-weight:400;color:var(--muted);font-size:12px}
+.rv{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px 10px;align-items:center;font-size:13px;font-variant-numeric:tabular-nums}
+.rv .L{font-family:var(--mono);font-weight:600;color:var(--ink)}
+.rv .num{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.big{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1;font-family:var(--mono)}
+.sub{font-size:12px;color:var(--muted)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+table.t{width:100%;border-collapse:collapse;font-size:12.5px}
+table.t th,table.t td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+table.t th{color:var(--muted);font-weight:500;font-size:12px}
+table.t .num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--mono)}
+.tw{overflow-x:auto}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.legend span{display:inline-flex;gap:5px;align-items:center}
+.sw{width:9px;height:9px;border-radius:2px;display:inline-block}
+.note{font-size:12.5px;color:var(--muted);max-width:70ch;margin:0}
+/* guide */
+ol.rules{margin:0;padding-left:24px;display:flex;flex-direction:column;gap:7px;font-size:13.5px;max-width:70ch}
+ol.rules li::marker{font-family:var(--mono);color:var(--muted)}
+.issue{border-left:3px solid var(--hold);padding:2px 0 2px 12px;font-size:13px}
+.issue b{display:block}
+.toolt{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.toolt div{border-bottom:1px solid var(--line);padding-bottom:8px;font-size:13px}
+.toolt div:last-child{border-bottom:0}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:8px 16px;border-radius:10px;font-size:13px;z-index:20;max-width:calc(100vw - 32px)}
+@media (prefers-reduced-motion:reduce){.sc.anim{transition:opacity .15s}}
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand"><span class="prj">27LAB · PRJ-008</span><b>툴콜 라벨 검수</b></div>
+      <div class="spacer"></div>
+      <span class="sync" id="sync" title="연결 중"></span>
+      <button class="whobtn" id="whobtn" type="button"><span class="L" id="whoL">?</span><span id="whoN">검수자 선택</span></button>
+    </div>
+    <nav class="tabs" id="tabs" role="tablist">
+      <button role="tab" data-tab="swipe" aria-selected="true">검수</button>
+      <button role="tab" data-tab="fix" aria-selected="false">틀림 고치기 <span class="cnt" id="fixcnt" hidden>0</span></button>
+      <button role="tab" data-tab="gold" aria-selected="false">시험셋</button>
+      <button role="tab" data-tab="stats" aria-selected="false">현황</button>
+      <button role="tab" data-tab="guide" aria-selected="false">기준</button>
+    </nav>
+  </div>
+</header>
+<main><div class="wrap" id="app"></div></main>
+<div class="toast" id="toast" hidden></div>
+
+<script type="application/json" id="DATA">__DATA__</script>
+<script>
+"use strict";
+const D = JSON.parse(document.getElementById("DATA").textContent);
+const C = D.classes;
+const KO = Object.fromEntries(D.tools.map(t => [t[0], t[1]]));
+const SLOTS = ["A","B","C"];
+// 쉬운 설명은 데이터(tools[i][5])에서 온다. 도구 세트가 바뀌어도 코드는 그대로.
+const EASY = Object.fromEntries(D.tools.map(t => [t[0], t[5] || t[2]]));
+const EX = Object.fromEntries(D.tools.map(t => [t[0], {yes: t[6] || [], no: t[7] || []}]));
+function exList(tool){
+  const e = EX[tool]; if (!e || (!e.yes.length && !e.no.length)) return null;
+  return h("ul",{class:"ex"},
+    e.yes.map(r => h("li",{class:"y"},r)),
+    e.no.map(([r,c]) => h("li",{class:"n"},r, h("span",{class:"tool"},"→ " + c))));
+}
+function exBlock(tool, open){
+  const l = exList(tool); if (!l) return null;
+  return h("details",{class:"why exd",open:open || null},h("summary",null,"예시"),l);
+}
+const PRI = {1:"1순위 · 확신 낮음",2:"2순위 · 생성 의도와 다름",3:"3순위 · 부분 일치",4:"4순위 · 일치"};
+const ISSUE = {1:"쟁점① 호스트 없는 서버 명령",2:"쟁점② 추천·상식 질문",3:"쟁점③ 상태조회↔ssh"};
+const RULES = D.rules;
+// item tuple: [id, split, lang, context, request, first, also_ok[], sequence[], needs_confirm, rule, confidence, note, priority, why, issues[], assignee]
+const ITEMS = D.items.map(a => ({id:a[0],split:a[1]==="t"?"train":"val",lang:a[2],ctx:a[3],req:a[4],first:a[5],also:a[6],seq:a[7],nc:!!a[8],rule:a[9],conf:a[10],note:a[11],pri:a[12],why:a[13],iss:a[14],who:a[15]}));
+const BYID = new Map(ITEMS.map(x => [x.id, x]));
+const GOLD = D.gold.map(a => ({id:a[0],lang:a[1],ctx:a[2],req:a[3]}));
+const GBYID = new Map(GOLD.map(x => [x.id, x]));
+
+const $ = s => document.querySelector(s);
+const app = $("#app");
+function h(tag, attrs, ...kids){
+  const el = document.createElement(tag);
+  if (attrs) for (const [k,v] of Object.entries(attrs)){
+    if (v == null || v === false) continue;
+    if (k === "class") el.className = v;
+    else if (k === "style") el.setAttribute("style", v);
+    else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else if (k === "text") el.textContent = v;
+    else el.setAttribute(k, v === true ? "" : v);
+  }
+  for (const k of kids.flat(Infinity)) if (k != null && k !== false) el.append(k.nodeType ? k : document.createTextNode(String(k)));
+  return el;
+}
+const lsGet = (k, d) => { try { const v = localStorage.getItem("tcr:"+k); return v == null ? d : JSON.parse(v); } catch { return d; } };
+const lsSet = (k, v) => { try { localStorage.setItem("tcr:"+k, JSON.stringify(v)); } catch {} };
+let toastT;
+function toast(msg){ const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => t.hidden = true, 2600); }
+
+/* ---------- state ---------- */
+const S = {
+  slot: lsGet("slot", null),
+  tab: lsGet("tab", "swipe"),
+  scope: lsGet("scope", "mine"),
+  names: {A:"",B:"",C:""}, sids: {A:"",B:"",C:""},
+  rv: {A:new Map(),B:new Map(),C:new Map()},   // id -> {v:'ok'|'bad'|'hold', first?, also?, nc?, memo?, uid, at, ms}
+  gd: {A:new Map(),B:new Map(),C:new Map()},   // id -> {first|null, also[], nc, hold, memo, uid, at}
+  db: null, user: null, uid: null, canWrite: null, isOwner: false,
+  sync: "wait", undo: [], shownAt: Date.now(),
+  key: null, isAdmin: false,
+  fixId: null, goldIdx: lsGet("goldIdx", 0), draft: null, reveal: false,
+};
+const nm = s => S.names[s] || ("검수자 " + s);
+
+/* ---------- db ---------- */
+function setSync(st, msg){ S.sync = st; const el = $("#sync"); el.className = "sync " + ({live:"live",warn:"warn",off:"off"}[st]||""); el.title = msg || ""; }
+async function boot(){
+  setSync("wait", "저장소 연결 중");
+  let first = false;
+  const timer = setTimeout(() => { if (!first) { setSync("warn", "저장소 응답이 늦어요. 결과가 최신이 아닐 수 있어요."); render(); } }, 10000);
+  try {
+    const [db, user] = await Promise.all([window.claude?.use?.("db") ?? null, window.claude?.use?.("user") ?? null]);
+    S.db = db; S.user = user;
+    if (user){ try { S.uid = await user.id(); } catch {} try { S.isOwner = !!user.isOwner(); } catch {} try { S.isAdmin = !!user.canEdit(); } catch {} try { S.canWrite = await user.can("data.write"); } catch { S.canWrite = null; } }
+    if (!db){ clearTimeout(timer); setSync("off", "저장소에 연결할 수 없어요"); render(); return; }
+    let pending = 7;
+    const ok = () => { if (--pending <= 0 && !first){ first = true; clearTimeout(timer); setSync("live", "실시간 저장 중"); } };
+    const err = e => { clearTimeout(timer); setSync("off", "저장소 오류: " + (e && e.code || "unknown")); render(); };
+    for (const s of SLOTS){
+      let a = false, b = false;
+      db.collection("rv_"+s).onSnapshot(snap => { const m = new Map(); for (const d of snap.docs) m.set(d.id, d.data()); S.rv[s] = m; if (!a && !snap.metadata.fromCache){ a = true; ok(); } render(); }, err);
+      db.collection("gold_"+s).onSnapshot(snap => { const m = new Map(); for (const d of snap.docs) m.set(d.id, d.data()); S.gd[s] = m; if (!b && !snap.metadata.fromCache){ b = true; ok(); } render(); }, err);
+    }
+    if (S.isAdmin || S.isOwner){
+      // 심어둔 오답의 정답표. 규칙상 편집자·소유자만 읽을 수 있어요.
+      db.doc("data/answerkey/items/planted").onSnapshot(snap => { S.key = snap.exists ? (snap.data().ids || {}) : {}; render(); }, () => {});
+    }
+    let c = false;
+    db.doc("config/reviewers").onSnapshot(snap => { const d = snap.exists ? snap.data() : {}; S.names = {A:d.A||"",B:d.B||"",C:d.C||""}; S.sids = {A:d.A_sid||"",B:d.B_sid||"",C:d.C_sid||""}; if (!c && !snap.metadata.fromCache){ c = true; ok(); } render(); }, err);
+  } catch(e){ clearTimeout(timer); setSync("off", "저장소에 연결할 수 없어요"); render(); }
+}
+async function write(coll, id, data){
+  const map = coll.startsWith("rv_") ? S.rv[coll.slice(3)] : S.gd[coll.slice(5)];
+  const prev = map.get(id);
+  map.set(id, data); // optimistic
+  if (!S.db){ toast("저장소에 연결되지 않아 이 기기에서만 보여요"); return true; }
+  try { await S.db.collection(coll).doc(id).set(data); return true; }
+  catch(e){
+    if (prev) map.set(id, prev); else map.delete(id);
+    if (e && e.code === "invalid_argument") { S.canWrite = false; toast("저장 권한이 없어요. 기여자(Contributor) 이상 권한이 필요해요."); }
+    else if (e && e.code === "quota_exceeded") toast("저장 공간이 가득 찼어요. Daniel에게 알려 주세요.");
+    else toast("저장하지 못했어요. 잠시 뒤 다시 해 주세요.");
+    render(); return false;
+  }
+}
+async function remove(coll, id){
+  const map = coll.startsWith("rv_") ? S.rv[coll.slice(3)] : S.gd[coll.slice(5)];
+  map.delete(id);
+  if (S.db) { try { await S.db.collection(coll).doc(id).delete(); } catch { toast("되돌리지 못했어요"); } }
+}
+
+/* ---------- derived ---------- */
+const reviewedByAny = id => SLOTS.some(s => S.rv[s].has(id));
+function myQueue(){
+  if (S.scope === "all") return ITEMS.filter(x => x.who === "*" ? !S.rv[S.slot].has(x.id) : !reviewedByAny(x.id));
+  return ITEMS.filter(x => (x.who === S.slot || x.who === "*") && !S.rv[S.slot].has(x.id));
+}
+function counts(s){
+  const c = {ok:0,bad:0,hold:0,fixed:0,assigned:0};
+  for (const x of ITEMS) if (x.who === s || x.who === "*") c.assigned++;
+  for (const d of S.rv[s].values()){ c[d.v] = (c[d.v]||0)+1; if (d.v === "bad" && d.first != null) c.fixed++; }
+  return c;
+}
+const needFix = s => [...S.rv[s].entries()].filter(([,d]) => (d.v === "bad" && d.first == null) || d.v === "hold");
+
+/* ---------- render ---------- */
+function setTab(t){ S.tab = t; lsSet("tab", t); S.fixId = null; render(); window.scrollTo(0,0); }
+document.getElementById("tabs").addEventListener("click", e => { const b = e.target.closest("button[data-tab]"); if (b) setTab(b.dataset.tab); });
+$("#whobtn").addEventListener("click", () => { S.slot = null; render(); });
+
+let rq = 0;
+function render(){
+  if (rq) return; rq = requestAnimationFrame(() => { rq = 0; draw(); });
+}
+function draw(){
+  // header
+  $("#whoL").textContent = S.slot || "?";
+  $("#whoN").textContent = S.slot ? nm(S.slot) : "검수자 선택";
+  for (const b of document.querySelectorAll("#tabs button")) b.setAttribute("aria-selected", String(b.dataset.tab === S.tab));
+  const nf = S.slot ? needFix(S.slot).length : 0;
+  const fc = $("#fixcnt"); fc.hidden = !nf; fc.textContent = nf;
+  // keep focus/scroll for inputs
+  const active = document.activeElement && document.activeElement.id;
+  const caret = active && document.activeElement.selectionStart;
+  app.replaceChildren();
+  const wide = S.tab === "stats" || S.tab === "guide";
+  app.className = "wrap" + (wide ? " wide" : "");
+  if (S.sync === "off" || S.canWrite === false){
+    app.append(h("div",{class:"banner warn"}, S.canWrite === false
+      ? "이 화면은 읽기 전용이에요. 검수 결과를 저장하려면 이 페이지에서 기여자(Contributor) 이상 권한을 받아야 해요."
+      : "공유 저장소에 연결되지 않았어요. claude.ai에 로그인한 상태로 열어야 결과가 저장돼요."));
+  }
+  if (!S.slot && (S.tab === "swipe" || S.tab === "fix" || S.tab === "gold")) { app.append(viewSetup()); return; }
+  ({swipe:viewSwipe, fix:viewFix, gold:viewGold, stats:viewStats, guide:viewGuide})[S.tab]();
+  if (active){ const el = document.getElementById(active); if (el){ el.focus(); try { if (caret != null) el.setSelectionRange(caret, caret); } catch {} } }
+}
+
+/* ---------- setup ---------- */
+function pickSlot(s){
+  S.slot = s; lsSet("slot", s); S.undo = []; S.shownAt = Date.now(); S.curId = null; S.draft = null;
+  const n = GOLD.findIndex(g => !S.gd[s].has(g.id)); S.goldIdx = n >= 0 ? n : 0; lsSet("goldIdx", S.goldIdx);
+  render();
+}
+async function claim(s, name, sid){
+  S.names[s] = name; S.sids[s] = sid;
+  if (S.db){ try { await S.db.doc("config/reviewers").set({A:S.names.A,B:S.names.B,C:S.names.C,A_sid:S.sids.A,B_sid:S.sids.B,C_sid:S.sids.C}); } catch { toast("저장하지 못했어요"); return; } }
+  pickSlot(s);
+}
+function startAs(){
+  const name = ($("#name-in").value || "").trim().slice(0, 20);
+  const sid = ($("#sid-in").value || "").replace(/\s/g, "").slice(0, 20);
+  if (!name || !sid){ toast("이름과 학번을 입력해 주세요"); return; }
+  const have = SLOTS.find(s => S.sids[s] === sid);
+  if (have){ if (S.names[have] !== name) return claim(have, name, sid); return pickSlot(have); }
+  const free = SLOTS.find(s => !S.sids[s]);
+  if (!free){ toast("검수자 세 자리가 모두 찼어요"); return; }
+  claim(free, name, sid);
+}
+function viewSetup(){
+  const enter = e => { if (e.key === "Enter") startAs(); };
+  return h("div",{class:"setup",style:"max-width:420px;margin:24px auto 0"},
+    h("input",{id:"name-in",class:"memo",placeholder:"이름",maxlength:"20",autocomplete:"name",onkeydown:enter}),
+    h("input",{id:"sid-in",class:"memo",placeholder:"학번",maxlength:"20",inputmode:"numeric",autocomplete:"off",onkeydown:enter}),
+    h("button",{class:"btn primary",type:"button",onclick:startAs},"라벨링 시작"));
+}
+
+/* ---------- swipe ---------- */
+function callBlock(x){
+  return h("div",{class:"call"},
+    h("div",{class:"sect"},"라벨의 툴콜"),
+    h("div",{class:"callmain"},h("span",{class:"arrow"},"→"),h("span",{class:"tool main"},C[x.first]),h("span",{class:"tool ko"},KO[C[x.first]])),
+    h("div",{class:"easy"},EASY[C[x.first]], exBlock(C[x.first])),
+    h("dl",{class:"callrows"},
+      x.also.length ? [h("dt",null,"이것도 정답"),h("dd",null,x.also.map(a => [h("span",{class:"tool",title:EASY[C[a]]},C[a]),h("span",{class:"tool ko"},KO[C[a]])]))] : null,
+      x.seq.length > 1 ? [h("dt",null,"전체 순서"),h("dd",null,x.seq.map((a,i) => [i ? h("span",{class:"no"},"→") : null, h("span",{class:"tool"},C[a])]))] : null,
+      h("dt",null,"실행 전 확인"),h("dd",null,x.nc ? h("span",{class:"yes"},"필요") : h("span",{class:"no"},"필요 없음"))));
+}
+function whyBlock(x){
+  const c = x.conf, col = c < .7 ? "var(--bad)" : c < .85 ? "var(--warn)" : "var(--ok)";
+  return h("details",{class:"why"},
+    h("summary",null,"라벨러 근거 ", h("span",{class:"conf"},h("i",{style:`--w:${Math.round(c*100)}%;--c:${col}`}),"확신 "+c.toFixed(2))),
+    h("p",null, (x.rule ? `규칙 ${x.rule}: ${RULES[x.rule-1]} ` : ""), x.note ? h("b",null,x.note) : ""));
+}
+function cardEl(x, cls){
+  const el = h("div",{class:"sc "+cls},
+    h("div",{class:"stamp ok"},"맞음"), h("div",{class:"stamp bad"},"틀림"), h("div",{class:"stamp hold"},"보류"),
+    h("div",{class:"meta"},
+      h("span",{class:"pill p"+x.pri},PRI[x.pri]),
+      x.iss.map(i => h("span",{class:"pill iss",title:"자동 추정: Opus 라벨에 쟁점 도구 쌍이 함께 있음"},ISSUE[i])),
+      h("span",{class:"id"},x.id)),
+    h("div",{class:"task"},
+      h("div",{class:"sect"},"사용자 요청"),
+      x.ctx ? h("div",{class:"ctx"},h("b",null,"이전 대화"),x.ctx) : null,
+      h("div",{class:"req"},x.req)),
+    callBlock(x),
+    whyBlock(x));
+  return el;
+}
+function viewSwipe(){
+  const q = myQueue();
+  const c = counts(S.slot);
+  const done = c.ok + c.bad + c.hold;
+  const pct = n => (c.assigned ? (n / c.assigned * 100) : 0) + "%";
+  app.append(h("div",{class:"strip"},
+    h("div",{class:"row1"},
+      h("span",null, h("b",null, done.toLocaleString()), ` / ${c.assigned.toLocaleString()} 내 몫 · 남은 ${S.scope==="all" ? "전체 " : ""}${q.length.toLocaleString()}건`),
+      h("label",{class:"scope"},"범위 ",h("select",{id:"scope",onchange:e => { S.scope = e.target.value; lsSet("scope", S.scope); render(); }},
+        h("option",{value:"mine",selected:S.scope==="mine"},"내 몫"),
+        h("option",{value:"all",selected:S.scope==="all"},"전체 남은 것")))),
+    h("div",{class:"track"},h("span",{style:`width:${pct(c.ok)};background:var(--ok)`}),h("span",{style:`width:${pct(c.bad)};background:var(--bad)`}),h("span",{style:`width:${pct(c.hold)};background:var(--hold)`}))));
+  if (!q.length){
+    app.append(h("div",{class:"done"},h("b",null,"남은 카드가 없어요"),
+      S.scope === "mine" ? "내 몫을 다 봤어요. 틀림 고치기 탭에서 틀린 건의 정답 도구를 골라 주세요." : "모든 라벨이 검수됐어요.",
+      needFix(S.slot).length ? h("button",{class:"btn primary",type:"button",onclick:() => setTab("fix")},`틀림 고치기 ${needFix(S.slot).length}건`) : null));
+    return;
+  }
+  const deck = h("div",{class:"deck",id:"deck"});
+  if (q[1]) deck.append(cardEl(q[1], "back"));
+  const front = cardEl(q[0], "front");
+  deck.append(front);
+  app.append(deck);
+  if (S.curId !== q[0].id){ S.curId = q[0].id; S.shownAt = Date.now(); }
+  attachSwipe(front, q[0]);
+  const dis = S.canWrite === false;
+  app.append(h("div",{class:"answers"},
+    h("button",{class:"ans ok",type:"button",disabled:dis,onclick:() => fling(front, q[0], "ok")},"← 맞음",h("small",null,"왼쪽으로 밀기")),
+    h("button",{class:"ans hold",type:"button",disabled:dis,onclick:() => fling(front, q[0], "hold")},"보류"),
+    h("button",{class:"ans bad",type:"button",disabled:dis,onclick:() => fling(front, q[0], "bad")},"틀림 →",h("small",null,"오른쪽으로 밀기"))));
+  app.append(h("div",{class:"under"},
+    h("button",{class:"linkbtn",type:"button",disabled:!S.undo.length,onclick:undo},"↶ 방금 것 되돌리기"),
+    h("span",{class:"keys-hint"},h("kbd",null,"←")," 맞음 ",h("kbd",null,"→")," 틀림 ",h("kbd",null,"↑")," 보류 ",h("kbd",null,"Z")," 되돌리기")));
+}
+function attachSwipe(el, x){
+  let sx = 0, sy = 0, dx = 0, dy = 0, t0 = 0, on = false, id = null;
+  const okS = el.querySelector(".stamp.ok"), badS = el.querySelector(".stamp.bad");
+  el.addEventListener("pointerdown", e => {
+    if (e.target.closest("summary,details p")) return;
+    if (S.canWrite === false) return;
+    on = true; id = e.pointerId; sx = e.clientX; sy = e.clientY; dx = dy = 0; t0 = performance.now();
+    el.classList.add("drag"); el.classList.remove("anim");
+  });
+  el.addEventListener("pointermove", e => {
+    if (!on || e.pointerId !== id) return;
+    dx = e.clientX - sx; dy = e.clientY - sy;
+    if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) { try { el.setPointerCapture(id); } catch {} }
+    el.style.transform = `translate(${dx}px, ${dy*0.15}px) rotate(${dx/18}deg)`;
+    // left = 맞음, right = 틀림
+    okS.style.opacity = Math.min(1, Math.max(0, -dx/110));
+    badS.style.opacity = Math.min(1, Math.max(0, dx/110));
+  });
+  const end = e => {
+    if (!on || (e && e.pointerId !== id)) return;
+    on = false; el.classList.remove("drag");
+    const w = el.offsetWidth, v = Math.abs(dx) / Math.max(1, performance.now() - t0);
+    if (Math.abs(dx) > Math.min(120, w * .28) || (v > .6 && Math.abs(dx) > 40)) fling(el, x, dx < 0 ? "ok" : "bad");
+    else { el.classList.add("anim"); el.style.transform = ""; okS.style.opacity = 0; badS.style.opacity = 0; }
+  };
+  el.addEventListener("pointerup", end);
+  el.addEventListener("pointercancel", end);
+}
+let flinging = false;
+function fling(el, x, v){
+  if (flinging || S.canWrite === false) return;
+  flinging = true;
+  const w = window.innerWidth;
+  el.classList.remove("drag"); el.classList.add("anim");
+  const st = el.querySelector(".stamp." + v); if (st) st.style.opacity = 1;
+  el.style.transform = v === "ok" ? `translate(${-w*1.2}px, 30px) rotate(-18deg)` : v === "bad" ? `translate(${w*1.2}px, 30px) rotate(18deg)` : `translateY(-120%) scale(.9)`;
+  el.style.opacity = "0";
+  const ms = Date.now() - S.shownAt;
+  setTimeout(async () => {
+    flinging = false;
+    const data = {v, uid: S.uid || null, at: Date.now(), ms: Math.min(ms, 600000)};
+    S.undo.push({coll: "rv_"+S.slot, id: x.id}); if (S.undo.length > 30) S.undo.shift();
+    await write("rv_"+S.slot, x.id, data);
+    render();
+  }, 240);
+  render.bind(null);
+}
+async function undo(){
+  const u = S.undo.pop(); if (!u) return;
+  await remove(u.coll, u.id); S.curId = null; render(); toast("되돌렸어요");
+}
+
+/* ---------- fix (wrong + hold) ---------- */
+function picker(x, d, onSave, opts){
+  // d: draft {first, also:[], nc, memo, issue}
+  const wrap = h("div",{class:"pcard"});
+  const grid = h("div",{class:"grid10"});
+  C.forEach((c,i) => grid.append(h("button",{type:"button",class:"cls" + (d.first===i?" sel":"") + (d.also.includes(i)?" also":"") + (opts.was===i?" was":""),
+    onclick:() => { if (d.first === i) d.first = null; else { d.first = i; d.also = d.also.filter(a => a !== i); } render(); }},
+    h("span",{class:"n"},c),h("span",{class:"d"},KO[c]),h("span",{class:"k"},String((i+1)%10)))));
+  const easyLine = d.first == null ? null : h("div",{class:"easy"}, h("b",{class:"mono"},C[d.first]), " " + EASY[C[d.first]], exList(C[d.first]));
+  const also = h("div",{class:"row"});
+  C.forEach((c,i) => { if (i !== d.first) also.append(h("button",{type:"button",class:"btn sm","aria-pressed":String(d.also.includes(i)),style:d.also.includes(i)?"border-color:var(--ink);color:var(--ink)":"",
+    onclick:() => { d.also = d.also.includes(i) ? d.also.filter(a => a!==i) : [...d.also, i]; render(); }}, c)); });
+  wrap.append(...[
+    h("div",{class:"task"},
+      h("div",{class:"meta"}, opts.badge || null, h("span",{class:"id"},x.id)),
+      x.ctx ? h("div",{class:"ctx"},h("b",null,"이전 대화"),x.ctx) : null,
+      h("div",{class:"req"},x.req)),
+    opts.top || null,
+    h("div",{class:"lbl"},"맞는 첫 도구"), grid, easyLine,
+    h("details",{class:"why",open:d.also.length ? true : null},h("summary",null,"이것도 정답인 도구 (선택)"),h("div",{class:"row",style:"margin-top:8px"},also)),
+    h("div",{class:"row"},h("span",{class:"lbl"},"실행 전 확인"),
+      h("div",{class:"seg"},h("button",{type:"button","aria-pressed":String(!d.nc),onclick:() => { d.nc = false; render(); }},"필요 없음"),h("button",{type:"button","aria-pressed":String(!!d.nc),onclick:() => { d.nc = true; render(); }},"필요"))),
+    opts.issues ? h("div",{class:"row"},h("span",{class:"lbl"},"관련 쟁점"),
+      h("div",{class:"seg"},[0,1,2,3].map(k => h("button",{type:"button","aria-pressed":String((d.issue||0)===k),onclick:() => { d.issue = k; render(); }}, k ? "①②③"[k-1] : "없음")))) : null,
+    h("input",{class:"memo",id:"memo-"+x.id,placeholder:"메모 (애매했던 이유 한 줄)",value:d.memo||"",oninput:e => { d.memo = e.target.value; }}),
+    h("div",{class:"row"}, opts.actions(d))].filter(Boolean));
+  return wrap;
+}
+function viewFix(){
+  const s = S.slot;
+  if (S.fixId){
+    const x = BYID.get(S.fixId), cur = S.rv[s].get(S.fixId);
+    if (!x || !cur){ S.fixId = null; return viewFix(); }
+    if (!S.draft || S.draft._id !== x.id) S.draft = {_id:x.id, first: cur.first ?? null, also: cur.also ? [...cur.also] : [], nc: cur.nc ?? x.nc, memo: cur.memo || "", issue: cur.issue || 0};
+    const d = S.draft;
+    app.append(h("button",{class:"linkbtn",type:"button",onclick:() => { S.fixId = null; S.draft = null; render(); }},"← 목록으로"));
+    app.append(picker(x, d, null, {
+      was: x.first, issues: true,
+      badge: h("span",{class:"vchip " + (cur.v==="hold"?"v-hold":"v-bad")}, cur.v==="hold" ? "보류한 건" : "틀림으로 넘긴 건"),
+      top: h("div",{class:"call",style:"border-top:0;padding-top:0"},h("div",{class:"sect"},"원래 라벨"),h("div",{class:"callmain"},h("span",{class:"tool"},C[x.first]),x.also.map(a => h("span",{class:"tool",style:"opacity:.7"},"also "+C[a])), x.nc ? h("span",{class:"yes"},"확인 필요") : null)),
+      actions: d => [
+        h("button",{class:"btn primary",type:"button",disabled:d.first==null,onclick:async () => {
+          const sameAsOpus = d.first === x.first && !!d.nc === x.nc && [...d.also].sort().join() === [...x.also].sort().join();
+          const data = {v: sameAsOpus ? "ok" : "bad", first: d.first, also: d.also, nc: !!d.nc, memo: (d.memo||"").slice(0,300), issue: d.issue||0, uid: S.uid||null, at: Date.now(), ms: cur.ms||0, from: cur.v};
+          if (await write("rv_"+s, x.id, data)){ toast(sameAsOpus ? "원래 라벨이 맞는 것으로 저장했어요" : "고친 라벨을 저장했어요"); S.draft = null; const next = needFix(s)[0]; S.fixId = next ? next[0] : null; render(); }
+        }}, "저장하고 다음"),
+        cur.v !== "hold" ? h("button",{class:"btn hold",type:"button",onclick:async () => {
+          const data = {...cur, v:"hold", memo:(d.memo||"").slice(0,300), issue:d.issue||0, at:Date.now()}; delete data.first;
+          if (await write("rv_"+s, x.id, data)){ toast("보류로 옮겼어요"); S.draft = null; S.fixId = null; render(); }
+        }}, "보류로") : null]
+    }));
+    return;
+  }
+  const todo = needFix(s).map(([id,d]) => [BYID.get(id), d]).filter(r => r[0]);
+  const fixed = [...S.rv[s].entries()].filter(([,d]) => d.v === "bad" && d.first != null).map(([id,d]) => [BYID.get(id), d]);
+  app.append(h("p",{class:"h2"},"틀림 고치기"),
+    null);
+  if (!todo.length) app.append(h("div",{class:"done"},h("b",null,"고칠 건이 없어요")));
+  else {
+    const L = h("div",{class:"list"});
+    for (const [x,d] of todo) L.append(h("button",{class:"li",type:"button",onclick:() => { S.fixId = x.id; S.draft = null; render(); window.scrollTo(0,0); }},
+      h("span",{class:"t"},x.req), h("span",{class:"vchip " + (d.v==="hold"?"v-hold":"v-bad")}, d.v==="hold"?"보류":"틀림"),
+      h("span",{class:"s"},"원래: ",h("span",{class:"tool"},C[x.first]), d.issue ? ISSUE[d.issue] : (x.iss.length ? x.iss.map(i => "쟁점"+"①②③"[i-1]).join(" ") : ""), d.memo ? "· " + d.memo : "")));
+    app.append(L);
+  }
+  if (fixed.length){
+    app.append(h("p",{class:"h2",style:"margin-top:22px"},`고친 건 ${fixed.length}`));
+    const L = h("div",{class:"list"});
+    for (const [x,d] of fixed.slice(-50).reverse()) if (x) L.append(h("button",{class:"li",type:"button",onclick:() => { S.fixId = x.id; S.draft = null; render(); window.scrollTo(0,0); }},
+      h("span",{class:"t"},x.req), h("span",{class:"vchip v-fixed"},"고침"),
+      h("span",{class:"s"},h("span",{class:"tool"},C[x.first])," → ",h("span",{class:"tool"},C[d.first]), d.memo ? "· " + d.memo : "")));
+    app.append(L);
+  }
+}
+
+/* ---------- gold ---------- */
+function viewGold(){
+  const s = S.slot, mine = S.gd[s];
+  const done = GOLD.filter(g => mine.has(g.id)).length;
+  let idx = Math.max(0, Math.min(GOLD.length - 1, S.goldIdx));
+  app.append(h("p",{class:"h2"},"시험셋 350건 독립 라벨"),
+    h("div",{class:"strip"},h("div",{class:"row1"},h("span",null,h("b",null,done)," / 350 완료"),
+      h("span",null,h("button",{class:"linkbtn",type:"button",onclick:() => { const n = GOLD.findIndex(g => !mine.has(g.id)); if (n >= 0){ S.goldIdx = n; lsSet("goldIdx", n); S.draft = null; render(); } }},"다음 빈 칸으로"))),
+      h("div",{class:"track"},h("span",{style:`width:${done/3.5}%;background:var(--ink)`}))));
+  const g = GOLD[idx], cur = mine.get(g.id);
+  if (!S.draft || S.draft._id !== "g:"+g.id) S.draft = {_id:"g:"+g.id, first: cur ? cur.first : null, also: cur && cur.also ? [...cur.also] : [], nc: cur ? !!cur.nc : false, memo: cur ? cur.memo || "" : ""};
+  const d = S.draft;
+  const go = n => { S.goldIdx = Math.max(0, Math.min(GOLD.length-1, n)); lsSet("goldIdx", S.goldIdx); S.draft = null; render(); };
+  app.append(picker(g, d, null, {
+    badge: h("span",{class:"pill p4"}, `${idx+1} / 350`, cur ? (cur.hold ? " · 보류" : " · 저장됨") : ""),
+    actions: d => [
+      h("button",{class:"btn primary",type:"button",disabled:d.first==null||S.canWrite===false,onclick:async () => {
+        if (await write("gold_"+s, g.id, {first:d.first, also:d.also, nc:!!d.nc, hold:false, memo:(d.memo||"").slice(0,300), uid:S.uid||null, at:Date.now()})){
+          const n = GOLD.findIndex((x,i) => i > idx && !mine.has(x.id)); go(n >= 0 ? n : idx + 1);
+        }}}, "저장하고 다음"),
+      h("button",{class:"btn hold",type:"button",disabled:S.canWrite===false,onclick:async () => {
+        if (await write("gold_"+s, g.id, {first:d.first, also:d.also, nc:!!d.nc, hold:true, memo:(d.memo||"").slice(0,300), uid:S.uid||null, at:Date.now()})) go(idx + 1);
+      }}, "보류"),
+      h("span",{class:"spacer"}),
+      h("button",{class:"btn sm",type:"button",disabled:idx===0,onclick:() => go(idx-1)},"← 이전"),
+      h("button",{class:"btn sm",type:"button",disabled:idx===GOLD.length-1,onclick:() => go(idx+1)},"다음 →")]
+  }));
+}
+
+/* ---------- stats ---------- */
+function kappaPair(a, b){
+  const ids = GOLD.map(g => g.id).filter(id => { const x = S.gd[a].get(id), y = S.gd[b].get(id); return x && y && x.first != null && y.first != null; });
+  if (ids.length < 5) return null;
+  let agree = 0; const pa = Array(C.length).fill(0), pb = Array(C.length).fill(0);
+  for (const id of ids){ const x = S.gd[a].get(id).first, y = S.gd[b].get(id).first; if (x === y) agree++; pa[x]++; pb[y]++; }
+  const n = ids.length, po = agree/n, pe = pa.reduce((s,v,i) => s + v*pb[i], 0)/(n*n);
+  return {n, po, k: pe === 1 ? 1 : (po - pe)/(1 - pe)};
+}
+function fleiss(){
+  const ids = GOLD.map(g => g.id).filter(id => SLOTS.every(s => { const x = S.gd[s].get(id); return x && x.first != null; }));
+  if (ids.length < 5) return {n: ids.length, k: null};
+  const n = ids.length, r = 3, pj = Array(C.length).fill(0); let P = 0;
+  for (const id of ids){ const cnt = Array(C.length).fill(0); for (const s of SLOTS) cnt[S.gd[s].get(id).first]++; cnt.forEach((c,j) => pj[j] += c); P += (cnt.reduce((s,c) => s + c*c, 0) - r) / (r*(r-1)); }
+  P /= n; const Pe = pj.reduce((s,c) => s + (c/(n*r))**2, 0);
+  const all3 = ids.filter(id => new Set(SLOTS.map(s => S.gd[s].get(id).first)).size === 1).length;
+  return {n, k: Pe === 1 ? 1 : (P - Pe)/(1 - Pe), all3, ids};
+}
+const pctS = (a, b) => b ? (a/b*100).toFixed(1) + "%" : "–";
+function viewStats(){
+  const tot = {ok:0,bad:0,hold:0,fixed:0,assigned:0}; const bc = {};
+  for (const s of SLOTS){ const c = counts(s); bc[s] = c; for (const k in tot) tot[k] += c[k]||0; }
+  const done = tot.ok + tot.bad + tot.hold;
+  const grid = h("div",{class:"sgrid"});
+  // overview tiles
+  const msAll = SLOTS.flatMap(s => [...S.rv[s].values()].map(d => d.ms||0)).filter(m => m > 300 && m < 120000);
+  const avg = msAll.length ? msAll.reduce((a,b) => a+b, 0)/msAll.length/1000 : null;
+  grid.append(h("div",{class:"panel span2"},
+    h("h2",null,"전체 진행",h("small",null,`검수 대상 ${ITEMS.length.toLocaleString()}건`)),
+    h("div",{class:"tiles"},
+      h("div",null,h("div",{class:"big"},done.toLocaleString()),h("div",{class:"sub"},`검수 완료 · ${pctS(done, 3141)}`)),
+      h("div",null,h("div",{class:"big",style:"color:var(--ok)"},pctS(tot.ok, tot.ok+tot.bad)),h("div",{class:"sub"},"라벨이 맞다고 본 비율 (보류 제외)")),
+      h("div",null,h("div",{class:"big",style:"color:var(--bad)"},tot.bad.toLocaleString()),h("div",{class:"sub"},`틀림 · 고친 것 ${tot.fixed}`)),
+      h("div",null,h("div",{class:"big",style:"color:var(--hold)"},tot.hold.toLocaleString()),h("div",{class:"sub"},"보류 (회의 안건)")),
+      h("div",null,h("div",{class:"big"},avg ? avg.toFixed(1)+"초" : "–"),h("div",{class:"sub"},"1건 평균 (목표 20~30초)")))));
+  // 골드 라벨 = 사람이 확인한 것만
+  const K = S.key, planted = id => !!(K && K[id] && K[id].p);
+  let goldN = 0;
+  for (const s of SLOTS) for (const [id,d] of S.rv[s]) if ((d.v === "ok" && !planted(id)) || (d.v === "bad" && d.first != null)) goldN++;
+  const tsGold = GOLD.filter(g => { const v = {}; for (const s of SLOTS){ const d = S.gd[s].get(g.id); if (d && d.first != null) v[d.first] = (v[d.first]||0) + 1; } return Object.values(v).some(n => n >= 2); }).length;
+  grid.firstChild.querySelector(".tiles").prepend(h("div",null,h("div",{class:"big",style:"color:var(--ink)"},(goldN + tsGold).toLocaleString()),h("div",{class:"sub"},`골드 라벨 · 검수 ${goldN} + 시험셋 ${tsGold}`)));
+  if (K){
+    const t = h("tbody"), rows = reliability();
+    for (const r of rows) t.append(h("tr",{style:r.who === "전체" ? "font-weight:600" : null},
+      h("td",{class:"mono"},r.who === "전체" ? "전체" : r.who + " " + nm(r.who)),
+      [r.TP,r.TN,r.FP,r.FN].map(v => h("td",{class:"num"},v)),
+      [r.sens,r.spec,r.prec,r.acc].map(v => h("td",{class:"num"},v == null ? "–" : (v*100).toFixed(1) + "%"))));
+    grid.append(h("div",{class:"panel span2"},h("h2",null,"검수 신뢰도",h("small",null,`정답을 아는 ${Object.keys(K).length}건 기준 (심은 오답 ${Object.values(K).filter(v => v.p).length}) · 편집자만 보임`)),
+      h("div",{class:"tw"},h("table",{class:"t"},h("thead",null,h("tr",null,h("th",null,"검수자"),["TP","TN","FP","FN","민감도","특이도","정밀도","정확도"].map(x => h("th",{class:"num"},x)))),t)),
+      h("p",{class:"note"},"양성 = 라벨이 맞음. TP 맞는 라벨을 맞음, TN 심은 오답을 틀림, FP 심은 오답을 맞음, FN 맞는 라벨을 틀림. 정답을 아는 건(심은 오답 + 대조군)만 세고, 보류는 제외."),
+      h("div",{class:"row"},h("button",{class:"btn sm",type:"button",onclick:exportReliability},"신뢰도 JSON"))));
+  }
+  // per reviewer
+  const rv = h("div",{class:"rv"});
+  for (const s of SLOTS){
+    const c = bc[s], dn = c.ok + c.bad + c.hold, p = n => (c.assigned ? n/c.assigned*100 : 0) + "%";
+    rv.append(h("span",{class:"L"},s),
+      h("div",null,h("div",{style:"font-size:12.5px;margin-bottom:3px"},nm(s)),h("div",{class:"track"},h("span",{style:`width:${p(c.ok)};background:var(--ok)`}),h("span",{style:`width:${p(c.bad)};background:var(--bad)`}),h("span",{style:`width:${p(c.hold)};background:var(--hold)`}))),
+      h("span",{class:"num"},`${dn} / ${c.assigned} · 시험셋 ${S.gd[s].size}/350`));
+  }
+  grid.append(h("div",{class:"panel"},h("h2",null,"검수자별"),rv,
+    h("div",{class:"legend"},h("span",null,h("i",{class:"sw",style:"background:var(--ok)"}),"맞음"),h("span",null,h("i",{class:"sw",style:"background:var(--bad)"}),"틀림"),h("span",null,h("i",{class:"sw",style:"background:var(--hold)"}),"보류"))));
+  // by priority
+  const tb = h("tbody");
+  for (const p of [1,2,3,4]){
+    let n = 0, ok = 0, bad = 0, hold = 0;
+    for (const x of ITEMS) if (x.pri === p){ n++; for (const s of SLOTS){ const d = S.rv[s].get(x.id); if (d){ if (d.v==="ok") ok++; else if (d.v==="bad") bad++; else hold++; break; } } }
+    tb.append(h("tr",null,h("td",null,PRI[p]),h("td",{class:"num"},`${ok+bad+hold}/${n}`),h("td",{class:"num"},pctS(ok, ok+bad)),h("td",{class:"num"},hold)));
+  }
+  grid.append(h("div",{class:"panel"},h("h2",null,"우선순위별 맞음 비율"),h("div",{class:"tw"},h("table",{class:"t"},h("thead",null,h("tr",null,h("th",null,"순위"),h("th",{class:"num"},"검수"),h("th",{class:"num"},"맞음"),h("th",{class:"num"},"보류"))),tb))));
+  // corrections
+  const pairs = {};
+  for (const s of SLOTS) for (const [id,d] of S.rv[s]) if (d.v === "bad" && d.first != null){ const x = BYID.get(id); if (!x) continue; const k = C[x.first] + " → " + C[d.first]; pairs[k] = (pairs[k]||0) + 1; }
+  const pr = Object.entries(pairs).sort((a,b) => b[1]-a[1]).slice(0,12);
+  grid.append(h("div",{class:"panel"},h("h2",null,"자주 고친 방향",h("small",null,"원래 라벨 → 사람")),
+    pr.length ? h("div",{class:"tw"},h("table",{class:"t"},h("tbody",null,pr.map(([k,v]) => h("tr",null,h("td",{class:"mono"},k),h("td",{class:"num"},v)))))) : h("p",{class:"note"},"아직 고친 건이 없어요.")));
+  // holds by issue
+  const holds = {0:0,1:0,2:0,3:0};
+  for (const s of SLOTS) for (const [id,d] of S.rv[s]) if (d.v === "hold") holds[d.issue||0]++;
+  grid.append(h("div",{class:"panel"},h("h2",null,"보류 안건",h("small",null,"주 1회 3명이 정함")),
+    [1,2,3].map(i => h("div",{class:"kv"},h("span",null,ISSUE[i]),h("b",null,holds[i]))),
+    h("div",{class:"kv"},h("span",null,"쟁점 표시 없음"),h("b",null,holds[0])),
+    h("button",{class:"btn sm",type:"button",onclick:() => exportHolds()},"보류 목록 CSV 받기")));
+  // gold agreement
+  const f = fleiss(); const myDone = S.slot ? GOLD.filter(g => S.gd[S.slot].has(g.id)).length : 0;
+  const canSee = S.isOwner || myDone >= 350;
+  const kp = [["A","B"],["A","C"],["B","C"]].map(([a,b]) => [a+"–"+b, kappaPair(a,b)]);
+  const gp = h("div",{class:"panel span2"},h("h2",null,"시험셋 사람끼리 일치도",h("small",null,"first 기준. 이 값이 학생 모델 목표의 상한")),
+    h("div",{class:"tiles"},
+      h("div",null,h("div",{class:"big"},f.k == null ? "–" : f.k.toFixed(3)),h("div",{class:"sub"},`Fleiss κ · 3명 모두 단 ${f.n}건`)),
+      h("div",null,h("div",{class:"big"},f.all3 == null ? "–" : pctS(f.all3, f.n)),h("div",{class:"sub"},"3명 완전 일치")),
+      kp.map(([k,v]) => h("div",null,h("div",{class:"big"},v ? v.k.toFixed(3) : "–"),h("div",{class:"sub"},`Cohen κ ${k}${v ? " · " + v.n + "건" : ""}`)))));
+  if (f.ids && f.ids.length){
+    if (!canSee) gp.append(h("p",{class:"note"},`건별로 누가 뭘 골랐는지는 내 시험셋 350건을 다 끝내면 보여요 (지금 ${myDone}/350). 독립성을 지키려는 장치예요.`));
+    else {
+      const dis = f.ids.filter(id => new Set(SLOTS.map(s => S.gd[s].get(id).first)).size > 1);
+      gp.append(h("details",{class:"why"},h("summary",null,`의견이 갈린 ${dis.length}건 보기`),
+        h("div",{class:"tw",style:"margin-top:8px"},h("table",{class:"t"},h("thead",null,h("tr",null,h("th",null,"요청"),SLOTS.map(s => h("th",null,s)))),
+          h("tbody",null,dis.map(id => h("tr",null,h("td",null,GBYID.get(id).req),SLOTS.map(s => h("td",{class:"mono"},C[S.gd[s].get(id).first])))))))));
+    }
+  }
+  grid.append(gp);
+  // export
+  grid.append(h("div",{class:"panel span2"},h("h2",null,"내보내기",h("small",null,"학습 코드에 넣을 파일")),
+    h("div",{class:"row"},
+      h("button",{class:"btn sm",type:"button",onclick:exportGoldLabels},"골드 라벨 JSONL"),
+      h("button",{class:"btn sm",type:"button",onclick:exportReview},"검수 기록 전체 JSONL"),
+      h("button",{class:"btn sm",type:"button",onclick:exportGold},"시험셋 JSONL")),
+    h("p",{class:"note"}, S.key ? "골드 라벨은 사람이 맞다고 했거나 고친 라벨만 담아요. 심어둔 오답을 맞음으로 넘긴 건은 빠져요." : "골드 라벨에서 심어둔 오답을 걸러 내려면 편집자 권한으로 열어야 해요.")));
+  app.append(grid);
+}
+async function save(filename, text){
+  const dl = await (window.claude?.use?.("downloads") ?? null);
+  if (!dl){ toast("이 화면에서는 파일을 받을 수 없어요"); return; }
+  try { const r = await dl.save({filename, data: text}); if (r && r.status === "saved") toast(filename + " 받기 완료"); }
+  catch(e){ if (e && e.code !== "cancelled") toast("파일을 받지 못했어요"); }
+}
+function lbl(first, also, nc){ return {first: C[first], also_ok: (also||[]).map(a => C[a]), needs_confirm: !!nc}; }
+function exportReview(){
+  const out = [];
+  for (const x of ITEMS){
+    let who = null, d = null; for (const s of SLOTS){ if (S.rv[s].has(x.id)){ who = s; d = S.rv[s].get(x.id); break; } }
+    if (!d) continue;
+    const human = d.v === "ok" ? lbl(x.first, x.also, x.nc) : d.first != null ? lbl(d.first, d.also, d.nc) : null;
+    out.push(JSON.stringify({id:x.id, split:x.split, reviewer:who, verdict:d.v, shown_label:{...lbl(x.first, x.also, x.nc), sequence:x.seq.map(a => C[a]), confidence:x.conf}, planted: S.key ? !!(S.key[x.id] && S.key[x.id].p) : undefined, human, issue:d.issue||0, memo:d.memo||"", at:d.at ? new Date(d.at).toISOString() : null, ms:d.ms||null}));
+  }
+  save("review-log-v1.jsonl", out.join("\n") + "\n");
+}
+function reliability(){
+  const K = S.key || {}, rows = [], all = {who:"전체",TP:0,TN:0,FP:0,FN:0};
+  for (const s of SLOTS){
+    const r = {who:s,TP:0,TN:0,FP:0,FN:0};
+    for (const [id,d] of S.rv[s]){ if (d.v === "hold" || !K[id]) continue; const wrong = !!K[id].p; if (wrong){ if (d.v === "bad") r.TN++; else r.FP++; } else { if (d.v === "ok") r.TP++; else r.FN++; } }
+    rows.push(r); for (const k of ["TP","TN","FP","FN"]) all[k] += r[k];
+  }
+  rows.push(all);
+  const q = (a, b) => b ? a / b : null;
+  for (const r of rows){ r.sens = q(r.TP, r.TP+r.FN); r.spec = q(r.TN, r.TN+r.FP); r.prec = q(r.TP, r.TP+r.FP); r.acc = q(r.TP+r.TN, r.TP+r.TN+r.FP+r.FN); }
+  return rows;
+}
+function exportReliability(){
+  const kp = Object.fromEntries([["A","B"],["A","C"],["B","C"]].map(([a,b]) => [a+"-"+b, kappaPair(a,b)]));
+  const f = fleiss();
+  const out = {generated_at: new Date().toISOString(), positive: "label_correct", known_items: Object.keys(S.key || {}).length, planted_wrong: Object.values(S.key || {}).filter(v => v.p).length,
+    reviewers: reliability().map(r => ({...r, name: r.who === "전체" ? "all" : nm(r.who)})),
+    testset_agreement: {fleiss_kappa: f.k, n_all_three: f.n, cohen_kappa: kp}};
+  save("review-reliability-v1.json", JSON.stringify(out, null, 2));
+}
+function exportGoldLabels(){
+  const K = S.key || {}, out = [];
+  for (const x of ITEMS){
+    let who = null, d = null; for (const s of SLOTS){ if (S.rv[s].has(x.id)){ who = s; d = S.rv[s].get(x.id); break; } }
+    if (!d) continue;
+    let L = null;
+    if (d.v === "ok" && !(K[x.id] && K[x.id].p)) L = lbl(x.first, x.also, x.nc);
+    else if (d.v === "bad" && d.first != null) L = lbl(d.first, d.also, d.nc);
+    if (!L) continue;
+    out.push(JSON.stringify({id:x.id, split:x.split, lang:x.lang, context:x.ctx, request:x.req, label:{...L, source: d.v === "ok" ? "human_confirmed" : "human_corrected"}, reviewer:who}));
+  }
+  for (const g of GOLD){
+    const v = {}; for (const s of SLOTS){ const d = S.gd[s].get(g.id); if (d && d.first != null) v[d.first] = (v[d.first]||0) + 1; }
+    const top = Object.entries(v).sort((a,b) => b[1]-a[1])[0];
+    if (top && top[1] >= 2) out.push(JSON.stringify({id:g.id, split:"test", lang:g.lang, context:g.ctx, request:g.req, label:{first:C[top[0]], source:"human_majority", votes:top[1]}}));
+  }
+  save("gold-labels-v1.jsonl", out.join("\n") + "\n");
+}
+function exportGold(){
+  const out = GOLD.map(g => {
+    const per = {}; const votes = {};
+    for (const s of SLOTS){ const d = S.gd[s].get(g.id); per[s] = d ? {...(d.first != null ? lbl(d.first, d.also, d.nc) : {first:null}), hold:!!d.hold, memo:d.memo||""} : null; if (d && d.first != null) votes[d.first] = (votes[d.first]||0) + 1; }
+    const top = Object.entries(votes).sort((a,b) => b[1]-a[1])[0];
+    return JSON.stringify({id:g.id, labels:per, majority: top && top[1] >= 2 ? C[top[0]] : null});
+  });
+  save("testset-human-v1.jsonl", out.join("\n") + "\n");
+}
+function exportHolds(){
+  const q = v => '"' + String(v ?? "").replace(/"/g, '""') + '"';
+  const rows = [["id","reviewer","issue","request","context","opus_first","memo"].join(",")];
+  for (const s of SLOTS) for (const [id,d] of S.rv[s]) if (d.v === "hold"){ const x = BYID.get(id); if (x) rows.push([id, s, d.issue||0, x.req, x.ctx, C[x.first], d.memo||""].map(q).join(",")); }
+  save("holds-v1.csv", "﻿" + rows.join("\n") + "\n");
+}
+
+/* ---------- guide ---------- */
+function viewGuide(){
+  const g = h("div",{class:"sgrid"});
+  g.append(h("div",{class:"panel"},h("h2",null,"검수 방법"),
+    h("ol",{class:"rules"},
+      h("li",null,"카드 위는 사용자 요청(이전 대화 포함), 아래는 라벨의 툴콜이에요. \"이 요청에 이 도구를 먼저 부르는 게 맞나\"만 판단해요."),
+      h("li",null,"맞으면 왼쪽, 틀리면 오른쪽으로 밀어요. 이것도 정답·실행 전 확인까지 맞아야 맞음이에요."),
+      h("li",null,"규칙으로 판단이 안 되면 보류. 1건 20~30초, 1분 넘게 고민되면 보류."),
+      h("li",null,"틀림으로 넘긴 건은 틀림 고치기 탭에서 맞는 도구를 골라요. 나중에 몰아서 해도 돼요."),
+      h("li",null,"시험셋 350건은 라벨 없이 각자 처음부터, 상의 없이 달아요. 사람이 확인한 라벨만 골드 라벨이 돼요.")),
+    h("p",{class:"note"},"키보드: ← 맞음, → 틀림, ↑ 보류, Z 되돌리기.")));
+  g.append(h("div",{class:"panel"},h("h2",null,"미결 쟁점",h("small",null,"회의에서 규칙으로 정할 때까지 보류 권장")),
+    h("div",{class:"issue"},h("b",null,"① 호스트를 안 쓴 서버 명령"),"\"커널 메시지 봐줘\", \"sync 끄기\". 규칙 9대로 되묻기(none)인가, Hermes처럼 기본 호스트로 실행(ssh)인가."),
+    h("div",{class:"issue"},h("b",null,"② 도구·API 추천, 상식으로 답 가능한 질문"),"\"날씨 API 뭐가 좋아?\", \"open-meteo 무료야?\". none인가 web_search인가."),
+    h("div",{class:"issue"},h("b",null,"③ server_status와 ssh의 경계"),"\"systemd 타이머 목록\"처럼 읽기 전용이지만 정해진 조회가 아닌 것."),
+    h("p",{class:"note"},"카드의 쟁점 표시는 Opus 라벨에 해당 도구 쌍(ssh·none 등)이 함께 있을 때 자동으로 붙인 추정이에요.")));
+  g.append(h("div",{class:"panel"},h("h2",null,"경계 규칙",h("small",null,"1~12 기준서 v1.1, 13~23 v2")),h("ol",{class:"rules"},RULES.map(r => h("li",null,r)))));
+  g.append(h("div",{class:"panel"},h("h2",null,`도구 ${C.length}개`,h("small",null,"헤르메스 기준")),h("p",{class:"note"},`이 라벨은 Nous Research의 Hermes 에이전트 전용이에요. Hermes는 실제로는 대부분 terminal(명령 실행)과 web_search 도구로 일하지만, 라벨은 "무슨 일을 하려는 호출인가"로 ${C.length}가지로 나눠요. 예를 들어 서버 상태만 보는 ssh 명령은 라벨이 server_status예요.`),h("div",{class:"toolt"},D.tools.map(t => h("div",null,
+    h("div",{class:"row",style:"margin-bottom:2px"},h("span",{class:"tool"},t[0]),h("b",null,t[1]), t[4] && t[4] !== "read" && t[4] !== "none" ? h("span",{class:"yes",style:"font-size:12px"},t[4]) : null),
+    h("div",{style:"font-weight:500"},EASY[t[0]]),exList(t[0]),h("div",{class:"note"},"이럴 때: " + t[2]),h("div",{class:"note"},"아닐 때: " + t[3]))))));
+  app.append(g);
+}
+
+/* ---------- keys ---------- */
+document.addEventListener("keydown", e => {
+  if (e.target.closest && e.target.closest("input,textarea,select")) return;
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  if (S.tab === "swipe" && S.slot){
+    const front = document.querySelector(".sc.front"); const q = myQueue();
+    if (!front || !q[0]) { if (e.key === "z" || e.key === "Z") undo(); return; }
+    if (e.key === "ArrowLeft"){ e.preventDefault(); fling(front, q[0], "ok"); }
+    else if (e.key === "ArrowRight"){ e.preventDefault(); fling(front, q[0], "bad"); }
+    else if (e.key === "ArrowUp"){ e.preventDefault(); fling(front, q[0], "hold"); }
+    else if (e.key === "z" || e.key === "Z") undo();
+  } else if ((S.tab === "gold" || (S.tab === "fix" && S.fixId)) && S.draft && /^[0-9]$/.test(e.key)){
+    const i = (Number(e.key) + 9) % 10; S.draft.first = S.draft.first === i ? null : i; S.draft.also = S.draft.also.filter(a => a !== i); render();
+  }
+});
+
+if (!["swipe","fix","gold","stats","guide"].includes(S.tab)) S.tab = "swipe";
+render();
+boot();
+</script>

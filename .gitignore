@@ -7,3 +7,6 @@ venv/
 *.key
 *.pem
 ~$*.xlsx
+
+# 검수 사이트 빌드 결과(심은 오답 라벨이 들어 있음)
+review-site/dist/
