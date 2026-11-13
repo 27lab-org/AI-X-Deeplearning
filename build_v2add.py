@@ -1,6 +1,7 @@
 """v2 추가분(Hermes 기본 툴 클래스) 빌드·라벨 병합. v1 파일은 건드리지 않는다.
+용어: "골드 라벨"은 사람이 검수한 라벨만 가리킨다. 평가용으로 떼어 둔 분할은 사람 라벨이 붙기 전까지 holdout이라 부른다.
 사용:
-  python3 build_v2add.py build   gen/v2/*.txt → dataset/tool-choice-v2add.{all,train,val,gold}.jsonl,
+  python3 build_v2add.py build   gen/v2/*.txt → dataset/tool-choice-v2add.{all,train,val,holdout}.jsonl,
                                  dataset/labeling-input-v2add.jsonl, dataset/labels/v2/batch-NN.input.jsonl,
                                  dataset/stats-v2add.md, dataset/v2add-v1-conflicts.md
   python3 build_v2add.py merge   dataset/labels/v2/batch-NN.jsonl → dataset/labels/labels-v2add.jsonl,
@@ -47,15 +48,15 @@ def build(seed=42):
         lst = by.get(cls, []); rng.shuffle(lst)
         ng, nv = round(len(lst) * 0.10), round(len(lst) * 0.10)
         for i, r in enumerate(lst):
-            r["split"] = "gold" if i < ng else "val" if i < ng + nv else "train"
+            r["split"] = "holdout" if i < ng else "val" if i < ng + nv else "train"
     rows.sort(key=lambda r: r["id"])
     dump(DS / "tool-choice-v2add.all.jsonl", rows)
-    for s in ["train", "val", "gold"]:
+    for s in ["train", "val", "holdout"]:
         dump(DS / f"tool-choice-v2add.{s}.jsonl", [r for r in rows if r["split"] == s])
     strip = lambda r: {k: v for k, v in r.items() if k not in ("intended", "source_file", "type")}
     dump(DS / "labeling-input-v2add.jsonl", [strip(r) for r in rows])
-    # 라벨러 입력: 골드 제외, 무작위 순서로 배치 분할(id·context·request만)
-    tgt = [r for r in rows if r["split"] != "gold"]; rng.shuffle(tgt)
+    # 라벨러 입력: holdout(평가용, 사람 라벨 전) 제외, 무작위 순서로 배치 분할(id·context·request만)
+    tgt = [r for r in rows if r["split"] != "holdout"]; rng.shuffle(tgt)
     LBV2.mkdir(parents=True, exist_ok=True)
     for b in range(BATCH):
         dump(LBV2 / f"batch-{b+1:02d}.input.jsonl",
@@ -66,13 +67,13 @@ def build(seed=42):
          f"- 총 {n}건 (추가분 안 중복 {dup_in}건, v1과 같은 문장 {len(dup_v1)}건 제외)",
          f"- 새 클래스 10개가 정답인 문장 {sum(1 for r in rows if r['intended']['first'] in NEW)}건, "
          f"기존 클래스·none이 정답인 경계 문장 {sum(1 for r in rows if r['intended']['first'] not in NEW)}건", "",
-         "## 클래스 × 분할", "", "| 클래스 | train | val | gold | 합계 |", "|---|---|---|---|---|"]
+         "## 클래스 × 분할", "", "| 클래스 | train | val | holdout | 합계 |", "|---|---|---|---|---|"]
     for cls in CLASSES:
         c = C(r["split"] for r in rows if r["intended"]["first"] == cls)
         if sum(c.values()):
-            L.append(f"| {cls}{' (새)' if cls in NEW else ''} | {c['train']} | {c['val']} | {c['gold']} | {sum(c.values())} |")
+            L.append(f"| {cls}{' (새)' if cls in NEW else ''} | {c['train']} | {c['val']} | {c['holdout']} | {sum(c.values())} |")
     t = C(r["split"] for r in rows)
-    L.append(f"| **합계** | {t['train']} | {t['val']} | {t['gold']} | {n} |")
+    L.append(f"| **합계** | {t['train']} | {t['val']} | {t['holdout']} | {n} |")
     for title, key in [("언어", lambda r: r["lang"]), ("유형", lambda r: r["type"]),
                        ("맥락 있음", lambda r: "있음" if r["context"] else "없음"),
                        ("확인 필요", lambda r: "예" if r["intended"]["needs_confirm"] else "아니오"),
@@ -96,7 +97,7 @@ def build(seed=42):
     print("\n".join(L[:32])); print("라벨 대상", len(tgt), "/ v1 중복", len(dup_v1))
 
 def merge():
-    rows = [r for r in load(DS / "tool-choice-v2add.all.jsonl") if r["split"] != "gold"]
+    rows = [r for r in load(DS / "tool-choice-v2add.all.jsonl") if r["split"] != "holdout"]
     labels, bad = {}, []
     for f in sorted(glob.glob(str(LBV2 / "batch-[0-9][0-9].jsonl"))):
         for i, l in enumerate(open(f, encoding="utf-8"), 1):

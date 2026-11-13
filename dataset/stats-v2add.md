@@ -5,7 +5,7 @@
 
 ## 클래스 × 분할
 
-| 클래스 | train | val | gold | 합계 |
+| 클래스 | train | val | holdout | 합계 |
 |---|---|---|---|---|
 | weather | 4 | 0 | 0 | 4 |
 | calendar_list | 4 | 0 | 0 | 4 |

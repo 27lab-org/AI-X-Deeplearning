@@ -1,4 +1,4 @@
-{"lang": "ko", "context": "", "request": "그 유명한 proxmox 백업 가이드 글 링크 좀", "id": "tc-00ac1932", "split": "gold"}
+{"lang": "ko", "context": "", "request": "그 유명한 proxmox 백업 가이드 글 링크 좀", "id": "tc-00ac1932", "split": "holdout"}
 {"lang": "ko", "context": "비서: 안 읽은 메일이 5통 있어요", "request": "앞으로 매일 저녁 6시에 이렇게 메일 요약해줘", "id": "tc-00d22dd8", "split": "train"}
 {"lang": "mix", "context": "비서: 관련 article 링크예요 https://example.com/ai-trends", "request": "그거 read 하고 3줄 요약", "id": "tc-0110cf8e", "split": "train"}
 {"lang": "en", "context": "", "request": "Pull the table of benchmarks out of https://example.org/paper.pdf", "id": "tc-01c4e5e3", "split": "train"}
@@ -6,8 +6,8 @@
 {"lang": "ko", "context": "", "request": "pve02 /etc/hosts에 한 줄 추가해", "id": "tc-022acd5d", "split": "train"}
 {"lang": "en", "context": "", "request": "Monthly payment on a 250,000 loan at 5.1% over 20 years", "id": "tc-02401ad9", "split": "train"}
 {"lang": "ko", "context": "사용자: [이미지 첨부: plant.jpg]", "request": "이 식물 이름이 뭘까", "id": "tc-02e510b9", "split": "train"}
-{"lang": "mix", "context": "사용자: gift idea 필요해", "request": "지난번에 brainstorm 한 거 다시 꺼내줘", "id": "tc-02ebd2b6", "split": "gold"}
-{"lang": "ko", "context": "비서: 요약을 영어로 드릴까요?", "request": "아니 한국어. 앞으로도 계속 한국어로", "id": "tc-03810d16", "split": "gold"}
+{"lang": "mix", "context": "사용자: gift idea 필요해", "request": "지난번에 brainstorm 한 거 다시 꺼내줘", "id": "tc-02ebd2b6", "split": "holdout"}
+{"lang": "ko", "context": "비서: 요약을 영어로 드릴까요?", "request": "아니 한국어. 앞으로도 계속 한국어로", "id": "tc-03810d16", "split": "holdout"}
 {"lang": "mix", "context": "", "request": "https://example.com/search 에서 \"GPU server\" search 하고 filter를 price low로", "id": "tc-03cf3846", "split": "train"}
 {"lang": "en", "context": "", "request": "From now on always answer me in metric units", "id": "tc-04a11988", "split": "train"}
 {"lang": "ko", "context": "사용자: 아이 재우는 중이야\n비서: 짧은 동화를 써 드렸어요", "request": "이걸 오디오로 만들어줘", "id": "tc-04b63ba6", "split": "train"}
@@ -26,17 +26,17 @@
 {"lang": "ko", "context": "사용자: [이미지 첨부: error.png]", "request": "이 화면에 뭐라고 떠 있어", "id": "tc-0cbfe44c", "split": "train"}
 {"lang": "ko", "context": "", "request": "아침 날씨 알림 이제 꺼줘", "id": "tc-0cd9150c", "split": "train"}
 {"lang": "ko", "context": "", "request": "다음 주 화요일 3시 미팅 잡아줘", "id": "tc-0d055218", "split": "train"}
-{"lang": "ko", "context": "", "request": "방금 온 메일에 붙은 영수증 사진에서 금액 읽어줘", "id": "tc-0d253b5b", "split": "gold"}
+{"lang": "ko", "context": "", "request": "방금 온 메일에 붙은 영수증 사진에서 금액 읽어줘", "id": "tc-0d253b5b", "split": "holdout"}
 {"lang": "ko", "context": "사용자: [이미지 첨부: rack.jpg]", "request": "서버 랙에 빨간 불 들어온 게 몇 번째 칸이야", "id": "tc-0e517b96", "split": "train"}
 {"lang": "mix", "context": "", "request": "notes.md에 \"call dentist\" 한 줄 append 해줘", "id": "tc-0f17184d", "split": "val"}
-{"lang": "en", "context": "", "request": "On https://example.com/store pick size M and tell me if it's in stock", "id": "tc-1050fb98", "split": "gold"}
+{"lang": "en", "context": "", "request": "On https://example.com/store pick size M and tell me if it's in stock", "id": "tc-1050fb98", "split": "holdout"}
 {"lang": "en", "context": "", "request": "Do I have anything at 7 tomorrow", "id": "tc-10ccf061", "split": "train"}
 {"lang": "mix", "context": "", "request": "\"Happy birthday 지수야\" voice note로 만들어줘", "id": "tc-10f92330", "split": "train"}
 {"lang": "ko", "context": "사용자: 약을 하루 두 번 먹어야 해", "request": "아침 9시, 밤 9시에 알려줘 매일", "id": "tc-113a769a", "split": "train"}
 {"lang": "mix", "context": "사용자: [이미지 첨부: invoice.png]", "request": "total amount 얼마야", "id": "tc-11ab4374", "split": "train"}
 {"lang": "en", "context": "User: [image attached: flyer.jpg]", "request": "Put this event on my calendar", "id": "tc-11b05990", "split": "train"}
 {"lang": "mix", "context": "", "request": "https://example.com/status page screenshot 찍어줘", "id": "tc-12421a06", "split": "train"}
-{"lang": "en", "context": "", "request": "Rename the variable lr to learning_rate in train.py", "id": "tc-12ea352e", "split": "gold"}
+{"lang": "en", "context": "", "request": "Rename the variable lr to learning_rate in train.py", "id": "tc-12ea352e", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "다음부터 환율은 항상 엔화 기준으로 알려줘", "id": "tc-130e7232", "split": "train"}
 {"lang": "en", "context": "", "request": "Play some jazz", "id": "tc-13da7aa0", "split": "train"}
 {"lang": "en", "context": "User: [image attached: confusion-matrix.png]", "request": "Which two classes get mixed up the most", "id": "tc-150af7d9", "split": "train"}
@@ -45,7 +45,7 @@
 {"lang": "ko", "context": "", "request": "지금 환율로 1,234.56달러, 987.65유로 합치면 원화로 정확히 얼마야", "id": "tc-16af8cba", "split": "train"}
 {"lang": "ko", "context": "사용자: 블로그 글을 이어서 써야 해", "request": "지난주에 같이 잡은 소제목들 다시 불러와", "id": "tc-18a96c19", "split": "train"}
 {"lang": "mix", "context": "", "request": "이전 conversation들에서 \"Tailscale\" search", "id": "tc-18de6362", "split": "train"}
-{"lang": "ko", "context": "", "request": "달러가 1,350원 밑으로 떨어지면 알려줘, 매일 아침 확인해서", "id": "tc-1911b7f2", "split": "gold"}
+{"lang": "ko", "context": "", "request": "달러가 1,350원 밑으로 떨어지면 알려줘, 매일 아침 확인해서", "id": "tc-1911b7f2", "split": "holdout"}
 {"lang": "ko", "context": "비서: 회의록을 표로 정리했어요", "request": "좋아, 앞으로 회의록은 늘 이 형식으로", "id": "tc-19d81950", "split": "train"}
 {"lang": "mix", "context": "비서: draft를 다 썼어요", "request": "~/blog/draft.md로 save 해줘", "id": "tc-1a1d5be3", "split": "train"}
 {"lang": "ko", "context": "사용자: [이미지 첨부: poster.jpg]", "request": "이 포스터에 있는 행사 날짜 캘린더에 넣어줘", "id": "tc-1a65979b", "split": "train"}
@@ -59,7 +59,7 @@
 {"lang": "ko", "context": "사용자: 동생 졸업 선물로 카드 만들 거야", "request": "학사모 쓴 곰돌이 그림 하나 그려줘", "id": "tc-1db3dd9a", "split": "train"}
 {"lang": "en", "context": "Assistant: The download link is behind a cookie banner", "request": "Accept it and grab the file", "id": "tc-1dceae86", "split": "train"}
 {"lang": "en", "context": "", "request": "Create a pixel art sword", "id": "tc-1dfe15f9", "split": "train"}
-{"lang": "en", "context": "", "request": "Does https://example.com/terms say anything about refunds", "id": "tc-1e84541d", "split": "gold"}
+{"lang": "en", "context": "", "request": "Does https://example.com/terms say anything about refunds", "id": "tc-1e84541d", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "이 링크 내용 좀 읽어줘 https://example.org/notice/1123", "id": "tc-1e8e6f15", "split": "train"}
 {"lang": "mix", "context": "비서: summary를 bullet로 정리했어요", "request": "good, 앞으로도 이 style로 해줘", "id": "tc-1eca6398", "split": "train"}
 {"lang": "ko", "context": "비서: 음성 파일을 만들었어요", "request": "고마워 잘 들을게", "id": "tc-1f882d1c", "split": "val"}
@@ -69,7 +69,7 @@
 {"lang": "en", "context": "Assistant: I don't see that in this conversation", "request": "Check our earlier chats then", "id": "tc-2299fa53", "split": "val"}
 {"lang": "en", "context": "", "request": "Go to https://example.com and click the Pricing link", "id": "tc-23c25786", "split": "train"}
 {"lang": "ko", "context": "사용자: 적금 두 개를 비교 중이야", "request": "연 4.1% 단리 3년이랑 연 3.8% 월복리 3년, 1천만 원 넣으면 각각 얼마 받는지 계산해", "id": "tc-23fd8dd2", "split": "train"}
-{"lang": "ko", "context": "비서: 오늘 뉴스 요약이에요", "request": "설거지하면서 듣게 소리로 줘", "id": "tc-24ad82a5", "split": "gold"}
+{"lang": "ko", "context": "비서: 오늘 뉴스 요약이에요", "request": "설거지하면서 듣게 소리로 줘", "id": "tc-24ad82a5", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "지금 걸려 있는 예약 작업 뭐 있어", "id": "tc-258095b4", "split": "train"}
 {"lang": "ko", "context": "비서: 오늘 일정은 회의 2개, 치과 1개예요", "request": "그거 목소리로 들려줘", "id": "tc-25a004db", "split": "train"}
 {"lang": "ko", "context": "", "request": "서버 재시작은 무조건 나한테 먼저 물어보고 해. 앞으로 쭉", "id": "tc-26f96b65", "split": "train"}
@@ -141,7 +141,7 @@
 {"lang": "en", "context": "", "request": "Summarize https://example.com/blog/small-models", "id": "tc-4503b695", "split": "train"}
 {"lang": "ko", "context": "사용자: [이미지 첨부: pill.jpg]", "request": "이 약 포장에 하루 몇 번 먹으라고 써 있어", "id": "tc-4514ca80", "split": "train"}
 {"lang": "ko", "context": "비서: 고양이 그림을 만들었어요", "request": "좀 더 만화 같은 느낌으로 다시", "id": "tc-45564ebb", "split": "train"}
-{"lang": "en", "context": "Assistant: ~/notes has 14 files", "request": "Open the one about taxes", "id": "tc-46342765", "split": "gold"}
+{"lang": "en", "context": "Assistant: ~/notes has 14 files", "request": "Open the one about taxes", "id": "tc-46342765", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "https://example.com/dashboard 화면 스크린샷 찍어줘", "id": "tc-46c795bc", "split": "train"}
 {"lang": "en", "context": "User: [image attached: room.jpg]", "request": "Add a big bookshelf to the left wall", "id": "tc-470eed84", "split": "train"}
 {"lang": "mix", "context": "", "request": "https://example.com/faq 내용 read 해줘", "id": "tc-49899fef", "split": "train"}
@@ -157,27 +157,27 @@
 {"lang": "ko", "context": "", "request": "~/data/sales.csv 첫 다섯 줄만 보여줘", "id": "tc-4d6c6bc0", "split": "train"}
 {"lang": "mix", "context": "", "request": "\"Welcome to our lab\" 이거 voice로 만들어줘", "id": "tc-4f4ccbe0", "split": "train"}
 {"lang": "ko", "context": "사용자: 민서 생일이 3월 9일이래", "request": "이거 기억해 둬", "id": "tc-4f4f4688", "split": "train"}
-{"lang": "mix", "context": "", "request": "내 GitHub ID는 skyfox-dev야 기억해", "id": "tc-4f586440", "split": "gold"}
+{"lang": "mix", "context": "", "request": "내 GitHub ID는 skyfox-dev야 기억해", "id": "tc-4f586440", "split": "holdout"}
 {"lang": "en", "context": "", "request": "Say \"good morning team\" as a voice message", "id": "tc-5070973e", "split": "train"}
 {"lang": "ko", "context": "", "request": "내일 오후 3시에 은행 가라고 리마인드", "id": "tc-50c7ae7f", "split": "train"}
 {"lang": "ko", "context": "", "request": "아까 저장한 내 혈액형 틀렸어. A형으로 고쳐", "id": "tc-50c93668", "split": "train"}
 {"lang": "ko", "context": "사용자: [이미지 첨부: business-card.jpg]", "request": "이 명함 정보 읽어서 기억해 둬", "id": "tc-51067a33", "split": "train"}
 {"lang": "mix", "context": "비서: train.log에 epoch별 loss가 있어요", "request": "loss가 제일 낮은 epoch 찾아줘 parse 해서", "id": "tc-51f9c559", "split": "train"}
 {"lang": "ko", "context": "", "request": "pve02 디스크 문제 지금은 괜찮아?", "id": "tc-52282520", "split": "train"}
-{"lang": "en", "context": "Assistant: Here's the bedtime story", "request": "Can you send that as audio instead", "id": "tc-5245672a", "split": "gold"}
+{"lang": "en", "context": "Assistant: Here's the bedtime story", "request": "Can you send that as audio instead", "id": "tc-5245672a", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "오늘 주요 뉴스 알려줘", "id": "tc-52785a69", "split": "train"}
 {"lang": "ko", "context": "", "request": "주간 요약 알림 이번 주만 쉬어", "id": "tc-52eedae3", "split": "train"}
 {"lang": "en", "context": "User: I moved to Daejeon last month", "request": "Update my home city", "id": "tc-534e8ba0", "split": "train"}
 {"lang": "ko", "context": "비서: web_extract로는 표가 비어 보여요. 자바스크립트로 그려지는 것 같아요", "request": "그럼 브라우저로 열어서 봐", "id": "tc-538c1625", "split": "train"}
 {"lang": "ko", "context": "비서: train.py에 학습률이 1e-3으로 돼 있어요", "request": "3e-4로 고쳐", "id": "tc-53fbf925", "split": "train"}
-{"lang": "ko", "context": "", "request": "~/notes/todo.md 내용 보여줘", "id": "tc-54332022", "split": "gold"}
+{"lang": "ko", "context": "", "request": "~/notes/todo.md 내용 보여줘", "id": "tc-54332022", "split": "holdout"}
 {"lang": "en", "context": "Assistant: The receipt total is 42.50", "request": "Split three ways?", "id": "tc-54baee2a", "split": "train"}
 {"lang": "ko", "context": "사용자: [이미지 첨부: receipt.jpg]", "request": "여기 품목들 합계 다시 계산해서 영수증이 맞는지 봐", "id": "tc-54bf3319", "split": "train"}
 {"lang": "en", "context": "", "request": "Run a quick simulation: odds of at least two shared birthdays among 30 people", "id": "tc-552b0a5e", "split": "train"}
 {"lang": "ko", "context": "", "request": "자동응답 멘트 녹음 대신 만들어줘. \"지금은 부재중입니다. 메시지를 남겨 주세요.\"", "id": "tc-55946aa5", "split": "val"}
 {"lang": "mix", "context": "", "request": ".env file에 API_URL 뭐로 set 돼 있어", "id": "tc-573a4b46", "split": "train"}
 {"lang": "mix", "context": "", "request": "매시간 web01 health check 해서 down이면 알려줘", "id": "tc-579eef8d", "split": "train"}
-{"lang": "mix", "context": "", "request": "~/data/sensor.json에서 temperature 평균이랑 max 구해줘", "id": "tc-57a58c84", "split": "gold"}
+{"lang": "mix", "context": "", "request": "~/data/sensor.json에서 temperature 평균이랑 max 구해줘", "id": "tc-57a58c84", "split": "holdout"}
 {"lang": "en", "context": "", "request": "Remind me in 15 minutes to call the plumber", "id": "tc-57ac03b2", "split": "train"}
 {"lang": "ko", "context": "비서: 축사 초안을 써 드렸어요", "request": "좀 더 짧게 줄여줘", "id": "tc-5855a770", "split": "train"}
 {"lang": "ko", "context": "", "request": "내일 알람 맞출 만한 일정 있어?", "id": "tc-5861d50e", "split": "train"}
@@ -188,28 +188,28 @@
 {"lang": "ko", "context": "", "request": "받아쓰기 연습용으로 이 단어들 천천히 읽은 오디오 만들어줘: 사과, 바나나, 포도", "id": "tc-5ad66ce7", "split": "train"}
 {"lang": "ko", "context": "", "request": "근처 사진관 찾아줘", "id": "tc-5ad90541", "split": "train"}
 {"lang": "mix", "context": "", "request": "~/Downloads에 있는 PDF list 보여줘", "id": "tc-5c0b6196", "split": "train"}
-{"lang": "en", "context": "", "request": "What makes a good logo?", "id": "tc-5d1a6901", "split": "gold"}
+{"lang": "en", "context": "", "request": "What makes a good logo?", "id": "tc-5d1a6901", "split": "holdout"}
 {"lang": "en", "context": "", "request": "Where did we leave off yesterday?", "id": "tc-5dad3832", "split": "train"}
 {"lang": "mix", "context": "비서: news digest 정리했어요", "request": "운동하면서 듣게 speech로 변환", "id": "tc-5db2a914", "split": "train"}
 {"lang": "en", "context": "", "request": "Show me what's in ~/notes/ideas.txt", "id": "tc-5e6bda1a", "split": "train"}
 {"lang": "en", "context": "", "request": "What does https://example.com/about say about the founders", "id": "tc-5eb03960", "split": "train"}
 {"lang": "ko", "context": "", "request": "로고 디자인할 때 색은 몇 개까지 쓰는 게 좋아", "id": "tc-5f0440f3", "split": "train"}
 {"lang": "ko", "context": "", "request": "\"생일 축하해\" 음성 메시지로", "id": "tc-5f8b7553", "split": "train"}
-{"lang": "en", "context": "", "request": "Why do sites ask me to accept cookies", "id": "tc-60c4105b", "split": "gold"}
-{"lang": "mix", "context": "사용자: 이 job posting 좀 https://jobs.example.com/p/77", "request": "requirement만 정리", "id": "tc-60deda61", "split": "gold"}
+{"lang": "en", "context": "", "request": "Why do sites ask me to accept cookies", "id": "tc-60c4105b", "split": "holdout"}
+{"lang": "mix", "context": "사용자: 이 job posting 좀 https://jobs.example.com/p/77", "request": "requirement만 정리", "id": "tc-60deda61", "split": "holdout"}
 {"lang": "mix", "context": "", "request": "내 timezone은 Asia/Seoul이야 remember 해줘", "id": "tc-60e57e53", "split": "train"}
 {"lang": "en", "context": "", "request": "Save this: my passport expires in March 2029", "id": "tc-6320461e", "split": "train"}
 {"lang": "en", "context": "User: I keep missing the standup", "request": "Ping me at 8:55 every weekday", "id": "tc-63f477d7", "split": "train"}
 {"lang": "ko", "context": "사용자: 물을 너무 안 마셔", "request": "두 시간마다 물 마시라고 알려줘", "id": "tc-64c25016", "split": "train"}
-{"lang": "ko", "context": "사용자: 계약서 초안이 여기 올라와 있어 https://docs.example.com/contract-draft", "request": "위약금 조항 있는지 봐줘", "id": "tc-64d40c16", "split": "gold"}
+{"lang": "ko", "context": "사용자: 계약서 초안이 여기 올라와 있어 https://docs.example.com/contract-draft", "request": "위약금 조항 있는지 봐줘", "id": "tc-64d40c16", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "~/projects 아래에서 TODO 적힌 파일 다 찾아줘", "id": "tc-650beb2a", "split": "train"}
 {"lang": "ko", "context": "사용자: 실험 결과 정확도가 0.912, 0.905, 0.921, 0.898, 0.917이야", "request": "평균이랑 95% 신뢰구간 구해줘", "id": "tc-650dbf65", "split": "val"}
 {"lang": "ko", "context": "", "request": "https://example.com/login 들어가서 로그인 버튼 눌러봐", "id": "tc-6513ce7e", "split": "train"}
-{"lang": "ko", "context": "비서: 영어 자기소개를 다듬었어요", "request": "원어민 발음으로 들어보고 싶어", "id": "tc-652d43cb", "split": "gold"}
+{"lang": "ko", "context": "비서: 영어 자기소개를 다듬었어요", "request": "원어민 발음으로 들어보고 싶어", "id": "tc-652d43cb", "split": "holdout"}
 {"lang": "en", "context": "", "request": "Run df -h on nas01", "id": "tc-661b6f2a", "split": "val"}
 {"lang": "ko", "context": "비서: 발표 목차를 정리했어요", "request": "표지에 쓸 그림도 하나 만들어줘. 작은 로봇이 시험지 채점하는 모습", "id": "tc-675e69dc", "split": "val"}
-{"lang": "mix", "context": "사용자: [이미지 첨부: profile.jpg]", "request": "이거 cartoon style로 바꿔줘", "id": "tc-685dc51f", "split": "gold"}
-{"lang": "mix", "context": "", "request": "20분 timer 맞춰줘", "id": "tc-69e94d79", "split": "gold"}
+{"lang": "mix", "context": "사용자: [이미지 첨부: profile.jpg]", "request": "이거 cartoon style로 바꿔줘", "id": "tc-685dc51f", "split": "holdout"}
+{"lang": "mix", "context": "", "request": "20분 timer 맞춰줘", "id": "tc-69e94d79", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "메일에 첨부된 사진 뭐가 왔는지 봐줘", "id": "tc-6a8f3ad8", "split": "train"}
 {"lang": "ko", "context": "비서: 로고 시안을 만들었어요", "request": "색만 초록으로 바꾼 버전도 하나", "id": "tc-6a980c5c", "split": "train"}
 {"lang": "en", "context": "User: [image attached: math-homework.jpg]", "request": "Is the answer to problem 3 right", "id": "tc-6b038273", "split": "train"}
@@ -225,11 +225,11 @@
 {"lang": "ko", "context": "", "request": "1부터 5000까지 소수가 몇 개인지 세어줘", "id": "tc-6e497f82", "split": "train"}
 {"lang": "en", "context": "", "request": "Read https://example.com/meetup and add the date to my calendar", "id": "tc-6e668c22", "split": "train"}
 {"lang": "ko", "context": "", "request": "이번 대화에서만 나를 선배라고 불러", "id": "tc-6ec47c8b", "split": "train"}
-{"lang": "en", "context": "", "request": "Put a recurring 1:1 with Alex on my calendar every Tuesday at 2", "id": "tc-6ed0f9f9", "split": "gold"}
+{"lang": "en", "context": "", "request": "Put a recurring 1:1 with Alex on my calendar every Tuesday at 2", "id": "tc-6ed0f9f9", "split": "holdout"}
 {"lang": "en", "context": "", "request": "Find me royalty-free photos of mountains", "id": "tc-6f056dea", "split": "train"}
-{"lang": "en", "context": "", "request": "Append today's date to ~/logs/journal.md", "id": "tc-6f19f61f", "split": "gold"}
+{"lang": "en", "context": "", "request": "Append today's date to ~/logs/journal.md", "id": "tc-6f19f61f", "split": "holdout"}
 {"lang": "en", "context": "", "request": "Compute 17 factorial exactly", "id": "tc-70b2d39b", "split": "train"}
-{"lang": "ko", "context": "", "request": "명함 뒷면에 넣을 패턴 무늬 하나 뽑아줘, 남색 계열", "id": "tc-7135ebc5", "split": "gold"}
+{"lang": "ko", "context": "", "request": "명함 뒷면에 넣을 패턴 무늬 하나 뽑아줘, 남색 계열", "id": "tc-7135ebc5", "split": "holdout"}
 {"lang": "en", "context": "", "request": "Read me my latest email", "id": "tc-7179834d", "split": "train"}
 {"lang": "ko", "context": "", "request": "파이썬으로 CSV 합계 내는 코드 써줘", "id": "tc-71a58ac2", "split": "train"}
 {"lang": "en", "context": "", "request": "Take a screenshot of https://example.com/dashboard", "id": "tc-72114dc3", "split": "train"}
@@ -240,7 +240,7 @@
 {"lang": "en", "context": "", "request": "Check the yen rate every morning and ping me if it drops below 9 won", "id": "tc-7329048e", "split": "train"}
 {"lang": "ko", "context": "사용자: 이사 준비를 다시 해야 해", "request": "저번에 만든 체크리스트 불러와", "id": "tc-73d78814", "split": "train"}
 {"lang": "en", "context": "", "request": "Log in to https://portal.example.com with the saved credentials and open Billing", "id": "tc-74034411", "split": "val"}
-{"lang": "ko", "context": "", "request": "저번에 네가 추천해 준 책 제목 다시 알려줘", "id": "tc-7471aca1", "split": "gold"}
+{"lang": "ko", "context": "", "request": "저번에 네가 추천해 준 책 제목 다시 알려줘", "id": "tc-7471aca1", "split": "holdout"}
 {"lang": "ko", "context": "비서: 썸네일을 만들었어요", "request": "이거 어디에 올리면 좋을까", "id": "tc-7513f5f0", "split": "train"}
 {"lang": "ko", "context": "사용자: 이번에 팀을 옮겼어", "request": "이제 내 팀장은 한 과장님이야. 저장해", "id": "tc-7524f522", "split": "train"}
 {"lang": "ko", "context": "", "request": "이 링크 요약해줘", "id": "tc-75435cd9", "split": "train"}
@@ -259,13 +259,13 @@
 {"lang": "ko", "context": "비서: ~/data/sales.csv에 12개월치 매출이 있어요", "request": "전월 대비 증가율을 달마다 계산해줘", "id": "tc-79ef3e80", "split": "train"}
 {"lang": "ko", "context": "", "request": "지난번에 정리해 준 발표 목차 다시 보여줘", "id": "tc-7b406753", "split": "train"}
 {"lang": "mix", "context": "", "request": "https://example.com 열어서 Sign up button click 해봐", "id": "tc-7b6b1c68", "split": "train"}
-{"lang": "en", "context": "User: [image attached: fridge.jpg]", "request": "What could I cook with what's in here", "id": "tc-7be8d494", "split": "gold"}
+{"lang": "en", "context": "User: [image attached: fridge.jpg]", "request": "What could I cook with what's in here", "id": "tc-7be8d494", "split": "holdout"}
 {"lang": "mix", "context": "비서: config.yaml에 debug가 true예요", "request": "false로 change", "id": "tc-7c4faf6e", "split": "train"}
 {"lang": "ko", "context": "", "request": "지난주에 교수님이 보낸 메일에서 뭐라고 했더라", "id": "tc-7ce69973", "split": "train"}
 {"lang": "ko", "context": "", "request": "노을 지는 바닷가에 앉은 고양이 그림 그려줘", "id": "tc-7d06097d", "split": "train"}
 {"lang": "ko", "context": "", "request": "내일 날씨 음성 메시지로 알려줘", "id": "tc-7d07d677", "split": "train"}
 {"lang": "en", "context": "Assistant: Here's the banner", "request": "Try it again with warmer colors", "id": "tc-7daccb67", "split": "train"}
-{"lang": "ko", "context": "", "request": "이 공지문으로 안내 방송용 음성 만들어줘: 오후 2시부터 정전 점검이 있습니다", "id": "tc-7deea1d9", "split": "gold"}
+{"lang": "ko", "context": "", "request": "이 공지문으로 안내 방송용 음성 만들어줘: 오후 2시부터 정전 점검이 있습니다", "id": "tc-7deea1d9", "split": "holdout"}
 {"lang": "en", "context": "", "request": "Open it", "id": "tc-7e23c496", "split": "train"}
 {"lang": "ko", "context": "", "request": "예전 대화에서 zfs 설정 얘기한 거 찾아줘", "id": "tc-7eafe426", "split": "train"}
 {"lang": "ko", "context": "비서: 오늘 서울은 맑고 최고 12도예요", "request": "이거 매일 아침 7시에 자동으로 보내줘", "id": "tc-7f2ca3bc", "split": "train"}
@@ -280,7 +280,7 @@
 {"lang": "en", "context": "Assistant: You have 3 unread emails", "request": "Do this summary for me every evening at 6", "id": "tc-8249396f", "split": "train"}
 {"lang": "en", "context": "Assistant: I've drafted your toast", "request": "Read it aloud so I can hear the pacing", "id": "tc-834d1555", "split": "val"}
 {"lang": "en", "context": "", "request": "Sum the amount column in ~/data/expenses.csv", "id": "tc-842a2625", "split": "train"}
-{"lang": "ko", "context": "", "request": "기억에 남는 영화 추천해줘", "id": "tc-84403452", "split": "gold"}
+{"lang": "ko", "context": "", "request": "기억에 남는 영화 추천해줘", "id": "tc-84403452", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "기억력 좋아지는 방법 있어?", "id": "tc-8478c5b2", "split": "train"}
 {"lang": "ko", "context": "", "request": "우리 처음 대화한 게 언제야", "id": "tc-847c1967", "split": "train"}
 {"lang": "ko", "context": "", "request": "메일 요약할 때 광고 메일은 빼는 걸로 기억해", "id": "tc-853f2806", "split": "val"}
@@ -289,10 +289,10 @@
 {"lang": "en", "context": "User: I need that regex again", "request": "The one you wrote for me a few days ago", "id": "tc-85be0cf0", "split": "train"}
 {"lang": "mix", "context": "", "request": "gpu-a의 train.log tail 좀", "id": "tc-8634e1fc", "split": "train"}
 {"lang": "ko", "context": "비서: 신청서 칸을 모두 채웠어요", "request": "제출 버튼 눌러", "id": "tc-86beeeb2", "split": "train"}
-{"lang": "ko", "context": "", "request": "날씨 물으면 기본 위치는 판교로 해", "id": "tc-86e4ab96", "split": "gold"}
-{"lang": "en", "context": "Assistant: The backup on nas01 succeeded", "request": "Verify that every morning and alert me on failure", "id": "tc-87a192a0", "split": "gold"}
+{"lang": "ko", "context": "", "request": "날씨 물으면 기본 위치는 판교로 해", "id": "tc-86e4ab96", "split": "holdout"}
+{"lang": "en", "context": "Assistant: The backup on nas01 succeeded", "request": "Verify that every morning and alert me on failure", "id": "tc-87a192a0", "split": "holdout"}
 {"lang": "ko", "context": "비서: 그 글의 요지는 recordsize를 워크로드에 맞추라는 거예요", "request": "한 줄로 더 줄여줘", "id": "tc-87c904e5", "split": "train"}
-{"lang": "mix", "context": "", "request": "PNG랑 JPEG 중에 logo는 뭐가 better야", "id": "tc-88663ab5", "split": "gold"}
+{"lang": "mix", "context": "", "request": "PNG랑 JPEG 중에 logo는 뭐가 better야", "id": "tc-88663ab5", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "매주 월요일 9시에 이번 주 일정 요약해서 보내줘", "id": "tc-893e623d", "split": "train"}
 {"lang": "en", "context": "", "request": "Mock up a cover for a report called Tiny Graders", "id": "tc-8b3645a8", "split": "train"}
 {"lang": "ko", "context": "비서: 요약을 다 썼어요", "request": "운전 중이라 못 봐. 음성 메시지로 보내줘", "id": "tc-8c620c06", "split": "train"}
@@ -306,20 +306,20 @@
 {"lang": "en", "context": "Assistant: Here are today's headlines", "request": "Send them as a voice note, I'm on my bike", "id": "tc-9106ad24", "split": "train"}
 {"lang": "ko", "context": "", "request": "https://example.com/settings 에서 알림 토글이 켜져 있는지 봐줘, 로그인은 저장된 걸로", "id": "tc-92b9d906", "split": "train"}
 {"lang": "mix", "context": "", "request": "내일 9am에 remind me 회의 자료 챙기라고", "id": "tc-92c3453b", "split": "val"}
-{"lang": "mix", "context": "사용자: [이미지 첨부: ui-mock.png]", "request": "이 design에서 어색한 부분 feedback 줘", "id": "tc-92d12888", "split": "gold"}
+{"lang": "mix", "context": "사용자: [이미지 첨부: ui-mock.png]", "request": "이 design에서 어색한 부분 feedback 줘", "id": "tc-92d12888", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "크론탭에 매일 새벽 3시 백업 스크립트 추가해", "id": "tc-93aeb271", "split": "train"}
 {"lang": "ko", "context": "비서: 면접 답변 예시를 써 드렸어요", "request": "말하는 속도 감 잡게 음성으로 들려줘", "id": "tc-94017477", "split": "train"}
 {"lang": "en", "context": "", "request": "Find the Hermes agent docs and tell me how cron jobs work", "id": "tc-943b2597", "split": "train"}
 {"lang": "mix", "context": "", "request": "2주 전쯤 talk 했던 budget 숫자 뭐였더라", "id": "tc-94ca7d44", "split": "train"}
 {"lang": "ko", "context": "", "request": "https://example.com/wifi-guide 읽고 접속 방법을 기억해 둬", "id": "tc-951988c4", "split": "train"}
-{"lang": "ko", "context": "", "request": "3일 전 대화에서 내가 정한 프로젝트 이름이 뭐였지", "id": "tc-959ae70a", "split": "gold"}
+{"lang": "ko", "context": "", "request": "3일 전 대화에서 내가 정한 프로젝트 이름이 뭐였지", "id": "tc-959ae70a", "split": "holdout"}
 {"lang": "mix", "context": "", "request": "저번 session에서 짜던 script 어디까지 했어", "id": "tc-9756f493", "split": "train"}
 {"lang": "mix", "context": "사용자: [이미지 첨부: chart.png]", "request": "이 graph에서 peak가 언제야", "id": "tc-975ff0a5", "split": "train"}
 {"lang": "ko", "context": "", "request": "https://form.example.com/survey 설문에 이름 김가람, 참석으로 채워줘", "id": "tc-97d3f6e6", "split": "train"}
 {"lang": "en", "context": "", "request": "What's the cron syntax for every 5 minutes", "id": "tc-99a23062", "split": "train"}
 {"lang": "mix", "context": "", "request": "compound interest 계산: 원금 2천만, 연 3.8%, 7년, monthly 복리", "id": "tc-9ad07159", "split": "train"}
 {"lang": "ko", "context": "", "request": "2026년 11월 12일부터 2027년 3월 9일까지 평일이 며칠이야", "id": "tc-9ad0e0ba", "split": "val"}
-{"lang": "en", "context": "", "request": "Make a sticker of a sleepy owl holding coffee", "id": "tc-9b09ccc5", "split": "gold"}
+{"lang": "en", "context": "", "request": "Make a sticker of a sleepy owl holding coffee", "id": "tc-9b09ccc5", "split": "holdout"}
 {"lang": "ko", "context": "사용자: 카페 메뉴판을 새로 만들 거야", "request": "위쪽에 넣을 커피잔 그림 하나 그려줘, 선으로만", "id": "tc-9c7a2f94", "split": "train"}
 {"lang": "ko", "context": "", "request": "내가 채식한다는 거 잊지 마", "id": "tc-9cdc84ed", "split": "train"}
 {"lang": "en", "context": "Assistant: The port in settings.toml is 8080", "request": "Change it to 9090", "id": "tc-9dabd023", "split": "train"}
@@ -336,13 +336,13 @@
 {"lang": "ko", "context": "", "request": "이 프로젝트에서 load_dataset 함수가 어디 정의돼 있어", "id": "tc-a29c411c", "split": "train"}
 {"lang": "ko", "context": "비서: 환율은 1달러에 1,380원이에요", "request": "그럼 37,412.55달러는 원 단위까지 정확히 얼마야", "id": "tc-a474a58a", "split": "train"}
 {"lang": "ko", "context": "", "request": "이 파일 구글 드라이브에 올려줘", "id": "tc-a4de4fa2", "split": "train"}
-{"lang": "ko", "context": "", "request": "알람 소리는 왜 들을수록 싫어질까", "id": "tc-a4fda03b", "split": "gold"}
+{"lang": "ko", "context": "", "request": "알람 소리는 왜 들을수록 싫어질까", "id": "tc-a4fda03b", "split": "holdout"}
 {"lang": "mix", "context": "", "request": "tomorrow 2pm에 review meeting 추가", "id": "tc-a5209f8f", "split": "train"}
 {"lang": "ko", "context": "", "request": "학교 포털 https://portal.example.ac.kr 에 저장된 계정으로 로그인해서 공지 탭 열어줘", "id": "tc-a78bd76e", "split": "train"}
-{"lang": "ko", "context": "비서: 로그 파일은 4만 줄이에요", "request": "ERROR가 시간대별로 몇 번 나왔는지 집계해", "id": "tc-a90169db", "split": "gold"}
+{"lang": "ko", "context": "비서: 로그 파일은 4만 줄이에요", "request": "ERROR가 시간대별로 몇 번 나왔는지 집계해", "id": "tc-a90169db", "split": "holdout"}
 {"lang": "mix", "context": "비서: USD는 지금 1,380원이에요", "request": "이거 daily로 아침마다 알려줘", "id": "tc-a979f525", "split": "train"}
 {"lang": "ko", "context": "", "request": "main.py 120번째 줄 근처 좀 보여줘", "id": "tc-aa03ed6a", "split": "val"}
-{"lang": "ko", "context": "", "request": "이거 기억해 둬", "id": "tc-aafff5f2", "split": "gold"}
+{"lang": "ko", "context": "", "request": "이거 기억해 둬", "id": "tc-aafff5f2", "split": "holdout"}
 {"lang": "mix", "context": "", "request": "src 폴더에서 deprecated 들어간 line 전부 search", "id": "tc-aba1a8c8", "split": "val"}
 {"lang": "ko", "context": "", "request": "https://example.com/blog/zfs-tuning 이 글 요약해줘", "id": "tc-ac43ad83", "split": "train"}
 {"lang": "ko", "context": "", "request": "250달러 지금 원으로 얼마야", "id": "tc-ac6c6dbe", "split": "train"}
@@ -358,7 +358,7 @@
 {"lang": "mix", "context": "", "request": "~/Pictures/slide.png 의 text extract 해줘", "id": "tc-b38fba3d", "split": "val"}
 {"lang": "ko", "context": "", "request": "홈 폴더에 memo.txt 만들고 \"우유 사기\"라고 적어줘", "id": "tc-b41d88f0", "split": "train"}
 {"lang": "mix", "context": "", "request": "이 image 설명해줘", "id": "tc-b603b805", "split": "train"}
-{"lang": "ko", "context": "", "request": "매달 50만 원씩 연 5% 복리로 10년 넣으면 얼마가 돼", "id": "tc-b63055cc", "split": "gold"}
+{"lang": "ko", "context": "", "request": "매달 50만 원씩 연 5% 복리로 10년 넣으면 얼마가 돼", "id": "tc-b63055cc", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "매일 아침 8시에 오늘 날씨 알려줘", "id": "tc-b657e978", "split": "train"}
 {"lang": "mix", "context": "비서: results.csv에 run이 30개 있어요", "request": "accuracy 기준 top 5 정렬해서 보여줘", "id": "tc-b66589b6", "split": "train"}
 {"lang": "en", "context": "", "request": "Make it audio", "id": "tc-b6b843d8", "split": "train"}
@@ -381,9 +381,9 @@
 {"lang": "ko", "context": "", "request": "https://shop.example.com/cart 장바구니에 있는 거 결제까지 진행해", "id": "tc-bbd2b828", "split": "train"}
 {"lang": "ko", "context": "", "request": "안 읽은 메일 요약해서 음성으로 들려줘", "id": "tc-bbf19986", "split": "val"}
 {"lang": "ko", "context": "", "request": "지식 증류 최신 논문 찾아서 초록 읽어줘", "id": "tc-bca5a76d", "split": "train"}
-{"lang": "ko", "context": "비서: 30분 뒤 알림을 설정했어요", "request": "10분 더 미뤄줘", "id": "tc-bd722393", "split": "gold"}
+{"lang": "ko", "context": "비서: 30분 뒤 알림을 설정했어요", "request": "10분 더 미뤄줘", "id": "tc-bd722393", "split": "holdout"}
 {"lang": "ko", "context": "사용자: https://example.com/changelog", "request": "이번 버전에서 바뀐 거 뭐야", "id": "tc-bdd32d1a", "split": "val"}
-{"lang": "mix", "context": "사용자: [이미지 첨부: label.jpg]", "request": "ingredients에 nuts 들어 있어?", "id": "tc-bef76b2b", "split": "gold"}
+{"lang": "mix", "context": "사용자: [이미지 첨부: label.jpg]", "request": "ingredients에 nuts 들어 있어?", "id": "tc-bef76b2b", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "손실 곡선에서 과적합은 어떻게 알아봐?", "id": "tc-bf0070ad", "split": "train"}
 {"lang": "ko", "context": "", "request": "URL에서 물음표 뒤에 붙는 건 뭐야", "id": "tc-bf1d4fca", "split": "train"}
 {"lang": "en", "context": "", "request": "Have I asked you about tax deductions before?", "id": "tc-bfd293fe", "split": "train"}
@@ -391,7 +391,7 @@
 {"lang": "ko", "context": "비서: 내일 일정에 치과가 있어요", "request": "참고로 나 치과는 항상 오전에만 가. 알아둬", "id": "tc-c15a005f", "split": "train"}
 {"lang": "ko", "context": "", "request": "https://example.com/recipe/kimchi-stew 재료 목록만", "id": "tc-c203e209", "split": "train"}
 {"lang": "en", "context": "", "request": "Search my projects folder for files mentioning \"invoice\"", "id": "tc-c28d590b", "split": "train"}
-{"lang": "en", "context": "", "request": "Show me /var/log/syslog on nas01", "id": "tc-c2dcdeee", "split": "gold"}
+{"lang": "en", "context": "", "request": "Show me /var/log/syslog on nas01", "id": "tc-c2dcdeee", "split": "holdout"}
 {"lang": "en", "context": "", "request": "What was the name of that library you suggested last week", "id": "tc-c40c9e4b", "split": "train"}
 {"lang": "mix", "context": "비서: speech draft예요", "request": "TTS로 한번 들려줘", "id": "tc-c46eddf7", "split": "train"}
 {"lang": "mix", "context": "", "request": "이 내용 Slack에 post 해줘", "id": "tc-c4ad9729", "split": "train"}
@@ -413,7 +413,7 @@
 {"lang": "ko", "context": "", "request": "어제 대화 이어서 하자. 뭐 하다 말았지", "id": "tc-cd71d06a", "split": "train"}
 {"lang": "ko", "context": "", "request": "web01의 /etc/nginx/nginx.conf 보여줘", "id": "tc-ce1e81f0", "split": "train"}
 {"lang": "mix", "context": "", "request": "LLM의 memory는 어떻게 동작해?", "id": "tc-ced085c3", "split": "train"}
-{"lang": "mix", "context": "비서: 그 page는 login이 필요해요", "request": "saved account로 login 해서 봐", "id": "tc-cf68eebe", "split": "gold"}
+{"lang": "mix", "context": "비서: 그 page는 login이 필요해요", "request": "saved account로 login 해서 봐", "id": "tc-cf68eebe", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "거기 로그인해줘", "id": "tc-cf70dd29", "split": "train"}
 {"lang": "ko", "context": "", "request": "zfs 튜닝 잘 정리된 글 찾아줘", "id": "tc-cf7a2752", "split": "train"}
 {"lang": "en", "context": "", "request": "Is the disk issue on pve02 still happening", "id": "tc-cfc9c154", "split": "train"}
@@ -423,7 +423,7 @@
 {"lang": "ko", "context": "", "request": "https://example.com/calendar 에서 다음 달 버튼 눌러서 빈 날짜 뭐 있는지 봐", "id": "tc-d066dc99", "split": "train"}
 {"lang": "mix", "context": "", "request": "https://example.com/release-notes 에서 breaking change만 뽑아", "id": "tc-d16e2009", "split": "train"}
 {"lang": "en", "context": "Assistant: Here's your wedding toast", "request": "Make it funnier", "id": "tc-d1a40bd9", "split": "train"}
-{"lang": "ko", "context": "", "request": "우리 집 강아지 닮은 캐릭터 만들어줘. 흰색 말티즈, 빨간 목도리", "id": "tc-d1b99b5a", "split": "gold"}
+{"lang": "ko", "context": "", "request": "우리 집 강아지 닮은 캐릭터 만들어줘. 흰색 말티즈, 빨간 목도리", "id": "tc-d1b99b5a", "split": "holdout"}
 {"lang": "ko", "context": "비서: nas01 백업은 성공했어요", "request": "매일 아침 이거 확인해서 실패하면 바로 알려줘", "id": "tc-d1d9a87a", "split": "train"}
 {"lang": "ko", "context": "", "request": "3만 원의 10%가 얼마야", "id": "tc-d259bf1f", "split": "train"}
 {"lang": "mix", "context": "", "request": "presentation용 background, gradient blue로 generate", "id": "tc-d2e1972f", "split": "val"}
@@ -437,19 +437,19 @@
 {"lang": "mix", "context": "", "request": "오늘 schedule voice로 읽어줘", "id": "tc-d57785e9", "split": "train"}
 {"lang": "en", "context": "Assistant: The table only loads after clicking \"Show all\"", "request": "Click it and read me the rows", "id": "tc-d60ce89e", "split": "train"}
 {"lang": "mix", "context": "", "request": "pandas로 groupby 하는 code 예시 보여줘", "id": "tc-d6614c33", "split": "train"}
-{"lang": "en", "context": "", "request": "Generate 10 random UUIDs for me", "id": "tc-d663e4f6", "split": "gold"}
-{"lang": "en", "context": "Assistant: The page needs JavaScript; the extract came back empty", "request": "Open it in the browser then", "id": "tc-d7149bce", "split": "gold"}
+{"lang": "en", "context": "", "request": "Generate 10 random UUIDs for me", "id": "tc-d663e4f6", "split": "holdout"}
+{"lang": "en", "context": "Assistant: The page needs JavaScript; the extract came back empty", "request": "Open it in the browser then", "id": "tc-d7149bce", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "이 사진에 뭐가 있어?", "id": "tc-d78237e2", "split": "train"}
 {"lang": "en", "context": "", "request": "How many Fridays fall on the 13th between 2027 and 2035", "id": "tc-d78decec", "split": "train"}
 {"lang": "en", "context": "Assistant: The official docs are at https://docs.example.com/api/limits", "request": "What rate limit does that page list", "id": "tc-d823b80a", "split": "train"}
-{"lang": "en", "context": "", "request": "Pull up the packing list we made last month", "id": "tc-d84e43f5", "split": "gold"}
+{"lang": "en", "context": "", "request": "Pull up the packing list we made last month", "id": "tc-d84e43f5", "split": "holdout"}
 {"lang": "mix", "context": "", "request": "podcast 추천해줘", "id": "tc-d86c41ba", "split": "train"}
 {"lang": "ko", "context": "사용자: 가계부가 ~/data/budget.csv에 있어", "request": "이번 달 식비가 총 얼마인지 계산해", "id": "tc-d8c5cda5", "split": "train"}
 {"lang": "ko", "context": "", "request": "~/Pictures/whiteboard.jpg 에 적힌 글씨 읽어줘", "id": "tc-daf67fe0", "split": "train"}
 {"lang": "en", "context": "", "request": "Search my past sessions for anything about the lease renewal", "id": "tc-db8707d8", "split": "train"}
 {"lang": "ko", "context": "", "request": "그 파일 열어줘", "id": "tc-dcacc934", "split": "train"}
 {"lang": "ko", "context": "", "request": "3,847 곱하기 9,216 나누기 37 정확히 계산해줘", "id": "tc-dd454fb9", "split": "train"}
-{"lang": "ko", "context": "", "request": "나 땅콩 알레르기 있는 거 기억해 둬", "id": "tc-dd4fc658", "split": "gold"}
+{"lang": "ko", "context": "", "request": "나 땅콩 알레르기 있는 거 기억해 둬", "id": "tc-dd4fc658", "split": "holdout"}
 {"lang": "mix", "context": "", "request": "예전에 Docker compose 물어본 conversation 찾아줘", "id": "tc-de187baf", "split": "train"}
 {"lang": "mix", "context": "", "request": "0.1 + 0.2가 floating point로 정확히 얼마인지 run 해서 보여줘", "id": "tc-de4b8224", "split": "train"}
 {"lang": "ko", "context": "", "request": "\"회의는 3시에 시작합니다\" 이 문장 음성으로 만들어줘", "id": "tc-de58f6d6", "split": "train"}
@@ -462,7 +462,7 @@
 {"lang": "ko", "context": "", "request": "아침 브리핑 시간을 7시 반으로 바꿔", "id": "tc-e11bb9ad", "split": "train"}
 {"lang": "en", "context": "Assistant: Here's the cabin image", "request": "Same scene but at night with northern lights", "id": "tc-e128b18a", "split": "train"}
 {"lang": "ko", "context": "비서: 그 페이지는 로그인해야 본문이 보여요", "request": "그럼 저장된 계정으로 로그인해서 읽어", "id": "tc-e12be160", "split": "val"}
-{"lang": "mix", "context": "", "request": "이 page 읽고 key point만 https://example.io/docs/quickstart", "id": "tc-e1969f43", "split": "gold"}
+{"lang": "mix", "context": "", "request": "이 page 읽고 key point만 https://example.io/docs/quickstart", "id": "tc-e1969f43", "split": "holdout"}
 {"lang": "en", "context": "", "request": "What did I tell you about my budget in our chat last month", "id": "tc-e1e52a2b", "split": "train"}
 {"lang": "en", "context": "Assistant: Here's the report in a table", "request": "Perfect. Always format reports like this going forward", "id": "tc-e320cef4", "split": "train"}
 {"lang": "ko", "context": "비서: 발표 대본 초안이에요", "request": "길이 감 잡게 음성으로 한 번 뽑아줘", "id": "tc-e3750d07", "split": "val"}
@@ -470,7 +470,7 @@
 {"lang": "mix", "context": "", "request": "https://example.com/blog/rag 읽고 pros and cons 정리해줘", "id": "tc-e3acc201", "split": "train"}
 {"lang": "en", "context": "User: Let's get back to the migration plan", "request": "What were the three steps we agreed on last time", "id": "tc-e3eab00e", "split": "train"}
 {"lang": "ko", "context": "사용자: 팀 티셔츠를 맞추려고 해", "request": "앞면에 넣을 그림 시안 그려봐. 부엉이랑 노트북", "id": "tc-e4c74773", "split": "train"}
-{"lang": "ko", "context": "비서: https://example.com/apply 신청서 페이지를 열었어요", "request": "이름이랑 연락처 칸 채워 넣어. 이름은 김가람", "id": "tc-e73b9c5d", "split": "gold"}
+{"lang": "ko", "context": "비서: https://example.com/apply 신청서 페이지를 열었어요", "request": "이름이랑 연락처 칸 채워 넣어. 이름은 김가람", "id": "tc-e73b9c5d", "split": "holdout"}
 {"lang": "ko", "context": "사용자: 선물을 골라야 하는데", "request": "지난번에 네가 골라준 후보 세 개가 뭐였지", "id": "tc-e75d8249", "split": "train"}
 {"lang": "ko", "context": "", "request": "지난주에 우리 얘기했던 식당 이름이 뭐였지", "id": "tc-e7730ec0", "split": "val"}
 {"lang": "mix", "context": "", "request": "오늘부터 D-day 100일이 무슨 date고 무슨 요일인지", "id": "tc-e8317e8d", "split": "train"}
@@ -478,8 +478,8 @@
 {"lang": "ko", "context": "", "request": "~/logs/access.log에서 IP별 요청 수 상위 10개 뽑아줘", "id": "tc-eadfa1b9", "split": "val"}
 {"lang": "ko", "context": "", "request": "발표 표지에 쓸 추상적인 배경 이미지 생성해줘", "id": "tc-eb4efa9f", "split": "train"}
 {"lang": "mix", "context": "사용자: standup을 자꾸 까먹어", "request": "평일 8:50마다 remind 해줘", "id": "tc-ece29bee", "split": "train"}
-{"lang": "mix", "context": "", "request": "저 page 내용 뭐야", "id": "tc-eda8a43e", "split": "gold"}
-{"lang": "ko", "context": "", "request": "~/Downloads/diagram.png 구조 설명해줘", "id": "tc-ee6cdf42", "split": "gold"}
+{"lang": "mix", "context": "", "request": "저 page 내용 뭐야", "id": "tc-eda8a43e", "split": "holdout"}
+{"lang": "ko", "context": "", "request": "~/Downloads/diagram.png 구조 설명해줘", "id": "tc-ee6cdf42", "split": "holdout"}
 {"lang": "ko", "context": "", "request": "앞으로 답은 존댓말 말고 반말로 해줘, 기억해", "id": "tc-efa565b2", "split": "train"}
 {"lang": "ko", "context": "", "request": "이미지 생성 모델은 어떤 원리로 그림을 그려", "id": "tc-f04492f7", "split": "train"}
 {"lang": "ko", "context": "", "request": "내가 지난달에 여행 계획 어디까지 짰었지", "id": "tc-f0962634", "split": "train"}

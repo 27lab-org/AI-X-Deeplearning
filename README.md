@@ -26,8 +26,12 @@
 | `seed-examples-v2.jsonl` | 새 클래스 라벨 예시 25건 |
 | `gen/v2/` | v2 추가분 생성 원문 |
 | `build_v2add.py` | v2 추가분 빌드·라벨 병합 (v1 파일은 건드리지 않음) |
-| `dataset/tool-choice-v2add.*` | v2 추가분 507건 (train 405 / val 51 / gold 51), 통계 `stats-v2add.md`, v1과 충돌 후보 `v2add-v1-conflicts.md` |
+| `dataset/tool-choice-v2add.*` | v2 추가분 507건 (train 405 / val 51 / holdout 51: 평가용, 사람 라벨 전), 통계 `stats-v2add.md`, v1과 충돌 후보 `v2add-v1-conflicts.md` |
 | `dataset/labels/v2/`, `labels-v2add.jsonl`, `agreement-v2add.md` | v2 추가분 Opus 라벨과 일치 통계 |
+
+## 용어
+
+**골드 라벨**은 사람이 검수한 라벨만 가리킨다. Opus 라벨과 생성 의도는 골드가 아니다. `gold`/`holdout` 분할은 사람 3명이 라벨을 달기 전까지 "골드 후보"다.
 
 ## 진행 상태
 
