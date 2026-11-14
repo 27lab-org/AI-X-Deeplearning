@@ -246,7 +246,7 @@ function exBlock(tool, open){
   return h("details",{class:"why exd",open:open || null},h("summary",null,"예시"),l);
 }
 const PRI = {1:"1순위 · 확신 낮음",2:"2순위 · 생성 의도와 다름",3:"3순위 · 부분 일치",4:"4순위 · 일치"};
-const ISSUE = {1:"쟁점① 호스트 없는 서버 명령",2:"쟁점② 추천·상식 질문",3:"쟁점③ 상태조회↔ssh"};
+const ISSUE = {}; // 미결 쟁점 3개는 Dev·Ops 문장 제외로 해당 없음 (2026-11-14)
 const RULES = D.rules;
 // item tuple: [id, split, lang, context, request, first, also_ok[], sequence[], needs_confirm, rule, confidence, note, priority, why, issues[], assignee]
 const ITEMS = D.items.map(a => ({id:a[0],split:a[1]==="t"?"train":"val",lang:a[2],ctx:a[3],req:a[4],first:a[5],also:a[6],seq:a[7],nc:!!a[8],rule:a[9],conf:a[10],note:a[11],pri:a[12],why:a[13],iss:a[14],who:a[15]}));
@@ -433,7 +433,6 @@ function cardEl(x, cls){
     h("div",{class:"stamp ok"},"맞음"), h("div",{class:"stamp bad"},"틀림"), h("div",{class:"stamp hold"},"보류"),
     h("div",{class:"meta"},
       h("span",{class:"pill p"+x.pri},PRI[x.pri]),
-      x.iss.map(i => h("span",{class:"pill iss",title:"자동 추정: Opus 라벨에 쟁점 도구 쌍이 함께 있음"},ISSUE[i])),
       h("span",{class:"id"},x.id)),
     h("div",{class:"task"},
       h("div",{class:"sect"},"사용자 요청"),
@@ -536,7 +535,7 @@ function picker(x, d, onSave, opts){
   const grid = h("div",{class:"grid10"});
   C.forEach((c,i) => grid.append(h("button",{type:"button",class:"cls" + (d.first===i?" sel":"") + (d.also.includes(i)?" also":"") + (opts.was===i?" was":""),
     onclick:() => { if (d.first === i) d.first = null; else { d.first = i; d.also = d.also.filter(a => a !== i); } render(); }},
-    h("span",{class:"n"},c),h("span",{class:"d"},KO[c]),h("span",{class:"k"},String((i+1)%10)))));
+    h("span",{class:"n"},c),h("span",{class:"d"},KO[c]),i < 10 ? h("span",{class:"k"},String((i+1)%10)) : null)));
   const easyLine = d.first == null ? null : h("div",{class:"easy"}, h("b",{class:"mono"},C[d.first]), " " + EASY[C[d.first]], exList(C[d.first]));
   const also = h("div",{class:"row"});
   C.forEach((c,i) => { if (i !== d.first) also.append(h("button",{type:"button",class:"btn sm","aria-pressed":String(d.also.includes(i)),style:d.also.includes(i)?"border-color:var(--ink);color:var(--ink)":"",
@@ -551,7 +550,7 @@ function picker(x, d, onSave, opts){
     h("details",{class:"why",open:d.also.length ? true : null},h("summary",null,"이것도 정답인 도구 (선택)"),h("div",{class:"row",style:"margin-top:8px"},also)),
     h("div",{class:"row"},h("span",{class:"lbl"},"실행 전 확인"),
       h("div",{class:"seg"},h("button",{type:"button","aria-pressed":String(!d.nc),onclick:() => { d.nc = false; render(); }},"필요 없음"),h("button",{type:"button","aria-pressed":String(!!d.nc),onclick:() => { d.nc = true; render(); }},"필요"))),
-    opts.issues ? h("div",{class:"row"},h("span",{class:"lbl"},"관련 쟁점"),
+    opts.issues && Object.keys(ISSUE).length ? h("div",{class:"row"},h("span",{class:"lbl"},"관련 쟁점"),
       h("div",{class:"seg"},[0,1,2,3].map(k => h("button",{type:"button","aria-pressed":String((d.issue||0)===k),onclick:() => { d.issue = k; render(); }}, k ? "①②③"[k-1] : "없음")))) : null,
     h("input",{class:"memo",id:"memo-"+x.id,placeholder:"메모 (애매했던 이유 한 줄)",value:d.memo||"",oninput:e => { d.memo = e.target.value; }}),
     h("div",{class:"row"}, opts.actions(d))].filter(Boolean));
@@ -591,7 +590,7 @@ function viewFix(){
     const L = h("div",{class:"list"});
     for (const [x,d] of todo) L.append(h("button",{class:"li",type:"button",onclick:() => { S.fixId = x.id; S.draft = null; render(); window.scrollTo(0,0); }},
       h("span",{class:"t"},x.req), h("span",{class:"vchip " + (d.v==="hold"?"v-hold":"v-bad")}, d.v==="hold"?"보류":"틀림"),
-      h("span",{class:"s"},"원래: ",h("span",{class:"tool"},C[x.first]), d.issue ? ISSUE[d.issue] : (x.iss.length ? x.iss.map(i => "쟁점"+"①②③"[i-1]).join(" ") : ""), d.memo ? "· " + d.memo : "")));
+      h("span",{class:"s"},"원래: ",h("span",{class:"tool"},C[x.first]), d.memo ? "· " + d.memo : "")));
     app.append(L);
   }
   if (fixed.length){
@@ -710,11 +709,10 @@ function viewStats(){
   grid.append(h("div",{class:"panel"},h("h2",null,"자주 고친 방향",h("small",null,"원래 라벨 → 사람")),
     pr.length ? h("div",{class:"tw"},h("table",{class:"t"},h("tbody",null,pr.map(([k,v]) => h("tr",null,h("td",{class:"mono"},k),h("td",{class:"num"},v)))))) : h("p",{class:"note"},"아직 고친 건이 없어요.")));
   // holds by issue
-  const holds = {0:0,1:0,2:0,3:0};
-  for (const s of SLOTS) for (const [id,d] of S.rv[s]) if (d.v === "hold") holds[d.issue||0]++;
+  let holdN = 0;
+  for (const s of SLOTS) for (const d of S.rv[s].values()) if (d.v === "hold") holdN++;
   grid.append(h("div",{class:"panel"},h("h2",null,"보류 안건",h("small",null,"주 1회 3명이 정함")),
-    [1,2,3].map(i => h("div",{class:"kv"},h("span",null,ISSUE[i]),h("b",null,holds[i]))),
-    h("div",{class:"kv"},h("span",null,"쟁점 표시 없음"),h("b",null,holds[0])),
+    h("div",{class:"kv"},h("span",null,"보류"),h("b",null,holdN)),
     h("button",{class:"btn sm",type:"button",onclick:() => exportHolds()},"보류 목록 CSV 받기")));
   // gold agreement
   const f = fleiss(); const myDone = S.slot ? GOLD.filter(g => S.gd[S.slot].has(g.id)).length : 0;
@@ -826,13 +824,8 @@ function viewGuide(){
       h("li",null,"틀림으로 넘긴 건은 틀림 고치기 탭에서 맞는 도구를 골라요. 나중에 몰아서 해도 돼요."),
       h("li",null,`시험셋 ${GOLD.length}건은 라벨 없이 각자 처음부터, 상의 없이 달아요. 사람이 확인한 라벨만 골드 라벨이 돼요.`)),
     h("p",{class:"note"},"키보드: ← 맞음, → 틀림, ↑ 보류, Z 되돌리기.")));
-  g.append(h("div",{class:"panel"},h("h2",null,"미결 쟁점",h("small",null,"회의에서 규칙으로 정할 때까지 보류 권장")),
-    h("div",{class:"issue"},h("b",null,"① 호스트를 안 쓴 서버 명령"),"\"커널 메시지 봐줘\", \"sync 끄기\". 규칙 9대로 되묻기(none)인가, Hermes처럼 기본 호스트로 실행(ssh)인가."),
-    h("div",{class:"issue"},h("b",null,"② 도구·API 추천, 상식으로 답 가능한 질문"),"\"날씨 API 뭐가 좋아?\", \"open-meteo 무료야?\". none인가 web_search인가."),
-    h("div",{class:"issue"},h("b",null,"③ server_status와 ssh의 경계"),"\"systemd 타이머 목록\"처럼 읽기 전용이지만 정해진 조회가 아닌 것."),
-    h("p",{class:"note"},"카드의 쟁점 표시는 Opus 라벨에 해당 도구 쌍(ssh·none 등)이 함께 있을 때 자동으로 붙인 추정이에요.")));
-  g.append(h("div",{class:"panel"},h("h2",null,"경계 규칙",h("small",null,"1~12 기준서 v1.1, 13~23 v2")),h("ol",{class:"rules"},RULES.map(r => h("li",null,r)))));
-  g.append(h("div",{class:"panel"},h("h2",null,`도구 ${C.length}개`,h("small",null,"헤르메스 기준")),h("p",{class:"note"},`이 라벨은 Nous Research의 Hermes 에이전트 전용이에요. Hermes는 실제로는 대부분 terminal(명령 실행)과 web_search 도구로 일하지만, 라벨은 "무슨 일을 하려는 호출인가"로 ${C.length}가지로 나눠요. 예를 들어 서버 상태만 보는 ssh 명령은 라벨이 server_status예요.`),h("div",{class:"toolt"},D.tools.map(t => h("div",null,
+  g.append(h("div",{class:"panel"},h("h2",null,"경계 규칙",h("small",null,"1~12 기준서 v1.1, 13~23 v2")),h("ol",{class:"rules"},RULES.map((r,i) => r.startsWith("(삭제") ? null : h("li",{value:String(i+1)},r)))));
+  g.append(h("div",{class:"panel"},h("h2",null,`도구 ${C.length}개`,h("small",null,"헤르메스 기준")),h("p",{class:"note"},`이 라벨은 Nous Research의 Hermes 에이전트 전용이에요. Hermes는 실제로는 대부분 terminal(명령 실행)과 web_search 도구로 일하지만, 라벨은 "무슨 일을 하려는 호출인가"로 ${C.length}가지로 나눠요. 예를 들어 날씨를 terminal의 curl로 조회해도 라벨은 weather예요.`),h("div",{class:"toolt"},D.tools.map(t => h("div",null,
     h("div",{class:"row",style:"margin-bottom:2px"},h("span",{class:"tool"},t[0]),h("b",null,t[1]), t[4] && t[4] !== "read" && t[4] !== "none" ? h("span",{class:"yes",style:"font-size:12px"},t[4]) : null),
     h("div",{style:"font-weight:500"},EASY[t[0]]),exList(t[0]),h("div",{class:"note"},"이럴 때: " + t[2]),h("div",{class:"note"},"아닐 때: " + t[3]))))));
   app.append(g);

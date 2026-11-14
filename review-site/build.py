@@ -28,6 +28,8 @@ gold=L(ROOT+'dataset/tool-choice-v1.gold.jsonl')
 hp=ROOT+'dataset/tool-choice-v2add.holdout.jsonl'
 holdout={x['request'] for x in (L(hp) if os.path.exists(hp) else [])}|{x['request'] for x in gold}
 def issue(lb):
+    return []  # 미결 쟁점 3개는 Dev·Ops 제외로 해당 없음
+def _old_issue(lb):
     s={lb['first'],*lb.get('also_ok',[])}; out=[]
     if {'ssh','none'}<=s: out.append(1)
     if {'web_search','none'}<=s: out.append(2)
@@ -70,8 +72,34 @@ ex={}
 for c in C:
     if c in ex1 and c!='none': ex[c]=ex1[c]
     else: ex[c]={"yes":(YES2.get(c,[]) if c!='none' else ex1['none']['yes'])[:3],"no":NO2.get(c, ex1.get(c,{}).get('no',[]))}
+# 지금 데이터에 남아 있는 문장만 예시로 쓴다 (범위가 줄면 빠진 문장·클래스가 자동으로 사라지게)
+known=set()
+for f in ['seed-examples.jsonl','seed-examples-v2.jsonl','dataset/tool-choice-v1.train.jsonl','dataset/tool-choice-v1.val.jsonl']:
+    if os.path.exists(ROOT+f): known|={x['request'] for x in L(ROOT+f)}
+base=lambda r:r.split(' (')[0]
+for c in list(ex):
+    ex[c]={"yes":[r for r in ex[c]['yes'] if base(r) in known],"no":[n for n in ex[c]['no'] if n[1] in ci and base(n[0]) in known]}
 for c in ex:
     for r in ex[c]['yes']+[n[0] for n in ex[c]['no']]: assert r.split(' (')[0] not in holdout, r
+# 예시가 2개보다 적은 클래스는 직접 쓴 짧은 예시로 채운다.
+# (v2 학습 문장은 전부 검수 카드로 나가므로, 거기서 가져오면 심은 오답의 정답이 새어 나간다)
+MANUAL={
+ "session_search":["지난번에 얘기한 그 책 제목 뭐였지?","Find what we talked about for my trip last week"],
+ "execute_code":["3월 1일부터 오늘까지 정확히 며칠 지났는지 계산해줘","~/data/가계부.csv에서 월별 지출 합계 내줘"],
+ "vision_analyze":["이 영수증 사진에서 총액 읽어줘 (앞 대화: [이미지 첨부: receipt.jpg])","사진 속 표지판에 뭐라고 써 있어? (앞 대화: [이미지 첨부: sign.png])"],
+ "file":["~/Documents/여행계획.txt에 내일 일정 한 줄 추가해줘"],
+ "web_extract":["이 기사 세 줄로 요약해줘 (앞 대화: https://example.com/news/1)"],
+ "browser":["https://shop.example.com 장바구니 열어서 수량 2개로 바꿔줘"],
+ "image_generate":["고양이 생일 카드 그림 만들어줘"],
+ "text_to_speech":["Good morning 이 문장 음성 파일로 만들어줘"],
+}
+shown={x['request'] for x in v2}
+for c,rs in MANUAL.items():
+    if c not in ex: continue
+    for r in rs:
+        if len(ex[c]['yes'])>=2: break
+        assert base(r) not in holdout and base(r) not in shown, r
+        if r not in ex[c]['yes']: ex[c]['yes'].append(r)
 T=[[t['id'],t['name_ko'],t['when'],t['not_when'],t['risk'],EASY[t['id']],ex[t['id']]['yes'],ex[t['id']]['no']] for t in tools]
 # 규칙 1~12(v1) + 13~23(v2)
 g1=open(ROOT+'labeling-guide.md', encoding='utf-8').read(); g2=open(ROOT+'labeling-guide-v2.md', encoding='utf-8').read()
