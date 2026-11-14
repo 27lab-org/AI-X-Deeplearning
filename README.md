@@ -19,6 +19,7 @@
 | `merge_labels.py` | Opus 라벨 병합·비교 |
 | `build_review_sheet.py` | 사람 검수용 엑셀 생성 |
 | `review-site/` | 휴대폰 스와이프 검수 사이트 소스·빌드 스크립트 ([설명](review-site/README.md)) |
+| `web/build_site_data.py` | 27lab.org/tools/tool-grader/ 공개 페이지용 색인(data.json) 빌드. 시험셋은 넣지 않음 |
 | `dataset/` | 데이터셋 v1 (2,369건: train 1,893 / val 233 / gold 243), 통계 `stats.md` |
 | `dataset/labels/` | Opus 라벨, 생성 의도와의 일치 통계 |
 | `dataset/review-sheet-v2.xlsx` | 검수 엑셀 (골드 A/B/C 시트 포함) |
