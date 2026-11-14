@@ -130,7 +130,9 @@ if A.web:
     for o,n in rep:
         assert o in js, o
         js=js.replace(o,n)
-    html=src[:a]+'<script src="shim.js?v=1"></script>\n'+src[c+len('</script>'):]
+    # 아티팩트 런타임이 붙여 주던 문서 머리(doctype·charset·viewport)를 직접 넣는다. 없으면 휴대폰이 데스크톱 폭(980px)으로 그린다.
+    HEAD='<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"></head><body>'+chr(10)
+    html=HEAD+src[:a]+'<script src="shim.js?v=1"></script>\n'+src[c+len('</script>'):]
     html=html.replace('<meta name="claude:viewport-fit-sides" content="cover">\n','')
     assert '<script>' not in html and '__DATA__' not in html
     os.makedirs(A.web+'/static', exist_ok=True)
