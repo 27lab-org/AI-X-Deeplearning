@@ -127,4 +127,5 @@
 - Dev·Ops 관련은 전부 뺀다. `server_status`·`ssh` 클래스 삭제, 서버·네트워크·코드·ML·개발 도구를 다루는 문장 삭제.
 - v1: 3,491 → 2,369건(train 1,893 / val 233 / gold 243), 클래스 8개, Opus 라벨 2,126건.
 - v2 추가분: 507 → 402건(train 318 / val 43 / holdout 41), 클래스 18개(기존 8 + Hermes 기본 툴 10), Opus 라벨 361건.
+- 보충(같은 날): 얇아진 file·web_extract·session_search·execute_code를 일상 문장 126건으로 채워 각 53~55건. v2 추가분 528건(train 420 / val 55 / holdout 53), Opus 라벨 475건, 생성 의도와 first 일치 99.6%. 기존 id·분할은 그대로(`build_v2add.py add`).
 - 위 1~10절의 도구 목록·건수·쟁점은 변경 전 기록이다. 서버 관련 쟁점 ①③과 도구·API 추천 쟁점 ②는 해당 문장이 빠져서 더 이상 없다.

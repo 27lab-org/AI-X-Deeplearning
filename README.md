@@ -26,7 +26,7 @@
 | `seed-examples-v2.jsonl` | 새 클래스 라벨 예시 25건 |
 | `gen/v2/` | v2 추가분 생성 원문 |
 | `build_v2add.py` | v2 추가분 빌드·라벨 병합 (v1 파일은 건드리지 않음) |
-| `dataset/tool-choice-v2add.*` | v2 추가분 402건 (train 318 / val 43 / holdout 41: 평가용, 사람 라벨 전), 통계 `stats-v2add.md`, v1과 충돌 후보 `v2add-v1-conflicts.md` |
+| `dataset/tool-choice-v2add.*` | v2 추가분 528건 (train 420 / val 55 / holdout 53: 평가용, 사람 라벨 전), 통계 `stats-v2add.md`, v1과 충돌 후보 `v2add-v1-conflicts.md` |
 | `dataset/labels/v2/`, `labels-v2add.jsonl`, `agreement-v2add.md` | v2 추가분 Opus 라벨과 일치 통계 |
 
 ## 범위
@@ -41,5 +41,5 @@
 
 - E0 데이터 준비: 완료
 - E1 Opus 라벨: 완료 (생성 의도와 96.7% 일치). 사람 검수 대기
-- v2 추가분(2026-11-12): Hermes 기본 툴 기준 클래스 10개 추가. Dev·Ops 제외 후 402건, train+val 361건 Opus 라벨. 사람 검수 대기
+- v2 추가분(2026-11-12): Hermes 기본 툴 기준 클래스 10개 추가. Dev·Ops 제외 후 402건, 11-14에 얇은 클래스 4개(file·web_extract·session_search·execute_code)를 126건 보충해 528건, train+val 475건 Opus 라벨. 사람 검수 대기
 - E2 학생 모델 학습, E3 프론티어 기준선·CPU 속도: 예정

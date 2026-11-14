@@ -4,6 +4,9 @@
   python3 build_v2add.py build   gen/v2/*.txt → dataset/tool-choice-v2add.{all,train,val,holdout}.jsonl,
                                  dataset/labeling-input-v2add.jsonl, dataset/labels/v2/batch-NN.input.jsonl,
                                  dataset/stats-v2add.md, dataset/v2add-v1-conflicts.md
+  python3 build_v2add.py add gen/v2/<새 파일>.txt
+                                 기존 id·분할은 그대로 두고 새 문장만 덧붙인다(이미 있는 문장은 건너뜀).
+                                 dataset/labels/v2/batch-NN.input.jsonl 을 다음 번호로 하나 더 만든다.
   python3 build_v2add.py merge   dataset/labels/v2/batch-NN.jsonl → dataset/labels/labels-v2add.jsonl,
                                  dataset/tool-choice-v2add.labeled.jsonl, dataset/labels/agreement-v2add.md
 """
@@ -96,6 +99,35 @@ def build(seed=42):
     (DS / "v2add-v1-conflicts.md").write_text("\n".join(M) + "\n", encoding="utf-8")
     print("\n".join(L[:32])); print("라벨 대상", len(tgt), "/ v1 중복", len(dup_v1))
 
+def add(path, seed=43):
+    """기존 행은 건드리지 않고 gen 파일 하나의 새 문장만 덧붙인다. build를 다시 돌리면 id·분할이 바뀌므로 보충은 이걸로 한다."""
+    old = load(DS / "tool-choice-v2add.all.jsonl")
+    seen = {(r["context"], r["request"].lower()) for r in old + load(DS / "tool-choice-v1.all.jsonl")}
+    ids = {r["id"] for r in old}; new = []
+    for r in bd.parse(pathlib.Path(path)):
+        key = (r["context"], r["request"].lower())
+        if key in seen: continue
+        seen.add(key); r["source_file"] = "v2/" + r["source_file"]
+        r["id"] = "tc-" + hashlib.sha1((r["context"] + "\x1f" + r["request"]).encode()).hexdigest()[:8]
+        assert r["id"] not in ids, r["id"]; ids.add(r["id"]); new.append(r)
+    if not new: print("새 문장 없음"); return
+    rng = random.Random(seed); by = collections.defaultdict(list)
+    for r in new: by[r["intended"]["first"]].append(r)
+    for cls in CLASSES:
+        lst = by.get(cls, []); rng.shuffle(lst)
+        ng, nv = round(len(lst) * 0.10), round(len(lst) * 0.10)
+        for i, r in enumerate(lst): r["split"] = "holdout" if i < ng else "val" if i < ng + nv else "train"
+    rows = sorted(old + new, key=lambda r: r["id"])
+    dump(DS / "tool-choice-v2add.all.jsonl", rows)
+    for s in ["train", "val", "holdout"]:
+        dump(DS / f"tool-choice-v2add.{s}.jsonl", [r for r in rows if r["split"] == s])
+    strip = lambda r: {k: v for k, v in r.items() if k not in ("intended", "source_file", "type")}
+    dump(DS / "labeling-input-v2add.jsonl", [strip(r) for r in rows])
+    tgt = [r for r in new if r["split"] != "holdout"]; rng.shuffle(tgt)
+    nb = len(glob.glob(str(LBV2 / "batch-[0-9][0-9].input.jsonl"))) + 1
+    dump(LBV2 / f"batch-{nb:02d}.input.jsonl", [{"id": r["id"], "context": r["context"], "request": r["request"]} for r in tgt])
+    print(f"새 문장 {len(new)}건 (분할 {dict(C(r['split'] for r in new))}), 라벨 대상 {len(tgt)}건 → batch-{nb:02d}.input.jsonl, 전체 {len(rows)}건")
+
 def merge():
     rows = [r for r in load(DS / "tool-choice-v2add.all.jsonl") if r["split"] != "holdout"]
     labels, bad = {}, []
@@ -163,4 +195,4 @@ def merge():
     print("\n".join(L[:9]))
 
 if __name__ == "__main__":
-    {"build": build, "merge": merge}[sys.argv[1]]()
+    {"build": build, "merge": merge, "add": lambda: add(sys.argv[2])}[sys.argv[1]]()
