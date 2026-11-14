@@ -26,11 +26,11 @@
 |---|---|---|
 | v1 Opus 라벨 2,126건 | `dataset/tool-choice-v1.labeled.jsonl` | 있음 |
 | v1 시험셋 243건(라벨 없음) | `dataset/tool-choice-v1.gold.jsonl` | 있음 |
-| v2 검수용 361건(심은 오답 48 + 대조군 48 포함) | 프로젝트 파일 `tool-call-grader/review-v2add/review-items.jsonl` | **없음, 올리지 말 것** |
-| 정답표 96건 | 프로젝트 파일 `tool-call-grader/review-v2add/KEY-planted.jsonl` | **없음, 올리지 말 것** |
+| v2 검수용 475건(심은 오답 61 + 대조군 61 포함) | 프로젝트 파일 `tool-call-grader/review-v2add/review-items.jsonl` | **없음, 올리지 말 것** |
+| 정답표 122건 | 프로젝트 파일 `tool-call-grader/review-v2add/KEY-planted.jsonl` | **없음, 올리지 말 것** |
 | 클래스 18개, 규칙, 예시 | `tools-v2.json`, `labeling-guide*.md`, `seed-examples*.jsonl` | 있음 |
 
-- 배정: v1은 우선순위(확신 낮은 것부터) 순서로 A/B/C에 번갈아. v2의 `audience: all` 96건은 3명 모두, 나머지는 번갈아. 1인 약 893건. v2 카드는 v1 순서 사이에 무작위로 섞임(seed 20261113).
+- 배정: v1은 우선순위(확신 낮은 것부터) 순서로 A/B/C에 번갈아. v2의 `audience: all` 122건은 3명 모두, 나머지는 번갈아. 1인 약 949건. v2 카드는 v1 순서 사이에 무작위로 섞임(seed 20261113).
 - `dist/index.html`에는 심은 오답 라벨이 표시 없이 들어간다. 그래서 커밋하지 않는다. 저장소의 `dataset/labels/labels-v2add.jsonl`(깨끗한 라벨)과 비교하면 심은 건이 드러나므로, 배포본은 검수자만 보게 비공개로 둔다.
 
 ## 저장소(백엔드)
@@ -53,7 +53,7 @@ claude.ai 아티팩트 런타임의 공유 문서 DB(`await window.claude.use("d
 
 ## 검수 신뢰도
 
-정답을 아는 96건(심은 오답 48 + 대조군 48)만으로 계산한다. 양성 = 라벨이 맞음.
+정답을 아는 122건(심은 오답 61 + 대조군 61)만으로 계산한다. 양성 = 라벨이 맞음.
 
 - TP 맞는 라벨을 맞음 · TN 심은 오답을 틀림 · FP 심은 오답을 맞음 · FN 맞는 라벨을 틀림 (보류 제외)
 - 민감도 TP/(TP+FN), 특이도 TN/(TN+FP), 정밀도 TP/(TP+FP), 정확도 (TP+TN)/전체
