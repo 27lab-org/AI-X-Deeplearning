@@ -109,7 +109,7 @@
 - 강한 라벨러: Claude Opus 5.5 / Fable. 생성과 라벨은 다른 호출(가능하면 다른 모델).
 - Hermes 실제 로그는 그대로 넣지 않음. 사용 패턴을 바탕으로 비슷한 문장을 새로 작성.
 - 첫 실험 도구 10개(Hermes 툴콜 기준): weather, calendar_list, calendar_create, web_search, map_search, fx, mail_read, server_status, ssh, none.
-- Hermes 기준: 실제 호출은 대부분 terminal(스크립트·ssh)과 web_search. 라벨은 기능 클래스, 호출 형태 대응은 tools.json. skill_view 선행은 감점 없음, 일정 일은 calendar_list 먼저.
+- Hermes 기준: 실제 호출은 대부분 terminal과 web_search. 라벨은 기능 클래스, 호출 형태 대응은 tools.json. skill_view 선행은 감점 없음, 일정 일은 calendar_list 먼저.
 
 ## 10. E0·E1 준비물 (tool-call-grader/)
 - **dataset/ (v1.1, 2026-10-21 Fable 생성)**: 3,491건(맥락 문장 보강, 중복 32건 제거). train 2,791 / val 350 / gold 350(클래스별 층화). 맥락 있음 14%(목표 20%). 원문 gen/*.txt, 생성 build_dataset.py, 통계 dataset/stats.md, 라벨러 입력 dataset/labeling-input.jsonl(의도·type 제거: type의 cannot/clarify가 none 힌트라 제거).
@@ -123,10 +123,9 @@
 - seed-examples.jsonl: 예시 45건 / prompts.md: 생성·라벨 프롬프트
 - build_review_sheet.py: 검수 엑셀 생성(labeled.jsonl + gold.jsonl → xlsx)
 
-## 11. Hermes 확인 결과 (2026-10-20, 서버 읽기 전용, 최근 7일)
-- **거의 전부 terminal 툴로 처리** → 툴 이름만으로는 구분 불가. 라벨은 기능 클래스, 에이전트 실제 호출 판정은 "툴 + 명령 패턴(정규식)" (tools.json command_regex).
-- 사용 횟수(7일): ssh 173, web_search ~108, calendar list 36, 날씨(curl open-meteo) 13, naver_search 11, calendar create 0, gmail 0, 환율 0.
-- 날씨: 정식 스크립트 없이 curl open-meteo. 환율: 도구 없음. 메일: google_api.py gmail 있으나 미사용. 서버 상태: ssh로 zpool/pct 등 + probe_all_hosts_cron.py. Prometheus/Grafana 안 씀.
-- 실험 영향: 실제 사용이 ssh·검색·캘린더 조회에 몰림 → 3,000건은 클래스 균형을 맞춰 합성, 별도로 "실사용 분포" 가중 점수도 보고.
-- 부수 발견(실험 범위 밖): 10-19 툴 끄기 미적용, maya ssh 설정에 폐기 호스트 3대 남음, ritsuko가 폐기된 pve-idea에 1회 접속 시도, maya MEMORY.md에 BMC 비밀번호 평문.
-- 상세: 워크스테이션 Desktop\hermes-prompt-opt\tool-inventory-20261020.md
+## 11. 범위 변경: 일상 요청만 (2026-11-14, Daniel)
+- Dev·Ops 관련은 전부 뺀다. `server_status`·`ssh` 클래스 삭제, 서버·네트워크·코드·ML·개발 도구를 다루는 문장 삭제.
+- v1: 3,491 → 2,369건(train 1,893 / val 233 / gold 243), 클래스 8개, Opus 라벨 2,126건.
+- v2 추가분: 507 → 402건(train 318 / val 43 / holdout 41), 클래스 18개(기존 8 + Hermes 기본 툴 10), Opus 라벨 361건.
+- 보충(같은 날): 얇아진 file·web_extract·session_search·execute_code를 일상 문장 126건으로 채워 각 53~55건. v2 추가분 528건(train 420 / val 55 / holdout 53), Opus 라벨 475건, 생성 의도와 first 일치 99.6%. 기존 id·분할은 그대로(`build_v2add.py add`).
+- 위 1~10절의 도구 목록·건수·쟁점은 변경 전 기록이다. 서버 관련 쟁점 ①③과 도구·API 추천 쟁점 ②는 해당 문장이 빠져서 더 이상 없다.

@@ -1,0 +1,96 @@
+# v2 추가분 (2026-11-12, Fable 생성). Nous Hermes Agent 기본 툴 기준 새 클래스.
+# 형식: lang | type | first | also_ok | confirm | seq | context | request | hint
+# --- memory (툴: memory) ---
+ko | easy | memory |  |  |  |  | 나 땅콩 알레르기 있는 거 기억해 둬 | 
+ko | easy | memory |  |  |  |  | 앞으로 답은 존댓말 말고 반말로 해줘, 기억해 | 
+ko | easy | memory |  |  |  |  | 내 차 번호 12가 3456이야 저장해놔 | 
+ko | easy | memory |  |  |  |  | 우리 집 주소는 성남시 분당구 가상로 12야. 기억해 둬 | 
+ko | tricky | memory |  |  |  |  | 나는 보통 아침 7시에 일어나. 알아둬 | 
+ko | tricky | memory |  |  |  |  | 다음부터 환율은 항상 엔화 기준으로 알려줘 | 
+ko | tricky | memory |  |  |  |  | 날씨 물으면 기본 위치는 판교로 해 | 
+ko | tricky | memory |  |  |  |  | 내가 채식한다는 거 잊지 마 | 
+ko | tricky | memory |  |  |  |  | 아까 저장한 내 혈액형 틀렸어. A형으로 고쳐 | 
+ko | tricky | memory |  | y |  |  | 내 전 직장 관련해서 기억하고 있는 거 다 지워 | 삭제
+ko | tricky | memory |  |  |  |  | 지금 나에 대해 뭘 기억하고 있어? | 
+ko | tricky | memory |  |  |  | 비서: 서현역 근처 카페 3곳을 찾았어요 | 난 디카페인만 마셔. 다음부터 그걸로 걸러줘 | 
+ko | tricky | memory |  |  |  | 비서: 회의록을 표로 정리했어요 | 좋아, 앞으로 회의록은 늘 이 형식으로 | 
+ko | tricky | memory |  |  |  | 사용자: 민서 생일이 3월 9일이래 | 이거 기억해 둬 | 
+ko | tricky | memory |  |  |  | 비서: 요약을 영어로 드릴까요? | 아니 한국어. 앞으로도 계속 한국어로 | 
+ko | tricky | none |  |  |  | 사용자: 민서 생일이 3월 9일이래 | 3월 9일이면 무슨 요일이야 내년에 | 저장 요청 아님, 계산
+ko | tricky | none |  |  |  |  | 기억력 좋아지는 방법 있어? | 단어만 기억
+ko | tricky | none |  |  |  |  | 이번 대화에서만 나를 선배라고 불러 | 지속 저장 아님
+ko | tricky | calendar_create | calendar_list |  |  |  | 12월 3일 건강검진 잊지 않게 캘린더에 넣어줘 | 일정은 캘린더
+ko | clarify | none |  |  |  |  | 이거 기억해 둬 | 대상 없음
+mix | easy | memory |  |  |  |  | 내 timezone은 Asia/Seoul이야 remember 해줘 | 
+mix | easy | memory |  |  |  |  | coffee는 항상 oat milk로 시킨다는 거 저장 | 
+mix | tricky | memory |  |  |  | 비서: summary를 bullet로 정리했어요 | good, 앞으로도 이 style로 해줘 | 
+mix | tricky | memory |  |  |  |  | 내 preference 저장된 거 list 보여줘 | 
+en | easy | memory |  |  |  |  | Remember that I'm allergic to shellfish | 
+en | easy | memory |  |  |  |  | Save this: my passport expires in March 2029 | 
+en | tricky | memory |  |  |  |  | My manager's name is Jordan, keep that in mind for later | 
+en | tricky | memory |  |  |  |  | What do you know about my preferences so far? | 
+en | tricky | memory |  | y |  |  | Forget everything you saved about my diet | 삭제
+en | tricky | memory |  |  |  | Assistant: Here's the report in a table | Perfect. Always format reports like this going forward | 
+en | tricky | memory |  |  |  | User: I moved to Daejeon last month | Update my home city | 
+en | tricky | none |  |  |  |  | Just for this chat, call me captain | 지속 저장 아님
+en | tricky | none |  |  |  |  | How does human memory work? | 개념
+# --- session_search (툴: session_search) ---
+ko | easy | session_search |  |  |  |  | 지난주에 우리 얘기했던 식당 이름이 뭐였지 | 
+ko | easy | session_search |  |  |  |  | 저번에 네가 추천해 준 책 제목 다시 알려줘 | 
+ko | tricky | session_search |  |  |  |  | 내가 지난달에 여행 계획 어디까지 짰었지 | 
+ko | tricky | session_search |  |  |  |  | 그때 그 에러 어떻게 해결했더라? 한 2주 전에 물어봤는데 | 
+ko | tricky | session_search |  |  |  |  | 어제 대화 이어서 하자. 뭐 하다 말았지 | 
+ko | tricky | session_search |  |  |  |  | 지난번에 정리해 준 발표 목차 다시 보여줘 | 
+ko | tricky | session_search |  |  |  |  | 우리 처음 대화한 게 언제야 | 
+ko | tricky | session_search |  |  |  |  | 최근에 내가 뭐 물어봤는지 목록 좀 | 
+ko | tricky | session_search |  |  |  | 사용자: 선물을 골라야 하는데 | 지난번에 네가 골라준 후보 세 개가 뭐였지 | 
+ko | tricky | session_search |  |  |  | 비서: 그 내용은 이번 대화에는 없어요 | 그럼 이전 대화들에서 찾아봐 | 
+ko | tricky | none |  |  |  | 비서: 추천 도서는 "가상의 숲"과 "느린 계산"이에요 | 방금 말한 두 번째 책 제목이 뭐라고? | 현재 대화로 답 가능
+ko | tricky | none |  |  |  | 사용자: 아까 내가 말한 숫자가 42였지 // 비서: 네, 42라고 하셨어요 | 그거 두 배면? | 현재 대화로 답 가능
+ko | tricky | mail_read |  |  |  |  | 지난주에 교수님이 보낸 메일에서 뭐라고 했더라 | 메일 내용은 mail_read
+ko | tricky | calendar_list |  |  |  |  | 지난주에 내가 무슨 회의 했더라 | 지난 일정은 calendar_list
+mix | easy | session_search |  |  |  |  | last time에 얘기한 hotel 이름 뭐였지 | 
+mix | tricky | session_search |  |  |  |  | 2주 전쯤 talk 했던 budget 숫자 뭐였더라 | 
+mix | tricky | session_search |  |  |  | 사용자: gift idea 필요해 | 지난번에 brainstorm 한 거 다시 꺼내줘 | 
+mix | tricky | none |  |  |  | 비서: 후보는 A hotel, B stay 두 곳이에요 | 방금 first 거 이름 다시 | 현재 대화로 답 가능
+en | tricky | session_search |  |  |  |  | Where did we leave off yesterday? | 
+en | tricky | session_search |  |  |  |  | Have I asked you about tax deductions before? | 
+en | tricky | session_search |  |  |  |  | Pull up the packing list we made last month | 
+en | tricky | session_search |  |  |  | Assistant: I don't see that in this conversation | Check our earlier chats then | 
+en | tricky | none |  |  |  | Assistant: I suggested Brew Lab and Mocha House | What was the first one again? | 현재 대화로 답 가능
+en | tricky | web_search |  |  |  |  | What did the president say in last week's speech | 과거 대화 아님, 뉴스
+# --- cronjob (툴: cronjob_manage) ---
+ko | easy | cronjob |  |  |  |  | 매일 아침 8시에 오늘 날씨 알려줘 | 
+ko | easy | cronjob |  |  |  |  | 30분 뒤에 빨래 꺼내라고 알려줘 | 
+ko | easy | cronjob |  |  |  |  | 알람 7시에 맞춰줘 | v1에서는 none이었던 유형
+ko | easy | cronjob |  |  |  |  | 타이머 10분 | v1에서는 none이었던 유형
+ko | easy | cronjob |  |  |  |  | 평일 오후 6시마다 퇴근하라고 말해줘 | 
+ko | tricky | cronjob |  |  |  |  | 매주 월요일 9시에 이번 주 일정 요약해서 보내줘 | 
+ko | tricky | cronjob |  |  |  |  | 내일 오후 3시에 은행 가라고 리마인드 | 
+ko | tricky | cronjob |  |  |  |  | 매달 25일에 월세 이체하라고 알림 | 
+ko | tricky | cronjob |  |  |  |  | 달러가 1,350원 밑으로 떨어지면 알려줘, 매일 아침 확인해서 | 
+ko | tricky | cronjob |  |  |  |  | 지금 걸려 있는 예약 작업 뭐 있어 | 목록 조회
+ko | tricky | cronjob |  | y |  |  | 아침 날씨 알림 이제 꺼줘 | 삭제
+ko | tricky | cronjob |  |  |  |  | 아침 브리핑 시간을 7시 반으로 바꿔 | 
+ko | tricky | cronjob |  |  |  |  | 주간 요약 알림 이번 주만 쉬어 | 일시정지
+ko | tricky | cronjob |  |  |  | 비서: 오늘 서울은 맑고 최고 12도예요 | 이거 매일 아침 7시에 자동으로 보내줘 | 
+ko | tricky | cronjob |  |  |  | 비서: 안 읽은 메일이 5통 있어요 | 앞으로 매일 저녁 6시에 이렇게 메일 요약해줘 | 반복 실행은 cronjob
+ko | tricky | cronjob |  |  |  | 사용자: 약을 하루 두 번 먹어야 해 | 아침 9시, 밤 9시에 알려줘 매일 | 
+ko | tricky | calendar_create | calendar_list |  |  |  | 매주 화요일 8시 헬스를 반복 일정으로 캘린더에 넣어줘 | 캘린더 명시
+ko | clarify | none |  |  |  |  | 나중에 알려줘 | 무엇을·언제 불명
+mix | easy | cronjob |  |  |  |  | every morning 7시에 news briefing 해줘 | 
+mix | easy | cronjob |  |  |  |  | 20분 timer 맞춰줘 | 
+mix | easy | cronjob |  |  |  |  | 내일 9am에 remind me 회의 자료 챙기라고 | 
+mix | tricky | cronjob |  |  |  |  | 매주 Friday 5pm에 weekly report 초안 만들어서 보내줘 | 
+mix | tricky | cronjob |  |  |  |  | scheduled job list 보여줘 | 
+mix | tricky | cronjob |  | y |  |  | morning briefing job delete 해 | 삭제
+mix | tricky | cronjob |  |  |  | 비서: USD는 지금 1,380원이에요 | 이거 daily로 아침마다 알려줘 | 
+mix | tricky | calendar_create | calendar_list |  |  |  | 내일 9am dentist calendar에 추가 | 일정 등록
+en | easy | cronjob |  |  |  |  | Remind me in 15 minutes to call the plumber | 
+en | easy | cronjob |  |  |  |  | Set an alarm for 7 | v1에서는 none이었던 유형
+en | easy | cronjob |  |  |  |  | Every weekday at 8am send me the weather | 
+en | tricky | cronjob |  |  |  |  | Check the yen rate every morning and ping me if it drops below 9 won | 
+en | tricky | cronjob |  |  |  |  | What recurring jobs do I have set up? | 
+en | tricky | cronjob |  |  |  |  | Pause the daily digest until next Monday | 
+en | tricky | cronjob |  |  |  | Assistant: You have 3 unread emails | Do this summary for me every evening at 6 | 
+en | tricky | calendar_create | calendar_list |  |  |  | Put a recurring 1:1 with Alex on my calendar every Tuesday at 2 | 캘린더 명시

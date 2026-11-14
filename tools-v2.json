@@ -1,0 +1,194 @@
+{
+ "version": "v2.1-2026-11-14",
+ "note": "일상 요청만 다룬다(Daniel 2026-11-14: Dev·Ops 관련은 전부 제외). 기능 클래스 8개(weather, calendar_list, calendar_create, web_search, map_search, fx, mail_read, none) + Nous Hermes Agent 기본 툴(hermes-cli 툴셋) 기준 클래스 10개 = 18개. 새 클래스는 native=true이고 Hermes 네이티브 툴 이름과 1:1에 가깝다. 출처: hermes-agent.nousresearch.com/docs/reference/tools-reference, toolsets-reference (2026-11-12 확인). 클래스로 만들지 않은 기본 툴: terminal·process_manage(Dev·Ops), clarify(=none), skill_view/skills_list/skill_manage, todo_list·delegate_task(에이전트 내부 작업 관리), computer_use·kanban_*(조건부 등록), video·x_search(기본 꺼짐).",
+ "hermes_call_format": {
+  "schema": "OpenAI tools 형식: {\"type\":\"function\",\"function\":{\"name\",\"description\",\"parameters\"}}",
+  "call": "{\"name\": \"terminal\", \"arguments\": {\"command\": \"...\"}}",
+  "native_tools_used": {
+   "terminal": "필수 command(string). 선택 background, timeout, workdir, pty",
+   "web_search": "필수 query(string). 선택 limit(1~100, 기본 5)",
+   "web_extract": "필수 urls(string 배열, 최대 5). 선택 char_limit",
+   "skill_view": "스킬 사용 전 불러오기. 채점에서는 앞에 붙어도 감점 없음",
+   "clarify": "되묻기. 첫 실험에서는 none 클래스로 취급"
+  }
+ },
+ "classes": [
+  {
+   "id": "weather",
+   "name_ko": "날씨",
+   "when": "현재 날씨, 오늘~며칠 뒤 예보, 비·미세먼지·기온",
+   "not_when": "과거 날씨·기후 통계(→ web_search), 날씨 개념 설명(→ none)",
+   "hermes_call": "terminal에서 날씨 API를 curl로 호출(전용 도구 없음)",
+   "risk": "read",
+   "hermes_tool": "terminal",
+   "command_regex": "curl\\s+\\S*(open-meteo|met\\.no|wttr\\.in)"
+  },
+  {
+   "id": "calendar_list",
+   "name_ko": "캘린더 조회",
+   "when": "일정 질문 전부, 빈 시간 찾기, 등록·변경 전 중복 확인",
+   "not_when": "캘린더 사용법 질문(→ none)",
+   "hermes_call": "google-workspace 스킬의 google_api.py calendar list",
+   "risk": "read",
+   "hermes_tool": "terminal",
+   "command_regex": "google_api\\.py\\s+calendar\\s+list"
+  },
+  {
+   "id": "calendar_create",
+   "name_ko": "캘린더 등록",
+   "when": "일정 추가(캘박), 변경·삭제는 첫 실험에서 이 클래스로 묶음",
+   "not_when": "첫 호출로는 거의 안 옴: Hermes 규칙상 일정 일은 calendar_list 먼저",
+   "hermes_call": "google_api.py calendar create|update|delete → calendar list로 재확인",
+   "risk": "write",
+   "hermes_tool": "terminal",
+   "command_regex": "google_api\\.py\\s+calendar\\s+(create|update|delete)"
+  },
+  {
+   "id": "web_search",
+   "name_ko": "웹 검색",
+   "when": "최신 사실(뉴스, 가격, 공지, 일정 정보), 모델이 모르는 정보, 과거 날씨, 환율 전망",
+   "not_when": "장소·길찾기(→ map_search), 지금 환율 값(→ fx), 일반 상식(→ none)",
+   "hermes_call": "web_search → 필요 시 web_extract",
+   "risk": "read",
+   "hermes_tool": "web_search"
+  },
+  {
+   "id": "map_search",
+   "name_ko": "지도 검색",
+   "when": "장소 찾기, 주변 가게, 주소·전화, 거리·이동 시간·길찾기",
+   "not_when": "장소에 대한 기사·후기 조사(→ web_search도 허용)",
+   "hermes_call": "terminal에서 지도·장소 검색 스크립트 호출. 길찾기 도구 없음",
+   "risk": "read",
+   "hermes_tool": "terminal",
+   "command_regex": "(map|place|local)_search\\.py"
+  },
+  {
+   "id": "fx",
+   "name_ko": "환율 계산",
+   "when": "현재 환율, 금액 환산",
+   "not_when": "환율 전망·뉴스(→ web_search), 환율 개념(→ none)",
+   "hermes_call": "전용 도구 없음. web_search 또는 terminal에서 환율 API 호출",
+   "risk": "read",
+   "hermes_tool": "web_search"
+  },
+  {
+   "id": "mail_read",
+   "name_ko": "메일 읽기",
+   "when": "받은 메일 확인, 특정 메일 찾기·요약",
+   "not_when": "메일 보내기·답장(→ 도구 없음 → none, 못 한다고 답)",
+   "hermes_call": "google_api.py gmail ...",
+   "risk": "read",
+   "hermes_tool": "terminal",
+   "command_regex": "google_api\\.py\\s+gmail"
+  },
+  {
+   "id": "memory",
+   "name_ko": "기억 저장",
+   "when": "사용자에 대한 사실·선호를 다음 대화에서도 쓰도록 저장·수정·삭제·조회 (\"기억해 둬\", \"앞으로는 ~로\")",
+   "not_when": "이번 대화에서만 쓰는 지시(→ none), 일정(→ calendar_create), 과거 대화 내용 찾기(→ session_search)",
+   "hermes_call": "memory",
+   "risk": "write (삭제는 확인)",
+   "hermes_tool": "memory",
+   "native": true
+  },
+  {
+   "id": "session_search",
+   "name_ko": "과거 대화 검색",
+   "when": "이전 세션에서 나눈 대화 내용 찾기·이어 하기 (\"지난번에 얘기한 그거\")",
+   "not_when": "현재 대화에 답이 있음(→ none), 메일·일정의 과거 기록(→ 각 도구), 뉴스(→ web_search)",
+   "hermes_call": "session_search",
+   "risk": "read",
+   "hermes_tool": "session_search",
+   "native": true
+  },
+  {
+   "id": "cronjob",
+   "name_ko": "예약·반복 작업",
+   "when": "정해진 시각·주기에 Hermes가 할 일 예약: 알람, 타이머, 리마인더, 매일 브리핑, 주기 점검. 예약 목록 조회·수정·일시정지·삭제",
+   "not_when": "캘린더에 넣어 달라는 일정(→ calendar_create), 지금 한 번만 하는 조회(→ 각 도구)",
+   "hermes_call": "cronjob_manage (create/list/update/pause/resume/run/remove)",
+   "risk": "write (삭제는 확인)",
+   "hermes_tool": "cronjob_manage",
+   "native": true
+  },
+  {
+   "id": "file",
+   "name_ko": "로컬 파일",
+   "when": "Hermes가 도는 머신의 파일 읽기·쓰기·부분 수정·내용/이름 검색",
+   "not_when": "파일 내용으로 계산·집계(→ execute_code), 드라이브 업로드·공유(→ none)",
+   "hermes_call": "read_file / write_file / patch / search_files",
+   "risk": "read 또는 write",
+   "hermes_tool": "read_file|write_file|patch|search_files",
+   "native": true
+  },
+  {
+   "id": "web_extract",
+   "name_ko": "웹 페이지 읽기",
+   "when": "URL이 주어졌고(요청 또는 앞 대화) 그 페이지·PDF 내용을 읽기·요약·발췌",
+   "not_when": "URL 없이 찾기(→ web_search), 클릭·로그인·입력이 필요(→ browser)",
+   "hermes_call": "web_extract (urls 최대 5개)",
+   "risk": "read",
+   "hermes_tool": "web_extract",
+   "native": true
+  },
+  {
+   "id": "browser",
+   "name_ko": "브라우저 조작",
+   "when": "지정된 사이트에서 클릭·입력·로그인·스크롤·스크린샷처럼 조작이 필요한 일",
+   "not_when": "읽기만 하면 되는 페이지(→ web_extract), 사이트를 지정하지 않은 예약·주문·호출(→ none, v1 기준 유지)",
+   "hermes_call": "browser_exec (저장된 로그인은 browser_vault)",
+   "risk": "write (결제·제출·예약은 확인)",
+   "hermes_tool": "browser_exec|browser_vault|browser_cdp|browser_dialog",
+   "native": true
+  },
+  {
+   "id": "execute_code",
+   "name_ko": "코드 실행·계산",
+   "when": "정확한 계산, 날짜·통계·시뮬레이션, 파일 데이터 집계처럼 코드를 돌려야 믿을 수 있는 일",
+   "not_when": "암산 수준 한두 단계(→ none), 코드만 써 달라는 요청(→ none), 환율 등 조회가 먼저 필요한 계산(→ 조회 도구 먼저)",
+   "hermes_call": "execute_code (Python). terminal에서 python3 -c 로 돌려도 같은 클래스",
+   "risk": "read",
+   "hermes_tool": "execute_code",
+   "native": true
+  },
+  {
+   "id": "image_generate",
+   "name_ko": "이미지 생성",
+   "when": "그림·로고·썸네일 생성, 주어진 이미지의 편집·변형",
+   "not_when": "이미지 내용 질문(→ vision_analyze), 기존 이미지 찾기(→ web_search), 디자인 조언(→ none)",
+   "hermes_call": "image_generate",
+   "risk": "write",
+   "hermes_tool": "image_generate",
+   "native": true
+  },
+  {
+   "id": "vision_analyze",
+   "name_ko": "이미지 분석",
+   "when": "첨부·경로·URL로 주어진 이미지의 내용 읽기·설명·판단",
+   "not_when": "이미지가 주어지지 않음(→ none, 되묻기), 이미지를 새로 만들거나 고침(→ image_generate)",
+   "hermes_call": "vision_analyze (비전 모델이면 직접 볼 수도 있음: 그 경우도 이 클래스로 인정)",
+   "risk": "read",
+   "hermes_tool": "vision_analyze",
+   "native": true
+  },
+  {
+   "id": "text_to_speech",
+   "name_ko": "음성 변환",
+   "when": "글을 음성·오디오·음성 메시지로 달라고 명시한 요청",
+   "not_when": "\"읽어줘\"가 내용을 알려 달라는 뜻(→ mail_read, file 등), 음악 재생(→ none)",
+   "hermes_call": "text_to_speech",
+   "risk": "write",
+   "hermes_tool": "text_to_speech",
+   "native": true
+  },
+  {
+   "id": "none",
+   "name_ko": "부르지 않음",
+   "when": "일반 지식·설명·잡담, 도구가 없는 일(메일 보내기 등, 못 한다고 답), 정보가 부족해 되묻기",
+   "not_when": "최신 정보나 사용자 개인 데이터가 필요한 질문",
+   "hermes_call": "도구 호출 없이 답, 또는 clarify",
+   "risk": "none",
+   "hermes_tool": "(없음)"
+  }
+ ]
+}

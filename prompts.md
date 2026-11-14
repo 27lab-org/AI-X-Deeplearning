@@ -45,7 +45,7 @@
 {labeling-guide.md 1~3절}
 
 요청 하나마다 아래 JSON 한 줄로만 답한다:
-{"id": ..., "first": <10개 중 하나>, "also_ok": [...], "sequence": [...],
+{"id": ..., "first": <클래스 중 하나>, "also_ok": [...], "sequence": [...],
  "needs_confirm": true|false, "rule": <근거가 된 경계 규칙 번호 또는 null>,
  "confidence": <0~1>, "note": <애매하면 한 줄, 아니면 "">}
 
