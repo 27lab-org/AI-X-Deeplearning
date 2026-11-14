@@ -16,6 +16,7 @@ HERE=ROOT+'review-site/'
 ap=argparse.ArgumentParser()
 ap.add_argument('--review-items', default='/mnt/project-files/tool-call-grader/review-v2add/review-items.jsonl')
 ap.add_argument('--out', default=HERE+'dist/index.html')
+ap.add_argument('--web', help='웹 배포판(review.27lab.org) 출력 폴더: static/(index.html, app.js, shim.js) + data.json')
 A=ap.parse_args()
 L=lambda p:[json.loads(l) for l in open(p, encoding='utf-8') if l.strip()]
 tools=json.load(open(ROOT+'tools-v2.json', encoding='utf-8'))['classes']
@@ -114,3 +115,28 @@ os.makedirs(os.path.dirname(A.out), exist_ok=True)
 open(A.out,'w',encoding='utf-8').write(open(HERE+'index.src.html',encoding='utf-8').read().replace('__DATA__',s))
 print('->', A.out)
 print(len(items), collections.Counter(r[4] for r in rows), len(C), len(rules))
+
+if A.web:
+    # 웹판: 화면 코드는 같고, 데이터는 HTML에 넣지 않는다(토큰이 있어야 /api/data 로 받음).
+    # static/ 은 공개돼도 되는 파일만(27lab-sites deploy/label-review/app/static 으로 복사), data.json 은 PVC 에만 올린다.
+    src=open(HERE+'index.src.html',encoding='utf-8').read()
+    a=src.index('<script type="application/json" id="DATA">'); b=src.index('<script>',a); c=src.rindex('</script>')
+    js=src[b+len('<script>'):c]
+    rep=[('const D = JSON.parse(document.getElementById("DATA").textContent);','const D = window.__RV_DATA;'),
+         ('기여자(Contributor) 이상 권한이 필요해요.','검수 링크가 맞는지 확인해 주세요.'),
+         ('이 화면은 읽기 전용이에요. 검수 결과를 저장하려면 이 페이지에서 기여자(Contributor) 이상 권한을 받아야 해요.','이 링크로는 이 칸에 저장할 수 없어요. 위에서 내 이름(검수자 칸)을 골랐는지 확인해 주세요.'),
+         ('공유 저장소에 연결되지 않았어요. claude.ai에 로그인한 상태로 열어야 결과가 저장돼요.','서버에 연결되지 않았어요. 받은 검수 링크로 다시 들어와 주세요.'),
+         ('편집자 권한으로 열어야','관리자 링크로 열어야'),('편집자만','관리자만')]
+    for o,n in rep:
+        assert o in js, o
+        js=js.replace(o,n)
+    html=src[:a]+'<script src="shim.js?v=1"></script>\n'+src[c+len('</script>'):]
+    html=html.replace('<meta name="claude:viewport-fit-sides" content="cover">\n','')
+    assert '<script>' not in html and '__DATA__' not in html
+    os.makedirs(A.web+'/static', exist_ok=True)
+    W=lambda f,t: open(A.web+'/static/'+f,'w',encoding='utf-8',newline='\n').write(t)
+    W('index.html', html)
+    W('app.js', '"use strict";\n/* review-site/index.src.html 에서 build.py --web 으로 뽑은 화면 코드. 직접 고치지 말 것. */\n'+js.lstrip().removeprefix('"use strict";').lstrip())
+    W('shim.js', open(HERE+'web/shim.js',encoding='utf-8').read())
+    open(A.web+'/data.json','w',encoding='utf-8').write(json.dumps(d,ensure_ascii=False,separators=(',',':')))
+    print('web ->', A.web, '(data.json 은 커밋 금지, PVC 에만)')
