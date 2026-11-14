@@ -5,7 +5,7 @@ from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.worksheet.datavalidation import DataValidation
 
-CLASSES = ["weather","calendar_list","calendar_create","web_search","map_search","fx","mail_read","server_status","ssh","none"]
+CLASSES = ["weather","calendar_list","calendar_create","web_search","map_search","fx","mail_read","none"]
 HEAD = PatternFill("solid", fgColor="DDE7F0"); EDIT = PatternFill("solid", fgColor="FFF6D5")
 
 def load(p): return [json.loads(l) for l in open(p, encoding="utf-8") if l.strip()]

@@ -1,6 +1,6 @@
 {
- "version": "v2.0-2026-11-12",
- "note": "v1.2의 기능 클래스 10개 + Nous Hermes Agent 기본 툴(hermes-cli 툴셋) 기준 새 클래스 10개 = 20개. 새 클래스는 native=true이고 Hermes 네이티브 툴 이름과 1:1에 가깝다(hermes_tool이 호출 판정 정규식). 출처: hermes-agent.nousresearch.com/docs/reference/tools-reference, toolsets-reference (2026-11-12 확인). 클래스로 만들지 않은 기본 툴: clarify(=none), skill_view/skills_list/skill_manage(앞에 붙어도 감점 없음), todo_list·delegate_task·process_manage(에이전트 내부 작업 관리라 사용자 요청과 1:1이 아님), computer_use·kanban_*(조건부 등록), video·x_search(기본 꺼짐). 기존 10개 정의는 tools.json과 동일.",
+ "version": "v2.1-2026-11-14",
+ "note": "일상 요청만 다룬다(Daniel 2026-11-14: Dev·Ops 관련은 전부 제외). 기능 클래스 8개(weather, calendar_list, calendar_create, web_search, map_search, fx, mail_read, none) + Nous Hermes Agent 기본 툴(hermes-cli 툴셋) 기준 클래스 10개 = 18개. 새 클래스는 native=true이고 Hermes 네이티브 툴 이름과 1:1에 가깝다. 출처: hermes-agent.nousresearch.com/docs/reference/tools-reference, toolsets-reference (2026-11-12 확인). 클래스로 만들지 않은 기본 툴: terminal·process_manage(Dev·Ops), clarify(=none), skill_view/skills_list/skill_manage, todo_list·delegate_task(에이전트 내부 작업 관리), computer_use·kanban_*(조건부 등록), video·x_search(기본 꺼짐).",
  "hermes_call_format": {
   "schema": "OpenAI tools 형식: {\"type\":\"function\",\"function\":{\"name\",\"description\",\"parameters\"}}",
   "call": "{\"name\": \"terminal\", \"arguments\": {\"command\": \"...\"}}",
@@ -82,26 +82,6 @@
    "command_regex": "google_api\\.py\\s+gmail"
   },
   {
-   "id": "server_status",
-   "name_ko": "서버 상태",
-   "when": "정해진 상태 조회: 켜져 있나, CPU·메모리·디스크 사용률, 서비스·VM 가동 여부, 백업 성공 여부",
-   "not_when": "원인 조사처럼 임의 명령이 필요한 일(→ ssh), 변경(→ ssh)",
-   "hermes_call": "terminal에서 ssh <host> '<읽기 명령: df, uptime, systemctl status ...>'",
-   "risk": "read",
-   "hermes_tool": "terminal",
-   "command_regex": "ssh\\s.*\\b(df|uptime|systemctl status|free)\\b"
-  },
-  {
-   "id": "ssh",
-   "name_ko": "SSH 원격 실행",
-   "when": "서버에 들어가 임의 명령 실행: 원인 조사(로그, du), 재시작, 설치, 설정 변경",
-   "not_when": "단순 상태 확인(→ server_status)",
-   "hermes_call": "terminal에서 ssh <host> '<명령>'. 변경 명령은 확인 필수",
-   "risk": "write (변경 명령은 실행 전 사용자 확인 필수)",
-   "hermes_tool": "terminal",
-   "command_regex": "\\bssh\\s"
-  },
-  {
    "id": "memory",
    "name_ko": "기억 저장",
    "when": "사용자에 대한 사실·선호를 다음 대화에서도 쓰도록 저장·수정·삭제·조회 (\"기억해 둬\", \"앞으로는 ~로\")",
@@ -115,7 +95,7 @@
    "id": "session_search",
    "name_ko": "과거 대화 검색",
    "when": "이전 세션에서 나눈 대화 내용 찾기·이어 하기 (\"지난번에 얘기한 그거\")",
-   "not_when": "현재 대화에 답이 있음(→ none), 메일·일정·서버의 과거 기록(→ 각 도구), 뉴스(→ web_search)",
+   "not_when": "현재 대화에 답이 있음(→ none), 메일·일정의 과거 기록(→ 각 도구), 뉴스(→ web_search)",
    "hermes_call": "session_search",
    "risk": "read",
    "hermes_tool": "session_search",
@@ -125,7 +105,7 @@
    "id": "cronjob",
    "name_ko": "예약·반복 작업",
    "when": "정해진 시각·주기에 Hermes가 할 일 예약: 알람, 타이머, 리마인더, 매일 브리핑, 주기 점검. 예약 목록 조회·수정·일시정지·삭제",
-   "not_when": "캘린더에 넣어 달라는 일정(→ calendar_create), 서버의 crontab 편집(→ ssh), 지금 한 번만 하는 조회(→ 각 도구)",
+   "not_when": "캘린더에 넣어 달라는 일정(→ calendar_create), 지금 한 번만 하는 조회(→ 각 도구)",
    "hermes_call": "cronjob_manage (create/list/update/pause/resume/run/remove)",
    "risk": "write (삭제는 확인)",
    "hermes_tool": "cronjob_manage",
@@ -135,7 +115,7 @@
    "id": "file",
    "name_ko": "로컬 파일",
    "when": "Hermes가 도는 머신의 파일 읽기·쓰기·부분 수정·내용/이름 검색",
-   "not_when": "원격 호스트의 파일(→ ssh), 파일 내용으로 계산·집계(→ execute_code), 드라이브 업로드·공유(→ none)",
+   "not_when": "파일 내용으로 계산·집계(→ execute_code), 드라이브 업로드·공유(→ none)",
    "hermes_call": "read_file / write_file / patch / search_files",
    "risk": "read 또는 write",
    "hermes_tool": "read_file|write_file|patch|search_files",
@@ -165,7 +145,7 @@
    "id": "execute_code",
    "name_ko": "코드 실행·계산",
    "when": "정확한 계산, 날짜·통계·시뮬레이션, 파일 데이터 집계처럼 코드를 돌려야 믿을 수 있는 일",
-   "not_when": "암산 수준 한두 단계(→ none), 코드만 써 달라는 요청(→ none), 원격 호스트에서 실행(→ ssh), 환율 등 조회가 먼저 필요한 계산(→ 조회 도구 먼저)",
+   "not_when": "암산 수준 한두 단계(→ none), 코드만 써 달라는 요청(→ none), 환율 등 조회가 먼저 필요한 계산(→ 조회 도구 먼저)",
    "hermes_call": "execute_code (Python). terminal에서 python3 -c 로 돌려도 같은 클래스",
    "risk": "read",
    "hermes_tool": "execute_code",

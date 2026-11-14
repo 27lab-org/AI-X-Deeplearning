@@ -2,123 +2,104 @@
 # 형식: lang | type | first | also_ok | confirm | seq | context | request | hint
 # 이미지 첨부는 맥락에 "[이미지 첨부: 파일명]"으로 적는다.
 # --- execute_code (툴: execute_code / 정확한 계산·데이터 처리) ---
-ko | easy | execute_code |  |  |  |  | 1부터 5000까지 소수가 몇 개인지 세어줘 |
-ko | easy | execute_code |  |  |  |  | 3,847 곱하기 9,216 나누기 37 정확히 계산해줘 |
+ko | easy | execute_code |  |  |  |  | 1부터 5000까지 소수가 몇 개인지 세어줘 | 
+ko | easy | execute_code |  |  |  |  | 3,847 곱하기 9,216 나누기 37 정확히 계산해줘 | 
 ko | easy | execute_code | file |  |  |  | ~/data/sales.csv에서 월별 합계 내줘 | 파일을 읽어 계산
 ko | tricky | execute_code |  |  |  |  | 2026년 11월 12일부터 2027년 3월 9일까지 평일이 며칠이야 | 날짜 계산
-ko | tricky | execute_code |  |  |  |  | 대출 3억, 연 4.2%, 30년 원리금균등이면 월 상환액 얼마야 |
-ko | tricky | execute_code |  |  |  |  | 주사위 두 개 합이 7 나올 확률을 100만 번 시뮬레이션해봐 |
-ko | tricky | execute_code |  |  |  |  | 이 숫자들 표준편차 구해줘: 12, 15, 9, 22, 31, 18, 7, 26, 14, 19 |
-ko | tricky | execute_code | file |  |  |  | ~/logs/access.log에서 IP별 요청 수 상위 10개 뽑아줘 |
-ko | tricky | execute_code |  |  |  |  | 2의 200제곱 값 전체 자릿수로 |
-ko | tricky | execute_code | file |  |  |  | ~/data/grades.xlsx 평균이랑 중앙값 계산해 |
-ko | tricky | execute_code |  |  |  |  | 다음 JSON을 키 이름순으로 정렬하고 중복 제거해줘: [{"b":2,"a":1},{"a":1,"b":2},{"c":3,"a":0}] |
-ko | tricky | execute_code |  |  |  |  | 매달 50만 원씩 연 5% 복리로 10년 넣으면 얼마가 돼 |
-ko | tricky | execute_code |  |  |  | 비서: ~/data/sales.csv에 12개월치 매출이 있어요 | 전월 대비 증가율을 달마다 계산해줘 |
-ko | tricky | execute_code |  |  |  | 비서: 로그 파일은 4만 줄이에요 | ERROR가 시간대별로 몇 번 나왔는지 집계해 |
-ko | tricky | execute_code |  |  |  | 사용자: 실험 결과 정확도가 0.912, 0.905, 0.921, 0.898, 0.917이야 | 평균이랑 95% 신뢰구간 구해줘 |
+ko | tricky | execute_code |  |  |  |  | 대출 3억, 연 4.2%, 30년 원리금균등이면 월 상환액 얼마야 | 
+ko | tricky | execute_code |  |  |  |  | 주사위 두 개 합이 7 나올 확률을 100만 번 시뮬레이션해봐 | 
+ko | tricky | execute_code |  |  |  |  | 이 숫자들 표준편차 구해줘: 12, 15, 9, 22, 31, 18, 7, 26, 14, 19 | 
+ko | tricky | execute_code |  |  |  |  | 2의 200제곱 값 전체 자릿수로 | 
+ko | tricky | execute_code | file |  |  |  | ~/data/grades.xlsx 평균이랑 중앙값 계산해 | 
+ko | tricky | execute_code |  |  |  |  | 매달 50만 원씩 연 5% 복리로 10년 넣으면 얼마가 돼 | 
+ko | tricky | execute_code |  |  |  | 비서: ~/data/sales.csv에 12개월치 매출이 있어요 | 전월 대비 증가율을 달마다 계산해줘 | 
 ko | tricky | execute_code |  |  |  | 비서: 환율은 1달러에 1,380원이에요 | 그럼 37,412.55달러는 원 단위까지 정확히 얼마야 | 정밀 계산
 ko | tricky | none |  |  |  |  | 12 곱하기 12는? | 암산 수준
 ko | tricky | none |  |  |  |  | 3만 원의 10%가 얼마야 | 암산 수준
 ko | tricky | none |  |  |  |  | 표준편차 구하는 공식 알려줘 | 개념
-ko | tricky | none |  |  |  |  | 파이썬으로 CSV 합계 내는 코드 써줘 | 코드 작성만, 실행 요청 아님
 ko | tricky | fx |  |  |  |  | 250달러 지금 원으로 얼마야 | 환율 조회가 먼저
 ko | clarify | none |  |  |  |  | 이거 평균 내줘 | 데이터 없음
-mix | easy | execute_code |  |  |  |  | 999983이 prime인지 check 해줘 |
-mix | easy | execute_code | file |  |  |  | ~/data/users.csv row 몇 개인지 count |
-mix | tricky | execute_code |  |  |  |  | compound interest 계산: 원금 2천만, 연 3.8%, 7년, monthly 복리 |
-mix | tricky | execute_code | file |  |  |  | ~/data/sensor.json에서 temperature 평균이랑 max 구해줘 |
-mix | tricky | execute_code |  |  |  |  | 오늘부터 D-day 100일이 무슨 date고 무슨 요일인지 |
-mix | tricky | execute_code |  |  |  | 비서: results.csv에 run이 30개 있어요 | accuracy 기준 top 5 정렬해서 보여줘 |
-mix | tricky | execute_code |  |  |  |  | 이 list 정렬하고 median 구해: 44, 12, 97, 3, 58, 21, 76, 35, 62 |
+mix | easy | execute_code |  |  |  |  | 999983이 prime인지 check 해줘 | 
+mix | easy | execute_code | file |  |  |  | ~/data/users.csv row 몇 개인지 count | 
+mix | tricky | execute_code |  |  |  |  | compound interest 계산: 원금 2천만, 연 3.8%, 7년, monthly 복리 | 
+mix | tricky | execute_code |  |  |  |  | 오늘부터 D-day 100일이 무슨 date고 무슨 요일인지 | 
+mix | tricky | execute_code |  |  |  |  | 이 list 정렬하고 median 구해: 44, 12, 97, 3, 58, 21, 76, 35, 62 | 
 mix | tricky | none |  |  |  |  | 100의 15 percent는? | 암산 수준
-mix | tricky | none |  |  |  |  | pandas로 groupby 하는 code 예시 보여줘 | 코드 작성만
-en | easy | execute_code |  |  |  |  | Compute 17 factorial exactly |
-en | easy | execute_code | file |  |  |  | Sum the amount column in ~/data/expenses.csv |
-en | tricky | execute_code |  |  |  |  | How many Fridays fall on the 13th between 2027 and 2035 |
-en | tricky | execute_code |  |  |  |  | Monthly payment on a 250,000 loan at 5.1% over 20 years |
-en | tricky | execute_code | file |  |  |  | Count unique visitors per day in ~/logs/access.log |
-en | tricky | execute_code |  |  |  |  | Run a quick simulation: odds of at least two shared birthdays among 30 people |
-en | tricky | execute_code |  |  |  | Assistant: The CSV has 8,000 rows and a price column | Give me the mean, median and 90th percentile |
-en | tricky | execute_code |  |  |  | User: Scores were 71, 85, 90, 64, 78, 88, 93, 59 | Standard deviation? |
+en | easy | execute_code |  |  |  |  | Compute 17 factorial exactly | 
+en | easy | execute_code | file |  |  |  | Sum the amount column in ~/data/expenses.csv | 
+en | tricky | execute_code |  |  |  |  | How many Fridays fall on the 13th between 2027 and 2035 | 
+en | tricky | execute_code |  |  |  |  | Monthly payment on a 250,000 loan at 5.1% over 20 years | 
+en | tricky | execute_code |  |  |  |  | Run a quick simulation: odds of at least two shared birthdays among 30 people | 
+en | tricky | execute_code |  |  |  | Assistant: The CSV has 8,000 rows and a price column | Give me the mean, median and 90th percentile | 
+en | tricky | execute_code |  |  |  | User: Scores were 71, 85, 90, 64, 78, 88, 93, 59 | Standard deviation? | 
 en | tricky | none |  |  |  |  | What's 15 times 4 | 암산 수준
-en | tricky | none |  |  |  |  | Write me a Python function that reverses a string | 코드 작성만
 en | clarify | none |  |  |  |  | Calculate the total | 데이터 없음
 # --- image_generate (툴: image_generate) ---
-ko | easy | image_generate |  |  |  |  | 노을 지는 바닷가에 앉은 고양이 그림 그려줘 |
-ko | easy | image_generate |  |  |  |  | 우리 동아리 로고 시안 하나 만들어줘. 파란색, 산 모양 |
-ko | easy | image_generate |  |  |  |  | 발표 표지에 쓸 추상적인 배경 이미지 생성해줘 |
-ko | tricky | image_generate |  |  |  |  | 생일 초대장에 넣을 귀여운 케이크 일러스트 하나 |
-ko | tricky | image_generate |  |  |  |  | 수채화 느낌으로 가을 캠퍼스 풍경 |
-ko | tricky | image_generate |  |  |  |  | 블로그 썸네일 만들어줘, 주제는 홈서버 |
-ko | tricky | image_generate |  |  |  |  | 픽셀 아트 스타일 로봇 캐릭터 한 장 뽑아줘 |
+ko | easy | image_generate |  |  |  |  | 노을 지는 바닷가에 앉은 고양이 그림 그려줘 | 
+ko | easy | image_generate |  |  |  |  | 우리 동아리 로고 시안 하나 만들어줘. 파란색, 산 모양 | 
+ko | easy | image_generate |  |  |  |  | 발표 표지에 쓸 추상적인 배경 이미지 생성해줘 | 
+ko | tricky | image_generate |  |  |  |  | 생일 초대장에 넣을 귀여운 케이크 일러스트 하나 | 
+ko | tricky | image_generate |  |  |  |  | 수채화 느낌으로 가을 캠퍼스 풍경 | 
+ko | tricky | image_generate |  |  |  |  | 픽셀 아트 스타일 로봇 캐릭터 한 장 뽑아줘 | 
 ko | tricky | image_generate |  |  |  | 사용자: [이미지 첨부: cat.png] | 이 사진 배경을 눈 오는 밤으로 바꿔줘 | 이미지 편집
-ko | tricky | image_generate |  |  |  | 비서: 고양이 그림을 만들었어요 | 좀 더 만화 같은 느낌으로 다시 |
-ko | tricky | image_generate |  |  |  | 비서: 로고 시안을 만들었어요 | 색만 초록으로 바꾼 버전도 하나 |
-ko | tricky | image_generate |  |  |  | 사용자: 팀 티셔츠를 맞추려고 해 | 앞면에 넣을 그림 시안 그려봐. 부엉이랑 노트북 |
+ko | tricky | image_generate |  |  |  | 비서: 고양이 그림을 만들었어요 | 좀 더 만화 같은 느낌으로 다시 | 
+ko | tricky | image_generate |  |  |  | 비서: 로고 시안을 만들었어요 | 색만 초록으로 바꾼 버전도 하나 | 
+ko | tricky | image_generate |  |  |  | 사용자: 팀 티셔츠를 맞추려고 해 | 앞면에 넣을 그림 시안 그려봐. 부엉이랑 노트북 | 
 ko | tricky | none |  |  |  |  | 로고 디자인할 때 색은 몇 개까지 쓰는 게 좋아 | 조언
-ko | tricky | none |  |  |  |  | 이미지 생성 모델은 어떤 원리로 그림을 그려 | 개념
 ko | tricky | web_search |  |  |  |  | 무료로 쓸 수 있는 가을 풍경 사진 찾아줘 | 생성 아님, 검색
 ko | clarify | none |  |  |  |  | 그림 하나 그려줘 | 무엇을 그릴지 없음
-mix | easy | image_generate |  |  |  |  | minimal style로 mountain logo 만들어줘 |
-mix | easy | image_generate |  |  |  |  | cyberpunk 느낌 서울 야경 image generate |
-mix | tricky | image_generate |  |  |  |  | YouTube thumbnail 하나 뽑아줘 주제는 home lab tour |
-mix | tricky | image_generate |  |  |  | 비서: poster 시안을 만들었어요 | font 느낌 살려서 dark mode 버전도 |
+mix | easy | image_generate |  |  |  |  | minimal style로 mountain logo 만들어줘 | 
+mix | easy | image_generate |  |  |  |  | cyberpunk 느낌 서울 야경 image generate | 
+mix | tricky | image_generate |  |  |  | 비서: poster 시안을 만들었어요 | font 느낌 살려서 dark mode 버전도 | 
 mix | tricky | image_generate |  |  |  | 사용자: [이미지 첨부: profile.jpg] | 이거 cartoon style로 바꿔줘 | 이미지 편집
 mix | tricky | none |  |  |  |  | PNG랑 JPEG 중에 logo는 뭐가 better야 | 개념
-en | easy | image_generate |  |  |  |  | Draw a cozy cabin in the snow |
-en | easy | image_generate |  |  |  |  | Generate an icon of a paper plane, flat style |
-en | tricky | image_generate |  |  |  |  | I need a banner image for my blog about tiny models |
-en | tricky | image_generate |  |  |  |  | Make a sticker of a sleepy owl holding coffee |
-en | tricky | image_generate |  |  |  | Assistant: Here's the cabin image | Same scene but at night with northern lights |
+en | easy | image_generate |  |  |  |  | Draw a cozy cabin in the snow | 
+en | easy | image_generate |  |  |  |  | Generate an icon of a paper plane, flat style | 
+en | tricky | image_generate |  |  |  |  | Make a sticker of a sleepy owl holding coffee | 
+en | tricky | image_generate |  |  |  | Assistant: Here's the cabin image | Same scene but at night with northern lights | 
 en | tricky | image_generate |  |  |  | User: [image attached: room.jpg] | Add a big bookshelf to the left wall | 이미지 편집
 en | tricky | none |  |  |  |  | What makes a good logo? | 조언
 en | tricky | web_search |  |  |  |  | Find me royalty-free photos of mountains | 검색
 # --- vision_analyze (툴: vision_analyze / 이미지가 주어졌을 때) ---
-ko | easy | vision_analyze |  |  |  | 사용자: [이미지 첨부: receipt.jpg] | 이 영수증 합계 얼마야 |
-ko | easy | vision_analyze |  |  |  | 사용자: [이미지 첨부: error.png] | 이 화면에 뭐라고 떠 있어 |
-ko | easy | vision_analyze |  |  |  |  | ~/Pictures/whiteboard.jpg 에 적힌 글씨 읽어줘 |
-ko | easy | vision_analyze |  |  |  |  | https://example.com/img/chart.png 이 그래프 설명해줘 |
-ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: plant.jpg] | 이 식물 이름이 뭘까 |
-ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: menu.jpg] | 여기서 채식 메뉴 골라줘 |
-ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: loss-curve.png] | 이거 과적합 난 거야? |
-ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: rack.jpg] | 서버 랙에 빨간 불 들어온 게 몇 번째 칸이야 |
-ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: handwriting.jpg] | 이 손글씨 메모 텍스트로 옮겨줘 |
-ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: table.png] | 이 표를 마크다운으로 바꿔 |
-ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: screenshot-1.png] [이미지 첨부: screenshot-2.png] | 두 화면 차이점 찾아줘 |
-ko | tricky | vision_analyze |  |  |  |  | ~/Downloads/diagram.png 구조 설명해줘 |
+ko | easy | vision_analyze |  |  |  | 사용자: [이미지 첨부: receipt.jpg] | 이 영수증 합계 얼마야 | 
+ko | easy | vision_analyze |  |  |  | 사용자: [이미지 첨부: error.png] | 이 화면에 뭐라고 떠 있어 | 
+ko | easy | vision_analyze |  |  |  |  | ~/Pictures/whiteboard.jpg 에 적힌 글씨 읽어줘 | 
+ko | easy | vision_analyze |  |  |  |  | https://example.com/img/chart.png 이 그래프 설명해줘 | 
+ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: plant.jpg] | 이 식물 이름이 뭘까 | 
+ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: menu.jpg] | 여기서 채식 메뉴 골라줘 | 
+ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: handwriting.jpg] | 이 손글씨 메모 텍스트로 옮겨줘 | 
+ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: table.png] | 이 표를 마크다운으로 바꿔 | 
+ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: screenshot-1.png] [이미지 첨부: screenshot-2.png] | 두 화면 차이점 찾아줘 | 
+ko | tricky | vision_analyze |  |  |  |  | ~/Downloads/diagram.png 구조 설명해줘 | 
 ko | tricky | vision_analyze | calendar_create |  | vision_analyze,calendar_create | 사용자: [이미지 첨부: poster.jpg] | 이 포스터에 있는 행사 날짜 캘린더에 넣어줘 | 이미지 먼저
 ko | tricky | vision_analyze | execute_code |  | vision_analyze,execute_code | 사용자: [이미지 첨부: receipt.jpg] | 여기 품목들 합계 다시 계산해서 영수증이 맞는지 봐 | 이미지 먼저
 ko | tricky | none |  |  |  | 비서: 영수증 합계는 42,500원이에요 | 그럼 세 명이 나누면 얼마씩이야 | 앞 대화로 답 가능
-ko | tricky | none |  |  |  |  | 손실 곡선에서 과적합은 어떻게 알아봐? | 개념, 이미지 없음
 ko | clarify | none |  |  |  |  | 이 사진에 뭐가 있어? | 이미지 없음
 ko | tricky | image_generate |  |  |  | 사용자: [이미지 첨부: sketch.jpg] | 이 스케치를 채색한 그림으로 만들어줘 | 분석 아님, 생성
-mix | easy | vision_analyze |  |  |  | 사용자: [이미지 첨부: invoice.png] | total amount 얼마야 |
-mix | easy | vision_analyze |  |  |  | 사용자: [이미지 첨부: error-screen.png] | 이 error message 뭐라고 써 있어 |
-mix | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: chart.png] | 이 graph에서 peak가 언제야 |
-mix | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: label.jpg] | ingredients에 nuts 들어 있어? |
-mix | tricky | vision_analyze |  |  |  |  | ~/Pictures/slide.png 의 text extract 해줘 |
-mix | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: dashboard.png] | 이 dashboard에서 이상한 metric 있어? |
+mix | easy | vision_analyze |  |  |  | 사용자: [이미지 첨부: invoice.png] | total amount 얼마야 | 
+mix | easy | vision_analyze |  |  |  | 사용자: [이미지 첨부: error-screen.png] | 이 error message 뭐라고 써 있어 | 
+mix | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: chart.png] | 이 graph에서 peak가 언제야 | 
+mix | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: label.jpg] | ingredients에 nuts 들어 있어? | 
+mix | tricky | vision_analyze |  |  |  |  | ~/Pictures/slide.png 의 text extract 해줘 | 
 mix | clarify | none |  |  |  |  | 이 image 설명해줘 | 이미지 없음
-en | easy | vision_analyze |  |  |  | User: [image attached: receipt.jpg] | What's the total on this |
-en | easy | vision_analyze |  |  |  | User: [image attached: sign.jpg] | Translate what this sign says |
-en | easy | vision_analyze |  |  |  |  | Describe the chart at https://example.com/img/q3.png |
-en | tricky | vision_analyze |  |  |  | User: [image attached: confusion-matrix.png] | Which two classes get mixed up the most |
-en | tricky | vision_analyze |  |  |  | User: [image attached: fridge.jpg] | What could I cook with what's in here |
-en | tricky | vision_analyze |  |  |  | User: [image attached: whiteboard.jpg] | Turn these notes into a bullet list |
-en | tricky | vision_analyze |  |  |  |  | Is there a person in ~/Pictures/cam-0412.jpg |
+en | easy | vision_analyze |  |  |  | User: [image attached: receipt.jpg] | What's the total on this | 
+en | easy | vision_analyze |  |  |  | User: [image attached: sign.jpg] | Translate what this sign says | 
+en | easy | vision_analyze |  |  |  |  | Describe the chart at https://example.com/img/q3.png | 
+en | tricky | vision_analyze |  |  |  | User: [image attached: fridge.jpg] | What could I cook with what's in here | 
+en | tricky | vision_analyze |  |  |  | User: [image attached: whiteboard.jpg] | Turn these notes into a bullet list | 
+en | tricky | vision_analyze |  |  |  |  | Is there a person in ~/Pictures/cam-0412.jpg | 
 en | tricky | none |  |  |  | Assistant: The receipt total is 42.50 | Split three ways? | 앞 대화로 답 가능
 en | clarify | none |  |  |  |  | What's in this picture? | 이미지 없음
 # --- text_to_speech (툴: text_to_speech / 음성으로 달라고 명시) ---
-ko | easy | text_to_speech |  |  |  |  | "회의는 3시에 시작합니다" 이 문장 음성으로 만들어줘 |
-ko | easy | text_to_speech |  |  |  |  | 이 글 음성 파일로 바꿔줘: 오늘 저녁은 내가 준비할게 |
-ko | easy | text_to_speech |  |  |  |  | 다음 안내문을 소리 내서 읽어줘. "문이 닫힙니다. 한 걸음 물러서 주세요." |
-ko | tricky | text_to_speech |  |  |  | 비서: 요약을 다 썼어요 | 운전 중이라 못 봐. 음성 메시지로 보내줘 |
-ko | tricky | text_to_speech |  |  |  | 비서: 오늘 일정은 회의 2개, 치과 1개예요 | 그거 목소리로 들려줘 |
-ko | tricky | text_to_speech |  |  |  | 비서: 발표 대본 초안이에요 | 길이 감 잡게 음성으로 한 번 뽑아줘 |
-ko | tricky | text_to_speech |  |  |  | 사용자: 아이 재우는 중이야 // 비서: 짧은 동화를 써 드렸어요 | 이걸 오디오로 만들어줘 |
-ko | tricky | text_to_speech |  |  |  |  | 영어 문장 "The quick brown fox jumps over the lazy dog" 발음 들려줘 |
-ko | tricky | text_to_speech |  |  |  |  | 이 공지문으로 안내 방송용 음성 만들어줘: 오후 2시부터 정전 점검이 있습니다 |
+ko | easy | text_to_speech |  |  |  |  | "회의는 3시에 시작합니다" 이 문장 음성으로 만들어줘 | 
+ko | easy | text_to_speech |  |  |  |  | 이 글 음성 파일로 바꿔줘: 오늘 저녁은 내가 준비할게 | 
+ko | easy | text_to_speech |  |  |  |  | 다음 안내문을 소리 내서 읽어줘. "문이 닫힙니다. 한 걸음 물러서 주세요." | 
+ko | tricky | text_to_speech |  |  |  | 비서: 요약을 다 썼어요 | 운전 중이라 못 봐. 음성 메시지로 보내줘 | 
+ko | tricky | text_to_speech |  |  |  | 비서: 오늘 일정은 회의 2개, 치과 1개예요 | 그거 목소리로 들려줘 | 
+ko | tricky | text_to_speech |  |  |  | 비서: 발표 대본 초안이에요 | 길이 감 잡게 음성으로 한 번 뽑아줘 | 
+ko | tricky | text_to_speech |  |  |  | 사용자: 아이 재우는 중이야 // 비서: 짧은 동화를 써 드렸어요 | 이걸 오디오로 만들어줘 | 
+ko | tricky | text_to_speech |  |  |  |  | 영어 문장 "The quick brown fox jumps over the lazy dog" 발음 들려줘 | 
+ko | tricky | text_to_speech |  |  |  |  | 이 공지문으로 안내 방송용 음성 만들어줘: 오후 2시부터 정전 점검이 있습니다 | 
 ko | tricky | mail_read |  |  |  |  | 방금 온 메일 읽어줘 | "읽어줘"만으로는 음성 아님
 ko | tricky | file |  |  |  |  | ~/notes/todo.md 읽어줘 | "읽어줘"만으로는 음성 아님
 ko | tricky | mail_read | text_to_speech |  | mail_read,text_to_speech |  | 안 읽은 메일 요약해서 음성으로 들려줘 | 조회가 먼저
@@ -126,17 +107,17 @@ ko | tricky | weather | text_to_speech |  | weather,text_to_speech |  | 내일 �
 ko | tricky | none |  |  |  |  | TTS 목소리는 어떻게 그렇게 자연스러워진 거야 | 개념
 ko | cannot | none |  |  |  |  | 이 노래 틀어줘 | 재생 불가
 ko | clarify | none |  |  |  |  | 음성으로 바꿔줘 | 바꿀 글 없음
-mix | easy | text_to_speech |  |  |  |  | "Welcome to our lab" 이거 voice로 만들어줘 |
-mix | easy | text_to_speech |  |  |  |  | 이 script를 audio file로: 안녕하세요, 발표를 시작하겠습니다 |
-mix | tricky | text_to_speech |  |  |  | 비서: summary 작성했어요 | 지금 driving 중이야 voice message로 줘 |
-mix | tricky | text_to_speech |  |  |  | 비서: speech draft예요 | TTS로 한번 들려줘 |
+mix | easy | text_to_speech |  |  |  |  | "Welcome to our lab" 이거 voice로 만들어줘 | 
+mix | easy | text_to_speech |  |  |  |  | 이 script를 audio file로: 안녕하세요, 발표를 시작하겠습니다 | 
+mix | tricky | text_to_speech |  |  |  | 비서: summary 작성했어요 | 지금 driving 중이야 voice message로 줘 | 
+mix | tricky | text_to_speech |  |  |  | 비서: speech draft예요 | TTS로 한번 들려줘 | 
 mix | tricky | calendar_list | text_to_speech |  | calendar_list,text_to_speech |  | 오늘 schedule voice로 읽어줘 | 조회가 먼저
 mix | tricky | none |  |  |  |  | podcast 추천해줘 | 음성 생성 아님
-en | easy | text_to_speech |  |  |  |  | Turn this into audio: "Doors open at nine, please bring your badge" |
-en | easy | text_to_speech |  |  |  |  | Say "good morning team" as a voice message |
-en | tricky | text_to_speech |  |  |  | Assistant: Here's the bedtime story | Can you send that as audio instead |
-en | tricky | text_to_speech |  |  |  | Assistant: I've drafted your toast | Read it aloud so I can hear the pacing |
-en | tricky | text_to_speech |  |  |  | User: I'm cooking, hands are full // Assistant: The recipe has six steps | Speak them to me |
+en | easy | text_to_speech |  |  |  |  | Turn this into audio: "Doors open at nine, please bring your badge" | 
+en | easy | text_to_speech |  |  |  |  | Say "good morning team" as a voice message | 
+en | tricky | text_to_speech |  |  |  | Assistant: Here's the bedtime story | Can you send that as audio instead | 
+en | tricky | text_to_speech |  |  |  | Assistant: I've drafted your toast | Read it aloud so I can hear the pacing | 
+en | tricky | text_to_speech |  |  |  | User: I'm cooking, hands are full // Assistant: The recipe has six steps | Speak them to me | 
 en | tricky | mail_read |  |  |  |  | Read me my latest email | 음성 명시 없음
 en | tricky | web_search | text_to_speech |  | web_search,text_to_speech |  | Get today's top headlines and send them as a voice note | 조회가 먼저
 en | tricky | none |  |  |  |  | How do I improve my public speaking voice | 조언

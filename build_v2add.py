@@ -15,7 +15,7 @@ GEN, DS = HERE / "gen" / "v2", HERE / "dataset"
 LB = DS / "labels"; LBV2 = LB / "v2"
 CLASSES = [c["id"] for c in json.load(open(HERE / "tools-v2.json", encoding="utf-8"))["classes"]]
 NEW = [c for c in CLASSES if c not in bd.CLASSES]
-bd.CLASSES = CLASSES  # parse()가 20개 클래스를 받게
+bd.CLASSES = CLASSES  # parse()가 v2 클래스 전체를 받게
 BATCH = 4
 C = collections.Counter
 
@@ -84,7 +84,7 @@ def build(seed=42):
     # v1과 충돌 후보: 같은 문장인데 의도가 다른 것 + v1 none 중 알람·타이머·리마인더
     pat = re.compile(r"알람|타이머|리마인|알려\s*줘.*(마다|뒤에|후에)|alarm|timer|remind", re.I)
     M = ["# v1 라벨과 v2 기준이 충돌하는 후보", "",
-         "v1 파일은 고치지 않았다. 20개 클래스로 함께 학습하려면 아래를 사람이 보고 정한다.", "",
+         "v1 파일은 고치지 않았다. 18개 클래스로 함께 학습하려면 아래를 사람이 보고 정한다.", "",
          "## 같은 문장인데 v2 의도가 다른 것 (v2 추가분에서는 제외함)", ""]
     for r, o in dup_v1:
         if r["intended"]["first"] != o["intended"]["first"]:

@@ -3,7 +3,7 @@
 에이전트가 요청에 맞는 도구를 골랐는지 채점하는 아주 작은 모델을 만드는 실험.
 
 **방식:** 강한 모델(Opus)이 라벨 → 사람 3명이 검수 → 소형 모델이 학습(증류) → CPU에서 채점.
-첫 범위는 **도구 고르기**: 한국어/영어 요청을 보고 10개 도구 중 맞는 것(또는 "부르지 않음")을 고른다.
+첫 범위는 **도구 고르기**: 한국어/영어 **일상 요청**을 보고 도구 중 맞는 것(또는 "부르지 않음")을 고른다.
 
 자세한 실험 계획은 [docs/plan.md](docs/plan.md).
 
@@ -11,7 +11,7 @@
 
 | 파일 | 내용 |
 |---|---|
-| `tools.json` | 도구 10개 정의 (weather, calendar_list, calendar_create, web_search, map_search, fx, mail_read, server_status, ssh, none) |
+| `tools.json` | 도구 8개 정의 (weather, calendar_list, calendar_create, web_search, map_search, fx, mail_read, none) |
 | `labeling-guide.md` | 라벨 기준서 (경계 규칙) |
 | `seed-examples.jsonl` | 라벨 예시 45건 |
 | `prompts.md` | 문장 생성·라벨 프롬프트 |
@@ -19,20 +19,20 @@
 | `merge_labels.py` | Opus 라벨 병합·비교 |
 | `build_review_sheet.py` | 사람 검수용 엑셀 생성 |
 | `review-site/` | 휴대폰 스와이프 검수 사이트 소스·빌드 스크립트 ([설명](review-site/README.md)) |
-| `dataset/` | 데이터셋 v1 (3,473건: train 2,780 / val 348 / gold 345), 통계 `stats.md` |
+| `dataset/` | 데이터셋 v1 (2,369건: train 1,893 / val 233 / gold 243), 통계 `stats.md` |
 | `dataset/labels/` | Opus 라벨, 생성 의도와의 일치 통계 |
 | `dataset/review-sheet-v2.xlsx` | 검수 엑셀 (골드 A/B/C 시트 포함) |
-| `tools-v2.json` | 도구 20개 정의: 위 10개 + Nous Hermes 기본 툴 기준 10개 (memory, session_search, cronjob, file, web_extract, browser, execute_code, image_generate, vision_analyze, text_to_speech) |
+| `tools-v2.json` | 도구 18개 정의: 위 8개 + Nous Hermes 기본 툴 기준 10개 (memory, session_search, cronjob, file, web_extract, browser, execute_code, image_generate, vision_analyze, text_to_speech) |
 | `labeling-guide-v2.md` | 새 클래스 10개의 경계 규칙 13~23 |
 | `seed-examples-v2.jsonl` | 새 클래스 라벨 예시 25건 |
 | `gen/v2/` | v2 추가분 생성 원문 |
 | `build_v2add.py` | v2 추가분 빌드·라벨 병합 (v1 파일은 건드리지 않음) |
-| `dataset/tool-choice-v2add.*` | v2 추가분 507건 (train 405 / val 51 / holdout 51: 평가용, 사람 라벨 전), 통계 `stats-v2add.md`, v1과 충돌 후보 `v2add-v1-conflicts.md` |
+| `dataset/tool-choice-v2add.*` | v2 추가분 402건 (train 318 / val 43 / holdout 41: 평가용, 사람 라벨 전), 통계 `stats-v2add.md`, v1과 충돌 후보 `v2add-v1-conflicts.md` |
 | `dataset/labels/v2/`, `labels-v2add.jsonl`, `agreement-v2add.md` | v2 추가분 Opus 라벨과 일치 통계 |
 
-## 서버 정보
+## 범위
 
-문장 속 호스트·도메인·번호·프로젝트 이름은 전부 가상 값이다(node01, nas01, example.org 등). 실제 서버의 상태를 묘사한 문장은 넣지 않는다.
+일상 요청만 다룬다. Dev·Ops 관련(서버, ssh, 인프라, 코딩, 배포, ML 등) 문장과 `server_status`·`ssh` 클래스는 2026-11-14에 뺐다.
 
 ## 용어
 
@@ -41,6 +41,6 @@
 ## 진행 상태
 
 - E0 데이터 준비: 완료
-- E1 Opus 라벨: 완료 (생성 의도와 95.4% 일치). 사람 검수 대기
-- v2 추가분(2026-11-12): Hermes 기본 툴 기준 클래스 10개 추가, 507건 생성, train+val 456건 Opus 라벨. 사람 검수 대기
+- E1 Opus 라벨: 완료 (생성 의도와 96.7% 일치). 사람 검수 대기
+- v2 추가분(2026-11-12): Hermes 기본 툴 기준 클래스 10개 추가. Dev·Ops 제외 후 402건, train+val 361건 Opus 라벨. 사람 검수 대기
 - E2 학생 모델 학습, E3 프론티어 기준선·CPU 속도: 예정
