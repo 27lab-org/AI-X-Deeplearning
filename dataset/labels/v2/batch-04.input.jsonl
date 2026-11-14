@@ -1,4 +1,3 @@
-{"id": "tc-cf7a2752", "context": "", "request": "zfs 튜닝 잘 정리된 글 찾아줘"}
 {"id": "tc-d34ed810", "context": "", "request": "Summarize the link"}
 {"id": "tc-2295f1db", "context": "", "request": "이 form fill out 해줘 https://example.com/contact 이름은 Kim Garam"}
 {"id": "tc-d78237e2", "context": "", "request": "이 사진에 뭐가 있어?"}
@@ -6,14 +5,12 @@
 {"id": "tc-8478c5b2", "context": "", "request": "기억력 좋아지는 방법 있어?"}
 {"id": "tc-f820b99d", "context": "User: My expenses are in ~/data/2026.csv", "request": "Which month did I spend the most"}
 {"id": "tc-059b2fee", "context": "사용자: [이미지 첨부: error-screen.png]", "request": "이 error message 뭐라고 써 있어"}
-{"id": "tc-f486775c", "context": "", "request": "다음 JSON을 키 이름순으로 정렬하고 중복 제거해줘: [{\"b\":2,\"a\":1},{\"a\":1,\"b\":2},{\"c\":3,\"a\":0}]"}
 {"id": "tc-7e23c496", "context": "", "request": "Open it"}
 {"id": "tc-37f44b2b", "context": "", "request": "음성으로 바꿔줘"}
 {"id": "tc-853f2806", "context": "", "request": "메일 요약할 때 광고 메일은 빼는 걸로 기억해"}
 {"id": "tc-1d71a825", "context": "", "request": "Uber 불러줘"}
 {"id": "tc-9cdc84ed", "context": "", "request": "내가 채식한다는 거 잊지 마"}
 {"id": "tc-36883f62", "context": "", "request": "TTS 목소리는 어떻게 그렇게 자연스러워진 거야"}
-{"id": "tc-ced085c3", "context": "", "request": "LLM의 memory는 어떻게 동작해?"}
 {"id": "tc-cc14a590", "context": "", "request": "https://shop.example.com 에서 checkout 진행해"}
 {"id": "tc-a474a58a", "context": "비서: 환율은 1달러에 1,380원이에요", "request": "그럼 37,412.55달러는 원 단위까지 정확히 얼마야"}
 {"id": "tc-efa565b2", "context": "", "request": "앞으로 답은 존댓말 말고 반말로 해줘, 기억해"}
@@ -23,7 +20,6 @@
 {"id": "tc-b41d88f0", "context": "", "request": "홈 폴더에 memo.txt 만들고 \"우유 사기\"라고 적어줘"}
 {"id": "tc-0110cf8e", "context": "비서: 관련 article 링크예요 https://example.com/ai-trends", "request": "그거 read 하고 3줄 요약"}
 {"id": "tc-b84642c7", "context": "", "request": "Is there a person in ~/Pictures/cam-0412.jpg"}
-{"id": "tc-15d4aa57", "context": "", "request": "gitignore file은 어떻게 write 해?"}
 {"id": "tc-a78bd76e", "context": "", "request": "학교 포털 https://portal.example.ac.kr 에 저장된 계정으로 로그인해서 공지 탭 열어줘"}
 {"id": "tc-46c795bc", "context": "", "request": "https://example.com/dashboard 화면 스크린샷 찍어줘"}
 {"id": "tc-acc3c33e", "context": "", "request": "내 work hours는 10 to 7이야 저장해 둬"}
@@ -38,7 +34,6 @@
 {"id": "tc-1ce678df", "context": "", "request": "coffee는 항상 oat milk로 시킨다는 거 저장"}
 {"id": "tc-bafb7b49", "context": "", "request": "every morning 7시에 news briefing 해줘"}
 {"id": "tc-279aea93", "context": "", "request": "우리 동아리 로고 시안 하나 만들어줘. 파란색, 산 모양"}
-{"id": "tc-1c534214", "context": "사용자: 설정을 백업해 두고 싶어", "request": "~/.hermes/config.yaml 내용을 ~/backup/config-1112.yaml로 복사해 써줘"}
 {"id": "tc-e75d8249", "context": "사용자: 선물을 골라야 하는데", "request": "지난번에 네가 골라준 후보 세 개가 뭐였지"}
 {"id": "tc-ba899073", "context": "", "request": "https://example.com/map 에서 zoom in 두 번 하고 screenshot"}
 {"id": "tc-0cbfe44c", "context": "사용자: [이미지 첨부: error.png]", "request": "이 화면에 뭐라고 떠 있어"}
@@ -55,26 +50,17 @@
 {"id": "tc-e4c74773", "context": "사용자: 팀 티셔츠를 맞추려고 해", "request": "앞면에 넣을 그림 시안 그려봐. 부엉이랑 노트북"}
 {"id": "tc-cf70dd29", "context": "", "request": "거기 로그인해줘"}
 {"id": "tc-50c93668", "context": "", "request": "아까 저장한 내 혈액형 틀렸어. A형으로 고쳐"}
-{"id": "tc-df78c71b", "context": "사용자: [이미지 첨부: dashboard.png]", "request": "이 dashboard에서 이상한 metric 있어?"}
 {"id": "tc-4f4ccbe0", "context": "", "request": "\"Welcome to our lab\" 이거 voice로 만들어줘"}
 {"id": "tc-10ccf061", "context": "", "request": "Do I have anything at 7 tomorrow"}
-{"id": "tc-a29c411c", "context": "", "request": "이 프로젝트에서 load_dataset 함수가 어디 정의돼 있어"}
-{"id": "tc-7fd95ffc", "context": "", "request": "~/.hermes/config.yaml에서 web 툴셋 줄 지워"}
-{"id": "tc-36e255e4", "context": "", "request": "https://docs.example.com/install 여기 설치 단계만 정리해"}
-{"id": "tc-b831fc1b", "context": "", "request": "Write me a Python function that reverses a string"}
 {"id": "tc-25a004db", "context": "비서: 오늘 일정은 회의 2개, 치과 1개예요", "request": "그거 목소리로 들려줘"}
 {"id": "tc-38ed171d", "context": "", "request": "cyberpunk 느낌 서울 야경 image generate"}
-{"id": "tc-150af7d9", "context": "User: [image attached: confusion-matrix.png]", "request": "Which two classes get mixed up the most"}
 {"id": "tc-04b63ba6", "context": "사용자: 아이 재우는 중이야\n비서: 짧은 동화를 써 드렸어요", "request": "이걸 오디오로 만들어줘"}
 {"id": "tc-b657e978", "context": "", "request": "매일 아침 8시에 오늘 날씨 알려줘"}
-{"id": "tc-9756f493", "context": "", "request": "저번 session에서 짜던 script 어디까지 했어"}
 {"id": "tc-b2148023", "context": "비서: 새 대화를 시작했어요", "request": "어제 하던 번역 작업 이어서 하자, 어디까지 했지"}
-{"id": "tc-7c4faf6e", "context": "비서: config.yaml에 debug가 true예요", "request": "false로 change"}
 {"id": "tc-b22cb3a5", "context": "비서: 장바구니에 키보드 1개가 담겨 있어요", "request": "주문 확정해"}
 {"id": "tc-90614b8e", "context": "비서: 후보는 A hotel, B stay 두 곳이에요", "request": "방금 first 거 이름 다시"}
 {"id": "tc-fa917598", "context": "사용자: 아까 내가 말한 숫자가 42였지\n비서: 네, 42라고 하셨어요", "request": "그거 두 배면?"}
 {"id": "tc-c203e209", "context": "", "request": "https://example.com/recipe/kimchi-stew 재료 목록만"}
-{"id": "tc-804fe334", "context": "", "request": "config.yaml에서 timeout을 30에서 60으로 바꿔"}
 {"id": "tc-92b9d906", "context": "", "request": "https://example.com/settings 에서 알림 토글이 켜져 있는지 봐줘, 로그인은 저장된 걸로"}
 {"id": "tc-5f0440f3", "context": "", "request": "로고 디자인할 때 색은 몇 개까지 쓰는 게 좋아"}
 {"id": "tc-d78decec", "context": "", "request": "How many Fridays fall on the 13th between 2027 and 2035"}
@@ -100,15 +86,10 @@
 {"id": "tc-724c67f7", "context": "", "request": "What did the attachment in Dana's email say"}
 {"id": "tc-ad9f3c00", "context": "", "request": "Get today's top headlines and send them as a voice note"}
 {"id": "tc-05eb3d79", "context": "", "request": "Book me a table for 4 at 7"}
-{"id": "tc-538c1625", "context": "비서: web_extract로는 표가 비어 보여요. 자바스크립트로 그려지는 것 같아요", "request": "그럼 브라우저로 열어서 봐"}
 {"id": "tc-1c690964", "context": "", "request": "이 list 정렬하고 median 구해: 44, 12, 97, 3, 58, 21, 76, 35, 62"}
 {"id": "tc-bb2c026f", "context": "User: [image attached: sign.jpg]", "request": "Translate what this sign says"}
 {"id": "tc-bac50e11", "context": "", "request": "내 차 번호 12가 3456이야 저장해놔"}
-{"id": "tc-de4b8224", "context": "", "request": "0.1 + 0.2가 floating point로 정확히 얼마인지 run 해서 보여줘"}
-{"id": "tc-bdd32d1a", "context": "사용자: https://example.com/changelog", "request": "이번 버전에서 바뀐 거 뭐야"}
-{"id": "tc-573a4b46", "context": "", "request": ".env file에 API_URL 뭐로 set 돼 있어"}
 {"id": "tc-db8707d8", "context": "", "request": "Search my past sessions for anything about the lease renewal"}
 {"id": "tc-52785a69", "context": "", "request": "오늘 주요 뉴스 알려줘"}
 {"id": "tc-70b2d39b", "context": "", "request": "Compute 17 factorial exactly"}
-{"id": "tc-353264a5", "context": "", "request": "node02 디스크 지금 확인하고, 앞으로 매시간 확인하게 걸어둬"}
 {"id": "tc-bb7ce9d4", "context": "", "request": "12월 3일 건강검진 잊지 않게 캘린더에 넣어줘"}

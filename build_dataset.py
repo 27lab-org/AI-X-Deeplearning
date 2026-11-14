@@ -11,7 +11,7 @@ import json, random, re, sys, collections, pathlib, hashlib
 
 HERE = pathlib.Path(__file__).resolve().parent
 GEN, OUT = HERE / "gen", HERE / "dataset"
-CLASSES = ["weather","calendar_list","calendar_create","web_search","map_search","fx","mail_read","server_status","ssh","none"]
+CLASSES = ["weather","calendar_list","calendar_create","web_search","map_search","fx","mail_read","none"]
 SPLIT = {"gold": 0.10, "val": 0.10}  # 나머지 train
 
 def parse(path):

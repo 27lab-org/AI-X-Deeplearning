@@ -8,7 +8,7 @@
 import json, glob, collections, random, pathlib, sys
 HERE = pathlib.Path(__file__).resolve().parent
 DS = HERE / "dataset"; LB = DS / "labels"
-CLASSES = ["weather","calendar_list","calendar_create","web_search","map_search","fx","mail_read","server_status","ssh","none"]
+CLASSES = ["weather","calendar_list","calendar_create","web_search","map_search","fx","mail_read","none"]
 
 def load(p): return [json.loads(l) for l in open(p, encoding="utf-8") if l.strip()]
 

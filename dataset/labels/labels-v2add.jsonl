@@ -1,14 +1,9 @@
 {"id": "tc-00d22dd8", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-0110cf8e", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-04"}
-{"id": "tc-01c4e5e3", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-020e2e33", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 23, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-022acd5d", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": true, "rule": 17, "confidence": 0.93, "note": "", "batch": "batch-02"}
 {"id": "tc-02401ad9", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.85, "note": "", "batch": "batch-03"}
 {"id": "tc-02e510b9", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-02"}
-{"id": "tc-03cf3846", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": "", "batch": "batch-03"}
-{"id": "tc-04a11988", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-04b63ba6", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": "", "batch": "batch-04"}
-{"id": "tc-054577e0", "first": "server_status", "also_ok": ["ssh"], "sequence": ["server_status"], "needs_confirm": false, "rule": 6, "confidence": 0.65, "note": "GPU 상태 조회지만 nvidia-smi는 정해진 조회 목록 밖이라 ssh로도 볼 수 있음", "batch": "batch-01"}
 {"id": "tc-059b2fee", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-05eb3d79", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 19, "confidence": 0.9, "note": "사이트 미지정 예약", "batch": "batch-04"}
 {"id": "tc-08e2372b", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": "", "batch": "batch-03"}
@@ -18,12 +13,10 @@
 {"id": "tc-0ae3640d", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-0b620123", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.97, "note": "", "batch": "batch-02"}
 {"id": "tc-0b867207", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-0c2937a5", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.8, "note": "", "batch": "batch-03"}
 {"id": "tc-0c54a857", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-0cbfe44c", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-0cd9150c", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": true, "rule": 15, "confidence": 0.75, "note": "'꺼줘'가 일시정지면 확인 불필요, 삭제면 확인 필요", "batch": "batch-03"}
 {"id": "tc-0d055218", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-02"}
-{"id": "tc-0e517b96", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-0f17184d", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-10ccf061", "first": "calendar_list", "also_ok": [], "sequence": ["calendar_list"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-10f92330", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": "", "batch": "batch-01"}
@@ -33,18 +26,12 @@
 {"id": "tc-12421a06", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-130e7232", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-13da7aa0", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 23, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-150af7d9", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-04"}
-{"id": "tc-15d4aa57", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-163c91fd", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 22, "confidence": 0.93, "note": "", "batch": "batch-02"}
 {"id": "tc-16af8cba", "first": "fx", "also_ok": [], "sequence": ["fx", "execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.85, "note": "", "batch": "batch-01"}
 {"id": "tc-18a96c19", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": "", "batch": "batch-03"}
-{"id": "tc-18de6362", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-19d81950", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-1a1d5be3", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-1a65979b", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze", "calendar_list", "calendar_create"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": "", "batch": "batch-03"}
-{"id": "tc-1b264dd3", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": "", "batch": "batch-03"}
-{"id": "tc-1b36548a", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": true, "rule": 15, "confidence": 0.82, "note": "", "batch": "batch-02"}
-{"id": "tc-1c534214", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-1c690964", "first": "execute_code", "also_ok": ["none"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.65, "note": "9개 정렬·중앙값은 암산으로도 가능", "batch": "batch-04"}
 {"id": "tc-1ce678df", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-1d71a825", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 19, "confidence": 0.8, "note": "택시 호출은 v1대로 none", "batch": "batch-04"}
@@ -56,20 +43,14 @@
 {"id": "tc-1eca6398", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.85, "note": "", "batch": "batch-01"}
 {"id": "tc-1f882d1c", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-208d9575", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-02"}
-{"id": "tc-20d6f2ae", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.9, "note": "", "batch": "batch-02"}
 {"id": "tc-2295f1db", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.85, "note": "입력만 요청, 제출 시에는 확인 필요", "batch": "batch-04"}
 {"id": "tc-2299fa53", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-23c25786", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-23fd8dd2", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.85, "note": "", "batch": "batch-03"}
 {"id": "tc-258095b4", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.9, "note": "", "batch": "batch-01"}
 {"id": "tc-25a004db", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": "", "batch": "batch-04"}
-{"id": "tc-26f96b65", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": "", "batch": "batch-01"}
 {"id": "tc-279aea93", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-27ae49bd", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 14, "confidence": 0.97, "note": "", "batch": "batch-02"}
-{"id": "tc-28b1de09", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.9, "note": "", "batch": "batch-01"}
-{"id": "tc-2adb6bcc", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-2b1a90b1", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-03"}
-{"id": "tc-2b5d4665", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-2ba1b6f7", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-2bf3a6ca", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-2cfd3dc7", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": "", "batch": "batch-03"}
@@ -87,21 +68,15 @@
 {"id": "tc-33565eb5", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-339589af", "first": "session_search", "also_ok": ["file"], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.6, "note": "지난주 고친 버전이 이전 대화에 있는지 로컬 파일인지 불분명", "batch": "batch-02"}
 {"id": "tc-34a9c5bf", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.93, "note": "", "batch": "batch-02"}
-{"id": "tc-353264a5", "first": "server_status", "also_ok": ["cronjob"], "sequence": ["server_status", "cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.85, "note": "", "batch": "batch-04"}
 {"id": "tc-36850924", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": true, "rule": 17, "confidence": 0.75, "note": "로컬 메모 한 줄 삭제를 확인 필요로 볼지 갈림", "batch": "batch-02"}
 {"id": "tc-36883f62", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-3696050e", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-36d3649b", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": "", "batch": "batch-03"}
-{"id": "tc-36e255e4", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-04"}
-{"id": "tc-3703f4c2", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": false, "rule": 20, "confidence": 0.85, "note": "", "batch": "batch-03"}
 {"id": "tc-371ea22a", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.75, "note": "", "batch": "batch-01"}
-{"id": "tc-37235735", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-37f44b2b", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.85, "note": "변환할 글이 없음 → 되묻기", "batch": "batch-04"}
 {"id": "tc-37f886ea", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 23, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-38772ade", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-04"}
-{"id": "tc-389c1e9e", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-38ed171d", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-04"}
-{"id": "tc-3aa6d749", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-3b54d0bf", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.85, "note": "", "batch": "batch-01"}
 {"id": "tc-3b77429e", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": true, "rule": 19, "confidence": 0.9, "note": "", "batch": "batch-01"}
 {"id": "tc-3c095e73", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.9, "note": "", "batch": "batch-01"}
@@ -111,25 +86,18 @@
 {"id": "tc-3dbe4873", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-3dd5e636", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-3eb99c3f", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-03"}
-{"id": "tc-3f0076f9", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": true, "rule": 15, "confidence": 0.93, "note": "", "batch": "batch-02"}
 {"id": "tc-3f300872", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-3f6729ff", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": true, "rule": 13, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-3f7ab125", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-3fe17519", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.93, "note": "", "batch": "batch-02"}
-{"id": "tc-400f7cc5", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-40f7b8e8", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.92, "note": "", "batch": "batch-02"}
 {"id": "tc-414b9891", "first": "calendar_list", "also_ok": [], "sequence": ["calendar_list"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": "", "batch": "batch-02"}
-{"id": "tc-415db2aa", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-4245e862", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.9, "note": "", "batch": "batch-02"}
-{"id": "tc-42745764", "first": "server_status", "also_ok": ["memory"], "sequence": ["server_status", "memory"], "needs_confirm": false, "rule": 10, "confidence": 0.8, "note": "", "batch": "batch-03"}
 {"id": "tc-42796458", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-03"}
-{"id": "tc-42853aa3", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-43d3bae6", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-43eecd82", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-44427ddd", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": 11, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-44b45955", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": true, "rule": 19, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-44dbd0cd", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-4503b695", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-4514ca80", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-45564ebb", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-46c795bc", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.9, "note": "", "batch": "batch-04"}
@@ -151,24 +119,16 @@
 {"id": "tc-50c7ae7f", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-50c93668", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-51067a33", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze", "memory"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": "", "batch": "batch-03"}
-{"id": "tc-51f9c559", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.75, "note": "", "batch": "batch-01"}
-{"id": "tc-52282520", "first": "server_status", "also_ok": [], "sequence": ["server_status"], "needs_confirm": false, "rule": 6, "confidence": 0.85, "note": "", "batch": "batch-01"}
 {"id": "tc-52785a69", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-52eedae3", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.9, "note": "", "batch": "batch-02"}
 {"id": "tc-534e8ba0", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": "", "batch": "batch-01"}
-{"id": "tc-538c1625", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.9, "note": "", "batch": "batch-04"}
-{"id": "tc-53fbf925", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.85, "note": "", "batch": "batch-03"}
 {"id": "tc-54baee2a", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.8, "note": "", "batch": "batch-01"}
 {"id": "tc-54bf3319", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze", "execute_code"], "needs_confirm": false, "rule": 21, "confidence": 0.85, "note": "", "batch": "batch-03"}
 {"id": "tc-552b0a5e", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-55946aa5", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.82, "note": "", "batch": "batch-02"}
-{"id": "tc-573a4b46", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-04"}
-{"id": "tc-579eef8d", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-57ac03b2", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-5855a770", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-5861d50e", "first": "calendar_list", "also_ok": [], "sequence": ["calendar_list"], "needs_confirm": false, "rule": 1, "confidence": 0.85, "note": "", "batch": "batch-01"}
-{"id": "tc-5865a537", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-02"}
-{"id": "tc-59126137", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-5a0e3b11", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-01"}
 {"id": "tc-5a66be6e", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-5ad66ce7", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": "", "batch": "batch-03"}
@@ -185,16 +145,13 @@
 {"id": "tc-63f477d7", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-64c25016", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-650beb2a", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-650dbf65", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.9, "note": "", "batch": "batch-01"}
 {"id": "tc-6513ce7e", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.93, "note": "", "batch": "batch-02"}
-{"id": "tc-661b6f2a", "first": "server_status", "also_ok": ["ssh"], "sequence": ["server_status"], "needs_confirm": false, "rule": 6, "confidence": 0.75, "note": "명령을 직접 지정했지만 df는 정해진 상태 조회", "batch": "batch-01"}
 {"id": "tc-675e69dc", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-6a8f3ad8", "first": "mail_read", "also_ok": [], "sequence": ["mail_read", "vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.85, "note": "", "batch": "batch-03"}
 {"id": "tc-6a980c5c", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.93, "note": "", "batch": "batch-02"}
 {"id": "tc-6b038273", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-6baf7e53", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-6bef8616", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-03"}
-{"id": "tc-6bf27820", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": false, "rule": 17, "confidence": 0.88, "note": "", "batch": "batch-02"}
 {"id": "tc-6c8e1ca3", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-6cc37051", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-6d007067", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.9, "note": "", "batch": "batch-03"}
@@ -207,7 +164,6 @@
 {"id": "tc-6f056dea", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-70b2d39b", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-7179834d", "first": "mail_read", "also_ok": [], "sequence": ["mail_read"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": "", "batch": "batch-03"}
-{"id": "tc-71a58ac2", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-72114dc3", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-7223e6ae", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-724c67f7", "first": "mail_read", "also_ok": [], "sequence": ["mail_read"], "needs_confirm": false, "rule": 5, "confidence": 0.9, "note": "", "batch": "batch-04"}
@@ -219,7 +175,6 @@
 {"id": "tc-7513f5f0", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-7524f522", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-75435cd9", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "URL 없음 → 되묻기", "batch": "batch-01"}
-{"id": "tc-757328f3", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-75eb92ca", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-7603a4a7", "first": "web_search", "also_ok": ["none"], "sequence": ["web_search"], "needs_confirm": false, "rule": 1, "confidence": 0.85, "note": "", "batch": "batch-01"}
 {"id": "tc-76894207", "first": "mail_read", "also_ok": [], "sequence": ["mail_read"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": "", "batch": "batch-02"}
@@ -234,20 +189,16 @@
 {"id": "tc-79ef3e80", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-01"}
 {"id": "tc-7b406753", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": "", "batch": "batch-01"}
 {"id": "tc-7b6b1c68", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.9, "note": "", "batch": "batch-04"}
-{"id": "tc-7c4faf6e", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": true, "rule": 17, "confidence": 0.75, "note": "호스트 없는 config.yaml로 보고 로컬 파일 수정, 설정 변경이라 확인", "batch": "batch-04"}
 {"id": "tc-7ce69973", "first": "mail_read", "also_ok": [], "sequence": ["mail_read"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-7d06097d", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-7d07d677", "first": "weather", "also_ok": ["text_to_speech"], "sequence": ["weather", "text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.93, "note": "", "batch": "batch-02"}
 {"id": "tc-7daccb67", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-7e23c496", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "대상 불명 → 되묻기", "batch": "batch-04"}
-{"id": "tc-7eafe426", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-7f2ca3bc", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-7f959ec9", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.97, "note": "", "batch": "batch-02"}
 {"id": "tc-7fc4ae1d", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": true, "rule": 13, "confidence": 0.95, "note": "", "batch": "batch-03"}
-{"id": "tc-7fd95ffc", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": true, "rule": 17, "confidence": 0.85, "note": "설정 변경이라 확인", "batch": "batch-04"}
 {"id": "tc-8012e308", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-801c570f", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-04"}
-{"id": "tc-804fe334", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": true, "rule": 17, "confidence": 0.8, "note": "설정 변경이라 확인", "batch": "batch-04"}
 {"id": "tc-80873d1d", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.85, "note": "", "batch": "batch-03"}
 {"id": "tc-8215289b", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-8249396f", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.9, "note": "", "batch": "batch-03"}
@@ -258,37 +209,26 @@
 {"id": "tc-853f2806", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-85419912", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-85739413", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 19, "confidence": 0.8, "note": "앱 호출, 조작할 사이트 URL 없음", "batch": "batch-03"}
-{"id": "tc-85be0cf0", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": "", "batch": "batch-01"}
-{"id": "tc-8634e1fc", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": false, "rule": 17, "confidence": 0.92, "note": "", "batch": "batch-02"}
 {"id": "tc-86beeeb2", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": true, "rule": 19, "confidence": 0.95, "note": "", "batch": "batch-03"}
-{"id": "tc-87c904e5", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-893e623d", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.93, "note": "", "batch": "batch-02"}
 {"id": "tc-8b3645a8", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-8c620c06", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": "", "batch": "batch-01"}
 {"id": "tc-8c9d4c32", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": "", "batch": "batch-02"}
-{"id": "tc-8ce5827e", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-03"}
-{"id": "tc-8d4b6b37", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-8d745e8d", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-8e25befb", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": "", "batch": "batch-02"}
-{"id": "tc-8eb63727", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-90614b8e", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-9106ad24", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-92b9d906", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-92c3453b", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-93aeb271", "first": "ssh", "also_ok": ["none"], "sequence": ["ssh"], "needs_confirm": true, "rule": 15, "confidence": 0.65, "note": "crontab 편집은 ssh지만 호스트 미지정이라 되묻기도 가능", "batch": "batch-01"}
 {"id": "tc-94017477", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-943b2597", "first": "web_search", "also_ok": [], "sequence": ["web_search", "web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-94ca7d44", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-951988c4", "first": "web_extract", "also_ok": [], "sequence": ["web_extract", "memory"], "needs_confirm": false, "rule": 18, "confidence": 0.9, "note": "", "batch": "batch-04"}
-{"id": "tc-9756f493", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-975ff0a5", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-97d3f6e6", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.85, "note": "입력만 요청, 제출 시에는 확인 필요", "batch": "batch-04"}
-{"id": "tc-99a23062", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-9ad07159", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.9, "note": "", "batch": "batch-01"}
 {"id": "tc-9ad0e0ba", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-9c7a2f94", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-9cdc84ed", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": "", "batch": "batch-04"}
-{"id": "tc-9dabd023", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.8, "note": "로컬 설정 파일 수정: 명시적 요청이라 확인 불필요로 봄", "batch": "batch-03"}
 {"id": "tc-9e45e151", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.97, "note": "", "batch": "batch-02"}
 {"id": "tc-9e926863", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.93, "note": "", "batch": "batch-02"}
 {"id": "tc-9eae9a37", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.9, "note": "", "batch": "batch-03"}
@@ -299,15 +239,11 @@
 {"id": "tc-a1ca0c83", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-a1d3419e", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-a240fbee", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": true, "rule": 19, "confidence": 0.8, "note": "", "batch": "batch-03"}
-{"id": "tc-a29c411c", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-a474a58a", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.8, "note": "환율은 앞 대화에 있음, 큰 수 정확 계산", "batch": "batch-04"}
 {"id": "tc-a4de4fa2", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 17, "confidence": 0.85, "note": "드라이브 업로드 도구 없음, 파일도 불명", "batch": "batch-01"}
 {"id": "tc-a5209f8f", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-a78bd76e", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-a979f525", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.9, "note": "", "batch": "batch-01"}
-{"id": "tc-aa03ed6a", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-aba1a8c8", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.93, "note": "", "batch": "batch-02"}
-{"id": "tc-ac43ad83", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-ac6c6dbe", "first": "fx", "also_ok": [], "sequence": ["fx"], "needs_confirm": false, "rule": 3, "confidence": 0.97, "note": "", "batch": "batch-02"}
 {"id": "tc-acc3c33e", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-ad9f3c00", "first": "web_search", "also_ok": [], "sequence": ["web_search", "text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": "", "batch": "batch-04"}
@@ -322,14 +258,10 @@
 {"id": "tc-b41d88f0", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-b603b805", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": "이미지 없음 → 되묻기", "batch": "batch-03"}
 {"id": "tc-b657e978", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.95, "note": "", "batch": "batch-04"}
-{"id": "tc-b66589b6", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.85, "note": "", "batch": "batch-03"}
 {"id": "tc-b6b843d8", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.85, "note": "앞 대화 없음: 무엇을 오디오로 할지 되묻기", "batch": "batch-02"}
 {"id": "tc-b6e7b338", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-03"}
-{"id": "tc-b831fc1b", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-b84642c7", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-b8c8c587", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "무엇을 언제 알릴지 불명 → 되묻기", "batch": "batch-03"}
-{"id": "tc-b8d0a8f8", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": "", "batch": "batch-01"}
-{"id": "tc-b8fd58d0", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-b9bef36c", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.97, "note": "", "batch": "batch-02"}
 {"id": "tc-b9ef1218", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-ba15b0d3", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.95, "note": "", "batch": "batch-02"}
@@ -342,16 +274,12 @@
 {"id": "tc-bbc3ff40", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-bbd2b828", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": true, "rule": 19, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-bbf19986", "first": "mail_read", "also_ok": ["text_to_speech"], "sequence": ["mail_read", "text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": "", "batch": "batch-02"}
-{"id": "tc-bca5a76d", "first": "web_search", "also_ok": [], "sequence": ["web_search", "web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-bdd32d1a", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-04"}
-{"id": "tc-bf0070ad", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.93, "note": "", "batch": "batch-02"}
 {"id": "tc-bf1d4fca", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-bfd293fe", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-c0249606", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-c15a005f", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-c203e209", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-c28d590b", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-04"}
-{"id": "tc-c40c9e4b", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-c46eddf7", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-c4ad9729", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 23, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-c636b846", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": "", "batch": "batch-03"}
@@ -359,9 +287,7 @@
 {"id": "tc-c7006c66", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-c7f53f76", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": "", "batch": "batch-02"}
 {"id": "tc-c81469a2", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.85, "note": "", "batch": "batch-02"}
-{"id": "tc-c9061042", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-c97ced5a", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze", "file"], "needs_confirm": false, "rule": 21, "confidence": 0.88, "note": "", "batch": "batch-02"}
-{"id": "tc-c9a339c1", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.85, "note": "", "batch": "batch-01"}
 {"id": "tc-ca43e7e5", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.93, "note": "", "batch": "batch-02"}
 {"id": "tc-ca978da2", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-ca9a41b0", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-03"}
@@ -370,18 +296,11 @@
 {"id": "tc-cc14a590", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": true, "rule": 19, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-cd3e5f35", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-cd71d06a", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-02"}
-{"id": "tc-ce1e81f0", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": false, "rule": 17, "confidence": 0.95, "note": "", "batch": "batch-03"}
-{"id": "tc-ced085c3", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-cf70dd29", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "'거기'를 알 수 없음 → 되묻기", "batch": "batch-04"}
-{"id": "tc-cf7a2752", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-04"}
-{"id": "tc-cfc9c154", "first": "server_status", "also_ok": ["ssh"], "sequence": ["server_status"], "needs_confirm": false, "rule": 6, "confidence": 0.75, "note": "", "batch": "batch-02"}
-{"id": "tc-cfcaf31a", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-02"}
 {"id": "tc-cfce655b", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-cfd227d6", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.85, "note": "", "batch": "batch-04"}
 {"id": "tc-d066dc99", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-d16e2009", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-d1a40bd9", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-d1d9a87a", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-d259bf1f", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-d2e1972f", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-d30aa0ae", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 16, "confidence": 0.9, "note": "", "batch": "batch-02"}
@@ -393,21 +312,15 @@
 {"id": "tc-d5411023", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "대상 불명 → 되묻기", "batch": "batch-01"}
 {"id": "tc-d57785e9", "first": "calendar_list", "also_ok": ["text_to_speech"], "sequence": ["calendar_list", "text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-d60ce89e", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-d6614c33", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-d78237e2", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-d78decec", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": "", "batch": "batch-04"}
-{"id": "tc-d823b80a", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-d86c41ba", "first": "none", "also_ok": ["web_search"], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.65, "note": "일반 추천은 상식으로 가능, 최신 추천이면 web_search", "batch": "batch-04"}
 {"id": "tc-d8c5cda5", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-02"}
 {"id": "tc-daf67fe0", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.85, "note": "", "batch": "batch-01"}
 {"id": "tc-db8707d8", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-dcacc934", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "앞 대화 없음, 대상 불명 → 되묻기", "batch": "batch-03"}
 {"id": "tc-dd454fb9", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.9, "note": "", "batch": "batch-03"}
-{"id": "tc-de187baf", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-03"}
-{"id": "tc-de4b8224", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-de58f6d6", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": "", "batch": "batch-03"}
-{"id": "tc-de765519", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-02"}
-{"id": "tc-df78c71b", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-dfaceaa9", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-dfef094d", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.93, "note": "", "batch": "batch-02"}
 {"id": "tc-e02d3067", "first": "browser", "also_ok": [], "sequence": ["browser"], "needs_confirm": false, "rule": 19, "confidence": 0.95, "note": "", "batch": "batch-02"}
@@ -419,23 +332,17 @@
 {"id": "tc-e320cef4", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.9, "note": "", "batch": "batch-02"}
 {"id": "tc-e3750d07", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-e38a7cc2", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.8, "note": "", "batch": "batch-03"}
-{"id": "tc-e3acc201", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-e3eab00e", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.9, "note": "", "batch": "batch-01"}
 {"id": "tc-e4c74773", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-e75d8249", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-e7730ec0", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-e8317e8d", "first": "execute_code", "also_ok": [], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.88, "note": "", "batch": "batch-02"}
-{"id": "tc-eacb9085", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-eadfa1b9", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-eb4efa9f", "first": "image_generate", "also_ok": [], "sequence": ["image_generate"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-ece29bee", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-efa565b2", "first": "memory", "also_ok": [], "sequence": ["memory"], "needs_confirm": false, "rule": 13, "confidence": 0.95, "note": "", "batch": "batch-04"}
-{"id": "tc-f04492f7", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-f0962634", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.8, "note": "", "batch": "batch-01"}
 {"id": "tc-f1c76eb0", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-f32e8158", "first": "text_to_speech", "also_ok": [], "sequence": ["text_to_speech"], "needs_confirm": false, "rule": 22, "confidence": 0.95, "note": "", "batch": "batch-02"}
-{"id": "tc-f39a685e", "first": "file", "also_ok": [], "sequence": ["file"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-01"}
-{"id": "tc-f486775c", "first": "execute_code", "also_ok": ["none"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.6, "note": "데이터가 작아 코드 없이도 처리 가능", "batch": "batch-04"}
 {"id": "tc-f5104dc6", "first": "weather", "also_ok": [], "sequence": ["weather"], "needs_confirm": false, "rule": 2, "confidence": 0.97, "note": "", "batch": "batch-02"}
 {"id": "tc-f5be8291", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.9, "note": "", "batch": "batch-04"}
 {"id": "tc-f6a38048", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.9, "note": "", "batch": "batch-01"}
@@ -444,12 +351,10 @@
 {"id": "tc-f7ca5e58", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-02"}
 {"id": "tc-f820b99d", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 17, "confidence": 0.85, "note": "", "batch": "batch-04"}
 {"id": "tc-f9c0c871", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-03"}
-{"id": "tc-fa6b63fa", "first": "web_search", "also_ok": [], "sequence": ["web_search", "web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.93, "note": "", "batch": "batch-02"}
 {"id": "tc-fa917598", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-faac0cb7", "first": "execute_code", "also_ok": ["file"], "sequence": ["execute_code"], "needs_confirm": false, "rule": 20, "confidence": 0.9, "note": "", "batch": "batch-03"}
 {"id": "tc-fb2c4397", "first": "web_extract", "also_ok": [], "sequence": ["web_extract"], "needs_confirm": false, "rule": 18, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-fb772d92", "first": "vision_analyze", "also_ok": [], "sequence": ["vision_analyze"], "needs_confirm": false, "rule": 21, "confidence": 0.95, "note": "", "batch": "batch-03"}
-{"id": "tc-fc177b2a", "first": "session_search", "also_ok": [], "sequence": ["session_search"], "needs_confirm": false, "rule": 14, "confidence": 0.95, "note": "", "batch": "batch-03"}
 {"id": "tc-fcbc23dd", "first": "none", "also_ok": ["execute_code"], "sequence": [], "needs_confirm": false, "rule": 20, "confidence": 0.75, "note": "나눗셈 한 단계라 암산 수준", "batch": "batch-03"}
 {"id": "tc-fdcd17bb", "first": "cronjob", "also_ok": [], "sequence": ["cronjob"], "needs_confirm": false, "rule": 15, "confidence": 0.95, "note": "", "batch": "batch-04"}
 {"id": "tc-fe8f983d", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": "", "batch": "batch-03"}

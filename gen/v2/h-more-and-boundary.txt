@@ -1,111 +1,93 @@
 # v2 추가분 (2026-11-12, Fable 생성). 새 클래스 보강 + 기존 10개 클래스와의 경계.
 # 형식: lang | type | first | also_ok | confirm | seq | context | request | hint
 # --- text_to_speech 보강 ---
-ko | tricky | text_to_speech |  |  |  | 비서: 축사 초안을 써 드렸어요 | 내일 연습하게 음성으로 저장해줘 |
-ko | tricky | text_to_speech |  |  |  | 비서: 영어 자기소개를 다듬었어요 | 원어민 발음으로 들어보고 싶어 |
-ko | tricky | text_to_speech |  |  |  | 사용자: 할머니가 글씨를 잘 못 보셔 // 비서: 안부 편지를 써 드렸어요 | 할머니께 들려드리게 음성으로 만들어줘 |
-ko | tricky | text_to_speech |  |  |  |  | 받아쓰기 연습용으로 이 단어들 천천히 읽은 오디오 만들어줘: 사과, 바나나, 포도 |
-ko | tricky | text_to_speech |  |  |  |  | 자동응답 멘트 녹음 대신 만들어줘. "지금은 부재중입니다. 메시지를 남겨 주세요." |
-ko | easy | text_to_speech |  |  |  |  | "생일 축하해" 음성 메시지로 |
-ko | tricky | text_to_speech |  |  |  | 비서: 오늘 뉴스 요약이에요 | 설거지하면서 듣게 소리로 줘 |
+ko | tricky | text_to_speech |  |  |  | 비서: 축사 초안을 써 드렸어요 | 내일 연습하게 음성으로 저장해줘 | 
+ko | tricky | text_to_speech |  |  |  | 비서: 영어 자기소개를 다듬었어요 | 원어민 발음으로 들어보고 싶어 | 
+ko | tricky | text_to_speech |  |  |  | 사용자: 할머니가 글씨를 잘 못 보셔 // 비서: 안부 편지를 써 드렸어요 | 할머니께 들려드리게 음성으로 만들어줘 | 
+ko | tricky | text_to_speech |  |  |  |  | 받아쓰기 연습용으로 이 단어들 천천히 읽은 오디오 만들어줘: 사과, 바나나, 포도 | 
+ko | tricky | text_to_speech |  |  |  |  | 자동응답 멘트 녹음 대신 만들어줘. "지금은 부재중입니다. 메시지를 남겨 주세요." | 
+ko | easy | text_to_speech |  |  |  |  | "생일 축하해" 음성 메시지로 | 
+ko | tricky | text_to_speech |  |  |  | 비서: 오늘 뉴스 요약이에요 | 설거지하면서 듣게 소리로 줘 | 
 ko | tricky | none |  |  |  | 비서: 축사 초안을 써 드렸어요 | 좀 더 짧게 줄여줘 | 글 수정, 음성 아님
-mix | tricky | text_to_speech |  |  |  | 비서: English 자기소개 script예요 | pronunciation 듣게 audio로 줘 |
-mix | tricky | text_to_speech |  |  |  |  | 이 announcement를 mp3로: 오늘 세미나는 5층에서 열립니다 |
-mix | easy | text_to_speech |  |  |  |  | "Happy birthday 지수야" voice note로 만들어줘 |
-mix | tricky | text_to_speech |  |  |  | 비서: news digest 정리했어요 | 운동하면서 듣게 speech로 변환 |
-en | tricky | text_to_speech |  |  |  | Assistant: Here's your wedding toast | Record it as audio so I can practice along |
-en | tricky | text_to_speech |  |  |  | Assistant: I wrote the voicemail greeting | Great, now generate the audio |
-en | tricky | text_to_speech |  |  |  |  | Make a slow, clear audio clip of these words for my kid: apple, river, mountain |
-en | easy | text_to_speech |  |  |  |  | Convert "The meeting has moved to room 204" to speech |
+mix | tricky | text_to_speech |  |  |  | 비서: English 자기소개 script예요 | pronunciation 듣게 audio로 줘 | 
+mix | tricky | text_to_speech |  |  |  |  | 이 announcement를 mp3로: 오늘 세미나는 5층에서 열립니다 | 
+mix | easy | text_to_speech |  |  |  |  | "Happy birthday 지수야" voice note로 만들어줘 | 
+mix | tricky | text_to_speech |  |  |  | 비서: news digest 정리했어요 | 운동하면서 듣게 speech로 변환 | 
+en | tricky | text_to_speech |  |  |  | Assistant: Here's your wedding toast | Record it as audio so I can practice along | 
+en | tricky | text_to_speech |  |  |  | Assistant: I wrote the voicemail greeting | Great, now generate the audio | 
+en | tricky | text_to_speech |  |  |  |  | Make a slow, clear audio clip of these words for my kid: apple, river, mountain | 
+en | easy | text_to_speech |  |  |  |  | Convert "The meeting has moved to room 204" to speech | 
 en | tricky | none |  |  |  | Assistant: Here's your wedding toast | Make it funnier | 글 수정
 # --- image_generate 보강 ---
-ko | tricky | image_generate |  |  |  | 사용자: 카페 메뉴판을 새로 만들 거야 | 위쪽에 넣을 커피잔 그림 하나 그려줘, 선으로만 |
-ko | tricky | image_generate |  |  |  | 비서: 발표 목차를 정리했어요 | 표지에 쓸 그림도 하나 만들어줘. 작은 로봇이 시험지 채점하는 모습 |
-ko | tricky | image_generate |  |  |  |  | 우리 집 강아지 닮은 캐릭터 만들어줘. 흰색 말티즈, 빨간 목도리 |
-ko | easy | image_generate |  |  |  |  | 우주에서 본 지구 이미지 생성 |
-ko | tricky | image_generate |  |  |  | 비서: 썸네일을 만들었어요 | 글자 없이 그림만 있는 버전으로 다시 |
-ko | tricky | image_generate |  |  |  |  | 명함 뒷면에 넣을 패턴 무늬 하나 뽑아줘, 남색 계열 |
+ko | tricky | image_generate |  |  |  | 사용자: 카페 메뉴판을 새로 만들 거야 | 위쪽에 넣을 커피잔 그림 하나 그려줘, 선으로만 | 
+ko | tricky | image_generate |  |  |  | 비서: 발표 목차를 정리했어요 | 표지에 쓸 그림도 하나 만들어줘. 작은 로봇이 시험지 채점하는 모습 | 
+ko | tricky | image_generate |  |  |  |  | 우리 집 강아지 닮은 캐릭터 만들어줘. 흰색 말티즈, 빨간 목도리 | 
+ko | easy | image_generate |  |  |  |  | 우주에서 본 지구 이미지 생성 | 
+ko | tricky | image_generate |  |  |  | 비서: 썸네일을 만들었어요 | 글자 없이 그림만 있는 버전으로 다시 | 
+ko | tricky | image_generate |  |  |  |  | 명함 뒷면에 넣을 패턴 무늬 하나 뽑아줘, 남색 계열 | 
 ko | tricky | none |  |  |  | 비서: 썸네일을 만들었어요 | 이거 어디에 올리면 좋을까 | 조언
-mix | tricky | image_generate |  |  |  | 사용자: Discord server 만들었어 | server icon 하나 만들어줘 귀여운 fox로 |
-mix | tricky | image_generate |  |  |  |  | presentation용 background, gradient blue로 generate |
-mix | easy | image_generate |  |  |  |  | watercolor style 벚꽃 그림 그려줘 |
-mix | tricky | image_generate |  |  |  | 비서: icon 시안이에요 | 더 simple하게 다시 그려 |
-en | tricky | image_generate |  |  |  | User: I'm making a board game | Draw a card back design with a compass rose |
-en | tricky | image_generate |  |  |  | Assistant: Here's the banner | Try it again with warmer colors |
-en | easy | image_generate |  |  |  |  | Create a pixel art sword |
-en | tricky | image_generate |  |  |  |  | Mock up a cover for a report called Tiny Graders |
+mix | tricky | image_generate |  |  |  |  | presentation용 background, gradient blue로 generate | 
+mix | easy | image_generate |  |  |  |  | watercolor style 벚꽃 그림 그려줘 | 
+mix | tricky | image_generate |  |  |  | 비서: icon 시안이에요 | 더 simple하게 다시 그려 | 
+en | tricky | image_generate |  |  |  | User: I'm making a board game | Draw a card back design with a compass rose | 
+en | tricky | image_generate |  |  |  | Assistant: Here's the banner | Try it again with warmer colors | 
+en | easy | image_generate |  |  |  |  | Create a pixel art sword | 
+en | tricky | image_generate |  |  |  |  | Mock up a cover for a report called Tiny Graders | 
 # --- session_search 보강 ---
-ko | tricky | session_search |  |  |  | 사용자: 이사 준비를 다시 해야 해 | 저번에 만든 체크리스트 불러와 |
-ko | tricky | session_search |  |  |  |  | 내가 예전에 오토인코더 과제 물어봤을 때 뭐라고 답했었어 |
-ko | tricky | session_search |  |  |  |  | 3일 전 대화에서 내가 정한 프로젝트 이름이 뭐였지 |
-ko | tricky | session_search |  |  |  |  | 지난번에 node02 디스크 문제 어떻게 결론 났었지 | 현재 상태가 아니라 지난 대화
-ko | tricky | session_search |  |  |  | 비서: 새 대화를 시작했어요 | 어제 하던 번역 작업 이어서 하자, 어디까지 했지 |
-ko | easy | session_search |  |  |  |  | 이전 대화 기록에서 "보증금" 검색해줘 |
-ko | tricky | server_status |  |  |  |  | node02 디스크 문제 지금은 괜찮아? | 현재 상태 조회
+ko | tricky | session_search |  |  |  | 사용자: 이사 준비를 다시 해야 해 | 저번에 만든 체크리스트 불러와 | 
+ko | tricky | session_search |  |  |  |  | 3일 전 대화에서 내가 정한 프로젝트 이름이 뭐였지 | 
+ko | tricky | session_search |  |  |  | 비서: 새 대화를 시작했어요 | 어제 하던 번역 작업 이어서 하자, 어디까지 했지 | 
+ko | easy | session_search |  |  |  |  | 이전 대화 기록에서 "보증금" 검색해줘 | 
 ko | tricky | memory | session_search |  |  |  | 내가 좋아한다고 했던 커피 원두가 뭐였지 | 저장된 선호는 memory, 과거 대화 검색도 가능
-mix | tricky | session_search |  |  |  |  | 지난번 chat에서 정한 project name 뭐였어 |
-mix | tricky | session_search |  |  |  | 사용자: resume 다시 손봐야 해 | last week에 고친 version 내용 찾아줘 |
-mix | easy | session_search |  |  |  |  | 이전 conversation들에서 "Tailscale" search |
-en | tricky | session_search |  |  |  | User: Let's get back to the migration plan | What were the three steps we agreed on last time |
-en | tricky | session_search |  |  |  |  | Did we ever settle on a name for the project in a previous chat |
-en | tricky | session_search |  |  |  |  | Search my past sessions for anything about the lease renewal |
-en | tricky | server_status |  |  |  |  | Is the disk issue on node02 still happening | 현재 상태
+mix | tricky | session_search |  |  |  |  | 지난번 chat에서 정한 project name 뭐였어 | 
+mix | tricky | session_search |  |  |  | 사용자: resume 다시 손봐야 해 | last week에 고친 version 내용 찾아줘 | 
+en | tricky | session_search |  |  |  | User: Let's get back to the migration plan | What were the three steps we agreed on last time | 
+en | tricky | session_search |  |  |  |  | Did we ever settle on a name for the project in a previous chat | 
+en | tricky | session_search |  |  |  |  | Search my past sessions for anything about the lease renewal | 
 # --- web_extract · browser 보강 ---
-ko | tricky | web_extract |  |  |  | 사용자: 이 채용 공고 봐줘 https://jobs.example.com/p/301 | 우대 사항에 뭐가 있어 |
-ko | tricky | web_extract |  |  |  | 비서: 공식 문서 링크는 https://docs.example.com/api/limits 예요 | 거기 분당 호출 제한 몇이라고 돼 있어 |
-ko | tricky | web_extract |  |  |  |  | https://example.com/event/2026 행사 날짜랑 장소만 뽑아줘 |
+ko | tricky | web_extract |  |  |  | 사용자: 이 채용 공고 봐줘 https://jobs.example.com/p/301 | 우대 사항에 뭐가 있어 | 
+ko | tricky | web_extract |  |  |  |  | https://example.com/event/2026 행사 날짜랑 장소만 뽑아줘 | 
 ko | tricky | web_extract | calendar_create |  | web_extract,calendar_create |  | https://example.com/event/2026 여기 나온 행사 일정 캘린더에 넣어줘 | 페이지 먼저
 ko | tricky | web_extract | memory |  | web_extract,memory |  | https://example.com/wifi-guide 읽고 접속 방법을 기억해 둬 | 페이지 먼저
-ko | tricky | browser |  |  |  | 비서: 그 페이지는 "더 보기"를 눌러야 전체 표가 나와요 | 눌러서 다 펼친 다음 알려줘 |
-ko | tricky | browser |  |  |  |  | https://example.com/settings 에서 알림 토글이 켜져 있는지 봐줘, 로그인은 저장된 걸로 |
+ko | tricky | browser |  |  |  | 비서: 그 페이지는 "더 보기"를 눌러야 전체 표가 나와요 | 눌러서 다 펼친 다음 알려줘 | 
+ko | tricky | browser |  |  |  |  | https://example.com/settings 에서 알림 토글이 켜져 있는지 봐줘, 로그인은 저장된 걸로 | 
 ko | tricky | browser |  | y |  | 비서: 장바구니에 키보드 1개가 담겨 있어요 | 주문 확정해 | 결제
 ko | tricky | browser | web_extract |  |  |  | https://example.com/app 이 페이지 열어서 가격표 보여줘, 스크롤해야 나와 | 조작 필요
-mix | tricky | web_extract |  |  |  | 사용자: 이 job posting 좀 https://jobs.example.com/p/77 | requirement만 정리 |
-mix | tricky | web_extract |  |  |  |  | https://example.com/blog/rag 읽고 pros and cons 정리해줘 |
-mix | tricky | browser |  |  |  |  | https://example.com/map 에서 zoom in 두 번 하고 screenshot |
+mix | tricky | web_extract |  |  |  | 사용자: 이 job posting 좀 https://jobs.example.com/p/77 | requirement만 정리 | 
+mix | tricky | browser |  |  |  |  | https://example.com/map 에서 zoom in 두 번 하고 screenshot | 
 mix | tricky | browser |  | y |  | 비서: form을 다 채웠어요 | submit 눌러 | 제출
-en | tricky | web_extract |  |  |  | Assistant: The official docs are at https://docs.example.com/api/limits | What rate limit does that page list |
 en | tricky | web_extract | calendar_create |  | web_extract,calendar_create |  | Read https://example.com/meetup and add the date to my calendar | 페이지 먼저
-en | tricky | browser |  |  |  | Assistant: The table only loads after clicking "Show all" | Click it and read me the rows |
-en | tricky | browser |  |  |  |  | On https://example.com/store pick size M and tell me if it's in stock |
+en | tricky | browser |  |  |  | Assistant: The table only loads after clicking "Show all" | Click it and read me the rows | 
+en | tricky | browser |  |  |  |  | On https://example.com/store pick size M and tell me if it's in stock | 
 # --- vision_analyze · memory · execute_code · file · cronjob 보강 ---
-ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: wiring.jpg] | 이 배선 사진에서 빠진 케이블 있어 보여? |
-ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: parking-sign.jpg] | 여기 지금 주차해도 되는 거야 |
-ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: bios.jpg] | 부팅 화면에 뜬 이 메시지 무슨 뜻이야 |
+ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: wiring.jpg] | 이 배선 사진에서 빠진 케이블 있어 보여? | 
+ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: parking-sign.jpg] | 여기 지금 주차해도 되는 거야 | 
+ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: bios.jpg] | 부팅 화면에 뜬 이 메시지 무슨 뜻이야 | 
 ko | tricky | vision_analyze | memory |  | vision_analyze,memory | 사용자: [이미지 첨부: business-card.jpg] | 이 명함 정보 읽어서 기억해 둬 | 이미지 먼저
 ko | tricky | vision_analyze | file |  | vision_analyze,file | 사용자: [이미지 첨부: whiteboard.jpg] | 이 판서 내용 ~/notes/board.md로 저장해 | 이미지 먼저
-mix | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: nvidia-smi.png] | 이 screenshot에서 GPU memory 누가 제일 많이 써 |
-mix | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: ui-mock.png] | 이 design에서 어색한 부분 feedback 줘 |
-en | tricky | vision_analyze |  |  |  | User: [image attached: router.jpg] | Which light on this router means no internet |
-en | tricky | vision_analyze |  |  |  | User: [image attached: grafana.png] | When did the latency spike start according to this |
+mix | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: ui-mock.png] | 이 design에서 어색한 부분 feedback 줘 | 
+en | tricky | vision_analyze |  |  |  | User: [image attached: router.jpg] | Which light on this router means no internet | 
 en | tricky | vision_analyze | calendar_create |  | vision_analyze,calendar_create | User: [image attached: flyer.jpg] | Put this event on my calendar | 이미지 먼저
-ko | tricky | memory |  |  |  | 비서: 내일 일정에 치과가 있어요 | 참고로 나 치과는 항상 오전에만 가. 알아둬 |
-ko | tricky | memory |  |  |  | 사용자: 이번에 팀을 옮겼어 | 이제 내 팀장은 한 과장님이야. 저장해 |
-ko | tricky | memory |  |  |  |  | 메일 요약할 때 광고 메일은 빼는 걸로 기억해 |
-ko | tricky | memory |  |  |  |  | 서버 재시작은 무조건 나한테 먼저 물어보고 해. 앞으로 쭉 |
-mix | tricky | memory |  |  |  | 비서: 요약을 영어로 드렸어요 | 나한테는 always 한국어로. remember 해 |
-mix | tricky | memory |  |  |  |  | 내 work hours는 10 to 7이야 저장해 둬 |
-en | tricky | memory |  |  |  | Assistant: I scheduled it for 8am | Note for the future: never book me before 10 |
-en | tricky | memory |  |  |  |  | Keep in mind that node02 is my default host |
-ko | tricky | execute_code | file |  |  | 사용자: 가계부가 ~/data/budget.csv에 있어 | 이번 달 식비가 총 얼마인지 계산해 |
-ko | tricky | execute_code |  |  |  |  | 원주율 소수점 아래 100자리까지 뽑아줘 |
-ko | tricky | execute_code |  |  |  |  | 키 172에 몸무게 68인 사람부터 5kg씩 늘려가며 BMI 표 만들어줘 100kg까지 |
-mix | tricky | execute_code | file |  |  | 비서: train.log에 epoch별 loss가 있어요 | loss가 제일 낮은 epoch 찾아줘 parse 해서 |
-mix | tricky | execute_code |  |  |  |  | 0.1 + 0.2가 floating point로 정확히 얼마인지 run 해서 보여줘 |
-en | tricky | execute_code |  |  |  |  | Generate 10 random UUIDs for me |
-en | tricky | execute_code | file |  |  | User: My expenses are in ~/data/2026.csv | Which month did I spend the most |
-ko | tricky | file |  |  |  | 비서: ~/notes/todo.md에 할 일이 6개 있어요 | 세 번째 줄 지워 |
-ko | tricky | file |  |  |  |  | ~/blog 폴더에 초안이 몇 개 있어 |
+ko | tricky | memory |  |  |  | 비서: 내일 일정에 치과가 있어요 | 참고로 나 치과는 항상 오전에만 가. 알아둬 | 
+ko | tricky | memory |  |  |  | 사용자: 이번에 팀을 옮겼어 | 이제 내 팀장은 한 과장님이야. 저장해 | 
+ko | tricky | memory |  |  |  |  | 메일 요약할 때 광고 메일은 빼는 걸로 기억해 | 
+mix | tricky | memory |  |  |  | 비서: 요약을 영어로 드렸어요 | 나한테는 always 한국어로. remember 해 | 
+mix | tricky | memory |  |  |  |  | 내 work hours는 10 to 7이야 저장해 둬 | 
+en | tricky | memory |  |  |  | Assistant: I scheduled it for 8am | Note for the future: never book me before 10 | 
+ko | tricky | execute_code | file |  |  | 사용자: 가계부가 ~/data/budget.csv에 있어 | 이번 달 식비가 총 얼마인지 계산해 | 
+ko | tricky | execute_code |  |  |  |  | 원주율 소수점 아래 100자리까지 뽑아줘 | 
+ko | tricky | execute_code |  |  |  |  | 키 172에 몸무게 68인 사람부터 5kg씩 늘려가며 BMI 표 만들어줘 100kg까지 | 
+en | tricky | execute_code | file |  |  | User: My expenses are in ~/data/2026.csv | Which month did I spend the most | 
+ko | tricky | file |  |  |  | 비서: ~/notes/todo.md에 할 일이 6개 있어요 | 세 번째 줄 지워 | 
+ko | tricky | file |  |  |  |  | ~/blog 폴더에 초안이 몇 개 있어 | 
 ko | tricky | file | memory |  |  |  | 와이파이 비번은 guest-2026이야. ~/notes/wifi.txt에 적어놔 | 파일 명시
-mix | tricky | file |  |  |  | 비서: README에 install section이 없어요 | 하나 add 해줘 pip install 한 줄로 |
-en | tricky | file |  |  |  | Assistant: ~/notes has 14 files | Open the one about taxes |
-en | tricky | file |  |  |  |  | Append today's date to ~/logs/journal.md |
-ko | tricky | cronjob |  |  |  | 사용자: 물을 너무 안 마셔 | 두 시간마다 물 마시라고 알려줘 |
-ko | tricky | cronjob |  |  |  | 비서: 30분 뒤 알림을 설정했어요 | 10분 더 미뤄줘 |
-ko | tricky | cronjob |  |  |  |  | 매일 밤 11시에 내일 일정이랑 날씨 묶어서 브리핑해줘 |
-mix | tricky | cronjob |  |  |  | 사용자: standup을 자꾸 까먹어 | 평일 8:50마다 remind 해줘 |
-en | tricky | cronjob |  |  |  | Assistant: The reminder is set for 3pm | Actually make it 4 |
-en | tricky | cronjob |  |  |  |  | Every Sunday night, summarize my inbox and message me |
+en | tricky | file |  |  |  | Assistant: ~/notes has 14 files | Open the one about taxes | 
+ko | tricky | cronjob |  |  |  | 사용자: 물을 너무 안 마셔 | 두 시간마다 물 마시라고 알려줘 | 
+ko | tricky | cronjob |  |  |  | 비서: 30분 뒤 알림을 설정했어요 | 10분 더 미뤄줘 | 
+ko | tricky | cronjob |  |  |  |  | 매일 밤 11시에 내일 일정이랑 날씨 묶어서 브리핑해줘 | 
+mix | tricky | cronjob |  |  |  | 사용자: standup을 자꾸 까먹어 | 평일 8:50마다 remind 해줘 | 
+en | tricky | cronjob |  |  |  | Assistant: The reminder is set for 3pm | Actually make it 4 | 
+en | tricky | cronjob |  |  |  |  | Every Sunday night, summarize my inbox and message me | 
 # --- 기존 10개 클래스와의 경계 (v2 기준에서도 기존 클래스가 정답인 것) ---
 ko | tricky | weather |  |  |  |  | 지금 날씨 어때 | 반복·예약 아님
 ko | tricky | web_search |  |  |  |  | 오늘 주요 뉴스 알려줘 | 반복·예약 아님
@@ -115,10 +97,6 @@ ko | tricky | mail_read |  |  |  |  | 메일에 첨부된 사진 뭐가 왔는�
 ko | tricky | mail_read | vision_analyze |  | mail_read,vision_analyze |  | 방금 온 메일에 붙은 영수증 사진에서 금액 읽어줘 | 메일 먼저
 ko | tricky | map_search |  |  |  |  | 근처 사진관 찾아줘 | 단어만 사진
 ko | tricky | fx | execute_code |  | fx,execute_code |  | 지금 환율로 1,234.56달러, 987.65유로 합치면 원화로 정확히 얼마야 | 환율 먼저
-ko | tricky | server_status | cronjob |  | server_status,cronjob |  | node02 디스크 지금 확인하고, 앞으로 매시간 확인하게 걸어둬 | 먼저 언급된 쪽
-ko | tricky | ssh |  |  |  |  | gpu-a에서 nvidia-smi 돌려봐 | 원격 명령
-ko | tricky | ssh |  |  |  |  | web01에서 파이썬으로 디스크 사용량 스크립트 돌려 | 원격 실행은 ssh
-ko | tricky | web_search | web_extract |  | web_search,web_extract |  | 지식 증류 최신 논문 찾아서 초록 읽어줘 | URL 없음: 검색 먼저
 ko | tricky | web_search | image_generate |  |  |  | 우리 학교 공식 로고 이미지 구해줘 | 생성 아님
 ko | tricky | none |  |  |  |  | 기억에 남는 영화 추천해줘 | 단어만 기억
 ko | tricky | none |  |  |  |  | 알람 소리는 왜 들을수록 싫어질까 | 단어만 알람
@@ -127,36 +105,31 @@ ko | tricky | none |  |  |  |  | 방금 내가 뭐라고 했지? | 현재 대화
 ko | cannot | none |  |  |  |  | 김 교수님한테 회의 미룬다고 메일 보내줘 | 메일 발송 불가(v1 유지)
 ko | cannot | none |  |  |  |  | 지영이한테 문자 보내줘 | 문자 발송 불가
 ko | cannot | none |  |  |  |  | 방 불 꺼줘 | 기기 제어 불가
-mix | tricky | weather |  |  |  |  | 오늘 weather 어때 |
-mix | tricky | calendar_create | calendar_list |  |  |  | tomorrow 2pm에 review meeting 추가 |
-mix | tricky | ssh |  |  |  |  | gpu-b에서 python script 하나 run 해줘 benchmark.py | 원격 실행
+mix | tricky | weather |  |  |  |  | 오늘 weather 어때 | 
+mix | tricky | calendar_create | calendar_list |  |  |  | tomorrow 2pm에 review meeting 추가 | 
 mix | tricky | web_search |  |  |  |  | AI image generator 요즘 뭐가 popular 해 | 생성 아님
 mix | tricky | none |  |  |  |  | reminder app 추천해줘 | 쟁점2와 같은 유형
 mix | cannot | none |  |  |  |  | 이 내용 Slack에 post 해줘 | 발송 불가
-en | tricky | weather |  |  |  |  | What's the weather right now |
+en | tricky | weather |  |  |  |  | What's the weather right now | 
 en | tricky | calendar_list |  |  |  |  | Do I have anything at 7 tomorrow | 단어만 시간
 en | tricky | mail_read |  |  |  |  | What did the attachment in Dana's email say | 메일 먼저
-en | tricky | web_search | web_extract |  | web_search,web_extract |  | Find the Hermes agent docs and tell me how cron jobs work | URL 없음
-en | tricky | ssh |  |  |  |  | Run df -h on nas01 | 원격 명령
 en | tricky | none |  |  |  |  | Translate "see you tomorrow" into Korean | 도구 불필요
 en | cannot | none |  |  |  |  | Text Jamie that I'm late | 문자 발송 불가
 en | cannot | none |  |  |  |  | Play some jazz | 재생 불가
 # --- 500건 채우기용 보강 ---
-ko | tricky | text_to_speech |  |  |  | 비서: 면접 답변 예시를 써 드렸어요 | 말하는 속도 감 잡게 음성으로 들려줘 |
-ko | tricky | text_to_speech |  |  |  |  | 이 영어 단어 다섯 개 발음 오디오로 줘: through, though, thought, tough, thorough |
-en | tricky | text_to_speech |  |  |  | Assistant: Here are today's headlines | Send them as a voice note, I'm on my bike |
-ko | tricky | web_extract |  |  |  | 사용자: 계약서 초안이 여기 올라와 있어 https://docs.example.com/contract-draft | 위약금 조항 있는지 봐줘 |
-en | tricky | web_extract |  |  |  |  | Compare the specs on https://example.com/model-a and https://example.com/model-b |
-ko | tricky | browser |  |  |  |  | https://example.com/calendar 에서 다음 달 버튼 눌러서 빈 날짜 뭐 있는지 봐 |
-en | tricky | browser |  |  |  | Assistant: The download link is behind a cookie banner | Accept it and grab the file |
-ko | tricky | session_search |  |  |  | 사용자: 블로그 글을 이어서 써야 해 | 지난주에 같이 잡은 소제목들 다시 불러와 |
-en | tricky | session_search |  |  |  |  | What did I tell you about my budget in our chat last month |
-ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: pill.jpg] | 이 약 포장에 하루 몇 번 먹으라고 써 있어 |
-en | tricky | vision_analyze |  |  |  | User: [image attached: math-homework.jpg] | Is the answer to problem 3 right |
-ko | tricky | image_generate |  |  |  | 사용자: 동생 졸업 선물로 카드 만들 거야 | 학사모 쓴 곰돌이 그림 하나 그려줘 |
-en | tricky | image_generate |  |  |  |  | Design a simple favicon, letter H in a green circle |
-ko | tricky | file |  |  |  | 사용자: 설정을 백업해 두고 싶어 | ~/.hermes/config.yaml 내용을 ~/backup/config-1112.yaml로 복사해 써줘 |
-ko | tricky | execute_code |  |  |  | 사용자: 적금 두 개를 비교 중이야 | 연 4.1% 단리 3년이랑 연 3.8% 월복리 3년, 1천만 원 넣으면 각각 얼마 받는지 계산해 |
-ko | tricky | memory |  |  |  | 비서: 알림을 아침 7시로 설정했어요 | 그리고 주말엔 알림 싫어한다는 것도 알아둬 |
-en | tricky | cronjob |  |  |  | User: I keep missing the standup | Ping me at 8:55 every weekday |
-ko | tricky | none |  |  |  | 비서: 음성 파일을 만들었어요 | 고마워 잘 들을게 |
+ko | tricky | text_to_speech |  |  |  | 비서: 면접 답변 예시를 써 드렸어요 | 말하는 속도 감 잡게 음성으로 들려줘 | 
+ko | tricky | text_to_speech |  |  |  |  | 이 영어 단어 다섯 개 발음 오디오로 줘: through, though, thought, tough, thorough | 
+en | tricky | text_to_speech |  |  |  | Assistant: Here are today's headlines | Send them as a voice note, I'm on my bike | 
+ko | tricky | web_extract |  |  |  | 사용자: 계약서 초안이 여기 올라와 있어 https://docs.example.com/contract-draft | 위약금 조항 있는지 봐줘 | 
+ko | tricky | browser |  |  |  |  | https://example.com/calendar 에서 다음 달 버튼 눌러서 빈 날짜 뭐 있는지 봐 | 
+en | tricky | browser |  |  |  | Assistant: The download link is behind a cookie banner | Accept it and grab the file | 
+ko | tricky | session_search |  |  |  | 사용자: 블로그 글을 이어서 써야 해 | 지난주에 같이 잡은 소제목들 다시 불러와 | 
+en | tricky | session_search |  |  |  |  | What did I tell you about my budget in our chat last month | 
+ko | tricky | vision_analyze |  |  |  | 사용자: [이미지 첨부: pill.jpg] | 이 약 포장에 하루 몇 번 먹으라고 써 있어 | 
+en | tricky | vision_analyze |  |  |  | User: [image attached: math-homework.jpg] | Is the answer to problem 3 right | 
+ko | tricky | image_generate |  |  |  | 사용자: 동생 졸업 선물로 카드 만들 거야 | 학사모 쓴 곰돌이 그림 하나 그려줘 | 
+en | tricky | image_generate |  |  |  |  | Design a simple favicon, letter H in a green circle | 
+ko | tricky | execute_code |  |  |  | 사용자: 적금 두 개를 비교 중이야 | 연 4.1% 단리 3년이랑 연 3.8% 월복리 3년, 1천만 원 넣으면 각각 얼마 받는지 계산해 | 
+ko | tricky | memory |  |  |  | 비서: 알림을 아침 7시로 설정했어요 | 그리고 주말엔 알림 싫어한다는 것도 알아둬 | 
+en | tricky | cronjob |  |  |  | User: I keep missing the standup | Ping me at 8:55 every weekday | 
+ko | tricky | none |  |  |  | 비서: 음성 파일을 만들었어요 | 고마워 잘 들을게 | 

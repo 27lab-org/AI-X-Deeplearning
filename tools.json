@@ -1,6 +1,6 @@
 {
-  "version": "v1.2-2026-10-20",
-  "note": "첫 실험(도구 고르기)용 10개 기능 클래스. 거의 전부 terminal 툴이라 툴 이름만으로는 구분 불가 → 라벨 = 기능 클래스, 실제 호출 판정 = hermes_tool + command_regex. server_status 정규식이 ssh보다 먼저 판정(읽기 명령이면 server_status).",
+  "version": "v1.3-2026-11-14",
+  "note": "도구 고르기용 기능 클래스 8개. 일상 요청만 다룬다(2026-11-14: server_status·ssh 클래스와 Dev·Ops 문장 제외). 라벨 = 기능 클래스, 실제 호출 판정 = hermes_tool + command_regex.",
   "hermes_call_format": {
     "schema": "OpenAI tools 형식: {\"type\":\"function\",\"function\":{\"name\",\"description\",\"parameters\"}}",
     "call": "{\"name\": \"terminal\", \"arguments\": {\"command\": \"...\"}}",
@@ -80,26 +80,6 @@
       "risk": "read",
       "hermes_tool": "terminal",
       "command_regex": "google_api\\.py\\s+gmail"
-    },
-    {
-      "id": "server_status",
-      "name_ko": "서버 상태",
-      "when": "정해진 상태 조회: 켜져 있나, CPU·메모리·디스크 사용률, 서비스·VM 가동 여부, 백업 성공 여부",
-      "not_when": "원인 조사처럼 임의 명령이 필요한 일(→ ssh), 변경(→ ssh)",
-      "hermes_call": "terminal에서 ssh <host> '<읽기 명령: df, uptime, systemctl status ...>'",
-      "risk": "read",
-      "hermes_tool": "terminal",
-      "command_regex": "ssh\\s.*\\b(df|uptime|systemctl status|free)\\b"
-    },
-    {
-      "id": "ssh",
-      "name_ko": "SSH 원격 실행",
-      "when": "서버에 들어가 임의 명령 실행: 원인 조사(로그, du), 재시작, 설치, 설정 변경",
-      "not_when": "단순 상태 확인(→ server_status)",
-      "hermes_call": "terminal에서 ssh <host> '<명령>'. 변경 명령은 확인 필수",
-      "risk": "write (변경 명령은 실행 전 사용자 확인 필수)",
-      "hermes_tool": "terminal",
-      "command_regex": "\\bssh\\s"
     },
     {
       "id": "none",
