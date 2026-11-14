@@ -33,7 +33,7 @@
 {"id": "tc-76894207", "context": "", "request": "방금 온 메일 읽어줘"}
 {"id": "tc-bf1d4fca", "context": "", "request": "URL에서 물음표 뒤에 붙는 건 뭐야"}
 {"id": "tc-3aa6d749", "context": "비서: 관련 글을 찾았어요: https://example.com/guide/proxmox-backup", "request": "그 글 본문 읽고 핵심만 알려줘"}
-{"id": "tc-022acd5d", "context": "", "request": "pve02 /etc/hosts에 한 줄 추가해"}
+{"id": "tc-022acd5d", "context": "", "request": "node02 /etc/hosts에 한 줄 추가해"}
 {"id": "tc-5070973e", "context": "", "request": "Say \"good morning team\" as a voice message"}
 {"id": "tc-23c25786", "context": "", "request": "Go to https://example.com and click the Pricing link"}
 {"id": "tc-d30aa0ae", "context": "", "request": "Every Sunday night, summarize my inbox and message me"}
@@ -62,7 +62,7 @@
 {"id": "tc-6320461e", "context": "", "request": "Save this: my passport expires in March 2029"}
 {"id": "tc-f7ca5e58", "context": "", "request": "https://example.com/paper.pdf 초록만 뽑아줘"}
 {"id": "tc-f5104dc6", "context": "", "request": "What's the weather right now"}
-{"id": "tc-20d6f2ae", "context": "", "request": "한 시간마다 pve02 디스크 확인해서 90% 넘으면 알려줘"}
+{"id": "tc-20d6f2ae", "context": "", "request": "한 시간마다 node02 디스크 확인해서 90% 넘으면 알려줘"}
 {"id": "tc-ba15b0d3", "context": "", "request": "Every weekday at 8am send me the weather"}
 {"id": "tc-0a412a8c", "context": "비서: English 자기소개 script예요", "request": "pronunciation 듣게 audio로 줘"}
 {"id": "tc-5eb03960", "context": "", "request": "What does https://example.com/about say about the founders"}
@@ -104,7 +104,7 @@
 {"id": "tc-414b9891", "context": "", "request": "지난주에 내가 무슨 회의 했더라"}
 {"id": "tc-b0158657", "context": "", "request": "내일 9am dentist calendar에 추가"}
 {"id": "tc-4bbd3c8c", "context": "", "request": "My manager's name is Jordan, keep that in mind for later"}
-{"id": "tc-cfc9c154", "context": "", "request": "Is the disk issue on pve02 still happening"}
+{"id": "tc-cfc9c154", "context": "", "request": "Is the disk issue on node02 still happening"}
 {"id": "tc-8634e1fc", "context": "", "request": "gpu-a의 train.log tail 좀"}
 {"id": "tc-77d44a02", "context": "", "request": "이 script를 audio file로: 안녕하세요, 발표를 시작하겠습니다"}
 {"id": "tc-ac6c6dbe", "context": "", "request": "250달러 지금 원으로 얼마야"}

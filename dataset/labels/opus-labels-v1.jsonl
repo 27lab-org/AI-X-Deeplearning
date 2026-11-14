@@ -44,7 +44,6 @@
 {"id": "tc-032cb2e4", "first": "weather", "also_ok": ["web_search"], "sequence": ["weather"], "needs_confirm": false, "rule": 2, "confidence": 0.65, "note": "일출은 날씨 API(일 예보)로 가능, 웹 검색도 타당", "batch": "batch-01"}
 {"id": "tc-032cecd8", "first": "mail_read", "also_ok": [], "sequence": ["mail_read"], "needs_confirm": false, "rule": 5, "confidence": 0.95, "note": "", "batch": "batch-01"}
 {"id": "tc-033b0467", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-01"}
-{"id": "tc-038a076b", "first": "ssh", "also_ok": ["none"], "sequence": ["ssh"], "needs_confirm": true, "rule": 7, "confidence": 0.55, "note": "로컬 ssh 설정 파일 수정: terminal 설정 변경으로 ssh 분류, 폐기 호스트 목록 되묻기도 가능", "batch": "batch-01"}
 {"id": "tc-03aa730a", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": true, "rule": 7, "confidence": 0.85, "note": "", "batch": "batch-01"}
 {"id": "tc-03c7631f", "first": "map_search", "also_ok": [], "sequence": ["map_search"], "needs_confirm": false, "rule": 4, "confidence": 0.9, "note": "", "batch": "batch-01"}
 {"id": "tc-03f4c944", "first": "mail_read", "also_ok": [], "sequence": ["mail_read"], "needs_confirm": false, "rule": 5, "confidence": 0.95, "note": "", "batch": "batch-01"}
@@ -635,7 +634,7 @@
 {"id": "tc-312da3b2", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "", "batch": "batch-05"}
 {"id": "tc-313c4cb3", "first": "mail_read", "also_ok": [], "sequence": ["mail_read"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-05"}
 {"id": "tc-313f8bfa", "first": "calendar_list", "also_ok": [], "sequence": ["calendar_list"], "needs_confirm": false, "rule": null, "confidence": 0.8, "note": "", "batch": "batch-05"}
-{"id": "tc-315f506d", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": true, "rule": 7, "confidence": 0.7, "note": "Strata를 VM/서비스로 가정; 사용자가 허락했어도 끄기는 변경이라 확인", "batch": "batch-05"}
+{"id": "tc-315f506d", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": true, "rule": 7, "confidence": 0.7, "note": "Nimbus를 VM/서비스로 가정; 사용자가 허락했어도 끄기는 변경이라 확인", "batch": "batch-05"}
 {"id": "tc-318f6c82", "first": "ssh", "also_ok": ["server_status"], "sequence": ["ssh"], "needs_confirm": false, "rule": 6, "confidence": 0.65, "note": "어느 파드인지 불명이나 kubectl로 찾을 수 있음; 원인 조사라 ssh, 되묻기도 가능", "batch": "batch-05"}
 {"id": "tc-318f76ad", "first": "weather", "also_ok": [], "sequence": ["weather"], "needs_confirm": false, "rule": null, "confidence": 0.9, "note": "", "batch": "batch-05"}
 {"id": "tc-31a3b75a", "first": "web_search", "also_ok": ["weather"], "sequence": ["web_search"], "needs_confirm": false, "rule": 2, "confidence": 0.65, "note": "태풍 소식은 뉴스성이라 web_search, 예보 API로도 일부 가능", "batch": "batch-05"}
@@ -863,7 +862,6 @@
 {"id": "tc-42f01583", "first": "fx", "also_ok": [], "sequence": ["fx"], "needs_confirm": false, "rule": 3, "confidence": 0.95, "note": "", "batch": "batch-06"}
 {"id": "tc-42f0ba18", "first": "server_status", "also_ok": ["ssh"], "sequence": ["server_status"], "needs_confirm": false, "rule": 9, "confidence": 0.85, "note": "", "batch": "batch-06"}
 {"id": "tc-43268a12", "first": "map_search", "also_ok": [], "sequence": ["map_search"], "needs_confirm": false, "rule": 4, "confidence": 0.95, "note": "", "batch": "batch-06"}
-{"id": "tc-439c3094", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 12, "confidence": 0.9, "note": "", "batch": "batch-06"}
 {"id": "tc-43c8e671", "first": "calendar_list", "also_ok": [], "sequence": ["calendar_list"], "needs_confirm": false, "rule": null, "confidence": 0.85, "note": "", "batch": "batch-06"}
 {"id": "tc-43d4888a", "first": "fx", "also_ok": [], "sequence": ["fx"], "needs_confirm": false, "rule": 3, "confidence": 0.95, "note": "", "batch": "batch-06"}
 {"id": "tc-43db1960", "first": "calendar_list", "also_ok": [], "sequence": ["calendar_list"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-06"}
@@ -1097,7 +1095,6 @@
 {"id": "tc-56fc35df", "first": "calendar_list", "also_ok": [], "sequence": ["calendar_list"], "needs_confirm": false, "rule": null, "confidence": 0.8, "note": "", "batch": "batch-07"}
 {"id": "tc-56fc49af", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": 9, "confidence": 0.85, "note": "", "batch": "batch-07"}
 {"id": "tc-5702eb2f", "first": "calendar_list", "also_ok": [], "sequence": ["calendar_list"], "needs_confirm": false, "rule": null, "confidence": 0.9, "note": "", "batch": "batch-07"}
-{"id": "tc-576ee5f0", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": true, "rule": 7, "confidence": 0.65, "note": "원격이 아니라 Hermes 쪽 ssh 설정 파일 편집. 변경이라 ssh 클래스로 봄", "batch": "batch-07"}
 {"id": "tc-57812b22", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-07"}
 {"id": "tc-579709a0", "first": "mail_read", "also_ok": [], "sequence": ["mail_read"], "needs_confirm": false, "rule": 5, "confidence": 0.9, "note": "", "batch": "batch-07"}
 {"id": "tc-579cf4a0", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": "", "batch": "batch-07"}
@@ -1229,7 +1226,7 @@
 {"id": "tc-6345f92a", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.95, "note": "", "batch": "batch-08"}
 {"id": "tc-6349ffdc", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": false, "rule": 6, "confidence": 0.9, "note": "", "batch": "batch-08"}
 {"id": "tc-63549d28", "first": "mail_read", "also_ok": [], "sequence": ["mail_read"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-08"}
-{"id": "tc-63565e15", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": true, "rule": 7, "confidence": 0.6, "note": "Hermes 프로필(maya) 설정 변경: 원격 서버가 아니라 로컬 터미널일 수 있음", "batch": "batch-08"}
+{"id": "tc-63565e15", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": true, "rule": 7, "confidence": 0.6, "note": "Hermes 프로필(agent-a) 설정 변경: 원격 서버가 아니라 로컬 터미널일 수 있음", "batch": "batch-08"}
 {"id": "tc-638bc9c9", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.85, "note": "", "batch": "batch-08"}
 {"id": "tc-6395427b", "first": "calendar_list", "also_ok": [], "sequence": ["calendar_list"], "needs_confirm": false, "rule": null, "confidence": 0.85, "note": "", "batch": "batch-08"}
 {"id": "tc-63a1b58c", "first": "map_search", "also_ok": [], "sequence": ["map_search"], "needs_confirm": false, "rule": 9, "confidence": 0.95, "note": "", "batch": "batch-08"}
@@ -1381,7 +1378,7 @@
 {"id": "tc-6f0e6f03", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": 11, "confidence": 0.7, "note": "공개 whois 정보. terminal whois로 할 수도 있음", "batch": "batch-09"}
 {"id": "tc-6f246e44", "first": "map_search", "also_ok": [], "sequence": ["map_search"], "needs_confirm": false, "rule": 4, "confidence": 0.95, "note": "", "batch": "batch-09"}
 {"id": "tc-6f38f586", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": "", "batch": "batch-09"}
-{"id": "tc-6f3a85a2", "first": "ssh", "also_ok": ["server_status"], "sequence": ["ssh"], "needs_confirm": false, "rule": 6, "confidence": 0.7, "note": "HERO에서 ping 실행은 정해진 상태 명령 밖", "batch": "batch-09"}
+{"id": "tc-6f3a85a2", "first": "ssh", "also_ok": ["server_status"], "sequence": ["ssh"], "needs_confirm": false, "rule": 6, "confidence": 0.7, "note": "ALPHA에서 ping 실행은 정해진 상태 명령 밖", "batch": "batch-09"}
 {"id": "tc-6f3f6914", "first": "ssh", "also_ok": ["server_status"], "sequence": ["ssh"], "needs_confirm": false, "rule": 6, "confidence": 0.85, "note": "", "batch": "batch-09"}
 {"id": "tc-6f79d0fa", "first": "weather", "also_ok": [], "sequence": ["weather"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-09"}
 {"id": "tc-6fa1dbf9", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "", "batch": "batch-09"}
@@ -1530,7 +1527,6 @@
 {"id": "tc-7b3558da", "first": "none", "also_ok": ["web_search"], "sequence": [], "needs_confirm": false, "rule": 12, "confidence": 0.75, "note": "", "batch": "batch-10"}
 {"id": "tc-7b3646bd", "first": "mail_read", "also_ok": [], "sequence": ["mail_read"], "needs_confirm": false, "rule": null, "confidence": 0.85, "note": "", "batch": "batch-10"}
 {"id": "tc-7b51ce34", "first": "fx", "also_ok": [], "sequence": ["fx"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-10"}
-{"id": "tc-7b64f15a", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": true, "rule": 7, "confidence": 0.7, "note": "ssh 설정 파일 변경: 설정 변경이라 ssh 클래스, 확인 필요", "batch": "batch-10"}
 {"id": "tc-7b910d2d", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-10"}
 {"id": "tc-7b992da5", "first": "weather", "also_ok": [], "sequence": ["weather", "calendar_list", "calendar_create"], "needs_confirm": false, "rule": 8, "confidence": 0.95, "note": "", "batch": "batch-10"}
 {"id": "tc-7bb48d50", "first": "fx", "also_ok": [], "sequence": ["fx"], "needs_confirm": false, "rule": 3, "confidence": 0.9, "note": "", "batch": "batch-10"}
@@ -1571,7 +1567,6 @@
 {"id": "tc-7e75e1ef", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "", "batch": "batch-10"}
 {"id": "tc-7e942714", "first": "fx", "also_ok": [], "sequence": ["fx"], "needs_confirm": false, "rule": 3, "confidence": 0.8, "note": "", "batch": "batch-10"}
 {"id": "tc-7e9b1d33", "first": "calendar_list", "also_ok": ["none"], "sequence": ["calendar_list"], "needs_confirm": false, "rule": null, "confidence": 0.8, "note": "", "batch": "batch-10"}
-{"id": "tc-7e9c37ec", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": true, "rule": 7, "confidence": 0.65, "note": "ssh 설정 파일 변경: 설정 변경이라 ssh 클래스, 확인 필요", "batch": "batch-10"}
 {"id": "tc-7ea4dc80", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": "", "batch": "batch-10"}
 {"id": "tc-7eb48c17", "first": "weather", "also_ok": ["none"], "sequence": ["weather"], "needs_confirm": false, "rule": 1, "confidence": 0.7, "note": "", "batch": "batch-10"}
 {"id": "tc-7ed1fdeb", "first": "weather", "also_ok": [], "sequence": ["weather"], "needs_confirm": false, "rule": 9, "confidence": 0.95, "note": "", "batch": "batch-10"}
@@ -1627,7 +1622,6 @@
 {"id": "tc-838e44cf", "first": "calendar_list", "also_ok": [], "sequence": ["calendar_list"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-11"}
 {"id": "tc-838fe362", "first": "server_status", "also_ok": ["ssh"], "sequence": ["server_status"], "needs_confirm": false, "rule": 6, "confidence": 0.75, "note": "", "batch": "batch-11"}
 {"id": "tc-839603ca", "first": "fx", "also_ok": [], "sequence": ["fx"], "needs_confirm": false, "rule": 3, "confidence": 0.95, "note": "", "batch": "batch-11"}
-{"id": "tc-83b5ba03", "first": "none", "also_ok": ["ssh"], "sequence": [], "needs_confirm": true, "rule": 7, "confidence": 0.55, "note": "Hermes 자체 메모리 편집은 10개 클래스 밖, 서버 파일이면 ssh", "batch": "batch-11"}
 {"id": "tc-83cced28", "first": "weather", "also_ok": [], "sequence": ["weather"], "needs_confirm": false, "rule": 2, "confidence": 0.9, "note": "", "batch": "batch-11"}
 {"id": "tc-843f03a8", "first": "fx", "also_ok": [], "sequence": ["fx"], "needs_confirm": false, "rule": 3, "confidence": 0.95, "note": "", "batch": "batch-11"}
 {"id": "tc-8458d1ca", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.95, "note": "", "batch": "batch-11"}
@@ -1927,7 +1921,6 @@
 {"id": "tc-9aab797b", "first": "fx", "also_ok": [], "sequence": ["fx"], "needs_confirm": false, "rule": 3, "confidence": 0.95, "note": "", "batch": "batch-13"}
 {"id": "tc-9ac3e01f", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": null, "confidence": 0.9, "note": "", "batch": "batch-13"}
 {"id": "tc-9ad1f6c8", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 1, "confidence": 0.9, "note": "", "batch": "batch-13"}
-{"id": "tc-9adce328", "first": "ssh", "also_ok": ["none"], "sequence": ["ssh"], "needs_confirm": true, "rule": 7, "confidence": 0.55, "note": "파일 수정(삭제)이라 확인 필요, MEMORY.md가 로컬 파일이면 ssh 클래스 적합성 애매", "batch": "batch-13"}
 {"id": "tc-9ae22d1f", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.9, "note": "", "batch": "batch-13"}
 {"id": "tc-9ae7d38a", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.75, "note": "", "batch": "batch-13"}
 {"id": "tc-9b345765", "first": "map_search", "also_ok": [], "sequence": ["map_search"], "needs_confirm": false, "rule": 4, "confidence": 0.9, "note": "", "batch": "batch-13"}
@@ -2112,7 +2105,6 @@
 {"id": "tc-aa146b2d", "first": "calendar_create", "also_ok": ["calendar_list", "none"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.5, "note": "의도 모호: 오전 시간 블록 등록 vs 단순 진술(되묻기)", "batch": "batch-14"}
 {"id": "tc-aa168b87", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": true, "rule": 7, "confidence": 0.95, "note": "", "batch": "batch-14"}
 {"id": "tc-aa1bdc8b", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-14"}
-{"id": "tc-aa1e1e78", "first": "ssh", "also_ok": ["none"], "sequence": ["ssh"], "needs_confirm": true, "rule": 9, "confidence": 0.45, "note": "무엇의 변경안인지 불명: 서버 설정 변경이면 ssh+확인, 아니면 되묻기", "batch": "batch-14"}
 {"id": "tc-aa388f44", "first": "calendar_list", "also_ok": [], "sequence": ["calendar_list"], "needs_confirm": false, "rule": null, "confidence": 0.97, "note": "", "batch": "batch-14"}
 {"id": "tc-aa3f1a71", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.95, "note": "", "batch": "batch-14"}
 {"id": "tc-aa521718", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.97, "note": "", "batch": "batch-14"}
@@ -2140,7 +2132,6 @@
 {"id": "tc-abd1f64a", "first": "ssh", "also_ok": ["server_status", "none"], "sequence": ["ssh"], "needs_confirm": false, "rule": 9, "confidence": 0.5, "note": "어느 사이트인지 불명; 자기 사이트면 원인 조사 ssh, 아니면 되묻기", "batch": "batch-14"}
 {"id": "tc-abd3d397", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.97, "note": "", "batch": "batch-14"}
 {"id": "tc-ac103554", "first": "server_status", "also_ok": [], "sequence": ["server_status"], "needs_confirm": false, "rule": 6, "confidence": 0.9, "note": "", "batch": "batch-14"}
-{"id": "tc-ac31dccb", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 12, "confidence": 0.9, "note": "", "batch": "batch-14"}
 {"id": "tc-ac3d970e", "first": "ssh", "also_ok": ["none"], "sequence": ["ssh"], "needs_confirm": false, "rule": null, "confidence": 0.5, "note": "Hermes 프로필 파일 읽기: 10개 클래스 중 ssh(임의 명령)가 가장 가까움", "batch": "batch-14"}
 {"id": "tc-ac4daf65", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-14"}
 {"id": "tc-ac617e1b", "first": "none", "also_ok": ["calendar_list"], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.6, "note": "'그 미팅' 대상 불명 → 되묻기, 캘린더 조회로 찾는 것도 허용", "batch": "batch-14"}
@@ -2183,7 +2174,6 @@
 {"id": "tc-afb47ed6", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.92, "note": "", "batch": "batch-14"}
 {"id": "tc-afd3a74d", "first": "fx", "also_ok": [], "sequence": ["fx"], "needs_confirm": false, "rule": 3, "confidence": 0.97, "note": "", "batch": "batch-14"}
 {"id": "tc-afdcc196", "first": "map_search", "also_ok": ["web_search"], "sequence": ["map_search"], "needs_confirm": false, "rule": 4, "confidence": 0.65, "note": "길찾기·요금 도구 없음, 출발지도 불명", "batch": "batch-14"}
-{"id": "tc-afe5a1cc", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": true, "rule": 7, "confidence": 0.9, "note": "", "batch": "batch-14"}
 {"id": "tc-afefd7c8", "first": "map_search", "also_ok": [], "sequence": ["map_search"], "needs_confirm": false, "rule": 9, "confidence": 0.95, "note": "", "batch": "batch-14"}
 {"id": "tc-b000898b", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": 9, "confidence": 0.95, "note": "", "batch": "batch-14"}
 {"id": "tc-b011e553", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 12, "confidence": 0.85, "note": "", "batch": "batch-14"}
@@ -2599,7 +2589,7 @@
 {"id": "tc-d35dadd7", "first": "fx", "also_ok": [], "sequence": ["fx"], "needs_confirm": false, "rule": 3, "confidence": 0.95, "note": "", "batch": "batch-17"}
 {"id": "tc-d360c51f", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "", "batch": "batch-17"}
 {"id": "tc-d3619de2", "first": "fx", "also_ok": [], "sequence": ["fx"], "needs_confirm": false, "rule": 3, "confidence": 0.9, "note": "", "batch": "batch-17"}
-{"id": "tc-d365a603", "first": "server_status", "also_ok": [], "sequence": ["server_status"], "needs_confirm": false, "rule": 6, "confidence": 0.65, "note": "미사토를 Hermes 프로필(호스트)로 보고 가동 확인으로 해석", "batch": "batch-17"}
+{"id": "tc-d365a603", "first": "server_status", "also_ok": [], "sequence": ["server_status"], "needs_confirm": false, "rule": 6, "confidence": 0.65, "note": "에이전트B를 Hermes 프로필(호스트)로 보고 가동 확인으로 해석", "batch": "batch-17"}
 {"id": "tc-d36b354c", "first": "weather", "also_ok": [], "sequence": ["weather"], "needs_confirm": false, "rule": null, "confidence": 0.8, "note": "", "batch": "batch-17"}
 {"id": "tc-d378805a", "first": "calendar_list", "also_ok": [], "sequence": ["calendar_list"], "needs_confirm": false, "rule": null, "confidence": 0.85, "note": "", "batch": "batch-17"}
 {"id": "tc-d3a99911", "first": "server_status", "also_ok": ["ssh"], "sequence": ["server_status"], "needs_confirm": false, "rule": 6, "confidence": 0.6, "note": "인증서 만료일은 상태 조회지만 openssl 등 임의 명령이 필요해 ssh도 허용", "batch": "batch-17"}
@@ -2717,7 +2707,6 @@
 {"id": "tc-ddabaada", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": null, "confidence": 0.9, "note": "", "batch": "batch-18"}
 {"id": "tc-dddeddd6", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": true, "rule": 7, "confidence": 0.85, "note": "", "batch": "batch-18"}
 {"id": "tc-ddec5fe7", "first": "weather", "also_ok": [], "sequence": ["weather"], "needs_confirm": false, "rule": 2, "confidence": 0.95, "note": "", "batch": "batch-18"}
-{"id": "tc-de02497b", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.95, "note": "", "batch": "batch-18"}
 {"id": "tc-de1ee454", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": null, "confidence": 0.8, "note": "", "batch": "batch-18"}
 {"id": "tc-de29cdeb", "first": "server_status", "also_ok": ["ssh"], "sequence": ["server_status"], "needs_confirm": false, "rule": 6, "confidence": 0.75, "note": "", "batch": "batch-18"}
 {"id": "tc-de49b65d", "first": "weather", "also_ok": [], "sequence": ["weather"], "needs_confirm": false, "rule": 2, "confidence": 0.9, "note": "", "batch": "batch-18"}
@@ -2797,7 +2786,6 @@
 {"id": "tc-e4e2067b", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.98, "note": "", "batch": "batch-18"}
 {"id": "tc-e5036f40", "first": "server_status", "also_ok": ["ssh"], "sequence": ["server_status"], "needs_confirm": false, "rule": 6, "confidence": 0.85, "note": "", "batch": "batch-18"}
 {"id": "tc-e51b9363", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 11, "confidence": 0.85, "note": "", "batch": "batch-18"}
-{"id": "tc-e5350213", "first": "none", "also_ok": [], "sequence": [], "needs_confirm": false, "rule": 12, "confidence": 0.95, "note": "", "batch": "batch-18"}
 {"id": "tc-e5597d24", "first": "weather", "also_ok": ["calendar_list"], "sequence": ["weather"], "needs_confirm": false, "rule": 2, "confidence": 0.75, "note": "골프장 위치 미상이면 일정 확인도 가능", "batch": "batch-18"}
 {"id": "tc-e56336b3", "first": "weather", "also_ok": [], "sequence": ["weather"], "needs_confirm": false, "rule": 2, "confidence": 0.97, "note": "", "batch": "batch-18"}
 {"id": "tc-e56f5ce8", "first": "weather", "also_ok": [], "sequence": ["weather"], "needs_confirm": false, "rule": 2, "confidence": 0.95, "note": "", "batch": "batch-18"}
@@ -3035,7 +3023,6 @@
 {"id": "tc-f7581896", "first": "map_search", "also_ok": ["none"], "sequence": ["map_search"], "needs_confirm": false, "rule": 9, "confidence": 0.65, "note": "앞 검색 결과만으로 답할 수도 있음", "batch": "batch-20"}
 {"id": "tc-f75ef341", "first": "map_search", "also_ok": [], "sequence": ["map_search"], "needs_confirm": false, "rule": 9, "confidence": 0.9, "note": "", "batch": "batch-20"}
 {"id": "tc-f76784fb", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.9, "note": "", "batch": "batch-20"}
-{"id": "tc-f7886c60", "first": "ssh", "also_ok": [], "sequence": ["ssh"], "needs_confirm": true, "rule": 7, "confidence": 0.85, "note": "", "batch": "batch-20"}
 {"id": "tc-f799118e", "first": "web_search", "also_ok": [], "sequence": ["web_search"], "needs_confirm": false, "rule": null, "confidence": 0.95, "note": "", "batch": "batch-20"}
 {"id": "tc-f79cd84d", "first": "calendar_create", "also_ok": ["calendar_list"], "sequence": ["calendar_list", "calendar_create"], "needs_confirm": false, "rule": null, "confidence": 0.9, "note": "", "batch": "batch-20"}
 {"id": "tc-f79fc6a2", "first": "weather", "also_ok": [], "sequence": ["weather"], "needs_confirm": false, "rule": 2, "confidence": 0.95, "note": "", "batch": "batch-20"}

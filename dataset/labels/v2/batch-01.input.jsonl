@@ -57,7 +57,7 @@
 {"id": "tc-54baee2a", "context": "Assistant: The receipt total is 42.50", "request": "Split three ways?"}
 {"id": "tc-0b867207", "context": "Assistant: I wrote the voicemail greeting", "request": "Great, now generate the audio"}
 {"id": "tc-371ea22a", "context": "", "request": "~/data/users.csv row 몇 개인지 count"}
-{"id": "tc-8eb63727", "context": "", "request": "Keep in mind that pve02 is my default host"}
+{"id": "tc-8eb63727", "context": "", "request": "Keep in mind that node02 is my default host"}
 {"id": "tc-2eceaa27", "context": "", "request": "이거 평균 내줘"}
 {"id": "tc-113a769a", "context": "사용자: 약을 하루 두 번 먹어야 해", "request": "아침 9시, 밤 9시에 알려줘 매일"}
 {"id": "tc-aa03ed6a", "context": "", "request": "main.py 120번째 줄 근처 좀 보여줘"}
@@ -110,5 +110,5 @@
 {"id": "tc-ba69d170", "context": "", "request": "그때 그 에러 어떻게 해결했더라? 한 2주 전에 물어봤는데"}
 {"id": "tc-75435cd9", "context": "", "request": "이 링크 요약해줘"}
 {"id": "tc-00d22dd8", "context": "비서: 안 읽은 메일이 5통 있어요", "request": "앞으로 매일 저녁 6시에 이렇게 메일 요약해줘"}
-{"id": "tc-52282520", "context": "", "request": "pve02 디스크 문제 지금은 괜찮아?"}
+{"id": "tc-52282520", "context": "", "request": "node02 디스크 문제 지금은 괜찮아?"}
 {"id": "tc-d1d9a87a", "context": "비서: nas01 백업은 성공했어요", "request": "매일 아침 이거 확인해서 실패하면 바로 알려줘"}

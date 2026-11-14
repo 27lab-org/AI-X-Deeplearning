@@ -19,7 +19,7 @@ ko | tricky | file |  |  |  | 사용자: 어제 쓴 보고서 초안이 어디 �
 ko | tricky | file |  |  |  | 비서: ~/notes에 메모가 14개 있어요 | 제일 최근 거 열어봐 |
 ko | tricky | file | execute_code |  |  |  | ~/data/sales.csv 첫 다섯 줄만 보여줘 | 읽기만
 ko | tricky | ssh |  |  |  |  | web01의 /etc/nginx/nginx.conf 보여줘 | 원격 호스트 파일은 ssh
-ko | tricky | ssh |  | y |  |  | pve02 /etc/hosts에 한 줄 추가해 | 원격 호스트 파일은 ssh
+ko | tricky | ssh |  | y |  |  | node02 /etc/hosts에 한 줄 추가해 | 원격 호스트 파일은 ssh
 ko | tricky | none |  |  |  |  | yaml이랑 json 중에 설정 파일로 뭐가 나아 | 개념
 ko | tricky | none |  |  |  |  | 파일 이름에 공백 넣으면 왜 안 좋아 | 개념
 ko | clarify | none |  |  |  |  | 그 파일 열어줘 | 대상 불명

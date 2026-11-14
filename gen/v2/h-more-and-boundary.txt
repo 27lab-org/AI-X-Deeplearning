@@ -38,10 +38,10 @@ en | tricky | image_generate |  |  |  |  | Mock up a cover for a report called T
 ko | tricky | session_search |  |  |  | 사용자: 이사 준비를 다시 해야 해 | 저번에 만든 체크리스트 불러와 |
 ko | tricky | session_search |  |  |  |  | 내가 예전에 오토인코더 과제 물어봤을 때 뭐라고 답했었어 |
 ko | tricky | session_search |  |  |  |  | 3일 전 대화에서 내가 정한 프로젝트 이름이 뭐였지 |
-ko | tricky | session_search |  |  |  |  | 지난번에 pve02 디스크 문제 어떻게 결론 났었지 | 현재 상태가 아니라 지난 대화
+ko | tricky | session_search |  |  |  |  | 지난번에 node02 디스크 문제 어떻게 결론 났었지 | 현재 상태가 아니라 지난 대화
 ko | tricky | session_search |  |  |  | 비서: 새 대화를 시작했어요 | 어제 하던 번역 작업 이어서 하자, 어디까지 했지 |
 ko | easy | session_search |  |  |  |  | 이전 대화 기록에서 "보증금" 검색해줘 |
-ko | tricky | server_status |  |  |  |  | pve02 디스크 문제 지금은 괜찮아? | 현재 상태 조회
+ko | tricky | server_status |  |  |  |  | node02 디스크 문제 지금은 괜찮아? | 현재 상태 조회
 ko | tricky | memory | session_search |  |  |  | 내가 좋아한다고 했던 커피 원두가 뭐였지 | 저장된 선호는 memory, 과거 대화 검색도 가능
 mix | tricky | session_search |  |  |  |  | 지난번 chat에서 정한 project name 뭐였어 |
 mix | tricky | session_search |  |  |  | 사용자: resume 다시 손봐야 해 | last week에 고친 version 내용 찾아줘 |
@@ -49,7 +49,7 @@ mix | easy | session_search |  |  |  |  | 이전 conversation들에서 "Tailscal
 en | tricky | session_search |  |  |  | User: Let's get back to the migration plan | What were the three steps we agreed on last time |
 en | tricky | session_search |  |  |  |  | Did we ever settle on a name for the project in a previous chat |
 en | tricky | session_search |  |  |  |  | Search my past sessions for anything about the lease renewal |
-en | tricky | server_status |  |  |  |  | Is the disk issue on pve02 still happening | 현재 상태
+en | tricky | server_status |  |  |  |  | Is the disk issue on node02 still happening | 현재 상태
 # --- web_extract · browser 보강 ---
 ko | tricky | web_extract |  |  |  | 사용자: 이 채용 공고 봐줘 https://jobs.example.com/p/301 | 우대 사항에 뭐가 있어 |
 ko | tricky | web_extract |  |  |  | 비서: 공식 문서 링크는 https://docs.example.com/api/limits 예요 | 거기 분당 호출 제한 몇이라고 돼 있어 |
@@ -86,7 +86,7 @@ ko | tricky | memory |  |  |  |  | 서버 재시작은 무조건 나한테 먼�
 mix | tricky | memory |  |  |  | 비서: 요약을 영어로 드렸어요 | 나한테는 always 한국어로. remember 해 |
 mix | tricky | memory |  |  |  |  | 내 work hours는 10 to 7이야 저장해 둬 |
 en | tricky | memory |  |  |  | Assistant: I scheduled it for 8am | Note for the future: never book me before 10 |
-en | tricky | memory |  |  |  |  | Keep in mind that pve02 is my default host |
+en | tricky | memory |  |  |  |  | Keep in mind that node02 is my default host |
 ko | tricky | execute_code | file |  |  | 사용자: 가계부가 ~/data/budget.csv에 있어 | 이번 달 식비가 총 얼마인지 계산해 |
 ko | tricky | execute_code |  |  |  |  | 원주율 소수점 아래 100자리까지 뽑아줘 |
 ko | tricky | execute_code |  |  |  |  | 키 172에 몸무게 68인 사람부터 5kg씩 늘려가며 BMI 표 만들어줘 100kg까지 |
@@ -115,7 +115,7 @@ ko | tricky | mail_read |  |  |  |  | 메일에 첨부된 사진 뭐가 왔는�
 ko | tricky | mail_read | vision_analyze |  | mail_read,vision_analyze |  | 방금 온 메일에 붙은 영수증 사진에서 금액 읽어줘 | 메일 먼저
 ko | tricky | map_search |  |  |  |  | 근처 사진관 찾아줘 | 단어만 사진
 ko | tricky | fx | execute_code |  | fx,execute_code |  | 지금 환율로 1,234.56달러, 987.65유로 합치면 원화로 정확히 얼마야 | 환율 먼저
-ko | tricky | server_status | cronjob |  | server_status,cronjob |  | pve02 디스크 지금 확인하고, 앞으로 매시간 확인하게 걸어둬 | 먼저 언급된 쪽
+ko | tricky | server_status | cronjob |  | server_status,cronjob |  | node02 디스크 지금 확인하고, 앞으로 매시간 확인하게 걸어둬 | 먼저 언급된 쪽
 ko | tricky | ssh |  |  |  |  | gpu-a에서 nvidia-smi 돌려봐 | 원격 명령
 ko | tricky | ssh |  |  |  |  | web01에서 파이썬으로 디스크 사용량 스크립트 돌려 | 원격 실행은 ssh
 ko | tricky | web_search | web_extract |  | web_search,web_extract |  | 지식 증류 최신 논문 찾아서 초록 읽어줘 | URL 없음: 검색 먼저

@@ -14,7 +14,7 @@ ko | tricky | memory |  | y |  |  | 내 전 직장 관련해서 기억하고 있
 ko | tricky | memory |  |  |  |  | 지금 나에 대해 뭘 기억하고 있어? |
 ko | tricky | memory |  |  |  | 비서: 서현역 근처 카페 3곳을 찾았어요 | 난 디카페인만 마셔. 다음부터 그걸로 걸러줘 |
 ko | tricky | memory |  |  |  | 비서: 회의록을 표로 정리했어요 | 좋아, 앞으로 회의록은 늘 이 형식으로 |
-ko | tricky | memory |  |  |  | 비서: pve02 상태를 확인할까요? | 응. 그리고 내가 서버 얘기하면 기본은 pve02라고 기억해 | 순서 무관이지만 저장 요청이 명시
+ko | tricky | memory |  |  |  | 비서: node02 상태를 확인할까요? | 응. 그리고 내가 서버 얘기하면 기본은 node02라고 기억해 | 순서 무관이지만 저장 요청이 명시
 ko | tricky | memory |  |  |  | 사용자: 민서 생일이 3월 9일이래 | 이거 기억해 둬 |
 ko | tricky | memory |  |  |  | 비서: 요약을 영어로 드릴까요? | 아니 한국어. 앞으로도 계속 한국어로 |
 ko | tricky | none |  |  |  | 사용자: 민서 생일이 3월 9일이래 | 3월 9일이면 무슨 요일이야 내년에 | 저장 요청 아님, 계산
@@ -78,7 +78,7 @@ ko | easy | cronjob |  |  |  |  | 알람 7시에 맞춰줘 | v1에서는 none이
 ko | easy | cronjob |  |  |  |  | 타이머 10분 | v1에서는 none이었던 유형
 ko | easy | cronjob |  |  |  |  | 평일 오후 6시마다 퇴근하라고 말해줘 |
 ko | tricky | cronjob |  |  |  |  | 매주 월요일 9시에 이번 주 일정 요약해서 보내줘 |
-ko | tricky | cronjob |  |  |  |  | 한 시간마다 pve02 디스크 확인해서 90% 넘으면 알려줘 |
+ko | tricky | cronjob |  |  |  |  | 한 시간마다 node02 디스크 확인해서 90% 넘으면 알려줘 |
 ko | tricky | cronjob |  |  |  |  | 내일 오후 3시에 은행 가라고 리마인드 |
 ko | tricky | cronjob |  |  |  |  | 매달 25일에 월세 이체하라고 알림 |
 ko | tricky | cronjob |  |  |  |  | 달러가 1,350원 밑으로 떨어지면 알려줘, 매일 아침 확인해서 |

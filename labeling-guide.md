@@ -20,7 +20,7 @@
 - 스킬 불러오기(`skill_view`)가 첫 도구 앞에 붙는 건 무시한다(감점 없음).
 - 되묻기(`clarify`)와 "못 한다"는 답은 `none`.
 - **first는 사용자 의도 클래스**로 단다. 등록·변경·취소 요청은 first=`calendar_create`, also_ok=`calendar_list`(Hermes 규칙상 중복 확인을 먼저 해도 정답). sequence에는 `calendar_list → calendar_create`로 적는다. (v1.1에서 변경: 첫 도구 분류기에 calendar_create 양성이 없어지는 문제 때문)
-- Hermes 실제 호출(2026-10-20 서버 확인): 날씨·환율은 전용 도구 없이 web_search 또는 curl, 캘린더는 google_api.py, 지도는 naver_search.py, 서버 상태·ssh는 모두 terminal의 ssh. 라벨은 기능 클래스로, 실제 호출 판정은 tools.json의 command_regex로.
+- Hermes 실제 호출: 날씨·환율은 전용 도구 없이 web_search 또는 curl, 캘린더·메일은 google_api.py, 지도는 검색 스크립트, 서버 상태·ssh는 모두 terminal의 ssh. 라벨은 기능 클래스로, 실제 호출 판정은 tools.json의 command_regex로.
 
 ## 3. 경계 규칙 (애매하면 여기부터)
 1. **단어가 아니라 필요한 행동으로 고른다.** "캘린더가 뭐야?", "ssh 키 만드는 법"은 `none`.

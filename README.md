@@ -18,7 +18,7 @@
 | `build_dataset.py` | 생성 문장 → train/val/gold JSONL + 통계 |
 | `merge_labels.py` | Opus 라벨 병합·비교 |
 | `build_review_sheet.py` | 사람 검수용 엑셀 생성 |
-| `dataset/` | 데이터셋 v1 (3,491건: train 2,791 / val 350 / gold 350), 통계 `stats.md` |
+| `dataset/` | 데이터셋 v1 (3,473건: train 2,780 / val 348 / gold 345), 통계 `stats.md` |
 | `dataset/labels/` | Opus 라벨, 생성 의도와의 일치 통계 |
 | `dataset/review-sheet-v2.xlsx` | 검수 엑셀 (골드 A/B/C 시트 포함) |
 | `tools-v2.json` | 도구 20개 정의: 위 10개 + Nous Hermes 기본 툴 기준 10개 (memory, session_search, cronjob, file, web_extract, browser, execute_code, image_generate, vision_analyze, text_to_speech) |
@@ -28,6 +28,10 @@
 | `build_v2add.py` | v2 추가분 빌드·라벨 병합 (v1 파일은 건드리지 않음) |
 | `dataset/tool-choice-v2add.*` | v2 추가분 507건 (train 405 / val 51 / holdout 51: 평가용, 사람 라벨 전), 통계 `stats-v2add.md`, v1과 충돌 후보 `v2add-v1-conflicts.md` |
 | `dataset/labels/v2/`, `labels-v2add.jsonl`, `agreement-v2add.md` | v2 추가분 Opus 라벨과 일치 통계 |
+
+## 서버 정보
+
+문장 속 호스트·도메인·번호·프로젝트 이름은 전부 가상 값이다(node01, nas01, example.org 등). 실제 서버의 상태를 묘사한 문장은 넣지 않는다.
 
 ## 용어
 
