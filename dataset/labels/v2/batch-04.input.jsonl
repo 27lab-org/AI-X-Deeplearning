@@ -110,5 +110,5 @@
 {"id": "tc-db8707d8", "context": "", "request": "Search my past sessions for anything about the lease renewal"}
 {"id": "tc-52785a69", "context": "", "request": "오늘 주요 뉴스 알려줘"}
 {"id": "tc-70b2d39b", "context": "", "request": "Compute 17 factorial exactly"}
-{"id": "tc-353264a5", "context": "", "request": "pve02 디스크 지금 확인하고, 앞으로 매시간 확인하게 걸어둬"}
+{"id": "tc-353264a5", "context": "", "request": "node02 디스크 지금 확인하고, 앞으로 매시간 확인하게 걸어둬"}
 {"id": "tc-bb7ce9d4", "context": "", "request": "12월 3일 건강검진 잊지 않게 캘린더에 넣어줘"}

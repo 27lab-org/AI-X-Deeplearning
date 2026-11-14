@@ -43,7 +43,7 @@
 {"id": "tc-e3acc201", "context": "", "request": "https://example.com/blog/rag 읽고 pros and cons 정리해줘"}
 {"id": "tc-2b5d4665", "context": "사용자: [이미지 첨부: nvidia-smi.png]", "request": "이 screenshot에서 GPU memory 누가 제일 많이 써"}
 {"id": "tc-ce1e81f0", "context": "", "request": "web01의 /etc/nginx/nginx.conf 보여줘"}
-{"id": "tc-42745764", "context": "비서: pve02 상태를 확인할까요?", "request": "응. 그리고 내가 서버 얘기하면 기본은 pve02라고 기억해"}
+{"id": "tc-42745764", "context": "비서: node02 상태를 확인할까요?", "request": "응. 그리고 내가 서버 얘기하면 기본은 node02라고 기억해"}
 {"id": "tc-57ac03b2", "context": "", "request": "Remind me in 15 minutes to call the plumber"}
 {"id": "tc-847c1967", "context": "", "request": "우리 처음 대화한 게 언제야"}
 {"id": "tc-ca9a41b0", "context": "User: [image attached: whiteboard.jpg]", "request": "Turn these notes into a bullet list"}
@@ -64,7 +64,7 @@
 {"id": "tc-8d4b6b37", "context": "사용자: Discord server 만들었어", "request": "server icon 하나 만들어줘 귀여운 fox로"}
 {"id": "tc-eadfa1b9", "context": "", "request": "~/logs/access.log에서 IP별 요청 수 상위 10개 뽑아줘"}
 {"id": "tc-c15a005f", "context": "비서: 내일 일정에 치과가 있어요", "request": "참고로 나 치과는 항상 오전에만 가. 알아둬"}
-{"id": "tc-0c2937a5", "context": "", "request": "지난번에 pve02 디스크 문제 어떻게 결론 났었지"}
+{"id": "tc-0c2937a5", "context": "", "request": "지난번에 node02 디스크 문제 어떻게 결론 났었지"}
 {"id": "tc-0f17184d", "context": "", "request": "notes.md에 \"call dentist\" 한 줄 append 해줘"}
 {"id": "tc-44b45955", "context": "", "request": "https://booking.example.com 에서 12월 3일 2명으로 예약 넣어줘"}
 {"id": "tc-a240fbee", "context": "", "request": "Fill in the RSVP form at https://example.com/rsvp with my name, Garam Kim, attending"}

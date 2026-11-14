@@ -78,5 +78,5 @@
 - `tc-054577e0` gpu-a에서 nvidia-smi 돌려봐 → 의도 ssh / 라벨 server_status (0.65) GPU 상태 조회지만 nvidia-smi는 정해진 조회 목록 밖이라 ssh로도 볼 수 있음
 - `tc-4b3110ae` 3월 9일이면 무슨 요일이야 내년에 [맥락: 사용자: 민서 생일이 3월 9일이래] → 의도 none / 라벨 execute_code (0.75) 
 - `tc-661b6f2a` Run df -h on nas01 → 의도 ssh / 라벨 server_status (0.75) 명령을 직접 지정했지만 df는 정해진 상태 조회
-- `tc-42745764` 응. 그리고 내가 서버 얘기하면 기본은 pve02라고 기억해 [맥락: 비서: pve02 상태를 확인할까요?] → 의도 memory / 라벨 server_status (0.80) 
+- `tc-42745764` 응. 그리고 내가 서버 얘기하면 기본은 node02라고 기억해 [맥락: 비서: node02 상태를 확인할까요?] → 의도 memory / 라벨 server_status (0.80) 
 - `tc-7603a4a7` reminder app 추천해줘 → 의도 none / 라벨 web_search (0.85) 
