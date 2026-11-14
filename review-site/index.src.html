@@ -609,16 +609,16 @@ function viewGold(){
   const s = S.slot, mine = S.gd[s];
   const done = GOLD.filter(g => mine.has(g.id)).length;
   let idx = Math.max(0, Math.min(GOLD.length - 1, S.goldIdx));
-  app.append(h("p",{class:"h2"},"시험셋 350건 독립 라벨"),
-    h("div",{class:"strip"},h("div",{class:"row1"},h("span",null,h("b",null,done)," / 350 완료"),
+  app.append(h("p",{class:"h2"},`시험셋 ${GOLD.length}건 독립 라벨`),
+    h("div",{class:"strip"},h("div",{class:"row1"},h("span",null,h("b",null,done)," / " + GOLD.length + " 완료"),
       h("span",null,h("button",{class:"linkbtn",type:"button",onclick:() => { const n = GOLD.findIndex(g => !mine.has(g.id)); if (n >= 0){ S.goldIdx = n; lsSet("goldIdx", n); S.draft = null; render(); } }},"다음 빈 칸으로"))),
-      h("div",{class:"track"},h("span",{style:`width:${done/3.5}%;background:var(--ink)`}))));
+      h("div",{class:"track"},h("span",{style:`width:${done/GOLD.length*100}%;background:var(--ink)`}))));
   const g = GOLD[idx], cur = mine.get(g.id);
   if (!S.draft || S.draft._id !== "g:"+g.id) S.draft = {_id:"g:"+g.id, first: cur ? cur.first : null, also: cur && cur.also ? [...cur.also] : [], nc: cur ? !!cur.nc : false, memo: cur ? cur.memo || "" : ""};
   const d = S.draft;
   const go = n => { S.goldIdx = Math.max(0, Math.min(GOLD.length-1, n)); lsSet("goldIdx", S.goldIdx); S.draft = null; render(); };
   app.append(picker(g, d, null, {
-    badge: h("span",{class:"pill p4"}, `${idx+1} / 350`, cur ? (cur.hold ? " · 보류" : " · 저장됨") : ""),
+    badge: h("span",{class:"pill p4"}, `${idx+1} / ${GOLD.length}`, cur ? (cur.hold ? " · 보류" : " · 저장됨") : ""),
     actions: d => [
       h("button",{class:"btn primary",type:"button",disabled:d.first==null||S.canWrite===false,onclick:async () => {
         if (await write("gold_"+s, g.id, {first:d.first, also:d.also, nc:!!d.nc, hold:false, memo:(d.memo||"").slice(0,300), uid:S.uid||null, at:Date.now()})){
@@ -691,7 +691,7 @@ function viewStats(){
     const c = bc[s], dn = c.ok + c.bad + c.hold, p = n => (c.assigned ? n/c.assigned*100 : 0) + "%";
     rv.append(h("span",{class:"L"},s),
       h("div",null,h("div",{style:"font-size:12.5px;margin-bottom:3px"},nm(s)),h("div",{class:"track"},h("span",{style:`width:${p(c.ok)};background:var(--ok)`}),h("span",{style:`width:${p(c.bad)};background:var(--bad)`}),h("span",{style:`width:${p(c.hold)};background:var(--hold)`}))),
-      h("span",{class:"num"},`${dn} / ${c.assigned} · 시험셋 ${S.gd[s].size}/350`));
+      h("span",{class:"num"},`${dn} / ${c.assigned} · 시험셋 ${S.gd[s].size}/${GOLD.length}`));
   }
   grid.append(h("div",{class:"panel"},h("h2",null,"검수자별"),rv,
     h("div",{class:"legend"},h("span",null,h("i",{class:"sw",style:"background:var(--ok)"}),"맞음"),h("span",null,h("i",{class:"sw",style:"background:var(--bad)"}),"틀림"),h("span",null,h("i",{class:"sw",style:"background:var(--hold)"}),"보류"))));
@@ -718,7 +718,7 @@ function viewStats(){
     h("button",{class:"btn sm",type:"button",onclick:() => exportHolds()},"보류 목록 CSV 받기")));
   // gold agreement
   const f = fleiss(); const myDone = S.slot ? GOLD.filter(g => S.gd[S.slot].has(g.id)).length : 0;
-  const canSee = S.isOwner || myDone >= 350;
+  const canSee = S.isOwner || myDone >= GOLD.length;
   const kp = [["A","B"],["A","C"],["B","C"]].map(([a,b]) => [a+"–"+b, kappaPair(a,b)]);
   const gp = h("div",{class:"panel span2"},h("h2",null,"시험셋 사람끼리 일치도",h("small",null,"first 기준. 이 값이 학생 모델 목표의 상한")),
     h("div",{class:"tiles"},
@@ -726,7 +726,7 @@ function viewStats(){
       h("div",null,h("div",{class:"big"},f.all3 == null ? "–" : pctS(f.all3, f.n)),h("div",{class:"sub"},"3명 완전 일치")),
       kp.map(([k,v]) => h("div",null,h("div",{class:"big"},v ? v.k.toFixed(3) : "–"),h("div",{class:"sub"},`Cohen κ ${k}${v ? " · " + v.n + "건" : ""}`)))));
   if (f.ids && f.ids.length){
-    if (!canSee) gp.append(h("p",{class:"note"},`건별로 누가 뭘 골랐는지는 내 시험셋 350건을 다 끝내면 보여요 (지금 ${myDone}/350). 독립성을 지키려는 장치예요.`));
+    if (!canSee) gp.append(h("p",{class:"note"},`건별로 누가 뭘 골랐는지는 내 시험셋 ${GOLD.length}건을 다 끝내면 보여요 (지금 ${myDone}/${GOLD.length}). 독립성을 지키려는 장치예요.`));
     else {
       const dis = f.ids.filter(id => new Set(SLOTS.map(s => S.gd[s].get(id).first)).size > 1);
       gp.append(h("details",{class:"why"},h("summary",null,`의견이 갈린 ${dis.length}건 보기`),
@@ -824,7 +824,7 @@ function viewGuide(){
       h("li",null,"맞으면 왼쪽, 틀리면 오른쪽으로 밀어요. 이것도 정답·실행 전 확인까지 맞아야 맞음이에요."),
       h("li",null,"규칙으로 판단이 안 되면 보류. 1건 20~30초, 1분 넘게 고민되면 보류."),
       h("li",null,"틀림으로 넘긴 건은 틀림 고치기 탭에서 맞는 도구를 골라요. 나중에 몰아서 해도 돼요."),
-      h("li",null,"시험셋 350건은 라벨 없이 각자 처음부터, 상의 없이 달아요. 사람이 확인한 라벨만 골드 라벨이 돼요.")),
+      h("li",null,`시험셋 ${GOLD.length}건은 라벨 없이 각자 처음부터, 상의 없이 달아요. 사람이 확인한 라벨만 골드 라벨이 돼요.`)),
     h("p",{class:"note"},"키보드: ← 맞음, → 틀림, ↑ 보류, Z 되돌리기.")));
   g.append(h("div",{class:"panel"},h("h2",null,"미결 쟁점",h("small",null,"회의에서 규칙으로 정할 때까지 보류 권장")),
     h("div",{class:"issue"},h("b",null,"① 호스트를 안 쓴 서버 명령"),"\"커널 메시지 봐줘\", \"sync 끄기\". 규칙 9대로 되묻기(none)인가, Hermes처럼 기본 호스트로 실행(ssh)인가."),
