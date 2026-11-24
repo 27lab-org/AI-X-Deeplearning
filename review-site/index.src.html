@@ -231,7 +231,9 @@ ol.rules li::marker{font-family:var(--mono);color:var(--muted)}
 const D = JSON.parse(document.getElementById("DATA").textContent);
 const C = D.classes;
 const KO = Object.fromEntries(D.tools.map(t => [t[0], t[1]]));
-const SLOTS = ["A","B","C"];
+const SLOTS = ["A","B","C","D"];
+// D = Daniel 전용 다시 검수 칸(2026-11-24). 전체 카드·시험셋을 처음부터 본다. 진행률·일치도·내보내기는 원래 3명(A·B·C) 기준.
+const RATERS = ["A","B","C"];
 // 쉬운 설명은 데이터(tools[i][5])에서 온다. 도구 세트가 바뀌어도 코드는 그대로.
 const EASY = Object.fromEntries(D.tools.map(t => [t[0], t[5] || t[2]]));
 const EX = Object.fromEntries(D.tools.map(t => [t[0], {yes: t[6] || [], no: t[7] || []}]));
@@ -279,9 +281,9 @@ const S = {
   slot: lsGet("slot", null),
   tab: lsGet("tab", "swipe"),
   scope: lsGet("scope", "mine"),
-  names: {A:"",B:"",C:""}, sids: {A:"",B:"",C:""},
-  rv: {A:new Map(),B:new Map(),C:new Map()},   // id -> {v:'ok'|'bad'|'hold', first?, also?, nc?, memo?, uid, at, ms}
-  gd: {A:new Map(),B:new Map(),C:new Map()},   // id -> {first|null, also[], nc, hold, memo, uid, at}
+  names: {A:"",B:"",C:"",D:""}, sids: {A:"",B:"",C:"",D:""},
+  rv: {A:new Map(),B:new Map(),C:new Map(),D:new Map()},   // id -> {v:'ok'|'bad'|'hold', first?, also?, nc?, memo?, uid, at, ms}
+  gd: {A:new Map(),B:new Map(),C:new Map(),D:new Map()},   // id -> {first|null, also[], nc, hold, memo, uid, at}
   db: null, user: null, uid: null, canWrite: null, isOwner: false,
   sync: "wait", undo: [], shownAt: Date.now(),
   key: null, isAdmin: false,
@@ -299,8 +301,10 @@ async function boot(){
     const [db, user] = await Promise.all([window.claude?.use?.("db") ?? null, window.claude?.use?.("user") ?? null]);
     S.db = db; S.user = user;
     if (user){ try { S.uid = await user.id(); } catch {} try { S.isOwner = !!user.isOwner(); } catch {} try { S.isAdmin = !!user.canEdit(); } catch {} try { S.canWrite = await user.can("data.write"); } catch { S.canWrite = null; } }
+    // 검수자 링크(토큰 이름 A~D)는 그 칸에 고정한다. 관리자 링크만 칸을 고를 수 있다.
+    { const lk = /^k:([A-D])$/.exec(S.uid || ""); if (lk && S.slot !== lk[1]){ S.slot = lk[1]; lsSet("slot", S.slot); S.goldIdx = 0; lsSet("goldIdx", 0); } }
     if (!db){ clearTimeout(timer); setSync("off", "저장소에 연결할 수 없어요"); render(); return; }
-    let pending = 7;
+    let pending = SLOTS.length * 2 + 1;
     const ok = () => { if (--pending <= 0 && !first){ first = true; clearTimeout(timer); setSync("live", "실시간 저장 중"); } };
     const err = e => { clearTimeout(timer); setSync("off", "저장소 오류: " + (e && e.code || "unknown")); render(); };
     for (const s of SLOTS){
@@ -313,7 +317,7 @@ async function boot(){
       db.doc("data/answerkey/items/planted").onSnapshot(snap => { S.key = snap.exists ? (snap.data().ids || {}) : {}; render(); }, () => {});
     }
     let c = false;
-    db.doc("config/reviewers").onSnapshot(snap => { const d = snap.exists ? snap.data() : {}; S.names = {A:d.A||"",B:d.B||"",C:d.C||""}; S.sids = {A:d.A_sid||"",B:d.B_sid||"",C:d.C_sid||""}; if (!c && !snap.metadata.fromCache){ c = true; ok(); } render(); }, err);
+    db.doc("config/reviewers").onSnapshot(snap => { const d = snap.exists ? snap.data() : {}; S.names = {A:d.A||"",B:d.B||"",C:d.C||"",D:d.D||""}; S.sids = {A:d.A_sid||"",B:d.B_sid||"",C:d.C_sid||"",D:d.D_sid||""}; if (!c && !snap.metadata.fromCache){ c = true; ok(); } render(); }, err);
   } catch(e){ clearTimeout(timer); setSync("off", "저장소에 연결할 수 없어요"); render(); }
 }
 async function write(coll, id, data){
@@ -337,14 +341,15 @@ async function remove(coll, id){
 }
 
 /* ---------- derived ---------- */
-const reviewedByAny = id => SLOTS.some(s => S.rv[s].has(id));
+const reviewedByAny = id => RATERS.some(s => S.rv[s].has(id));
 function myQueue(){
+  if (S.slot === "D") return ITEMS.filter(x => !S.rv.D.has(x.id));
   if (S.scope === "all") return ITEMS.filter(x => x.who === "*" ? !S.rv[S.slot].has(x.id) : !reviewedByAny(x.id));
   return ITEMS.filter(x => (x.who === S.slot || x.who === "*") && !S.rv[S.slot].has(x.id));
 }
 function counts(s){
   const c = {ok:0,bad:0,hold:0,fixed:0,assigned:0};
-  for (const x of ITEMS) if (x.who === s || x.who === "*") c.assigned++;
+  for (const x of ITEMS) if (s === "D" || x.who === s || x.who === "*") c.assigned++;
   for (const d of S.rv[s].values()){ c[d.v] = (c[d.v]||0)+1; if (d.v === "bad" && d.first != null) c.fixed++; }
   return c;
 }
@@ -353,7 +358,7 @@ const needFix = s => [...S.rv[s].entries()].filter(([,d]) => (d.v === "bad" && d
 /* ---------- render ---------- */
 function setTab(t){ S.tab = t; lsSet("tab", t); S.fixId = null; render(); window.scrollTo(0,0); }
 document.getElementById("tabs").addEventListener("click", e => { const b = e.target.closest("button[data-tab]"); if (b) setTab(b.dataset.tab); });
-$("#whobtn").addEventListener("click", () => { S.slot = null; render(); });
+$("#whobtn").addEventListener("click", () => { if (/^k:[A-D]$/.test(S.uid || "")) return; S.slot = null; render(); });
 
 let rq = 0;
 function render(){
@@ -390,7 +395,7 @@ function pickSlot(s){
 }
 async function claim(s, name, sid){
   S.names[s] = name; S.sids[s] = sid;
-  if (S.db){ try { await S.db.doc("config/reviewers").set({A:S.names.A,B:S.names.B,C:S.names.C,A_sid:S.sids.A,B_sid:S.sids.B,C_sid:S.sids.C}); } catch { toast("저장하지 못했어요"); return; } }
+  if (S.db){ try { await S.db.doc("config/reviewers").set({A:S.names.A,B:S.names.B,C:S.names.C,D:S.names.D,A_sid:S.sids.A,B_sid:S.sids.B,C_sid:S.sids.C,D_sid:S.sids.D}); } catch { toast("저장하지 못했어요"); return; } }
   pickSlot(s);
 }
 function startAs(){
@@ -642,22 +647,22 @@ function kappaPair(a, b){
   return {n, po, k: pe === 1 ? 1 : (po - pe)/(1 - pe)};
 }
 function fleiss(){
-  const ids = GOLD.map(g => g.id).filter(id => SLOTS.every(s => { const x = S.gd[s].get(id); return x && x.first != null; }));
+  const ids = GOLD.map(g => g.id).filter(id => RATERS.every(s => { const x = S.gd[s].get(id); return x && x.first != null; }));
   if (ids.length < 5) return {n: ids.length, k: null};
   const n = ids.length, r = 3, pj = Array(C.length).fill(0); let P = 0;
-  for (const id of ids){ const cnt = Array(C.length).fill(0); for (const s of SLOTS) cnt[S.gd[s].get(id).first]++; cnt.forEach((c,j) => pj[j] += c); P += (cnt.reduce((s,c) => s + c*c, 0) - r) / (r*(r-1)); }
+  for (const id of ids){ const cnt = Array(C.length).fill(0); for (const s of RATERS) cnt[S.gd[s].get(id).first]++; cnt.forEach((c,j) => pj[j] += c); P += (cnt.reduce((s,c) => s + c*c, 0) - r) / (r*(r-1)); }
   P /= n; const Pe = pj.reduce((s,c) => s + (c/(n*r))**2, 0);
-  const all3 = ids.filter(id => new Set(SLOTS.map(s => S.gd[s].get(id).first)).size === 1).length;
+  const all3 = ids.filter(id => new Set(RATERS.map(s => S.gd[s].get(id).first)).size === 1).length;
   return {n, k: Pe === 1 ? 1 : (P - Pe)/(1 - Pe), all3, ids};
 }
 const pctS = (a, b) => b ? (a/b*100).toFixed(1) + "%" : "–";
 function viewStats(){
   const tot = {ok:0,bad:0,hold:0,fixed:0,assigned:0}; const bc = {};
-  for (const s of SLOTS){ const c = counts(s); bc[s] = c; for (const k in tot) tot[k] += c[k]||0; }
+  for (const s of RATERS){ const c = counts(s); bc[s] = c; for (const k in tot) tot[k] += c[k]||0; }
   const done = tot.ok + tot.bad + tot.hold;
   const grid = h("div",{class:"sgrid"});
   // overview tiles
-  const msAll = SLOTS.flatMap(s => [...S.rv[s].values()].map(d => d.ms||0)).filter(m => m > 300 && m < 120000);
+  const msAll = RATERS.flatMap(s => [...S.rv[s].values()].map(d => d.ms||0)).filter(m => m > 300 && m < 120000);
   const avg = msAll.length ? msAll.reduce((a,b) => a+b, 0)/msAll.length/1000 : null;
   grid.append(h("div",{class:"panel span2"},
     h("h2",null,"전체 진행",h("small",null,`검수 대상 ${ITEMS.length.toLocaleString()}건`)),
@@ -670,8 +675,8 @@ function viewStats(){
   // 골드 라벨 = 사람이 확인한 것만
   const K = S.key, planted = id => !!(K && K[id] && K[id].p);
   let goldN = 0;
-  for (const s of SLOTS) for (const [id,d] of S.rv[s]) if ((d.v === "ok" && !planted(id)) || (d.v === "bad" && d.first != null)) goldN++;
-  const tsGold = GOLD.filter(g => { const v = {}; for (const s of SLOTS){ const d = S.gd[s].get(g.id); if (d && d.first != null) v[d.first] = (v[d.first]||0) + 1; } return Object.values(v).some(n => n >= 2); }).length;
+  for (const s of RATERS) for (const [id,d] of S.rv[s]) if ((d.v === "ok" && !planted(id)) || (d.v === "bad" && d.first != null)) goldN++;
+  const tsGold = GOLD.filter(g => { const v = {}; for (const s of RATERS){ const d = S.gd[s].get(g.id); if (d && d.first != null) v[d.first] = (v[d.first]||0) + 1; } return Object.values(v).some(n => n >= 2); }).length;
   grid.firstChild.querySelector(".tiles").prepend(h("div",null,h("div",{class:"big",style:"color:var(--ink)"},(goldN + tsGold).toLocaleString()),h("div",{class:"sub"},`골드 라벨 · 검수 ${goldN} + 시험셋 ${tsGold}`)));
   if (K){
     const t = h("tbody"), rows = reliability();
@@ -687,7 +692,7 @@ function viewStats(){
   // per reviewer
   const rv = h("div",{class:"rv"});
   for (const s of SLOTS){
-    const c = bc[s], dn = c.ok + c.bad + c.hold, p = n => (c.assigned ? n/c.assigned*100 : 0) + "%";
+    const c = bc[s] || counts(s), dn = c.ok + c.bad + c.hold, p = n => (c.assigned ? n/c.assigned*100 : 0) + "%";
     rv.append(h("span",{class:"L"},s),
       h("div",null,h("div",{style:"font-size:12.5px;margin-bottom:3px"},nm(s)),h("div",{class:"track"},h("span",{style:`width:${p(c.ok)};background:var(--ok)`}),h("span",{style:`width:${p(c.bad)};background:var(--bad)`}),h("span",{style:`width:${p(c.hold)};background:var(--hold)`}))),
       h("span",{class:"num"},`${dn} / ${c.assigned} · 시험셋 ${S.gd[s].size}/${GOLD.length}`));
@@ -698,19 +703,19 @@ function viewStats(){
   const tb = h("tbody");
   for (const p of [1,2,3,4]){
     let n = 0, ok = 0, bad = 0, hold = 0;
-    for (const x of ITEMS) if (x.pri === p){ n++; for (const s of SLOTS){ const d = S.rv[s].get(x.id); if (d){ if (d.v==="ok") ok++; else if (d.v==="bad") bad++; else hold++; break; } } }
+    for (const x of ITEMS) if (x.pri === p){ n++; for (const s of RATERS){ const d = S.rv[s].get(x.id); if (d){ if (d.v==="ok") ok++; else if (d.v==="bad") bad++; else hold++; break; } } }
     tb.append(h("tr",null,h("td",null,PRI[p]),h("td",{class:"num"},`${ok+bad+hold}/${n}`),h("td",{class:"num"},pctS(ok, ok+bad)),h("td",{class:"num"},hold)));
   }
   grid.append(h("div",{class:"panel"},h("h2",null,"우선순위별 맞음 비율"),h("div",{class:"tw"},h("table",{class:"t"},h("thead",null,h("tr",null,h("th",null,"순위"),h("th",{class:"num"},"검수"),h("th",{class:"num"},"맞음"),h("th",{class:"num"},"보류"))),tb))));
   // corrections
   const pairs = {};
-  for (const s of SLOTS) for (const [id,d] of S.rv[s]) if (d.v === "bad" && d.first != null){ const x = BYID.get(id); if (!x) continue; const k = C[x.first] + " → " + C[d.first]; pairs[k] = (pairs[k]||0) + 1; }
+  for (const s of RATERS) for (const [id,d] of S.rv[s]) if (d.v === "bad" && d.first != null){ const x = BYID.get(id); if (!x) continue; const k = C[x.first] + " → " + C[d.first]; pairs[k] = (pairs[k]||0) + 1; }
   const pr = Object.entries(pairs).sort((a,b) => b[1]-a[1]).slice(0,12);
   grid.append(h("div",{class:"panel"},h("h2",null,"자주 고친 방향",h("small",null,"원래 라벨 → 사람")),
     pr.length ? h("div",{class:"tw"},h("table",{class:"t"},h("tbody",null,pr.map(([k,v]) => h("tr",null,h("td",{class:"mono"},k),h("td",{class:"num"},v)))))) : h("p",{class:"note"},"아직 고친 건이 없어요.")));
   // holds by issue
   let holdN = 0;
-  for (const s of SLOTS) for (const d of S.rv[s].values()) if (d.v === "hold") holdN++;
+  for (const s of RATERS) for (const d of S.rv[s].values()) if (d.v === "hold") holdN++;
   grid.append(h("div",{class:"panel"},h("h2",null,"보류 안건",h("small",null,"주 1회 3명이 정함")),
     h("div",{class:"kv"},h("span",null,"보류"),h("b",null,holdN)),
     h("button",{class:"btn sm",type:"button",onclick:() => exportHolds()},"보류 목록 CSV 받기")));
@@ -726,10 +731,10 @@ function viewStats(){
   if (f.ids && f.ids.length){
     if (!canSee) gp.append(h("p",{class:"note"},`건별로 누가 뭘 골랐는지는 내 시험셋 ${GOLD.length}건을 다 끝내면 보여요 (지금 ${myDone}/${GOLD.length}). 독립성을 지키려는 장치예요.`));
     else {
-      const dis = f.ids.filter(id => new Set(SLOTS.map(s => S.gd[s].get(id).first)).size > 1);
+      const dis = f.ids.filter(id => new Set(RATERS.map(s => S.gd[s].get(id).first)).size > 1);
       gp.append(h("details",{class:"why"},h("summary",null,`의견이 갈린 ${dis.length}건 보기`),
-        h("div",{class:"tw",style:"margin-top:8px"},h("table",{class:"t"},h("thead",null,h("tr",null,h("th",null,"요청"),SLOTS.map(s => h("th",null,s)))),
-          h("tbody",null,dis.map(id => h("tr",null,h("td",null,GBYID.get(id).req),SLOTS.map(s => h("td",{class:"mono"},C[S.gd[s].get(id).first])))))))));
+        h("div",{class:"tw",style:"margin-top:8px"},h("table",{class:"t"},h("thead",null,h("tr",null,h("th",null,"요청"),RATERS.map(s => h("th",null,s)))),
+          h("tbody",null,dis.map(id => h("tr",null,h("td",null,GBYID.get(id).req),RATERS.map(s => h("td",{class:"mono"},C[S.gd[s].get(id).first])))))))));
     }
   }
   grid.append(gp);
@@ -752,7 +757,7 @@ function lbl(first, also, nc){ return {first: C[first], also_ok: (also||[]).map(
 function exportReview(){
   const out = [];
   for (const x of ITEMS){
-    let who = null, d = null; for (const s of SLOTS){ if (S.rv[s].has(x.id)){ who = s; d = S.rv[s].get(x.id); break; } }
+    let who = null, d = null; for (const s of RATERS){ if (S.rv[s].has(x.id)){ who = s; d = S.rv[s].get(x.id); break; } }
     if (!d) continue;
     const human = d.v === "ok" ? lbl(x.first, x.also, x.nc) : d.first != null ? lbl(d.first, d.also, d.nc) : null;
     out.push(JSON.stringify({id:x.id, split:x.split, reviewer:who, verdict:d.v, shown_label:{...lbl(x.first, x.also, x.nc), sequence:x.seq.map(a => C[a]), confidence:x.conf}, planted: S.key ? !!(S.key[x.id] && S.key[x.id].p) : undefined, human, issue:d.issue||0, memo:d.memo||"", at:d.at ? new Date(d.at).toISOString() : null, ms:d.ms||null}));
@@ -761,7 +766,7 @@ function exportReview(){
 }
 function reliability(){
   const K = S.key || {}, rows = [], all = {who:"전체",TP:0,TN:0,FP:0,FN:0};
-  for (const s of SLOTS){
+  for (const s of RATERS){
     const r = {who:s,TP:0,TN:0,FP:0,FN:0};
     for (const [id,d] of S.rv[s]){ if (d.v === "hold" || !K[id]) continue; const wrong = !!K[id].p; if (wrong){ if (d.v === "bad") r.TN++; else r.FP++; } else { if (d.v === "ok") r.TP++; else r.FN++; } }
     rows.push(r); for (const k of ["TP","TN","FP","FN"]) all[k] += r[k];
@@ -782,7 +787,7 @@ function exportReliability(){
 function exportGoldLabels(){
   const K = S.key || {}, out = [];
   for (const x of ITEMS){
-    let who = null, d = null; for (const s of SLOTS){ if (S.rv[s].has(x.id)){ who = s; d = S.rv[s].get(x.id); break; } }
+    let who = null, d = null; for (const s of RATERS){ if (S.rv[s].has(x.id)){ who = s; d = S.rv[s].get(x.id); break; } }
     if (!d) continue;
     let L = null;
     if (d.v === "ok" && !(K[x.id] && K[x.id].p)) L = lbl(x.first, x.also, x.nc);
@@ -791,7 +796,7 @@ function exportGoldLabels(){
     out.push(JSON.stringify({id:x.id, split:x.split, lang:x.lang, context:x.ctx, request:x.req, label:{...L, source: d.v === "ok" ? "human_confirmed" : "human_corrected"}, reviewer:who}));
   }
   for (const g of GOLD){
-    const v = {}; for (const s of SLOTS){ const d = S.gd[s].get(g.id); if (d && d.first != null) v[d.first] = (v[d.first]||0) + 1; }
+    const v = {}; for (const s of RATERS){ const d = S.gd[s].get(g.id); if (d && d.first != null) v[d.first] = (v[d.first]||0) + 1; }
     const top = Object.entries(v).sort((a,b) => b[1]-a[1])[0];
     if (top && top[1] >= 2) out.push(JSON.stringify({id:g.id, split:"test", lang:g.lang, context:g.ctx, request:g.req, label:{first:C[top[0]], source:"human_majority", votes:top[1]}}));
   }
@@ -800,7 +805,7 @@ function exportGoldLabels(){
 function exportGold(){
   const out = GOLD.map(g => {
     const per = {}; const votes = {};
-    for (const s of SLOTS){ const d = S.gd[s].get(g.id); per[s] = d ? {...(d.first != null ? lbl(d.first, d.also, d.nc) : {first:null}), hold:!!d.hold, memo:d.memo||""} : null; if (d && d.first != null) votes[d.first] = (votes[d.first]||0) + 1; }
+    for (const s of RATERS){ const d = S.gd[s].get(g.id); per[s] = d ? {...(d.first != null ? lbl(d.first, d.also, d.nc) : {first:null}), hold:!!d.hold, memo:d.memo||""} : null; if (d && d.first != null) votes[d.first] = (votes[d.first]||0) + 1; }
     const top = Object.entries(votes).sort((a,b) => b[1]-a[1])[0];
     return JSON.stringify({id:g.id, labels:per, majority: top && top[1] >= 2 ? C[top[0]] : null});
   });
@@ -809,7 +814,7 @@ function exportGold(){
 function exportHolds(){
   const q = v => '"' + String(v ?? "").replace(/"/g, '""') + '"';
   const rows = [["id","reviewer","issue","request","context","opus_first","memo"].join(",")];
-  for (const s of SLOTS) for (const [id,d] of S.rv[s]) if (d.v === "hold"){ const x = BYID.get(id); if (x) rows.push([id, s, d.issue||0, x.req, x.ctx, C[x.first], d.memo||""].map(q).join(",")); }
+  for (const s of RATERS) for (const [id,d] of S.rv[s]) if (d.v === "hold"){ const x = BYID.get(id); if (x) rows.push([id, s, d.issue||0, x.req, x.ctx, C[x.first], d.memo||""].map(q).join(",")); }
   save("holds-v1.csv", "﻿" + rows.join("\n") + "\n");
 }
 
